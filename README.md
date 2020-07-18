@@ -2,7 +2,7 @@
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
-## Grupo {3}
+## Grupo {N3}
 
 * **Integrante 1** - [Francisco Manuel Vazquez Fernandez](https://github.com/fvazquezf)
 * **Integrante 2** - [Raúl Antonio Chaparro](https://github.com/rulochaparro)
