@@ -2,7 +2,7 @@
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
-## Grupo {N}
+## Grupo {3}
 
 * **Integrante 1** - [Francisco Manuel Vazquez Fernandez](https://github.com/fvazquezf)
 * **Integrante 2** - [Raúl Antonio Chaparro](https://github.com/rulochaparro)
@@ -10,7 +10,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Integrante 4** - [Iván Grzegorczyk](https://github.com/integrante4)
 * **Integrante 5** - [Luciana Vanina Tarzia](https://github.com/lucianatarzia)
 
-* **Corrector** - [Jorge Tomás Bustamante](https://github.com/tomasBustamante)
+**Corrector** - [Jorge Tomás Bustamante](https://github.com/tomasBustamante)
 
 ### Pre-requisitos
 
