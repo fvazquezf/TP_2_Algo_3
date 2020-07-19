@@ -1,13 +1,12 @@
 package edu.fiuba.algo3.modelo;
 
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-public class PreguntaVoFClasica{
+public class PreguntaVoFClasicaTest {
 
     //- Una Pregunta de Verdadero/Falso clásico puede crearse indicándole cual es la respuesta
     //correcta
