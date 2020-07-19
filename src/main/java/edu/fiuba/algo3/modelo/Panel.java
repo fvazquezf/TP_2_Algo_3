@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class Panel {
 
+    private final ArrayList <Jugador> jugadores;
     private Pregunta preguntas;
-    private Jugador jugador1;
-    private Jugador jugador2;
-    private ArrayList respuestas;
+    private ArrayList <Boolean> respuestas;
 
     public Panel(){
         respuestas = new ArrayList();
+        jugadores = new ArrayList();
     }
 
     public void crearPreguntaVoFClasica(String s, boolean b) {
@@ -22,29 +22,28 @@ public class Panel {
         return preguntas.pasarRespuesta();
     }
 
-    public void crearJugador1(String s) {
-        jugador1 = new Jugador(s);
-    }
-
-    public void crearJugador2(String s) {
-        jugador2 = new Jugador(s);
-    }
 
     public void pedirRespuestas() {
-        respuestas.add(jugador1.responder(true));
-        respuestas.add(jugador2.responder(false));
+        for (int i = 0; i < jugadores.size(); i++) {
+            respuestas.add(jugadores.get(i).responder(i == 0));
+        }
     }
 
     public void chequearRespuestas() {
-        jugador1.asignarPuntos(preguntas.chequearRespuesta((Boolean) respuestas.get(0)));
-        jugador2.asignarPuntos(preguntas.chequearRespuesta((Boolean) respuestas.get(1)));
+        for (int i = 0; i < respuestas.size(); i++){
+            jugadores.get(i).asignarPuntos(preguntas.chequearRespuesta((Boolean) respuestas.get(i)));
+        }
     }
 
-    public int pedirPuntosJugador1() {
-        return jugador1.pedirPuntos();
+    public void crearJugador(String unNombre) {
+        jugadores.add(new Jugador(unNombre));
     }
 
-    public int pedirPuntosJugador2() {
-        return jugador2.pedirPuntos();
+    public ArrayList<Integer> pedirPuntos() {
+        ArrayList<Integer> puntos = new ArrayList<Integer>();
+        for (int i = 0; i < jugadores.size(); i++){
+            puntos.add(jugadores.get(i).pedirPuntos());
+        }
+        return puntos;
     }
 }
