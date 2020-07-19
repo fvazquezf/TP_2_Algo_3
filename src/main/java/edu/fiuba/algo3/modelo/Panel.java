@@ -9,6 +9,10 @@ public class Panel {
     private Jugador jugador2;
     private ArrayList respuestas;
 
+    public Panel(){
+        respuestas = new ArrayList();
+    }
+
     public void crearPreguntaVoFClasica(String s, boolean b) {
         Pregunta pregunta = new Pregunta(s,b);
         preguntas = pregunta;
