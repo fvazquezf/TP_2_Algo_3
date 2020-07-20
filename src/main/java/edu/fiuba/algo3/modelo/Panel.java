@@ -13,8 +13,8 @@ public class Panel {
         jugadores = new ArrayList();
     }
 
-    public void crearPreguntaVoFClasica(String s, boolean b) {
-        Pregunta pregunta = new Pregunta(s,b);
+    public void crearPreguntaVoFClasica(String unaPregunta, boolean unaRespuesta) {
+        Pregunta pregunta = new Pregunta(unaPregunta,unaRespuesta);
         preguntas = pregunta;
     }
 

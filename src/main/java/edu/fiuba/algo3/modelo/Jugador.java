@@ -5,17 +5,17 @@ public class Jugador {
     private final String nombre;
     private int puntos;
 
-    public Jugador(String s) {
-        nombre = s;
+    public Jugador(String unNombre) {
+        nombre = unNombre;
         puntos = 0;
     }
 
-    public boolean responder(boolean b) {
-        return b;
+    public boolean responder(boolean unaRespuesta) {
+        return unaRespuesta;
     }
 
-    public void asignarPuntos(boolean b) {
-        if (b) {
+    public void asignarPuntos(boolean unaRespuesta) {
+        if (unaRespuesta) {
             puntos++;
         }
     }
