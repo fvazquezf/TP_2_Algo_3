@@ -4,9 +4,9 @@ public class Pregunta {
     private final boolean respuesta;
     private final String textoPregunta;
 
-    public Pregunta(String s, boolean b) {
-        textoPregunta = s;
-        respuesta = b;
+    public Pregunta(String unaPregunta, boolean unaRespuesta) {
+        textoPregunta = unaPregunta;
+        respuesta = unaRespuesta;
     }
 
     public boolean pasarRespuesta() {
