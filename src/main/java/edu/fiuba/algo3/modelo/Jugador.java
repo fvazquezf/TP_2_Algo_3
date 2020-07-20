@@ -10,8 +10,8 @@ public class Jugador {
         puntos = 0;
     }
 
-    public boolean responder(boolean b) {
-        return b;
+    public boolean responder(boolean unaRespuesta) {
+        return unaRespuesta;
     }
 
     public void asignarPuntos(boolean b) {
