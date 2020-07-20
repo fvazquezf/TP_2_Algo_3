@@ -5,8 +5,8 @@ public class Jugador {
     private final String nombre;
     private int puntos;
 
-    public Jugador(String s) {
-        nombre = s;
+    public Jugador(String unNombre) {
+        nombre = unNombre;
         puntos = 0;
     }
 
@@ -14,8 +14,8 @@ public class Jugador {
         return unaRespuesta;
     }
 
-    public void asignarPuntos(boolean b) {
-        if (b) {
+    public void asignarPuntos(boolean unaRespuesta) {
+        if (unaRespuesta) {
             puntos++;
         }
     }
