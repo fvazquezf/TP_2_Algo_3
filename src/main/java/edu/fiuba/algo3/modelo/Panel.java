@@ -12,6 +12,7 @@ public class Panel {
     public Panel(){
         respuestas = new ArrayList();
         jugadores = new ArrayList();
+        puntosAAsignar = new ArrayList<Boolean>();
     }
 
     public void crearPreguntaVoFClasica(String unaPregunta, boolean unaRespuesta) {
