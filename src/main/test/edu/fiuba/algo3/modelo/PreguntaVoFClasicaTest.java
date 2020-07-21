@@ -32,6 +32,7 @@ public class PreguntaVoFClasicaTest {
         panel.crearJugador("Stef");
         panel.pedirRespuestas();
         panel.chequearRespuestas();
+        panel.asignarPuntos();
 
         assertEquals(panel.pedirPuntos(), resultadoPuntosEsperados );
 
