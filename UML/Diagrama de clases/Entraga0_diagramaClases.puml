@@ -1,0 +1,45 @@
+@startuml TP2
+hide circle
+skinparam classAttributeIconSize 0
+skinparam roundcorner 25
+skinparam sequenceArrowThickness 2
+skinparam classFontSize 20
+
+skinparam class {
+BackgroundColor FloralWhite
+ArrowColor DimGray
+BorderColor DimGray
+}
+
+class Panel{
+       - preguntas
+       - jugadores
+       - respuestas
+       + crearPreguntaVoFClasica(String, Boolean): Pregunta
+       + pasarRespuesta()
+       + pedirRespuesta()
+       + chequearRespuesta()
+       + crearJugador(String):Jugador
+       + pedirPuntos()
+}
+
+class Jugador{
+        - nombre
+        - puntos
+        + responder(Boolean): Boolean
+        + asignarPuntos(Bololean)
+        + predirPuntos(): Int
+}
+
+
+class Pregunta{
+        - respuesta
+        - textoPregunta
+        + pasarRespuesta(): Boolean
+        + chequearRespuesta(Boolean): Boolean
+}
+
+Panel o--> Jugador
+Panel o--> Pregunta
+
+@enduml
