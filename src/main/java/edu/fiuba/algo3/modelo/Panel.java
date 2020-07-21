@@ -7,6 +7,7 @@ public class Panel {
     private final ArrayList <Jugador> jugadores;
     private Pregunta preguntas;
     private ArrayList <Boolean> respuestas;
+    private ArrayList <Boolean> puntosAAsignar;
 
     public Panel(){
         respuestas = new ArrayList();
@@ -31,7 +32,13 @@ public class Panel {
 
     public void chequearRespuestas() {
         for (int i = 0; i < respuestas.size(); i++){
-            jugadores.get(i).asignarPuntos(preguntas.chequearRespuesta((Boolean) respuestas.get(i)));
+            puntosAAsignar.add(preguntas.chequearRespuesta(respuestas.get(i)));
+        }
+    }
+
+    public void asignarPuntos() {
+        for (int i = 0; i < puntosAAsignar.size(); i++){
+            jugadores.get(i).asignarPuntos(puntosAAsignar.get(i));
         }
     }
 
