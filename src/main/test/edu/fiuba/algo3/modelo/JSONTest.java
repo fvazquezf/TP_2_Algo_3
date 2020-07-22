@@ -76,8 +76,8 @@ public class JSONTest {
             while((linea = br.readLine()) != null)
                 JsonTexto += linea;*/
 
-           //JsonTexto = new String(Files.readAllBytes(Paths.get("D:\\Datos\\Google Drive\\Fiuba\\95.02 - Algoritmos y programación III\\TP2\\Repositorio\\TP_2_Algo_3\\src\\main\\test\\edu\\fiuba\\algo3\\modelo\\Preguntas.json")));
-           JsonTexto = new String(Files.readAllBytes(Paths.get("Preguntas.json")));
+
+           JsonTexto = new String(Files.readAllBytes(Paths.get("rsc/Preguntas.json")));
        }
        catch (Exception e){
            e.printStackTrace();
