@@ -1,0 +1,12 @@
+{
+  "Preguntas": [
+    {
+      "Pregunta": "¿Es blanco el caballo blanco de San Martin?",
+      "PosiblesRespuestas": [
+        1,
+        0
+      ],
+      "RespuestaCorrecta" : 1
+    }
+  ]
+}
