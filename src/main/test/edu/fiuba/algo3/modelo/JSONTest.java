@@ -3,11 +3,7 @@ import org.json.*;
 
 import org.junit.jupiter.api.Test;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,28 +51,15 @@ public class JSONTest {
 
    @Test
     public void Test03PruebaJSONLeoArchivoJsonYComparoPreguntaYRespuesta() {
-
-       String linea;
        String JsonTexto = null;
-       //File archivoJson;// = new File("Preguntas.json");
-       FileReader fr;// = new FileReader(archivoJson);
-       BufferedReader br;// = new BufferedReader(fr);
        List respuestasLeidas = new ArrayList();
        String textoPregunta = "\0";
        List respuestasEsperadas = new ArrayList();
-       respuestasEsperadas.add(1);
-       respuestasEsperadas.add(0);
-       int respuestaCorrecta = 0;
+       respuestasEsperadas.add(true);
+       respuestasEsperadas.add(false);
+       boolean respuestaCorrecta = true;
 
        try{
-           /* archivoJson = new File("D:\\Datos\\Google Drive\\Fiuba\\95.02 - Algoritmos y programación III\\TP2\\Repositorio\\TP_2_Algo_3\\src\\main\\test\\edu\\fiuba\\algo3\\modelo\\Preguntas.json");
-            fr = new FileReader(archivoJson);
-            br = new BufferedReader(fr);
-
-            while((linea = br.readLine()) != null)
-                JsonTexto += linea;*/
-
-
            JsonTexto = new String(Files.readAllBytes(Paths.get("rsc/Preguntas.json")));
        }
        catch (Exception e){
@@ -93,13 +76,13 @@ public class JSONTest {
            textoPregunta = unaPregunta.getString("Pregunta");
            JSONArray respuestasPosibles = unaPregunta.getJSONArray("PosiblesRespuestas");
            for(int j = 0; j < respuestasPosibles.length(); j++){
-               respuestasLeidas.add(respuestasPosibles.getInt(j));
+               respuestasLeidas.add(respuestasPosibles.getBoolean(j));
            }
-           respuestaCorrecta = unaPregunta.getInt("RespuestaCorrecta");
+           respuestaCorrecta = unaPregunta.getBoolean("RespuestaCorrecta");
 
        }
        assertEquals(respuestasEsperadas,respuestasLeidas);
-       assertEquals(respuestaCorrecta,1);
+       assertEquals(respuestaCorrecta,true);
        assertEquals("¿Es blanco el caballo blanco de San Martin?",textoPregunta);
     }
 }

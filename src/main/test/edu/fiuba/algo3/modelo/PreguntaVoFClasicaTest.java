@@ -13,8 +13,9 @@ public class PreguntaVoFClasicaTest {
     @Test
     public void Test01CrearVoFClasica() {
         Panel panel = new Panel();
-        panel.crearPreguntaVoFClasica("es blanco el color del caballo blanco de san martin", true);
+        panel.crearPreguntaVoFClasica("rsc/Preguntas.json");
         assertEquals(true, panel.pasarRespuesta());
+        assertEquals("¿Es blanco el caballo blanco de San Martin?", panel.pasarPregunta());
     }
 
     //Una Pregunta de Verdadero/Falso clásico recibe una lista de respuestas y asigna
@@ -27,7 +28,7 @@ public class PreguntaVoFClasicaTest {
         resultadoPuntosEsperados.add(0);
 
         Panel panel = new Panel();
-        panel.crearPreguntaVoFClasica("es blanco el color del caballo blanco de san martin", true);
+        panel.crearPreguntaVoFClasica("rsc/Preguntas.json");
         panel.crearJugador("Rulo");
         panel.crearJugador("Stef");
         panel.pedirRespuestas();
