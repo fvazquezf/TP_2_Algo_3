@@ -13,6 +13,10 @@ public class Pregunta {
         return respuesta;
     }
 
+    public String pasarPregunta() {
+        return textoPregunta;
+    }
+
     public boolean chequearRespuesta(boolean b) {
         return (respuesta == b);
     }

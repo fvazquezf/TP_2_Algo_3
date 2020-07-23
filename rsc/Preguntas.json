@@ -3,10 +3,10 @@
     {
       "Pregunta": "¿Es blanco el caballo blanco de San Martin?",
       "PosiblesRespuestas": [
-        1,
-        0
+        true,
+        false
       ],
-      "RespuestaCorrecta" : 1
+      "RespuestaCorrecta" : true
     }
   ]
 }

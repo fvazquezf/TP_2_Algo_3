@@ -1,6 +1,12 @@
 package edu.fiuba.algo3.modelo;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Panel {
 
@@ -15,14 +21,16 @@ public class Panel {
         puntosAAsignar = new ArrayList<Boolean>();
     }
 
-    public void crearPreguntaVoFClasica(String unaPregunta, boolean unaRespuesta) {
-        Pregunta pregunta = new Pregunta(unaPregunta,unaRespuesta);
-        preguntas = pregunta;
+    public void crearPreguntaVoFClasica(String archivo) {
+        LectorDeArchivo lector = new LectorDeArchivo();
+        preguntas = lector.leerArchivo(archivo);
     }
 
     public boolean pasarRespuesta() {
         return preguntas.pasarRespuesta();
     }
+
+    public String pasarPregunta(){ return preguntas.pasarPregunta();}
 
 
     public void pedirRespuestas() {
