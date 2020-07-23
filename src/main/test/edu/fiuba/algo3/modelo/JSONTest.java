@@ -15,7 +15,7 @@ public class JSONTest {
     @Test
     public void Test01PruebaJSONLeoPreguntaYEntero() {
 
-        String preguntas = "{ \"pregunta\": \"¿Es blanco el caballo blanco de San Martin?\", \"respuesta\": 1 }";
+        String preguntas = "{ \"pregunta\": \"Es blanco el caballo blanco de San Martin?\", \"respuesta\": 1 }";
         JSONObject parser = new JSONObject(preguntas);
         List listaRespuestas = new ArrayList();
         String unaPregunta;
@@ -23,14 +23,14 @@ public class JSONTest {
         unaPregunta = parser.getString("pregunta");
         int respuesta = parser.getInt("respuesta");
 
-        assertEquals("¿Es blanco el caballo blanco de San Martin?", unaPregunta);
+        assertEquals("Es blanco el caballo blanco de San Martin?", unaPregunta);
         assertEquals(1,respuesta);
     }
 
     @Test
     public void Test02PruebaJSONLeoPreguntaYArregloDeEnteros() {
 
-        String preguntas = "{ \"pregunta\": \"¿Es blanco el caballo blanco de San Martin?\", \"respuestas\": [1, 0] }";
+        String preguntas = "{ \"pregunta\": \"Es blanco el caballo blanco de San Martin?\", \"respuestas\": [1, 0] }";
         JSONObject parser = new JSONObject(preguntas);
         List respuestasLeidas = new ArrayList();
         List respuestasEsperadas = new ArrayList();
@@ -83,6 +83,6 @@ public class JSONTest {
        }
        assertEquals(respuestasEsperadas,respuestasLeidas);
        assertEquals(respuestaCorrecta,true);
-       assertEquals("¿Es blanco el caballo blanco de San Martin?",textoPregunta);
+       assertEquals("Es blanco el caballo blanco de San Martin?",textoPregunta);
     }
 }
