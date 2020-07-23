@@ -15,7 +15,7 @@ public class PreguntaVoFClasicaTest {
         Panel panel = new Panel();
         panel.crearPreguntaVoFClasica("rsc/Preguntas.json");
         assertEquals(true, panel.pasarRespuesta());
-        assertEquals("¿Es blanco el caballo blanco de San Martin?", panel.pasarPregunta());
+        assertEquals("Es blanco el caballo blanco de San Martin?", panel.pasarPregunta());
     }
 
     //Una Pregunta de Verdadero/Falso clásico recibe una lista de respuestas y asigna
@@ -35,7 +35,7 @@ public class PreguntaVoFClasicaTest {
         panel.chequearRespuestas();
         panel.asignarPuntos();
 
-        assertEquals(panel.pedirPuntos(), resultadoPuntosEsperados );
+        assertEquals(resultadoPuntosEsperados, panel.pedirPuntos() );
 
     }
 
