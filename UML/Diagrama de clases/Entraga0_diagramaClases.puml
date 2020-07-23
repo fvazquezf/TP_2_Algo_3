@@ -1,4 +1,7 @@
 @startuml TP2
+
+title Entrega 0
+
 hide circle
 skinparam classAttributeIconSize 0
 skinparam roundcorner 25
@@ -48,9 +51,9 @@ class LectorDeArchivos{
         +leerArchivo(String): preguntas
 }
 
-Panel --> Jugador
-Panel --> Pregunta
+Panel o--> Jugador
+Panel o--> Pregunta
 Panel --> LectorDeArchivos
-LectorDeArchivos --> Pregunta
+LectorDeArchivos ..> Pregunta
 
 @enduml
