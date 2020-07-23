@@ -1,0 +1,59 @@
+@startuml TP2
+
+title Entrega 0
+
+hide circle
+skinparam classAttributeIconSize 0
+skinparam roundcorner 25
+skinparam sequenceArrowThickness 2
+skinparam classFontSize 20
+
+skinparam class {
+BackgroundColor FloralWhite
+ArrowColor DimGray
+BorderColor DimGray
+}
+
+class Panel{
+       - preguntas: ArrayList<Pregunta>
+       - jugadores: ArrayList<Jugador>
+       - respuestas: ArrayList<Boolean>
+       - puntosAAsignar: ArrayList<Boolean>
+       + crearPreguntaVoFClasica(String): Pregunta
+       + pasarRespuesta(): Boolean
+       + pasarPregunta(): String
+       + pedirRespuesta()
+       + chequearRespuesta()
+       + asignarPuntos()
+       + crearJugador(String): Jugador
+       + pedirPuntos(): ArrayList
+}
+
+class Jugador{
+        - nombre: String
+        - puntos: Int
+        + responder(Boolean): Boolean
+        + asignarPuntos(Bololean)
+        + predirPuntos(): Int
+}
+
+
+class Pregunta{
+        - respuesta: Boolean
+        - textoPregunta: String
+        + pasarRespuesta(): Boolean
+        + pasarPregunta(): String
+        + chequearRespuesta(Boolean): Boolean
+}
+
+class LectorDeArchivos{
+        -preguntas: Pregunta
+        +leerArchivo(String): preguntas
+}
+
+Panel o--> Jugador
+Panel o--> Pregunta
+Panel --> LectorDeArchivos
+LectorDeArchivos ..> Pregunta
+
+@enduml
