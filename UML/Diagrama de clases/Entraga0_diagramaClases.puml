@@ -12,20 +12,23 @@ BorderColor DimGray
 }
 
 class Panel{
-       - preguntas
-       - jugadores
-       - respuestas
-       + crearPreguntaVoFClasica(String, Boolean): Pregunta
-       + pasarRespuesta()
+       - preguntas: ArrayList<Pregunta>
+       - jugadores: ArrayList<Jugador>
+       - respuestas: ArrayList<Boolean>
+       - puntosAAsignar: ArrayList<Boolean>
+       + crearPreguntaVoFClasica(String): Pregunta
+       + pasarRespuesta(): Boolean
+       + pasarPregunta(): String
        + pedirRespuesta()
        + chequearRespuesta()
-       + crearJugador(String):Jugador
-       + pedirPuntos()
+       + asignarPuntos()
+       + crearJugador(String): Jugador
+       + pedirPuntos(): ArrayList
 }
 
 class Jugador{
-        - nombre
-        - puntos
+        - nombre: String
+        - puntos: Int
         + responder(Boolean): Boolean
         + asignarPuntos(Bololean)
         + predirPuntos(): Int
@@ -33,13 +36,21 @@ class Jugador{
 
 
 class Pregunta{
-        - respuesta
-        - textoPregunta
+        - respuesta: Boolean
+        - textoPregunta: String
         + pasarRespuesta(): Boolean
+        + pasarPregunta(): String
         + chequearRespuesta(Boolean): Boolean
 }
 
-Panel o--> Jugador
-Panel o--> Pregunta
+class LectorDeArchivos{
+        -preguntas: Pregunta
+        +leerArchivo(String): preguntas
+}
+
+Panel --> Jugador
+Panel --> Pregunta
+Panel --> LectorDeArchivos
+LectorDeArchivos --> Pregunta
 
 @enduml
