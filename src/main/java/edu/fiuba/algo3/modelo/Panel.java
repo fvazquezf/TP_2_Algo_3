@@ -31,22 +31,9 @@ public class Panel {
     public String pasarPregunta(){ return preguntas.pasarPregunta();}
 
 
-    public void pedirRespuestas() {
-        for (int i = 0; i < jugadores.size(); i++) {
-            respuestas.add(jugadores.get(i).responder(i == 0));
-        }
-    }
+    public void hacerPregunta(ArrayList respuestasJugadores) {
+        preguntas.hacerPregunta(jugadores, respuestasJugadores);
 
-    public void chequearRespuestas() {
-        for (int i = 0; i < respuestas.size(); i++){
-            puntosAAsignar.add(preguntas.chequearRespuesta(respuestas.get(i)));
-        }
-    }
-
-    public void asignarPuntos() {
-        for (int i = 0; i < puntosAAsignar.size(); i++){
-            jugadores.get(i).asignarPuntos(puntosAAsignar.get(i));
-        }
     }
 
     public ArrayList<Integer> pedirPuntos() {

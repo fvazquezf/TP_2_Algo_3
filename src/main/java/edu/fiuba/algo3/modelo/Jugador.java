@@ -10,12 +10,8 @@ public class Jugador {
         puntos = 0;
     }
 
-    public boolean responder(boolean unaRespuesta) {
-        return unaRespuesta;
-    }
-
-    public void asignarPuntos(boolean unaRespuesta) {
-        if (unaRespuesta) {
+    public void responder(boolean unaRespuesta, boolean respuestaJugador) {
+        if (unaRespuesta == respuestaJugador) {
             puntos++;
         }
     }
@@ -24,3 +20,5 @@ public class Jugador {
         return puntos;
     }
 }
+
+

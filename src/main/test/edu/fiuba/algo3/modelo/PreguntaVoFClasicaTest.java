@@ -27,14 +27,15 @@ public class PreguntaVoFClasicaTest {
         resultadoPuntosEsperados.add(1);
         resultadoPuntosEsperados.add(0);
 
+        ArrayList<Boolean> respuestasJugadores = new ArrayList();
+        respuestasJugadores.add(true);
+        respuestasJugadores.add(false);
+
         Panel panel = new Panel();
         panel.crearPreguntaVoFClasica("rsc/Preguntas.json");
         panel.crearJugador("Rulo");
         panel.crearJugador("Stef");
-        panel.pedirRespuestas();
-        panel.chequearRespuestas();
-        panel.asignarPuntos();
-
+        panel.hacerPregunta(respuestasJugadores);
         assertEquals(resultadoPuntosEsperados, panel.pedirPuntos() );
 
     }

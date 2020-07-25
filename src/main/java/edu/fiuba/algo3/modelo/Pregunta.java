@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import java.util.ArrayList;
+
 public class Pregunta {
     private final boolean respuesta;
     private final String textoPregunta;
@@ -9,15 +11,17 @@ public class Pregunta {
         respuesta = unaRespuesta;
     }
 
-    public boolean pasarRespuesta() {
-        return respuesta;
-    }
-
     public String pasarPregunta() {
         return textoPregunta;
     }
 
-    public boolean chequearRespuesta(boolean b) {
-        return (respuesta == b);
+    public boolean pasarRespuesta() {
+        return respuesta;
+    }
+
+    public void hacerPregunta(ArrayList<Jugador> jugadores, ArrayList<Boolean> respuestasJugadores) {
+        for (int i = 0; i < jugadores.size(); i++){
+             jugadores.get(i).responder(respuesta, respuestasJugadores.get(i));
+        }
     }
 }
