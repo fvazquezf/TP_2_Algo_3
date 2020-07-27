@@ -7,8 +7,8 @@ public class Pregunta {
     private final Respuesta respuesta;
     private final String textoPregunta;
 
-
-    public Pregunta(String unaPregunta, ArrayList<Boolean> unaRespuesta) {
+    public static
+    public Pregunta(String unaPregunta, Respuesta unaRespuesta) {
         textoPregunta = unaPregunta;
         respuesta = new Respuesta(unaRespuesta);
     }

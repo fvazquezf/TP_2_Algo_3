@@ -2,23 +2,30 @@ package edu.fiuba.algo3.modelo;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Respuesta {
+
+public interface Respuesta {
+
+    public final HashMap<String,Boolean> respuestas = new HashMap<String, Boolean>();
+
+    public Integer responder(String unaRespuesta);
+}
+
+
+public class RespuestaConPenalidad implements Respuesta {
 
     private final HashMap<String,Boolean> respuestas = new HashMap<String, Boolean>();
+//    private final CalculadorPuntajeConPenaldiad calculadorPuntaje;
 
-    public Respuesta(ArrayList<Boolean> unasRespuestas){
+    default Respuesta(Respuesta unasRespuestas){
 
         respuestas.put("V",unasRespuestas.get(0));
         respuestas.put("F",unasRespuestas.get(1));
     }
 
-    public ArrayList<Boolean> pedirRespuestas() {
+    default Integer responder(String unaRespuesta){
 
-        return new ArrayList<Boolean>(respuestas.values());
+        return calculadorPuntaje.calcular(respuestas.get(unaRespuesta));
     }
 
-    public boolean responder(String unaRespuesta){
 
-        return respuestas.get(unaRespuesta);
-    }
 }

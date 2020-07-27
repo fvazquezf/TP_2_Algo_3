@@ -6,13 +6,9 @@ public class Panel {
 
     private Pregunta preguntas;
     private final ArrayList <Jugador> jugadores;
-    private ArrayList <Boolean> respuestas;
-    private ArrayList <Boolean> puntosAAsignar;
 
     public Panel(){
-        respuestas = new ArrayList();
         jugadores = new ArrayList();
-        puntosAAsignar = new ArrayList<Boolean>();
     }
 // NOTA: QUEDA COMENTADO HASTA REFACTORIZACIÓN DE JSON.
 //    public void crearPreguntaVoFClasica(String archivo) {
@@ -24,7 +20,10 @@ public class Panel {
         preguntas = new Pregunta(unaPregunta, unaRespuesta);
     }
 
-
+    public void crearPreguntaVoFConPenaldiad(String unaPregunta, ArrayList<Boolean> unaRespuesta) {
+        //Respuesta respuesta = new RespuestaConPenalidad(unaRespuesta);
+        preguntas = new Pregunta(unaPregunta, unaRespuesta);
+    }
 
     public void crearJugador(String unNombre) {
         jugadores.add(new Jugador(unNombre));
@@ -45,4 +44,6 @@ public class Panel {
         }
         return puntos;
     }
+
+
 }
