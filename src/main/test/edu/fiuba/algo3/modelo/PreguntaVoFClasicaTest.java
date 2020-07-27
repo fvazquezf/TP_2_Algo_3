@@ -8,14 +8,28 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PreguntaVoFClasicaTest {
 
+    // NOTA: QUEDA COMENTADO HASTA LA REFACTORIZACIÓN DEL JSON
     //- Una Pregunta de Verdadero/Falso clásico puede crearse indicándole cual es la respuesta
     //correcta
+//    @Test
+//    public void Test01CrearVoFClasica() {
+//        Panel panel = new Panel();
+//        panel.crearPreguntaVoFClasica("rsc/Preguntas.json");
+//        assertEquals(true, panel.pasarRespuesta());
+//        assertEquals("Es blanco el caballo blanco de San Martin?", panel.pasarPregunta());
+//    }
     @Test
     public void Test01CrearVoFClasica() {
+
+        ArrayList<Boolean> respuestas = new ArrayList();
+
+        respuestas.add(true);
+        respuestas.add(false);
+
         Panel panel = new Panel();
-        panel.crearPreguntaVoFClasica("rsc/Preguntas.json");
-        assertEquals(true, panel.pasarRespuesta());
-        assertEquals("Es blanco el caballo blanco de San Martin?", panel.pasarPregunta());
+        panel.crearPreguntaVoFClasica("El Caballo blanco de San Martin era Blanco?", respuestas);
+
+        assertEquals("El Caballo blanco de San Martin era Blanco?", panel.pasarPregunta());
     }
 
     //Una Pregunta de Verdadero/Falso clásico recibe una lista de respuestas y asigna
@@ -23,20 +37,28 @@ public class PreguntaVoFClasicaTest {
     @Test
     public void Test02PreguntaVerdaderoFalsoAsignaPuntosCorrectamente(){
 
-        ArrayList<Integer> resultadoPuntosEsperados = new ArrayList<Integer>();
-        resultadoPuntosEsperados.add(1);
-        resultadoPuntosEsperados.add(0);
+        ArrayList<String> respuestasJugadores = new ArrayList<String>();
+        respuestasJugadores.add("V");
+        respuestasJugadores.add("F");
 
-        ArrayList<Boolean> respuestasJugadores = new ArrayList();
-        respuestasJugadores.add(true);
-        respuestasJugadores.add(false);
+        ArrayList<Integer> puntosEsperados = new ArrayList<Integer>();
+        puntosEsperados.add(1);
+        puntosEsperados.add(0);
+
+        ArrayList<Boolean> respuestas = new ArrayList();
+        respuestas.add(true);
+        respuestas.add(false);
 
         Panel panel = new Panel();
-        panel.crearPreguntaVoFClasica("rsc/Preguntas.json");
+//        panel.crearPreguntaVoFClasica("rsc/Preguntas.json");
+        panel.crearPreguntaVoFClasica("El Caballo blanco de San Martin era Blanco?", respuestas);
+
         panel.crearJugador("Rulo");
         panel.crearJugador("Stef");
+
         panel.hacerPregunta(respuestasJugadores);
-        assertEquals(resultadoPuntosEsperados, panel.pedirPuntos() );
+
+        assertEquals(puntosEsperados, panel.pedirPuntos() );
 
     }
 

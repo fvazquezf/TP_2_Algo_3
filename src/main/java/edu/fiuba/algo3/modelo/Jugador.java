@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+
+
 public class Jugador {
 
     private final String nombre;
@@ -10,10 +12,9 @@ public class Jugador {
         puntos = 0;
     }
 
-    public void responder(boolean unaRespuesta, boolean respuestaJugador) {
-        if (unaRespuesta == respuestaJugador) {
+    public void  responder(Respuesta respuestaCorrecta,String respuestaJugador) {
+        if(respuestaCorrecta.responder(respuestaJugador))
             puntos++;
-        }
     }
 
     public int pedirPuntos() {

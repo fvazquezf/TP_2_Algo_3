@@ -14,18 +14,20 @@ public class Panel {
         jugadores = new ArrayList();
         puntosAAsignar = new ArrayList<Boolean>();
     }
+// NOTA: QUEDA COMENTADO HASTA REFACTORIZACIÓN DE JSON.
+//    public void crearPreguntaVoFClasica(String archivo) {
+//        LectorDeArchivo lector = new LectorDeArchivo();
+//        preguntas = lector.leerArchivo(archivo);
+//    }
 
-    public void crearPreguntaVoFClasica(String archivo) {
-        LectorDeArchivo lector = new LectorDeArchivo();
-        preguntas = lector.leerArchivo(archivo);
+    public void crearPreguntaVoFClasica(String unaPregunta, ArrayList<Boolean> unaRespuesta) {
+        preguntas = new Pregunta(unaPregunta, unaRespuesta);
     }
+
+
 
     public void crearJugador(String unNombre) {
         jugadores.add(new Jugador(unNombre));
-    }
-
-    public boolean pasarRespuesta() {
-        return preguntas.pasarRespuesta();
     }
 
     public String pasarPregunta(){ return preguntas.pasarPregunta();}
