@@ -17,7 +17,13 @@ public class Panel {
 //    }
 
     public void crearPregunta(String unTipoPregunta, String unaPregunta, ArrayList<Boolean> unaRespuesta) {
-        preguntas = fabricaPreguntas.crearPregunta(unTipoPregunta, unaPregunta, unaRespuesta);
+        try{
+            preguntas = fabricaPreguntas.crearPregunta(unTipoPregunta, unaPregunta, unaRespuesta);
+        }
+        catch (ExcepcionTipoPreguntaInvalida e){
+            // En un futuro hay que refactorizar para pasar a la siguiente pregunta.
+            System.out.println("ERROR PREGUNTA INVALIDA");
+        }
     }
 
     public void crearJugador(String unNombre) {
