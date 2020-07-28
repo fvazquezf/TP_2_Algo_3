@@ -12,9 +12,9 @@ public class Jugador {
         puntos = 0;
     }
 
-    public void  responder(Respuesta respuestaCorrecta,String respuestaJugador) {
-        if(respuestaCorrecta.responder(respuestaJugador))
-            puntos++;
+    public void  responder(Respuesta respuestas, String respuestaJugador) {
+        puntos += respuestas.responder(respuestaJugador);
+
     }
 
     public int pedirPuntos() {

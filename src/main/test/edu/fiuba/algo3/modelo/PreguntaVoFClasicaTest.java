@@ -22,12 +22,11 @@ public class PreguntaVoFClasicaTest {
     public void Test01CrearVoFClasica() {
 
         ArrayList<Boolean> respuestas = new ArrayList();
-
         respuestas.add(true);
         respuestas.add(false);
 
         Panel panel = new Panel();
-        panel.crearPreguntaVoFClasica("El Caballo blanco de San Martin era Blanco?", respuestas);
+        panel.crearPregunta("preguntaVoFClasica","El Caballo blanco de San Martin era Blanco?", respuestas);
 
         assertEquals("El Caballo blanco de San Martin era Blanco?", panel.pasarPregunta());
     }
@@ -51,7 +50,7 @@ public class PreguntaVoFClasicaTest {
 
         Panel panel = new Panel();
 //        panel.crearPreguntaVoFClasica("rsc/Preguntas.json");
-        panel.crearPreguntaVoFClasica("El Caballo blanco de San Martin era Blanco?", respuestas);
+        panel.crearPregunta("preguntaVoFClasica", "El Caballo blanco de San Martin era Blanco?", respuestas);
 
         panel.crearJugador("Rulo");
         panel.crearJugador("Stef");
