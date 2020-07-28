@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo;
 import java.util.ArrayList;
 
 public class Panel {
-
+    private FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
     private Pregunta preguntas;
     private final ArrayList <Jugador> jugadores;
 
@@ -16,13 +16,8 @@ public class Panel {
 //        preguntas = lector.leerArchivo(archivo);
 //    }
 
-    public void crearPreguntaVoFClasica(String unaPregunta, ArrayList<Boolean> unaRespuesta) {
-        preguntas = new Pregunta(unaPregunta, unaRespuesta);
-    }
-
-    public void crearPreguntaVoFConPenaldiad(String unaPregunta, ArrayList<Boolean> unaRespuesta) {
-        //Respuesta respuesta = new RespuestaConPenalidad(unaRespuesta);
-        preguntas = new Pregunta(unaPregunta, unaRespuesta);
+    public void crearPregunta(String unTipoPregunta, String unaPregunta, ArrayList<Boolean> unaRespuesta) {
+        preguntas = fabricaPreguntas.crearPregunta(unTipoPregunta, unaPregunta, unaRespuesta);
     }
 
     public void crearJugador(String unNombre) {
@@ -34,7 +29,6 @@ public class Panel {
 
     public void hacerPregunta(ArrayList respuestasJugadores) {
         preguntas.hacerPregunta(jugadores, respuestasJugadores);
-
     }
 
     public ArrayList<Integer> pedirPuntos() {

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PreguntaVoFConPenalidadTest {
+public class PreguntaVoFConPenalidadTest{
 
     @Test
     public void Test01PreguntaVerdaderoFalsoConPenalidadAsignaPuntosCorrectamente(){
@@ -24,8 +24,8 @@ public class PreguntaVoFConPenalidadTest {
         respuestas.add(false);
 
         Panel panel = new Panel();
-//        panel.crearPreguntaVoFClasica("rsc/Preguntas.json");
-        panel.crearPreguntaVoFConPenaldiad("El Caballo blanco de San Martin era Blanco?", respuestas);
+//      panel.crearPreguntaVoFClasica("rsc/Preguntas.json");
+        panel.crearPregunta("preguntaVoFConPenalidad","El Caballo blanco de San Martin era Blanco?", respuestas);
 
         panel.crearJugador("Rulo");
         panel.crearJugador("Stef");
