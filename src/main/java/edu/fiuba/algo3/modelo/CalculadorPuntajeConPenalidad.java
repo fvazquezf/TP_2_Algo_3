@@ -11,12 +11,16 @@ public class CalculadorPuntajeConPenalidad implements CalculadorPuntaje{
         return calculadorPuntajeConPenalidad;
     }
 
-    public Integer calcular(HashMap unaRespuestaCorroborada, HashMap respuesDelJugador) {
+    public Integer calcular(HashMap<Integer,Boolean> respuestaPregunta, HashMap<Integer,Boolean> respuesDelJugador) {
 
-        if (unaRespuestaCorroborada.equals(respuesDelJugador))
-            return 1;
-
-        return -1;
+        int contador = 0;
+        for(int i = 0; i < respuestaPregunta.size(); i++) {
+            if(respuestaPregunta.get(i) && respuesDelJugador.get(i))
+                contador++;
+            else if((! respuestaPregunta.get(i)) && respuesDelJugador.get(i))
+                contador --;
+        }
+        return contador;
     }
 
 }
