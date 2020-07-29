@@ -50,10 +50,6 @@ public class PreguntaVoFClasicaTest {
         respuestasJugadores.add(respuestasJ1);
         respuestasJugadores.add(respuestasJ2);
 
-<<<<<<< HEAD
-=======
-
->>>>>>> Agrego Test de MC clasico asignando putnos y se refactoriza la comparación de respuestas
         ArrayList<Integer> puntosEsperados = new ArrayList<Integer>();
         puntosEsperados.add(1);
         puntosEsperados.add(0);
