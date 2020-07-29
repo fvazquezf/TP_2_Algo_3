@@ -10,7 +10,7 @@ public class CalculadorPuntajeClasico implements CalculadorPuntaje{
         return calculadorPuntajeClasico;
     }
 
-    public Integer calcular(HashMap unaRespuestaCorroborada, HashMap respuesDelJugador){
+    public Integer calcular(HashMap<Integer,Boolean> unaRespuestaCorroborada, HashMap<Integer,Boolean> respuesDelJugador){
 
         if(unaRespuestaCorroborada.equals(respuesDelJugador))
             return 1;
