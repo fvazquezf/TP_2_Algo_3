@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class CalculadorPuntajeConPenalidad implements CalculadorPuntaje{
 
-    private static CalculadorPuntajeConPenalidad calculadorPuntajeConPenalidad = new CalculadorPuntajeConPenalidad();
+    private final static CalculadorPuntajeConPenalidad calculadorPuntajeConPenalidad = new CalculadorPuntajeConPenalidad();
 
     public static CalculadorPuntajeConPenalidad obtenerCalculadorConPenalidad(){
         return calculadorPuntajeConPenalidad;

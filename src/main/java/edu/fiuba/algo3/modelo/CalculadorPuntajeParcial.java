@@ -1,13 +1,12 @@
 package edu.fiuba.algo3.modelo;
 
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 
 public class CalculadorPuntajeParcial implements CalculadorPuntaje{
 
-    private static CalculadorPuntajeParcial calculadorPuntajeParcial = new CalculadorPuntajeParcial();
+    private final static CalculadorPuntajeParcial calculadorPuntajeParcial = new CalculadorPuntajeParcial();
 
     public static CalculadorPuntajeParcial obtenerCalculadorParcial(){
         return calculadorPuntajeParcial;

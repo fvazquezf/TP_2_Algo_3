@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class RespuestaConPenalidad implements Respuesta{
 
-    private final HashMap<Integer,Boolean> respuestas = new HashMap<Integer, Boolean>();
+    private final HashMap<Integer,Boolean> respuestas = new HashMap<>();
 
     public RespuestaConPenalidad(ArrayList<Boolean> unasRespuestas) {
         for(int i = 0; i < unasRespuestas.size(); i++){
@@ -13,7 +13,7 @@ public class RespuestaConPenalidad implements Respuesta{
         }
     }
 
-    public Integer responder(HashMap unaRespuesta){
+    public Integer responder(HashMap<Integer, Boolean> unaRespuesta){
         return (CalculadorPuntajeConPenalidad.obtenerCalculadorConPenalidad().calcular(respuestas,unaRespuesta));
     }
 }
