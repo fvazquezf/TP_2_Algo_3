@@ -11,7 +11,7 @@ public abstract class Pregunta {
         return textoPregunta;
     }
 
-    public void hacerPregunta(ArrayList<Jugador> jugadores, ArrayList<HashMap> respuestasJugadores) {
+    public void hacerPregunta(ArrayList<Jugador> jugadores, ArrayList<HashMap<Integer,Boolean>> respuestasJugadores) {
 
         for (int i = 0; i < jugadores.size(); i++){
             jugadores.get(i).responder(respuesta,respuestasJugadores.get(i));

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class PreguntaVoFClasicaTest {
@@ -22,7 +23,7 @@ public class PreguntaVoFClasicaTest {
     @Test
     public void Test01CrearVoFClasica() {
 
-        ArrayList<Boolean> respuestas = new ArrayList();
+        ArrayList<Boolean> respuestas = new ArrayList<>();
         respuestas.add(true);
         respuestas.add(false);
 
@@ -37,8 +38,8 @@ public class PreguntaVoFClasicaTest {
     @Test
     public void Test02PreguntaVerdaderoFalsoAsignaPuntosCorrectamente(){
 
-        HashMap<Integer,Boolean> respuestasJ1 = new HashMap<Integer, Boolean>();
-        HashMap<Integer,Boolean> respuestasJ2 = new HashMap<Integer, Boolean>();
+        HashMap<Integer,Boolean> respuestasJ1 = new HashMap<>();
+        HashMap<Integer,Boolean> respuestasJ2 = new HashMap<>();
 
         respuestasJ1.put(0,true);
         respuestasJ1.put(1,false);
@@ -46,15 +47,15 @@ public class PreguntaVoFClasicaTest {
         respuestasJ2.put(0,false);
         respuestasJ2.put(1,false);
 
-        ArrayList<HashMap> respuestasJugadores = new ArrayList<HashMap>();
+        ArrayList<HashMap<Integer,Boolean>> respuestasJugadores = new ArrayList<>();
         respuestasJugadores.add(respuestasJ1);
         respuestasJugadores.add(respuestasJ2);
 
-        ArrayList<Integer> puntosEsperados = new ArrayList<Integer>();
+        ArrayList<Integer> puntosEsperados = new ArrayList<>();
         puntosEsperados.add(1);
         puntosEsperados.add(0);
 
-        ArrayList<Boolean> respuestas = new ArrayList();
+        ArrayList<Boolean> respuestas = new ArrayList<>();
         respuestas.add(true);
         respuestas.add(false);
 
@@ -75,16 +76,19 @@ public class PreguntaVoFClasicaTest {
     public void Test03CreoPreguntaVoFExamenYSaltaExcepcion(){
 
         FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
-        ArrayList<Boolean> respuestas = new ArrayList();
+        ArrayList<Boolean> respuestas = new ArrayList<>();
         respuestas.add(true);
         respuestas.add(false);
+        boolean seLanzoError = false;
 
         try{
-            Pregunta pregunta = fabricaPreguntas.crearPregunta("preguntaVoFExamen", "El Caballo blanco de San Martin era Blanco?", respuestas);
+            fabricaPreguntas.crearPregunta("preguntaVoFExamen", "El Caballo blanco de San Martin era Blanco?", respuestas);
         }
         catch(ExcepcionTipoPreguntaInvalida e){
-
+            seLanzoError = true;
         }
+
+        assertTrue(seLanzoError);
 
     }
 }

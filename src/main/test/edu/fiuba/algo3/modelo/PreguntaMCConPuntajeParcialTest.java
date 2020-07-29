@@ -11,7 +11,7 @@ public class PreguntaMCConPuntajeParcialTest {
     @Test
     public void Test01CrearMCCon3PosiblesRespuestas() {
 
-        ArrayList<Boolean> respuestas = new ArrayList();
+        ArrayList<Boolean> respuestas = new ArrayList<>();
         respuestas.add(true);
         respuestas.add(false);
         respuestas.add(false);
@@ -24,8 +24,8 @@ public class PreguntaMCConPuntajeParcialTest {
     @Test
     public void Test02PreguntaMCCon3PosiblesRespuestasYAsignaPuntosCorrectamenteALosJugadores(){
 
-        HashMap<Integer,Boolean> respuestasJ1 = new HashMap<Integer, Boolean>();
-        HashMap<Integer,Boolean> respuestasJ2 = new HashMap<Integer, Boolean>();
+        HashMap<Integer,Boolean> respuestasJ1 = new HashMap<>();
+        HashMap<Integer,Boolean> respuestasJ2 = new HashMap<>();
 
         respuestasJ1.put(0,true);
         respuestasJ1.put(1,true);
@@ -35,15 +35,15 @@ public class PreguntaMCConPuntajeParcialTest {
         respuestasJ2.put(1,true);
         respuestasJ2.put(2,false);
 
-        ArrayList<HashMap> respuestasJugadores = new ArrayList<HashMap>();
+        ArrayList<HashMap<Integer,Boolean>> respuestasJugadores = new ArrayList<>();
         respuestasJugadores.add(respuestasJ1);
         respuestasJugadores.add(respuestasJ2);
 
-        ArrayList<Integer> puntosEsperados = new ArrayList<Integer>();
+        ArrayList<Integer> puntosEsperados = new ArrayList<>();
         puntosEsperados.add(2);
         puntosEsperados.add(0);
 
-        ArrayList<Boolean> respuestas = new ArrayList();
+        ArrayList<Boolean> respuestas = new ArrayList<>();
         respuestas.add(true);
         respuestas.add(true);
         respuestas.add(false);

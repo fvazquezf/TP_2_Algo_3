@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class CalculadorPuntajeClasico implements CalculadorPuntaje{
 
-    private static CalculadorPuntajeClasico calculadorPuntajeClasico = new CalculadorPuntajeClasico();
+    private final static CalculadorPuntajeClasico calculadorPuntajeClasico = new CalculadorPuntajeClasico();
 
     public static CalculadorPuntajeClasico obtenerCalculadorClasico(){
         return calculadorPuntajeClasico;

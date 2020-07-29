@@ -12,8 +12,8 @@ public class PreguntaVoFConPenalidadTest{
     @Test
     public void Test01PreguntaVerdaderoFalsoConPenalidadAsignaPuntosCorrectamente(){
 
-        HashMap<Integer,Boolean> respuestasJ1 = new HashMap<Integer, Boolean>();
-        HashMap<Integer,Boolean> respuestasJ2 = new HashMap<Integer, Boolean>();
+        HashMap<Integer,Boolean> respuestasJ1 = new HashMap<>();
+        HashMap<Integer,Boolean> respuestasJ2 = new HashMap<>();
 
         respuestasJ1.put(0,true);
         respuestasJ1.put(1,false);
@@ -21,15 +21,15 @@ public class PreguntaVoFConPenalidadTest{
         respuestasJ2.put(0,false);
         respuestasJ2.put(1,true);
 
-        ArrayList<HashMap> respuestasJugadores = new ArrayList<HashMap>();
+        ArrayList<HashMap<Integer,Boolean>> respuestasJugadores = new ArrayList<>();
         respuestasJugadores.add(respuestasJ1);
         respuestasJugadores.add(respuestasJ2);
 
-        ArrayList<Integer> puntosEsperados = new ArrayList<Integer>();
+        ArrayList<Integer> puntosEsperados = new ArrayList<>();
         puntosEsperados.add(1);
         puntosEsperados.add(-1);
 
-        ArrayList<Boolean> respuestas = new ArrayList();
+        ArrayList<Boolean> respuestas = new ArrayList<>();
         respuestas.add(true);
         respuestas.add(false);
 

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class JSONTest {
 
@@ -17,7 +18,6 @@ public class JSONTest {
 
         String preguntas = "{ \"pregunta\": \"Es blanco el caballo blanco de San Martin?\", \"respuesta\": 1 }";
         JSONObject parser = new JSONObject(preguntas);
-        List listaRespuestas = new ArrayList();
         String unaPregunta;
 
         unaPregunta = parser.getString("pregunta");
@@ -32,13 +32,13 @@ public class JSONTest {
 
         String preguntas = "{ \"pregunta\": \"Es blanco el caballo blanco de San Martin?\", \"respuestas\": [1, 0] }";
         JSONObject parser = new JSONObject(preguntas);
-        List respuestasLeidas = new ArrayList();
-        List respuestasEsperadas = new ArrayList();
-        String unaPregunta;
+        List<Integer> respuestasLeidas = new ArrayList<>();
+        List<Integer> respuestasEsperadas = new ArrayList<>();
+        //String unaPregunta;
         respuestasEsperadas.add(1);
         respuestasEsperadas.add(0);
 
-        unaPregunta = parser.getString("pregunta");
+        //unaPregunta = parser.getString("pregunta");
         JSONArray respuestas = parser.getJSONArray("respuestas");
 
         for (int i = 0; i < respuestas.length(); i++) {
@@ -52,37 +52,41 @@ public class JSONTest {
    @Test
     public void Test03PruebaJSONLeoArchivoJsonYComparoPreguntaYRespuesta() {
        String JsonTexto = null;
-       List respuestasLeidas = new ArrayList();
+       List<Boolean> respuestasLeidas = new ArrayList<>();
        String textoPregunta = "\0";
-       List respuestasEsperadas = new ArrayList();
+       List<Boolean> respuestasEsperadas = new ArrayList<>();
        respuestasEsperadas.add(true);
        respuestasEsperadas.add(false);
        boolean respuestaCorrecta = true;
+       //boolean seLanzoError = false;
 
        try{
            JsonTexto = new String(Files.readAllBytes(Paths.get("rsc/Preguntas.json")));
        }
        catch (Exception e){
            e.printStackTrace();
+           //seLanzoError = true;
        }
 
-       JSONObject preguntas = new JSONObject(JsonTexto);
+       if(JsonTexto != null) {
+           JSONObject preguntas = new JSONObject(JsonTexto);
 
-       JSONArray todasLasPreguntas = preguntas.getJSONArray("Preguntas");
+           JSONArray todasLasPreguntas = preguntas.getJSONArray("Preguntas");
 
-       for(int i = 0; i < todasLasPreguntas.length(); i++){
-           JSONObject unaPregunta =  todasLasPreguntas.getJSONObject(i);
+           for (int i = 0; i < todasLasPreguntas.length(); i++) {
+               JSONObject unaPregunta = todasLasPreguntas.getJSONObject(i);
 
-           textoPregunta = unaPregunta.getString("Pregunta");
-           JSONArray respuestasPosibles = unaPregunta.getJSONArray("PosiblesRespuestas");
-           for(int j = 0; j < respuestasPosibles.length(); j++){
-               respuestasLeidas.add(respuestasPosibles.getBoolean(j));
+               textoPregunta = unaPregunta.getString("Pregunta");
+               JSONArray respuestasPosibles = unaPregunta.getJSONArray("PosiblesRespuestas");
+               for (int j = 0; j < respuestasPosibles.length(); j++) {
+                   respuestasLeidas.add(respuestasPosibles.getBoolean(j));
+               }
+               respuestaCorrecta = unaPregunta.getBoolean("RespuestaCorrecta");
            }
-           respuestaCorrecta = unaPregunta.getBoolean("RespuestaCorrecta");
-
        }
        assertEquals(respuestasEsperadas,respuestasLeidas);
-       assertEquals(respuestaCorrecta,true);
+       assertTrue(respuestaCorrecta);
+       //assertTrue(seLanzoError);
        assertEquals("Es blanco el caballo blanco de San Martin?",textoPregunta);
     }
 }

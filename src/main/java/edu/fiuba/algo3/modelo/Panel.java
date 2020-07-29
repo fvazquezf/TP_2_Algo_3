@@ -3,12 +3,12 @@ package edu.fiuba.algo3.modelo;
 import java.util.ArrayList;
 
 public class Panel {
-    private FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
+    private final FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
     private Pregunta preguntas;
     private final ArrayList <Jugador> jugadores;
 
     public Panel(){
-        jugadores = new ArrayList();
+        jugadores = new ArrayList<>();
     }
 // NOTA: QUEDA COMENTADO HASTA REFACTORIZACIÓN DE JSON.
 //    public void crearPreguntaVoFClasica(String archivo) {
@@ -38,7 +38,7 @@ public class Panel {
     }
 
     public ArrayList<Integer> pedirPuntos() {
-        ArrayList<Integer> puntos = new ArrayList<Integer>();
+        ArrayList<Integer> puntos = new ArrayList<>();
         for (int i = 0; i < jugadores.size(); i++){
             puntos.add(jugadores.get(i).pedirPuntos());
         }
