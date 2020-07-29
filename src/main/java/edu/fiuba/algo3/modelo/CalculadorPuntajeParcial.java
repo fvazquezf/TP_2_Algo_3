@@ -14,10 +14,14 @@ public class CalculadorPuntajeParcial implements CalculadorPuntaje{
 
     public Integer calcular(HashMap<Integer,Boolean> respuestaPregunta, HashMap<Integer,Boolean> respuesDelJugador) {
 
-        if(respuestaPregunta.equals(respuesDelJugador))
-            return Collections.frequency(respuestaPregunta.values(),true);
-        else
-            return 0;
+        int contador = 0;
+        for(int i = 0; i < respuestaPregunta.size(); i++) {
+            if(respuestaPregunta.get(i) && respuesDelJugador.get(i))
+                contador++;
+            else if((! respuestaPregunta.get(i)) && respuesDelJugador.get(i))
+                return 0;
+        }
+        return contador;
     }
 
 }
