@@ -11,8 +11,6 @@ public class RespuestaConPenalidad implements Respuesta{
         for(int i = 0; i < unasRespuestas.size(); i++){
             respuestas.put(i,unasRespuestas.get(i));
         }
-//        respuestas.put(0,unasRespuestas.get(0));
-//        respuestas.put(1,unasRespuestas.get(1));
     }
 
     public Integer responder(HashMap unaRespuesta){
