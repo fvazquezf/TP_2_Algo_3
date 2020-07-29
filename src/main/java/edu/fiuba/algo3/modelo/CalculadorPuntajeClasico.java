@@ -12,14 +12,9 @@ public class CalculadorPuntajeClasico implements CalculadorPuntaje{
 
     public Integer calcular(HashMap unaRespuestaCorroborada, HashMap respuesDelJugador){
 
-        for(int i = 0; i < unaRespuestaCorroborada.size(); i++){
-            if(unaRespuestaCorroborada.get(i) != respuesDelJugador.get(i))
-                return 0;
-        }
-        return 1;
+        if(unaRespuestaCorroborada.equals(respuesDelJugador))
+            return 1;
 
-        //        if(unaRespuestaCorroborada == RespuesDelJugador)
-//            return 1;
-//        return 0;
+        return 0;
     }
 }

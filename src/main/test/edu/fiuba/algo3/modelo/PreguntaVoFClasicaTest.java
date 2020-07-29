@@ -50,9 +50,6 @@ public class PreguntaVoFClasicaTest {
         respuestasJugadores.add(respuestasJ1);
         respuestasJugadores.add(respuestasJ2);
 
-//        ArrayList<String> respuestasJugadores = new ArrayList<String>();
-//        respuestasJugadores.add("V");
-//        respuestasJugadores.add("F");
 
         ArrayList<Integer> puntosEsperados = new ArrayList<Integer>();
         puntosEsperados.add(1);
