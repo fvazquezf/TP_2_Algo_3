@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class PreguntaVoFConPenalidad extends Pregunta{
 
