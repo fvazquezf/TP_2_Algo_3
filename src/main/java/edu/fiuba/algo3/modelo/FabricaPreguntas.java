@@ -14,6 +14,9 @@ public class FabricaPreguntas {
         else if(unTipoPregunta == "preguntaMCClasica"){
             return (new PreguntaMCClasica(unaPregunta,unaRespuesta));
         }
+        else if(unTipoPregunta == "preguntaMCConPuntajeParcial"){
+            return (new PreguntaMCConPuntajeParcial(unaPregunta,unaRespuesta));
+        }
         else if(unTipoPregunta == "preguntaMCConPenalidad"){
             return (new PreguntaMCConPenalidad(unaPregunta,unaRespuesta));
         }
