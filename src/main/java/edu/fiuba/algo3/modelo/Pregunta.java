@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public abstract class Pregunta {
     protected Respuesta respuesta;
@@ -9,7 +10,9 @@ public abstract class Pregunta {
     public String pasarPregunta() {
         return textoPregunta;
     }
-    public void hacerPregunta(ArrayList<Jugador> jugadores, ArrayList<String> respuestasJugadores) {
+
+    public void hacerPregunta(ArrayList<Jugador> jugadores, ArrayList<HashMap> respuestasJugadores) {
+
         for (int i = 0; i < jugadores.size(); i++){
             jugadores.get(i).responder(respuesta,respuestasJugadores.get(i));
         }

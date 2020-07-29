@@ -11,6 +11,9 @@ public class FabricaPreguntas {
         else if(unTipoPregunta == "preguntaVoFConPenalidad") {
             return (new PreguntaVoFConPenalidad(unaPregunta, unaRespuesta));
         }
+        else if(unTipoPregunta == "preguntaMCClasica"){
+            return (new PreguntaMCClasica(unaPregunta,unaRespuesta));
+        }
         throw new ExcepcionTipoPreguntaInvalida();
     }
 }
