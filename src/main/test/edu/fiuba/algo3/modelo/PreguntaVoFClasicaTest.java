@@ -61,5 +61,22 @@ public class PreguntaVoFClasicaTest {
 
     }
 
+    @Test
+    public void Test03CreoPreguntaVoFExamenYSaltaExcepcion(){
+
+        FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
+        ArrayList<Boolean> respuestas = new ArrayList();
+        respuestas.add(true);
+        respuestas.add(false);
+
+        try{
+            Pregunta pregunta = fabricaPreguntas.crearPregunta("preguntaVoFExamen", "El Caballo blanco de San Martin era Blanco?", respuestas);
+        }
+        catch(ExcepcionTipoPreguntaInvalida e){
+
+        }
+
+    }
+
 }
 
