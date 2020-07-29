@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
 
+import java.util.HashMap;
+
 public class CalculadorPuntajeConPenalidad implements CalculadorPuntaje{
 
     private static CalculadorPuntajeConPenalidad calculadorPuntajeConPenalidad = new CalculadorPuntajeConPenalidad();
@@ -9,9 +11,12 @@ public class CalculadorPuntajeConPenalidad implements CalculadorPuntaje{
         return calculadorPuntajeConPenalidad;
     }
 
-    public Integer calcular(boolean unaRespuestaCorroborada){
-        if(unaRespuestaCorroborada)
+    public Integer calcular(HashMap unaRespuestaCorroborada, HashMap respuesDelJugador) {
+
+        if (unaRespuestaCorroborada.equals(respuesDelJugador))
             return 1;
+
         return -1;
     }
+
 }

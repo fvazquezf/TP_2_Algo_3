@@ -3,15 +3,17 @@ package edu.fiuba.algo3.modelo;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class RespuestaConPenalidad implements Respuesta {
-    private final HashMap<String,Boolean> respuestas = new HashMap<String, Boolean>();
+public class RespuestaConPenalidad implements Respuesta{
+
+    private final HashMap<Integer,Boolean> respuestas = new HashMap<Integer, Boolean>();
 
     public RespuestaConPenalidad(ArrayList<Boolean> unasRespuestas) {
-        respuestas.put("V",unasRespuestas.get(0));
-        respuestas.put("F",unasRespuestas.get(1));
+        for(int i = 0; i < unasRespuestas.size(); i++){
+            respuestas.put(i,unasRespuestas.get(i));
+        }
     }
 
-    public Integer responder(String unaRespuesta){
-        return (CalculadorPuntajeConPenalidad.obtenerCalculadorConPenalidad().calcular(respuestas.get(unaRespuesta)));
+    public Integer responder(HashMap unaRespuesta){
+        return (CalculadorPuntajeConPenalidad.obtenerCalculadorConPenalidad().calcular(respuestas,unaRespuesta));
     }
 }

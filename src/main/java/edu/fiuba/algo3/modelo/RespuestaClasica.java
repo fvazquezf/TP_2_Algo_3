@@ -5,15 +5,14 @@ import java.util.HashMap;
 
 public class RespuestaClasica implements Respuesta{
 
-    private final HashMap<String,Boolean> respuestas = new HashMap<String, Boolean>();
-
+    private final HashMap<Integer,Boolean> respuestas = new HashMap<Integer, Boolean>();
     public RespuestaClasica(ArrayList<Boolean> unasRespuestas){
-           respuestas.put("V",unasRespuestas.get(0));
-           respuestas.put("F",unasRespuestas.get(1));
+        for(int i = 0; i < unasRespuestas.size(); i++)
+            respuestas.put(i,unasRespuestas.get(i));
     }
 
-    public Integer responder(String unaRespuesta){
-       return (CalculadorPuntajeClasico.obtenerCalculadorClasico().calcular(respuestas.get(unaRespuesta)));
+    public Integer responder(HashMap unaRespuesta){
+       return (CalculadorPuntajeClasico.obtenerCalculadorClasico().calcular(respuestas,unaRespuesta));
     }
 }
 
