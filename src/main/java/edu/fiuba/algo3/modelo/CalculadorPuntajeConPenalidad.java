@@ -15,11 +15,11 @@ public class CalculadorPuntajeConPenalidad implements CalculadorPuntaje{
     public Integer calcular(Map<Integer,Boolean> respuestaPregunta, Map<Integer,Boolean> respuesDelJugador) {
 
         int contador = 0;
-        for(int i = 0; i < respuestaPregunta.size(); i++) {
-            if(respuestaPregunta.get(i) && respuesDelJugador.get(i))
-                contador++;
-            else if((! respuestaPregunta.get(i)) && respuesDelJugador.get(i))
+        for (Map.Entry<Integer, Boolean> respuesta : respuestaPregunta.entrySet()) {
+            if (!respuesta.getValue() && respuesDelJugador.get(respuesta.getKey()))
                 contador --;
+            if (respuesta.getValue() && respuesDelJugador.get(respuesta.getKey()))
+                contador++;
         }
         return contador;
     }
