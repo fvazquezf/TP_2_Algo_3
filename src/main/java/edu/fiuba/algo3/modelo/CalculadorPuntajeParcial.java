@@ -13,7 +13,7 @@ public class CalculadorPuntajeParcial implements CalculadorPuntaje{
         return calculadorPuntajeParcial;
     }
 
-    public Integer calcular(HashMap<Integer,Boolean> respuestaPregunta, HashMap<Integer,Boolean> respuesDelJugador) {
+    public Integer calcular(Map<Integer,Boolean> respuestaPregunta, Map<Integer,Boolean> respuesDelJugador) {
 
         int contador = 0;
         for (Map.Entry<Integer, Boolean> respuesta : respuestaPregunta.entrySet()) {
