@@ -1,5 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
+
+
+import java.util.HashMap;
+
 public class Jugador {
 
     private final String nombre;
@@ -10,17 +14,19 @@ public class Jugador {
         puntos = 0;
     }
 
-    public boolean responder(boolean unaRespuesta) {
-        return unaRespuesta;
-    }
+//    public void  responder(Respuesta respuestas, String respuestaJugador) {
+//        puntos += respuestas.responder(respuestaJugador);
+//
+//    }
 
-    public void asignarPuntos(boolean unaRespuesta) {
-        if (unaRespuesta) {
-            puntos++;
-        }
+    public void  responder(Respuesta respuestas, HashMap<Integer, Boolean> respuestaJugador) {
+        puntos += respuestas.responder(respuestaJugador);
+
     }
 
     public int pedirPuntos() {
         return puntos;
     }
 }
+
+

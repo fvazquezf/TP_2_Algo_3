@@ -1,23 +1,20 @@
 package edu.fiuba.algo3.modelo;
 
-public class Pregunta {
-    private final boolean respuesta;
-    private final String textoPregunta;
+import java.util.ArrayList;
+import java.util.HashMap;
 
-    public Pregunta(String unaPregunta, boolean unaRespuesta) {
-        textoPregunta = unaPregunta;
-        respuesta = unaRespuesta;
-    }
-
-    public boolean pasarRespuesta() {
-        return respuesta;
-    }
+public abstract class Pregunta {
+    protected Respuesta respuesta;
+    protected String textoPregunta;
 
     public String pasarPregunta() {
         return textoPregunta;
     }
 
-    public boolean chequearRespuesta(boolean b) {
-        return (respuesta == b);
+    public void hacerPregunta(ArrayList<Jugador> jugadores, ArrayList<HashMap<Integer,Boolean>> respuestasJugadores) {
+
+        for (int i = 0; i < jugadores.size(); i++){
+            jugadores.get(i).responder(respuesta,respuestasJugadores.get(i));
+        }
     }
 }

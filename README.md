@@ -1,4 +1,5 @@
 # TP2 Algoritmos 3: {nombre}
+[![Build Status](https://travis-ci.org/fvazquezf/TP_2_Algo_3.svg?branch=develop)](https://travis-ci.org/fvazquezf/TP_2_Algo_3)
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
