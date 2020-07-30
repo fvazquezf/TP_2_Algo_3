@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class CalculadorPuntajeConPenalidad implements CalculadorPuntaje{
