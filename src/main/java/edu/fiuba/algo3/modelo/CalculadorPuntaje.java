@@ -1,7 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public interface CalculadorPuntaje {
-    Integer calcular(HashMap<Integer,Boolean> unaRespuestaCorroborada, HashMap<Integer,Boolean> respuestaDelJugador);
+    Integer calcular(Map<Integer,Boolean> unaRespuestaCorroborada, Map<Integer,Boolean> respuestaDelJugador);
 }

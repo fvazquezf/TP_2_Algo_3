@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class CalculadorPuntajeClasico implements CalculadorPuntaje{
 
@@ -10,7 +11,7 @@ public class CalculadorPuntajeClasico implements CalculadorPuntaje{
         return calculadorPuntajeClasico;
     }
 
-    public Integer calcular(HashMap<Integer,Boolean> unaRespuestaCorroborada, HashMap<Integer,Boolean> respuesDelJugador){
+    public Integer calcular(Map<Integer,Boolean> unaRespuestaCorroborada, Map<Integer,Boolean> respuesDelJugador){
 
         if(unaRespuestaCorroborada.equals(respuesDelJugador))
             return 1;
