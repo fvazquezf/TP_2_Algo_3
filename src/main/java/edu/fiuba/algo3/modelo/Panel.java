@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Panel {
     private final FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
@@ -33,14 +34,14 @@ public class Panel {
     public String pasarPregunta(){ return preguntas.pasarPregunta();}
 
 
-    public void hacerPregunta(ArrayList respuestasJugadores) {
+    public void hacerPregunta(ArrayList<HashMap<Integer,Boolean>> respuestasJugadores) {
         preguntas.hacerPregunta(jugadores, respuestasJugadores);
     }
 
     public ArrayList<Integer> pedirPuntos() {
         ArrayList<Integer> puntos = new ArrayList<>();
-        for (int i = 0; i < jugadores.size(); i++){
-            puntos.add(jugadores.get(i).pedirPuntos());
+        for (Jugador jugador : jugadores) {
+            puntos.add(jugador.pedirPuntos());
         }
         return puntos;
     }
