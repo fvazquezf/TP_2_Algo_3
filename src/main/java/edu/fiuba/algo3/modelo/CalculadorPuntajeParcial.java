@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Map;
 
 public class CalculadorPuntajeParcial implements CalculadorPuntaje{
 
@@ -15,11 +16,11 @@ public class CalculadorPuntajeParcial implements CalculadorPuntaje{
     public Integer calcular(HashMap<Integer,Boolean> respuestaPregunta, HashMap<Integer,Boolean> respuesDelJugador) {
 
         int contador = 0;
-        for(int i = 0; i < respuestaPregunta.size(); i++) {
-            if(respuestaPregunta.get(i) && respuesDelJugador.get(i))
-                contador++;
-            else if((! respuestaPregunta.get(i)) && respuesDelJugador.get(i))
+        for (Map.Entry<Integer, Boolean> respuesta : respuestaPregunta.entrySet()) {
+            if (!respuesta.getValue() && respuesDelJugador.get(respuesta.getKey()))
                 return 0;
+            if (respuesta.getValue() && respuesDelJugador.get(respuesta.getKey()))
+                contador++;
         }
         return contador;
     }
