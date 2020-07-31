@@ -17,23 +17,18 @@ BorderColor DimGray
 class Panel{
        - preguntas: ArrayList<Pregunta>
        - jugadores: ArrayList<Jugador>
-       - respuestas: ArrayList<Boolean>
-       - puntosAAsignar: ArrayList<Boolean>
-       + crearPreguntaVoFClasica(String): Pregunta
-       + pasarRespuesta(): Boolean
-       + pasarPregunta(): String
-       + pedirRespuesta()
-       + chequearRespuesta()
-       + asignarPuntos()
-       + crearJugador(String): Jugador
+       - fabricaPreguntas : FabricaPreguntas
+       + crearPregunta(String, String, ArrayList<Boolean>)
+       + pasarPregunta() : String
+       + hacerPregunta()
+       + crearJugador(String)
        + pedirPuntos(): ArrayList
 }
 
 class Jugador{
         - nombre: String
         - puntos: Int
-        + responder(Boolean): Boolean
-        + asignarPuntos(Bololean)
+        + responder(Respuesta, HashMap)
         + predirPuntos(): Int
 }
 
@@ -41,19 +36,89 @@ class Jugador{
 class Pregunta{
         - respuesta: Boolean
         - textoPregunta: String
-        + pasarRespuesta(): Boolean
         + pasarPregunta(): String
-        + chequearRespuesta(Boolean): Boolean
+        + hacerPregunta()
 }
 
-class LectorDeArchivos{
-        -preguntas: Pregunta
-        +leerArchivo(String): preguntas
+interface CalculadorPuntaje{
+        +calcular(Map, Map)
 }
 
-Panel o--> Jugador
-Panel o--> Pregunta
-Panel --> LectorDeArchivos
-LectorDeArchivos ..> Pregunta
+class CalculadorPuntajeClasico{
+        +calcular(Map, Map)
+}
+
+class CalculadorPuntajeConPenalidad{
+        +calcular(Map, Map)
+}
+
+class CalculadorPuntajeParcial{
+        +calcular(Map, Map)
+}
+
+class FabricaPreguntas{
+        +crearPregunta(String, String, ArrayList) : Pregunta
+}
+
+class PreguntaMCClasica{
+        +PreguntaMCClasica(String, ArrayList)
+}
+
+class PreguntaMCConPenalidad{
+        +PreguntaMCConPenalidad(String, ArrayList)
+}
+
+class PreguntaMCConPuntajeParcial{
+        +PreguntaMCConPuntajeParcial(String, ArrayList)
+}
+
+class PreguntaVoFClasica{
+        +PreguntaVoFClasica(String, ArrayList)
+}
+
+class PreguntaVoFConPenalidad{
+        +PreguntaVoFConPenalidad(String, ArrayList)
+}
+
+interface Respuesta{
+        +responder(HashMap)
+}
+
+class RespuestaClasica{
+        -respuestas : HashMap
+        +RespuestaClasica(ArrayList)
+        +responder(HashMap) : Int
+}
+
+class RespuestaConPenalidad{
+        -respuestas : HashMap
+        +RespuestaConPenalidad(ArrayList)
+        +responder(HashMap) : Int
+}
+
+class RespuestaConPuntajeParcial{
+        -respuestas : HashMap
+        +RespuestaConPuntajeParcial(ArrayList)
+        +responder(HashMap) : Int
+}
+
+Panel o-down->"2" Jugador
+Panel o-->"1..*" Pregunta
+Panel o-->"1" FabricaPreguntas
+Pregunta o-up-> Respuesta
+Pregunta ..> Jugador
+Respuesta ..> CalculadorPuntaje
+CalculadorPuntajeClasico ..|> CalculadorPuntaje
+CalculadorPuntajeConPenalidad ..|> CalculadorPuntaje
+CalculadorPuntajeParcial ..|> CalculadorPuntaje
+PreguntaMCClasica -up-|> Pregunta
+PreguntaMCConPenalidad -up-|> Pregunta
+PreguntaMCConPuntajeParcial -up-|> Pregunta
+PreguntaVoFClasica -up-|> Pregunta
+PreguntaVoFConPenalidad -up-|> Pregunta
+RespuestaClasica ..|> Respuesta
+RespuestaConPenalidad ..|> Respuesta
+RespuestaConPuntajeParcial ..|> Respuesta
+
 
 @enduml
