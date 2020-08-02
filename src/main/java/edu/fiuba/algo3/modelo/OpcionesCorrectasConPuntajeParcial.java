@@ -11,9 +11,14 @@ public class OpcionesCorrectasConPuntajeParcial implements OpcionesCorrectas {
         this.opciones = opciones;
     }
 
-    public Integer comparar(Set<String> respuestaDelJugador) {
-        if (opciones.equals(respuestaDelJugador))
-            return 1;
-        return 0;
+    public Integer comparar(Set<String> respuestasDelJugador) {
+        int puntos = 0;
+        for(String respuestaDelJugador: respuestasDelJugador){
+            if (opciones.contains(respuestaDelJugador))
+                puntos++;
+            else
+                return 0;
+        }
+        return puntos;
     }
 }
