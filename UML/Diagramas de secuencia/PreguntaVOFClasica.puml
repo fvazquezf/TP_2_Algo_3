@@ -39,7 +39,7 @@ activate Lector
 loop
 Lector -> Pregunta : new(String, boolean)
 activate Pregunta
-Pregunta --> Lector : unaPregunta : Pregunta
+Pregunta --> Lector : pregunta : Pregunta
 end
 
 deactivate Pregunta

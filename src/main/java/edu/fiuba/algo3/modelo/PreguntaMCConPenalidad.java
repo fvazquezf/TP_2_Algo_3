@@ -1,11 +1,11 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class PreguntaMCConPenalidad extends Pregunta{
+public class PreguntaMCConPenalidad extends Pregunta {
 
-    public PreguntaMCConPenalidad(String unaPregunta, ArrayList<Boolean> unaRespuesta){
-        textoPregunta = unaPregunta;
-        respuesta = new RespuestaConPenalidad(unaRespuesta);
+    public PreguntaMCConPenalidad(String pregunta, List<Boolean> respuesta) {
+        textoPregunta = pregunta;
+        this.respuesta = new RespuestaConPenalidad(respuesta);
     }
 }

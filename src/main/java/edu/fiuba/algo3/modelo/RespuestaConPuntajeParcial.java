@@ -1,18 +1,19 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class RespuestaConPuntajeParcial implements Respuesta {
 
-    private final HashMap<Integer,Boolean> respuestas = new HashMap<>();
+    private final HashMap<Integer, Boolean> respuestas = new HashMap<>();
 
-    public RespuestaConPuntajeParcial(ArrayList<Boolean> unasRespuestas) {
-        for(int i = 0; i < unasRespuestas.size(); i++){
-            respuestas.put(i,unasRespuestas.get(i));
+    public RespuestaConPuntajeParcial(List<Boolean> respuestas) {
+        for (int i = 0; i < respuestas.size(); i++) {
+            this.respuestas.put(i, respuestas.get(i));
         }
     }
-    public Integer responder(HashMap<Integer, Boolean> unaRespuesta){
-        return (CalculadorPuntajeParcial.obtenerCalculadorParcial().calcular(respuestas,unaRespuesta));
+
+    public Integer responder(HashMap<Integer, Boolean> respuestas) {
+        return (CalculadorPuntajeParcial.obtenerCalculadorParcial().calcular(this.respuestas, respuestas));
     }
 }
