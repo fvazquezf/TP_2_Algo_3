@@ -1,22 +1,12 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.Set;
 
 public abstract class Pregunta {
-    protected Respuesta respuesta;
+    protected OpcionesCorrectas opcionesCorrectas;
     protected String textoPregunta;
 
-    public String pasarPregunta() {
-        return textoPregunta;
-    }
-
-    public void hacerPregunta(HashMap<String, Jugador> jugadores, List<HashMap<Integer, Boolean>> respuestasJugadores) {
-        int i = 0;
-        for (Map.Entry<String, Jugador> jugador : jugadores.entrySet()) {
-            jugador.getValue().responder(respuesta, respuestasJugadores.get(i));
-            i++;
-        }
+    public void hacerPregunta(Jugador jugador, Set<String> respuestasJugador) {
+        jugador.responder(opcionesCorrectas, respuestasJugador);
     }
 }

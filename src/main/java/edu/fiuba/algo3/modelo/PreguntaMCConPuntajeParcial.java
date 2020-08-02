@@ -1,11 +1,12 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.List;
+import java.util.Set;
 
 public class PreguntaMCConPuntajeParcial extends Pregunta {
 
-    public PreguntaMCConPuntajeParcial(String pregunta, List<Boolean> respuesta) {
+    public PreguntaMCConPuntajeParcial(String pregunta, Set<String> respuesta) {
         textoPregunta = pregunta;
-        this.respuesta = new RespuestaConPuntajeParcial(respuesta);
+        this.opcionesCorrectas = new OpcionesCorrectasConPuntajeParcial(respuesta);
     }
 }

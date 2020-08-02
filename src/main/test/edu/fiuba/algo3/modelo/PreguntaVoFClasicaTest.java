@@ -2,87 +2,50 @@ package edu.fiuba.algo3.modelo;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 
 public class PreguntaVoFClasicaTest {
-
-    // NOTA: QUEDA COMENTADO HASTA LA REFACTORIZACIÓN DEL JSON
-    //- Una Pregunta de Verdadero/Falso clásico puede crearse indicándole cual es la respuesta
-    //correcta
-
-    @Test
-    public void Test01CrearVoFClasica() {
-
-        List<Boolean> respuestas = new ArrayList<>();
-        respuestas.add(true);
-        respuestas.add(false);
-
-        Panel panel = new Panel();
-        panel.crearPregunta("preguntaVoFClasica", "El Caballo blanco de San Martin era Blanco?", respuestas);
-
-        assertEquals("El Caballo blanco de San Martin era Blanco?", panel.pasarPregunta());
-    }
 
     //Una Pregunta de Verdadero/Falso clásico recibe una lista de respuestas y asigna
     //correctamente puntos a los jugadores que respondieron correctamente
     @Test
-    public void Test02PreguntaVerdaderoFalsoAsignaPuntosCorrectamente() {
+    public void Test01CreoPreguntaVerdaderoFalsoYRespondoCorrectamenteYSeAsignaUnPuntoAlJugador() {
 
-        HashMap<Integer, Boolean> respuestasJ1 = new HashMap<>();
-        HashMap<Integer, Boolean> respuestasJ2 = new HashMap<>();
+        Set<String> respuestasJ1 = new HashSet<>();
+        respuestasJ1.add("a");
 
-        respuestasJ1.put(0, true);
-        respuestasJ1.put(1, false);
-
-        respuestasJ2.put(0, false);
-        respuestasJ2.put(1, false);
-
-        List<HashMap<Integer, Boolean>> respuestasJugadores = new ArrayList<>();
-        respuestasJugadores.add(respuestasJ1);
-        respuestasJugadores.add(respuestasJ2);
-
-        List<Integer> puntosEsperados = new ArrayList<>();
-        puntosEsperados.add(1);
-        puntosEsperados.add(0);
-
-        List<Boolean> respuestas = new ArrayList<>();
-        respuestas.add(true);
-        respuestas.add(false);
+        Set<String> opcionesCorrectas = new HashSet<>();
+        opcionesCorrectas.add("a");
 
         Panel panel = new Panel();
-        panel.crearPregunta("preguntaVoFClasica", "El Caballo blanco de San Martin era Blanco?", respuestas);
+        panel.crearPregunta("preguntaVoFClasica", "El Caballo blanco de San Martin era Blanco?", opcionesCorrectas);
 
         panel.crearJugador("Rulo");
-        panel.crearJugador("Stef");
 
-        panel.hacerPregunta(respuestasJugadores);
+        panel.hacerPregunta("Rulo",respuestasJ1);
 
-        assertEquals(puntosEsperados, panel.pedirPuntos());
+        assertEquals(1, panel.pedirPuntos("Rulo"));
 
     }
 
     @Test
-    public void Test03CreoPreguntaVoFExamenYSaltaExcepcion() {
+    public void Test02CreoPreguntaVerdaderoFalsoYRespondoIncorrectamenteYSeAsignaCeroPuntosAlJugador() {
+        Set<String> respuestasJ1 = new HashSet<>();
+        respuestasJ1.add("b");
 
-        FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
-        List<Boolean> respuestas = new ArrayList<>();
-        respuestas.add(true);
-        respuestas.add(false);
-        boolean seLanzoError = false;
+        Set<String> opcionesCorrectas = new HashSet<>();
+        opcionesCorrectas.add("a");
 
-        try {
-            fabricaPreguntas.crearPregunta("preguntaVoFExamen", "El Caballo blanco de San Martin era Blanco?", respuestas);
-        } catch (ExcepcionTipoPreguntaInvalida e) {
-            seLanzoError = true;
-        }
+        Panel panel = new Panel();
+        panel.crearPregunta("preguntaVoFClasica", "El Caballo blanco de San Martin era Blanco?", opcionesCorrectas);
 
-        assertTrue(seLanzoError);
+        panel.crearJugador("Rulo");
+
+        panel.hacerPregunta("Rulo",respuestasJ1);
+
+        assertEquals(0, panel.pedirPuntos("Rulo"));
 
     }
 }

@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-
-import java.util.HashMap;
+import java.util.Set;
 
 public class Jugador {
 
@@ -13,8 +12,8 @@ public class Jugador {
         puntos = 0;
     }
 
-    public void responder(Respuesta respuestas, HashMap<Integer, Boolean> respuestasJugador) {
-        puntos += respuestas.responder(respuestasJugador);
+    public void responder(OpcionesCorrectas opcionesCorrectas, Set<String> respuestasJugador) {
+        puntos += opcionesCorrectas.comparar(respuestasJugador);
     }
 
     public int pedirPuntos() {
