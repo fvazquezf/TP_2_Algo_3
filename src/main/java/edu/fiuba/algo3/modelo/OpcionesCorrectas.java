@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo;
-import java.util.Set;
+
+import java.util.Collection;
+
 
 public interface OpcionesCorrectas {
-    Integer comparar(Set<String> respuestaDelJugador);
+    Integer comparar(Collection<String> respuestaDelJugador);
 }

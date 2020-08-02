@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.List;
+import java.util.Collection;
 import java.util.Set;
 
 public class OpcionesCorrectasConPuntajeParcial implements OpcionesCorrectas {
@@ -11,9 +11,9 @@ public class OpcionesCorrectasConPuntajeParcial implements OpcionesCorrectas {
         this.opciones = opciones;
     }
 
-    public Integer comparar(Set<String> respuestasDelJugador) {
+    public Integer comparar(Collection<String> respuestasDelJugador) {
         int puntos = 0;
-        for(String respuestaDelJugador: respuestasDelJugador){
+        for (String respuestaDelJugador : respuestasDelJugador) {
             if (opciones.contains(respuestaDelJugador))
                 puntos++;
             else
