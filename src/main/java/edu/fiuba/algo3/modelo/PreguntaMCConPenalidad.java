@@ -7,6 +7,6 @@ public class PreguntaMCConPenalidad extends Pregunta {
 
     public PreguntaMCConPenalidad(String pregunta, Set<String> respuesta) {
         textoPregunta = pregunta;
-        this.respuesta = new OpcionesCorrectasConPenalidad(respuesta);
+        this.opcionesCorrectas = new OpcionesCorrectasConPenalidad(respuesta);
     }
 }

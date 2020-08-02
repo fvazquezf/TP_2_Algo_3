@@ -7,7 +7,7 @@ public class PreguntaVoFConPenalidad extends Pregunta {
 
     public PreguntaVoFConPenalidad(String pregunta, Set<String> respuesta) {
         textoPregunta = pregunta;
-        this.respuesta = new OpcionesCorrectasConPuntajeParcial(respuesta);
+        this.opcionesCorrectas = new OpcionesCorrectasConPuntajeParcial(respuesta);
     }
 
 }

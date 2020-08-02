@@ -7,6 +7,6 @@ public class PreguntaMCConPuntajeParcial extends Pregunta {
 
     public PreguntaMCConPuntajeParcial(String pregunta, Set<String> respuesta) {
         textoPregunta = pregunta;
-        this.respuesta = new OpcionesCorrectasConPuntajeParcial(respuesta);
+        this.opcionesCorrectas = new OpcionesCorrectasConPuntajeParcial(respuesta);
     }
 }
