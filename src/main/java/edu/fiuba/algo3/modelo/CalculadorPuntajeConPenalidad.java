@@ -3,24 +3,24 @@ package edu.fiuba.algo3.modelo;
 
 import java.util.Map;
 
-public class CalculadorPuntajeConPenalidad implements CalculadorPuntaje{
+public class CalculadorPuntajeConPenalidad implements CalculadorPuntaje {
 
     private final static CalculadorPuntajeConPenalidad calculadorPuntajeConPenalidad = new CalculadorPuntajeConPenalidad();
 
-    public static CalculadorPuntajeConPenalidad obtenerCalculadorConPenalidad(){
+    public static CalculadorPuntajeConPenalidad obtenerCalculadorConPenalidad() {
         return calculadorPuntajeConPenalidad;
     }
 
-    public Integer calcular(Map<Integer,Boolean> respuestaPregunta, Map<Integer,Boolean> respuesDelJugador) {
+    public Integer calcular(Map<Integer, Boolean> respuestasPregunta, Map<Integer, Boolean> respuestasJugador) {
 
-        int contador = 0;
-        for (Map.Entry<Integer, Boolean> respuesta : respuestaPregunta.entrySet()) {
-            if (!respuesta.getValue() && respuesDelJugador.get(respuesta.getKey()))
-                contador --;
-            if (respuesta.getValue() && respuesDelJugador.get(respuesta.getKey()))
-                contador++;
+        int puntos = 0;
+        for (Map.Entry<Integer, Boolean> respuesta : respuestasPregunta.entrySet()) {
+            if (!respuesta.getValue() && respuestasJugador.get(respuesta.getKey()))
+                puntos--;
+            if (respuesta.getValue() && respuestasJugador.get(respuesta.getKey()))
+                puntos++;
         }
-        return contador;
+        return puntos;
     }
 
 }

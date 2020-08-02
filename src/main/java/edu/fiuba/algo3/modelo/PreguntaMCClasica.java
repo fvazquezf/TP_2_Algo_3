@@ -1,11 +1,11 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class PreguntaMCClasica extends Pregunta{
+public class PreguntaMCClasica extends Pregunta {
 
-    public PreguntaMCClasica(String unaPregunta, ArrayList<Boolean> unaRespuesta){
-        textoPregunta = unaPregunta;
-        respuesta = new RespuestaClasica(unaRespuesta);
+    public PreguntaMCClasica(String pregunta, List<Boolean> respuesta) {
+        textoPregunta = pregunta;
+        this.respuesta = new RespuestaClasica(respuesta);
     }
 }

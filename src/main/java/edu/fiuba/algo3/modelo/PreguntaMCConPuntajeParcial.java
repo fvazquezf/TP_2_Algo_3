@@ -1,11 +1,11 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class PreguntaMCConPuntajeParcial extends Pregunta{
+public class PreguntaMCConPuntajeParcial extends Pregunta {
 
-    public PreguntaMCConPuntajeParcial(String unaPregunta, ArrayList<Boolean> unaRespuesta){
-        textoPregunta = unaPregunta;
-        respuesta = new RespuestaConPuntajeParcial(unaRespuesta);
+    public PreguntaMCConPuntajeParcial(String pregunta, List<Boolean> respuesta) {
+        textoPregunta = pregunta;
+        this.respuesta = new RespuestaConPuntajeParcial(respuesta);
     }
 }

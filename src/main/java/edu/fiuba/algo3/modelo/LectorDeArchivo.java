@@ -31,14 +31,14 @@
 //        JSONArray todasLasPreguntas = preguntasObj.getJSONArray("Preguntas");
 //
 //        for(int i = 0; i < todasLasPreguntas.length(); i++){
-//            JSONObject unaPregunta =  todasLasPreguntas.getJSONObject(i);
+//            JSONObject pregunta =  todasLasPreguntas.getJSONObject(i);
 //
-//            textoPregunta = unaPregunta.getString("Pregunta");
-//            JSONArray respuestasPosibles = unaPregunta.getJSONArray("PosiblesRespuestas");
+//            textoPregunta = pregunta.getString("Pregunta");
+//            JSONArray respuestasPosibles = pregunta.getJSONArray("PosiblesRespuestas");
 //            for(int j = 0; j < respuestasPosibles.length(); j++){
 //                respuestasLeidas.add(respuestasPosibles.getBoolean(j));
 //            }
-//            respuestaCorrecta = unaPregunta.getBoolean("RespuestaCorrecta");
+//            respuestaCorrecta = pregunta.getBoolean("RespuestaCorrecta");
 //            preguntas = new Pregunta(textoPregunta,respuestaCorrecta);
 //
 //        }
