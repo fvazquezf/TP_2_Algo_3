@@ -15,7 +15,6 @@ public class Jugador {
 
     public void responder(Respuesta respuestas, HashMap<Integer, Boolean> respuestasJugador) {
         puntos += respuestas.responder(respuestasJugador);
-
     }
 
     public int pedirPuntos() {
