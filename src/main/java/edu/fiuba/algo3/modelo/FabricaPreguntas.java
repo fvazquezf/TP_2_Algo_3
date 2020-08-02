@@ -1,10 +1,10 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.List;
+import java.util.Set;
 
 public class FabricaPreguntas {
 
-    public Pregunta crearPregunta(String tipoPregunta, String pregunta, List<Boolean> respuesta) {
+    public Pregunta crearPregunta(String tipoPregunta, String pregunta, Set<String> respuesta) {
         switch (tipoPregunta) {
             case "preguntaVoFClasica":
                 return (new PreguntaVoFClasica(pregunta, respuesta));

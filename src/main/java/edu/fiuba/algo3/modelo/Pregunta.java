@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 public abstract class Pregunta {
-    protected Respuesta respuesta;
+    protected OpcionesCorrectas respuesta;
     protected String textoPregunta;
 
     public String pasarPregunta() {
@@ -13,10 +13,10 @@ public abstract class Pregunta {
     }
 
     public void hacerPregunta(HashMap<String, Jugador> jugadores, List<HashMap<Integer, Boolean>> respuestasJugadores) {
-        int i = 0;
-        for (Map.Entry<String, Jugador> jugador : jugadores.entrySet()) {
-            jugador.getValue().responder(respuesta, respuestasJugadores.get(i));
-            i++;
-        }
+//        int i = 0;
+//        for (Map.Entry<String, Jugador> jugador : jugadores.entrySet()) {
+//            jugador.getValue().responder(respuesta, respuestasJugadores.get(i));
+//            i++;
+//        }
     }
 }
