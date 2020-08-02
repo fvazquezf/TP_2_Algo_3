@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-
 import java.util.Collection;
-import java.util.Set;
 
 public class OpcionesCorrectasClasicas implements OpcionesCorrectas {
 

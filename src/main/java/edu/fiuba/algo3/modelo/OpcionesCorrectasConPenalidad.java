@@ -13,7 +13,7 @@ public class OpcionesCorrectasConPenalidad implements OpcionesCorrectas {
 
     public Integer comparar(Collection<String> respuestasDelJugador) {
         int puntos = 0;
-        for(String respuestaDelJugador: respuestasDelJugador){
+        for (String respuestaDelJugador : respuestasDelJugador) {
             if (opciones.contains(respuestaDelJugador))
                 puntos++;
             else
