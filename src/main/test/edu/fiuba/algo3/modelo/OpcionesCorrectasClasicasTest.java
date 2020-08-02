@@ -7,7 +7,7 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class RespuestasClasicasTest {
+public class OpcionesCorrectasClasicasTest {
     @Test
     public void Test01OpcionesClasicasYComparoConUnaOpcionCorrectaYDevuelveUnPunto() {
         Set<String> respuestaElegidasDelJugador = new HashSet<>();
