@@ -1,6 +1,6 @@
 @startuml TP2
 
-title Entrega 0
+title Diagrama de Clases Cajú
 
 hide circle
 skinparam classAttributeIconSize 0
@@ -15,45 +15,55 @@ BorderColor DimGray
 }
 
 class Panel{
-       - preguntas: ArrayList<Pregunta>
-       - jugadores: ArrayList<Jugador>
-       - respuestas: ArrayList<Boolean>
-       - puntosAAsignar: ArrayList<Boolean>
-       + crearPreguntaVoFClasica(String): Pregunta
-       + pasarRespuesta(): Boolean
-       + pasarPregunta(): String
-       + pedirRespuesta()
-       + chequearRespuesta()
-       + asignarPuntos()
-       + crearJugador(String): Jugador
-       + pedirPuntos(): ArrayList
+       - pregunta: Pregunta
+       - jugadores: HashMap<String, Jugador>
+       - fabricaPreguntas: FabricaPreguntas
+       + crearPregunta(String, String, set<Steing>
+       + crearJugador(String)
+       + hacerPregunta(String, set<String>)
+       + pedirPuntos(String): Int
+}
+
+class FabricaPreguntas{
+       + crearPregunta(String, String, set<String>): Pregunta
 }
 
 class Jugador{
         - nombre: String
         - puntos: Int
-        + responder(Boolean): Boolean
-        + asignarPuntos(Bololean)
-        + predirPuntos(): Int
+        + Jugador(String)
+        + pedirPuntos(): Int
+        + asignarPuntos(Int)
 }
 
 
-class Pregunta{
-        - respuesta: Boolean
+abstract class Pregunta{
+        - opcionesCorrectas: Collection<String>
         - textoPregunta: String
-        + pasarRespuesta(): Boolean
-        + pasarPregunta(): String
-        + chequearRespuesta(Boolean): Boolean
+        + compararRespuestas(): Int
 }
 
-class LectorDeArchivos{
-        -preguntas: Pregunta
-        +leerArchivo(String): preguntas
+class PreguntaClasica{
+        + PreguntaClasica(String, Collection<String>)
+        + compararRespuestas(Collection<String>): Int
+}
+
+class PreguntaConPenalidad{
+        + PreguntaConPenalidad(String, set<String>)
+        + compararRespuestas(Collection<String>): Integer
+}
+
+class PreguntaConPuntajeParcial{
+        + PreguntaConPuntajeParcial(String, set<String>)
+        + compararRespuestas(Collection<String>): Int
 }
 
 Panel o--> Jugador
-Panel o--> Pregunta
-Panel --> LectorDeArchivos
-LectorDeArchivos ..> Pregunta
+Panel o-- Pregunta
+Panel o-left-> FabricaPreguntas
+FabricaPreguntas ..> Pregunta
+PreguntaClasica -up-|> Pregunta
+PreguntaConPenalidad -up-|> Pregunta
+PreguntaConPuntajeParcial -up-|> Pregunta
 
 @enduml
