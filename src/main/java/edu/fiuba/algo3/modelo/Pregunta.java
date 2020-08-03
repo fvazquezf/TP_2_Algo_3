@@ -1,12 +1,10 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.Set;
+import java.util.Collection;
 
 public abstract class Pregunta {
-    protected OpcionesCorrectas opcionesCorrectas;
+    protected Collection<String> opcionesCorrectas;
     protected String textoPregunta;
 
-    public void hacerPregunta(Jugador jugador, Set<String> respuestasJugador) {
-        jugador.responder(opcionesCorrectas, respuestasJugador);
-    }
+    public abstract Integer compararRespuestas(Collection<String> respuestasJugador);
 }

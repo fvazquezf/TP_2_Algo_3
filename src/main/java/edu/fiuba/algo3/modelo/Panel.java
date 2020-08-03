@@ -20,7 +20,7 @@ public class Panel {
     }
 
     public void hacerPregunta(String nombreDelJugador, Set<String> respuestasJugadores) {
-        preguntas.hacerPregunta(jugadores.get(nombreDelJugador), respuestasJugadores);
+        jugadores.get(nombreDelJugador).asignarPuntos(preguntas.compararRespuestas(respuestasJugadores));
     }
 
     public int pedirPuntos(String nombreJugador) {

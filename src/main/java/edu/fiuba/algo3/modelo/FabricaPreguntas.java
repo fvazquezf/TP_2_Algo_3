@@ -7,15 +7,15 @@ public class FabricaPreguntas {
     public Pregunta crearPregunta(String tipoPregunta, String pregunta, Set<String> respuesta) {
         switch (tipoPregunta) {
             case "preguntaVoFClasica":
-                return (new PreguntaVoFClasica(pregunta, respuesta));
-            case "preguntaVoFConPenalidad":
-                return (new PreguntaVoFConPenalidad(pregunta, respuesta));
             case "preguntaMCClasica":
-                return (new PreguntaMCClasica(pregunta, respuesta));
+            case "preguntaGC":
+            case "preguntaOC":
+                return (new PreguntaClasica(pregunta, respuesta));
             case "preguntaMCConPuntajeParcial":
-                return (new PreguntaMCConPuntajeParcial(pregunta, respuesta));
+                return (new PreguntaConPuntajeParcial(pregunta, respuesta));
             case "preguntaMCConPenalidad":
-                return (new PreguntaMCConPenalidad(pregunta, respuesta));
+            case "preguntaVoFConPenalidad":
+                return (new PreguntaConPenalidad(pregunta, respuesta));
             default:
                 throw new ExcepcionTipoPreguntaInvalida();
         }

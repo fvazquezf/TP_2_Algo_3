@@ -12,12 +12,13 @@ public class Jugador {
         puntos = 0;
     }
 
-    public void responder(OpcionesCorrectas opcionesCorrectas, Set<String> respuestasJugador) {
-        puntos += opcionesCorrectas.comparar(respuestasJugador);
-    }
 
     public int pedirPuntos() {
         return puntos;
+    }
+
+    public void asignarPuntos(int puntos) {
+        this.puntos += puntos;
     }
 }
 

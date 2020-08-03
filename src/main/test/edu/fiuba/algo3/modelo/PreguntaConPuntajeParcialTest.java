@@ -7,24 +7,24 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class OpcionesConPuntajeParcialTest {
+public class PreguntaConPuntajeParcialTest {
     @Test
-    public void Test01OpcionesConPuntajeParcialYComparoConUnaOpcionCorrectaYDevuelveUnPunto() {
+    public void Test01PreguntaConPuntajeParcialConUnaOpcionCorrectaSeComparaCorrectamenteYDevuelveUnPunto() {
         Set<String> respuestaElegidasDelJugador = new HashSet<>();
         respuestaElegidasDelJugador.add("a");
 
         Set<String> respuestasCorrectas = new HashSet<>();
         respuestasCorrectas.add("a");
 
-        OpcionesCorrectasConPuntajeParcial opcionesCorrectas = new OpcionesCorrectasConPuntajeParcial(respuestasCorrectas);
+        PreguntaConPuntajeParcial preguntaConPuntajeParcial = new PreguntaConPuntajeParcial("Pregunta", respuestasCorrectas);
 
-        int puntos = opcionesCorrectas.comparar(respuestaElegidasDelJugador);
+        int puntos = preguntaConPuntajeParcial.compararRespuestas(respuestaElegidasDelJugador);
 
         assertEquals(1, puntos);
     }
 
     @Test
-    public void Test02OpcionesConPuntajeParcialYComparoConDosOpcionesCorrectasYElijeUnaOpcionCorrectaYDevuelveUnPunto() {
+    public void Test02PreguntaConPuntajeParcialConDosOpcionCorrectasSeComparaParcialmenteYDevuelveUnPunto() {
         Set<String> respuestaElegidasDelJugador = new HashSet<>();
         respuestaElegidasDelJugador.add("a");
 
@@ -32,14 +32,15 @@ public class OpcionesConPuntajeParcialTest {
         respuestasCorrectas.add("a");
         respuestasCorrectas.add("b");
 
-        OpcionesCorrectasConPuntajeParcial opcionesCorrectas = new OpcionesCorrectasConPuntajeParcial(respuestasCorrectas);
+        PreguntaConPuntajeParcial preguntaConPuntajeParcial = new PreguntaConPuntajeParcial("Pregunta", respuestasCorrectas);
 
-        int puntos = opcionesCorrectas.comparar(respuestaElegidasDelJugador);
+        int puntos = preguntaConPuntajeParcial.compararRespuestas(respuestaElegidasDelJugador);
 
         assertEquals(1, puntos);
     }
+
     @Test
-    public void Test03OpcionesConPuntajeParcialYComparoConDosOpcionesCorrectasYElijeUnaOpcionCorrectaYUnaIncorrectaYDevuelveCeroPuntos() {
+    public void Test03PreguntaConPuntajeParcialConDosOpcionCorrectasSeComparaIncorrectamenteYDevuelveCeroPuntos() {
         Set<String> respuestaElegidasDelJugador = new HashSet<>();
         respuestaElegidasDelJugador.add("c");
         respuestaElegidasDelJugador.add("a");
@@ -48,14 +49,15 @@ public class OpcionesConPuntajeParcialTest {
         respuestasCorrectas.add("a");
         respuestasCorrectas.add("b");
 
-        OpcionesCorrectasConPuntajeParcial opcionesCorrectas = new OpcionesCorrectasConPuntajeParcial(respuestasCorrectas);
+        PreguntaConPuntajeParcial preguntaConPuntajeParcial = new PreguntaConPuntajeParcial("Pregunta", respuestasCorrectas);
 
-        int puntos = opcionesCorrectas.comparar(respuestaElegidasDelJugador);
+        int puntos = preguntaConPuntajeParcial.compararRespuestas(respuestaElegidasDelJugador);
 
         assertEquals(0, puntos);
     }
+
     @Test
-    public void Test04OpcionesConPuntajeParcialYComparoConCuatroOpcionesCorrectasYElijeTresOpcionCorrectasYDevuelveTresPuntos() {
+    public void Test04PreguntaConPuntajeParcialConCuatroOpcionesCorrectasYEligeTresOpcionCorrectasYDevuelveTresPuntos() {
         Set<String> respuestaElegidasDelJugador = new HashSet<>();
         respuestaElegidasDelJugador.add("c");
         respuestaElegidasDelJugador.add("a");
@@ -67,9 +69,9 @@ public class OpcionesConPuntajeParcialTest {
         respuestasCorrectas.add("d");
         respuestasCorrectas.add("b");
 
-        OpcionesCorrectasConPuntajeParcial opcionesCorrectas = new OpcionesCorrectasConPuntajeParcial(respuestasCorrectas);
+        PreguntaConPuntajeParcial preguntaConPuntajeParcial = new PreguntaConPuntajeParcial("Pregunta", respuestasCorrectas);
 
-        int puntos = opcionesCorrectas.comparar(respuestaElegidasDelJugador);
+        int puntos = preguntaConPuntajeParcial.compararRespuestas(respuestaElegidasDelJugador);
 
         assertEquals(3, puntos);
     }
