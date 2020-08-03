@@ -7,25 +7,25 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class OpcionesConPenalidadTest {
+public class PreguntaConPenalidadTest {
 
     @Test
-    public void Test01OpcionesConPenalidadYComparoConUnaOpcionCorrectaYDevuelveUnPunto() {
+    public void Test01PreguntaConPenalidadComparaConUnaOpcionCorrectaYDevuelveUnPunto() {
         Set<String> respuestaElegidasDelJugador = new HashSet<>();
         respuestaElegidasDelJugador.add("a");
 
         Set<String> respuestasCorrectas = new HashSet<>();
         respuestasCorrectas.add("a");
 
-        OpcionesCorrectasConPenalidad opcionesCorrectas = new OpcionesCorrectasConPenalidad(respuestasCorrectas);
+        PreguntaConPenalidad preguntaConPenalidad = new PreguntaConPenalidad("Pregunta", respuestasCorrectas);
 
-        int puntos = opcionesCorrectas.comparar(respuestaElegidasDelJugador);
+        int puntos = preguntaConPenalidad.compararRespuestas(respuestaElegidasDelJugador);
 
         assertEquals(1, puntos);
     }
 
     @Test
-    public void Test02OpcionesConPenalidadYComparoConUnaOpcionCorrectaYDosIncorrectasDevuelveMenosUnPunto() {
+    public void Test02PreguntaConPenalidadComparoConUnaOpcionCorrectaYDosIncorrectasDevuelveMenosUnPunto() {
         Set<String> respuestaElegidasDelJugador = new HashSet<>();
         respuestaElegidasDelJugador.add("a");
         respuestaElegidasDelJugador.add("b");
@@ -34,15 +34,15 @@ public class OpcionesConPenalidadTest {
         Set<String> respuestasCorrectas = new HashSet<>();
         respuestasCorrectas.add("a");
 
-        OpcionesCorrectasConPenalidad opcionesCorrectas = new OpcionesCorrectasConPenalidad(respuestasCorrectas);
+        PreguntaConPenalidad preguntaConPenalidad = new PreguntaConPenalidad("Pregunta", respuestasCorrectas);
 
-        int puntos = opcionesCorrectas.comparar(respuestaElegidasDelJugador);
+        int puntos = preguntaConPenalidad.compararRespuestas(respuestaElegidasDelJugador);
 
         assertEquals(-1, puntos);
     }
 
     @Test
-    public void Test03OpcionesConPenalidadYComparoConDosOpcionesCorrectasYElijoSolaUnaYDevuelveUnPunto() {
+    public void Test03PreguntaConPenalidadComparaConDosOpcionesYEligeSolaUnaYDevuelveUnPunto() {
         Set<String> respuestaElegidasDelJugador = new HashSet<>();
         respuestaElegidasDelJugador.add("a");
 
@@ -50,9 +50,9 @@ public class OpcionesConPenalidadTest {
         respuestasCorrectas.add("a");
         respuestasCorrectas.add("c");
 
-        OpcionesCorrectasConPenalidad opcionesCorrectas = new OpcionesCorrectasConPenalidad(respuestasCorrectas);
+        PreguntaConPenalidad preguntaConPenalidad = new PreguntaConPenalidad("Pregunta", respuestasCorrectas);
 
-        int puntos = opcionesCorrectas.comparar(respuestaElegidasDelJugador);
+        int puntos = preguntaConPenalidad.compararRespuestas(respuestaElegidasDelJugador);
 
         assertEquals(1, puntos);
     }
