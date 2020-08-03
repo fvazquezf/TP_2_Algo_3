@@ -20,4 +20,9 @@ public class PreguntaConPenalidad extends Pregunta {
         }
         return puntos;
     }
+
+    @Override
+    public Integer usarMultiplicador(Jugador jugador, int puntos) {
+        return jugador.multiplicarPuntos(puntos);
+    }
 }

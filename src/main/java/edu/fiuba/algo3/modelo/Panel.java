@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Panel {
     private final FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
-    private Pregunta preguntas;
+    private Pregunta pregunta;
     private final HashMap<String, Jugador> jugadores;
 
     public Panel() {
@@ -12,20 +12,31 @@ public class Panel {
     }
 
     public void crearPregunta(String tipoPregunta, String pregunta, Set<String> respuestas) {
-        preguntas = fabricaPreguntas.crearPregunta(tipoPregunta, pregunta, respuestas);
+        this.pregunta = fabricaPreguntas.crearPregunta(tipoPregunta, pregunta, respuestas);
     }
 
     public void crearJugador(String nombre) {
         jugadores.put(nombre, (new Jugador(nombre)));
     }
 
-    public void hacerPregunta(String nombreDelJugador, Set<String> respuestasJugadores) {
-        jugadores.get(nombreDelJugador).asignarPuntos(preguntas.compararRespuestas(respuestasJugadores));
+    public void hacerPregunta(String nombreJugador, Set<String> respuestasJugadores) {
+        Jugador jugador = jugadores.get(nombreJugador);
+        int puntos = pregunta.compararRespuestas(respuestasJugadores);
+        puntos = pregunta.usarMultiplicador(jugador, puntos);
+        jugador.asignarPuntos(puntos);
+    }
+
+    public void usarDuplicador(String nombreJugador) {
+        Jugador jugador = jugadores.get(nombreJugador);
+        jugador.estadoDuplicador();
+    }
+
+    public void usarTriplicador(String nombreJugador) {
+        Jugador jugador = jugadores.get(nombreJugador);
+        jugador.estadoTriplicador();
     }
 
     public int pedirPuntos(String nombreJugador) {
         return jugadores.get(nombreJugador).pedirPuntos();
     }
-
-
 }
