@@ -31,6 +31,10 @@ Explicación de como ejecutar las pruebas
 
 Explicación de como ejecutar la aplicación
 
+## Informe
+
+En el siguiente [link](https://www.overleaf.com/read/sjtgrwqsrfmx) se encuentra el informe.
+
 ## Licencia
 
 Este repositorio está bajo la Licencia MIT
