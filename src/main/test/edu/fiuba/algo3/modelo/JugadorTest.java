@@ -32,7 +32,7 @@ public class JugadorTest {
     }
 
     @Test
-    public void Test04AsignoUnPuntoAJugadorUsaDuplicadorNoPuedeVolverAUsarDuplicadorYVuelveAUniplicador() {
+    public void Test04AsignoUnPuntoAJugadorUsaDuplicadorYVuelveAUniplicadorYAsignoCincoPuntosDevuelveSietePuntos() {
         Jugador jugador1 = new Jugador("Rulo");
         jugador1.estadoDuplicador();
         jugador1.asignarPuntos(1);
@@ -59,7 +59,7 @@ public class JugadorTest {
     }
 
     @Test
-    public void Test07AsignoUnPuntoAJugadorUsaTriplicadorNoPuedeVolverAUsarTriplicadorYVuelveAUniplicador() {
+    public void Test07AsignoUnPuntoAJugadorUsaTriplicadorYVuelveAUniplicadorAsignoDosPuntosYDevuelveCincoPuntos() {
         Jugador jugador1 = new Jugador("Rulo");
         jugador1.estadoTriplicador();
         jugador1.asignarPuntos(1);
