@@ -1,5 +1,12 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaUsasteTuDuplicadorSalame;
+import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaUsasteTuTriplicadorSalame;
+import edu.fiuba.algo3.modelo.multiplicadores.Duplicador;
+import edu.fiuba.algo3.modelo.multiplicadores.Multiplicador;
+import edu.fiuba.algo3.modelo.multiplicadores.Triplicador;
+import edu.fiuba.algo3.modelo.multiplicadores.Uniplicador;
+
 public class Jugador {
 
     private final String nombre;
