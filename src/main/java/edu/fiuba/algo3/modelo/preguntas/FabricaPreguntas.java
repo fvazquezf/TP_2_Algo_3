@@ -1,4 +1,10 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.preguntas;
+
+import edu.fiuba.algo3.modelo.excepciones.ExcepcionTipoPreguntaInvalida;
+import edu.fiuba.algo3.modelo.preguntas.Pregunta;
+import edu.fiuba.algo3.modelo.preguntas.PreguntaClasica;
+import edu.fiuba.algo3.modelo.preguntas.PreguntaConPenalidad;
+import edu.fiuba.algo3.modelo.preguntas.PreguntaConPuntajeParcial;
 
 import java.util.Set;
 

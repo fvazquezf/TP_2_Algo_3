@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.preguntas.PreguntaConPenalidad;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
