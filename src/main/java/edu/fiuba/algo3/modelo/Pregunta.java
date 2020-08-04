@@ -7,4 +7,8 @@ public abstract class Pregunta {
     protected String textoPregunta;
 
     public abstract Integer compararRespuestas(Collection<String> respuestasJugador);
+
+    public Integer usarMultiplicador(Jugador jugador, int puntos) {
+        throw new ExcepcionPreguntaNoEsDeTipoConPenalidad();
+    }
 }
