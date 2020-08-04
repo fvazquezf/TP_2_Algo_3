@@ -26,7 +26,6 @@ public class JugadorTest {
         Jugador jugador1 = new Jugador("Rulo");
         jugador1.estadoDuplicador();
         jugador1.asignarPuntos(3);
-        assertEquals(6, jugador1.pedirPuntos());
         assertThrows(ExcepcionYaUsasteTuDuplicadorSalame.class, () -> {
             jugador1.estadoDuplicador();
         });
@@ -37,10 +36,6 @@ public class JugadorTest {
         Jugador jugador1 = new Jugador("Rulo");
         jugador1.estadoDuplicador();
         jugador1.asignarPuntos(1);
-        assertEquals(2, jugador1.pedirPuntos());
-        assertThrows(ExcepcionYaUsasteTuDuplicadorSalame.class, () -> {
-            jugador1.estadoDuplicador();
-        });
         jugador1.asignarPuntos(5);
         assertEquals(7, jugador1.pedirPuntos());
     }
@@ -58,7 +53,6 @@ public class JugadorTest {
         Jugador jugador1 = new Jugador("Rulo");
         jugador1.estadoTriplicador();
         jugador1.asignarPuntos(1);
-        assertEquals(3, jugador1.pedirPuntos());
         assertThrows(ExcepcionYaUsasteTuTriplicadorSalame.class, () -> {
             jugador1.estadoTriplicador();
         });
@@ -69,10 +63,6 @@ public class JugadorTest {
         Jugador jugador1 = new Jugador("Rulo");
         jugador1.estadoTriplicador();
         jugador1.asignarPuntos(1);
-        assertEquals(3, jugador1.pedirPuntos());
-        assertThrows(ExcepcionYaUsasteTuTriplicadorSalame.class, () -> {
-            jugador1.estadoTriplicador();
-        });
         jugador1.asignarPuntos(2);
         assertEquals(5, jugador1.pedirPuntos());
     }
