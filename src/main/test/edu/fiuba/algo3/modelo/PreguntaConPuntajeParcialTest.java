@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.excepciones.ExcepcionPreguntaNoEsDeTipoConPenalidad;
+import edu.fiuba.algo3.modelo.preguntas.PreguntaClasica;
+import edu.fiuba.algo3.modelo.preguntas.PreguntaConPenalidad;
 import edu.fiuba.algo3.modelo.preguntas.PreguntaConPuntajeParcial;
 import org.junit.jupiter.api.Test;
 
@@ -7,6 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PreguntaConPuntajeParcialTest {
     @Test
@@ -75,5 +79,17 @@ public class PreguntaConPuntajeParcialTest {
         int puntos = preguntaConPuntajeParcial.compararRespuestas(respuestaElegidasDelJugador);
 
         assertEquals(3, puntos);
+    }
+
+    @Test
+    public void Test05PreguntaConPuntajeParcialNoPuedeUsarMultiplicadorLanzaExcepcion() {
+        Set<String> respuesta = new HashSet<>();
+        respuesta.add("V");
+        respuesta.add("F");
+
+        PreguntaConPuntajeParcial pregunta = new PreguntaConPuntajeParcial("pregunta",respuesta);
+        assertThrows(ExcepcionPreguntaNoEsDeTipoConPenalidad.class, () -> {
+            pregunta.usarMultiplicador();
+        });
     }
 }

@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.excepciones.ExcepcionPreguntaNoEsDeTipoConPenalidad;
+import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaUsasteTuTriplicadorSalame;
 import edu.fiuba.algo3.modelo.preguntas.PreguntaClasica;
 import org.junit.jupiter.api.Test;
 
@@ -9,6 +11,7 @@ import java.util.List;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PreguntaClasicaTest {
     @Test
@@ -130,5 +133,17 @@ public class PreguntaClasicaTest {
         int puntos = preguntaClasica.compararRespuestas(respuestaElegidasDelJugador);
 
         assertEquals(0, puntos);
+    }
+
+    @Test
+    public void Test08PreguntaClasicaNoPuedeUsarMultiplicadorLanzaExcepcion() {
+        Set<String> respuesta = new HashSet<>();
+        respuesta.add("V");
+        respuesta.add("F");
+
+        PreguntaClasica pregunta = new PreguntaClasica("pregunta",respuesta);
+        assertThrows(ExcepcionPreguntaNoEsDeTipoConPenalidad.class, () -> {
+           pregunta.usarMultiplicador();
+        });
     }
 }

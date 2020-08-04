@@ -37,12 +37,8 @@ public class Jugador {
         triplicador = false;
     }
 
-    public Integer multiplicarPuntos(int puntos) {
-        return multiplicador.multiplicar(puntos);
-    }
-
     public void asignarPuntos(int puntos) {
-        this.puntos += this.multiplicarPuntos(puntos);
+        this.puntos += multiplicador.multiplicar(puntos);
         multiplicador = new Uniplicador();
     }
 }

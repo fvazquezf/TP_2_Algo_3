@@ -25,17 +25,18 @@ public class Panel {
     public void hacerPregunta(String nombreJugador, Set<String> respuestasJugadores) {
         Jugador jugador = jugadores.get(nombreJugador);
         int puntos = pregunta.compararRespuestas(respuestasJugadores);
-        puntos = pregunta.usarMultiplicador(jugador, puntos);
         jugador.asignarPuntos(puntos);
     }
 
     public void usarDuplicador(String nombreJugador) {
         Jugador jugador = jugadores.get(nombreJugador);
+        pregunta.usarMultiplicador();
         jugador.estadoDuplicador();
     }
 
     public void usarTriplicador(String nombreJugador) {
         Jugador jugador = jugadores.get(nombreJugador);
+        pregunta.usarMultiplicador();
         jugador.estadoTriplicador();
     }
 
