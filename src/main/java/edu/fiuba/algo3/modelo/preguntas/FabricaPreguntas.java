@@ -6,11 +6,12 @@ import edu.fiuba.algo3.modelo.preguntas.PreguntaClasica;
 import edu.fiuba.algo3.modelo.preguntas.PreguntaConPenalidad;
 import edu.fiuba.algo3.modelo.preguntas.PreguntaConPuntajeParcial;
 
+import java.util.Collection;
 import java.util.Set;
 
 public class FabricaPreguntas {
 
-    public Pregunta crearPregunta(String tipoPregunta, String pregunta, Set<String> respuesta) {
+    public Pregunta crearPregunta(String tipoPregunta, String pregunta, Collection<String> respuesta) {
         switch (tipoPregunta) {
             case "preguntaVoFClasica":
             case "preguntaMCClasica":

@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class PreguntaConPuntajeParcial extends Pregunta {
 
-    public PreguntaConPuntajeParcial(String pregunta, Set<String> opcionesCorrectas) {
+    public PreguntaConPuntajeParcial(String pregunta, Collection<String> opcionesCorrectas) {
         textoPregunta = pregunta;
         this.opcionesCorrectas = opcionesCorrectas;
     }
