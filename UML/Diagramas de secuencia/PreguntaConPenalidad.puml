@@ -52,6 +52,7 @@ Jugador --> Panel: Jugador
 TestCase -> Panel: hacerPregunta(String, Set<String>)
 Panel -> PreguntaConPenalidad: compararRespuestas(Collection<String>)
 PreguntaConPenalidad --> Panel: Int
+
 Panel -> Jugador: asignarPuntos(Int)
 Jugador -> Multiplicador: multiplicar(Int)
 activate Multiplicador
