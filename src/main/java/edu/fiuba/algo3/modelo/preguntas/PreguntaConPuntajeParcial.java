@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo.preguntas;
 
 import java.util.Collection;
-import java.util.Set;
 
 public class PreguntaConPuntajeParcial extends Pregunta {
 
