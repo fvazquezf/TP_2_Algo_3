@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionPreguntaNoEsDeTipoConPenalidad;
-import edu.fiuba.algo3.modelo.preguntas.PreguntaClasica;
-import edu.fiuba.algo3.modelo.preguntas.PreguntaConPenalidad;
 import edu.fiuba.algo3.modelo.preguntas.PreguntaConPuntajeParcial;
 import org.junit.jupiter.api.Test;
 
@@ -87,9 +85,7 @@ public class PreguntaConPuntajeParcialTest {
         respuesta.add("V");
         respuesta.add("F");
 
-        PreguntaConPuntajeParcial pregunta = new PreguntaConPuntajeParcial("pregunta",respuesta);
-        assertThrows(ExcepcionPreguntaNoEsDeTipoConPenalidad.class, () -> {
-            pregunta.usarMultiplicador();
-        });
+        PreguntaConPuntajeParcial pregunta = new PreguntaConPuntajeParcial("pregunta", respuesta);
+        assertThrows(ExcepcionPreguntaNoEsDeTipoConPenalidad.class, pregunta::usarMultiplicador);
     }
 }
