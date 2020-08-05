@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="137.0" prefWidth="122.0" style="-fx-background-color: #6bcef2;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox prefHeight="137.0" prefWidth="43.0">
+               <children>
+                  <Separator orientation="VERTICAL" prefHeight="200.0" visible="false" />
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagenes/icon_user.png" />
+                     </image>
+                  </ImageView>
+                  <Separator orientation="VERTICAL" prefHeight="200.0" visible="false" />
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagenes/icon_user.png" />
+                     </image>
+                  </ImageView>
+                  <Separator orientation="VERTICAL" prefHeight="200.0" visible="false" />
+               </children>
+            </VBox>
+            <VBox layoutX="40.0" prefHeight="137.0" prefWidth="82.0">
+               <children>
+                  <Separator orientation="VERTICAL" prefHeight="200.0" visible="false" />
+                  <Label text="Rulo" textFill="#585f61" />
+                  <Separator orientation="VERTICAL" prefHeight="200.0" visible="false" />
+                  <Label text="Stef" textFill="#585f61" />
+                  <Separator orientation="VERTICAL" prefHeight="200.0" visible="false" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="188.0" layoutY="14.0" prefHeight="137.0" prefWidth="475.0" style="-fx-background-color: #6bcef2;" AnchorPane.bottomAnchor="263.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label prefHeight="137.0" prefWidth="475.0" text="¿De que color es el caballo blanco de san martin?" textFill="#585f61">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="193.0" prefHeight="259.0" prefWidth="600.0" style="-fx-background-color: #6bcef2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button layoutX="342.0" layoutY="139.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="187.0" text="Button" AnchorPane.bottomAnchor="28.0" AnchorPane.rightAnchor="43.0" />
+            <Button layoutX="43.0" layoutY="25.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="187.0" text="Button" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="43.0" AnchorPane.topAnchor="25.0" />
+            <Button layoutX="342.0" layoutY="25.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="187.0" text="Button" AnchorPane.bottomAnchor="150.0" AnchorPane.rightAnchor="43.0" AnchorPane.topAnchor="25.0" />
+            <Button layoutX="43.0" layoutY="147.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="187.0" text="Button" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="43.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
