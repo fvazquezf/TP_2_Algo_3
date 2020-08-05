@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class PreguntaConPenalidad extends Pregunta {
 
-    public PreguntaConPenalidad(String pregunta, Set<String> opcionesCorrectas) {
+    public PreguntaConPenalidad(String pregunta, Collection<String> opcionesCorrectas) {
         textoPregunta = pregunta;
         this.opcionesCorrectas = opcionesCorrectas;
     }
