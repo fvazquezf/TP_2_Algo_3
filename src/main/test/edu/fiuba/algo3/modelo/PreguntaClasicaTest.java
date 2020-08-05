@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionPreguntaNoEsDeTipoConPenalidad;
-import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaUsasteTuTriplicadorSalame;
 import edu.fiuba.algo3.modelo.preguntas.PreguntaClasica;
 import org.junit.jupiter.api.Test;
 
@@ -141,9 +140,7 @@ public class PreguntaClasicaTest {
         respuesta.add("V");
         respuesta.add("F");
 
-        PreguntaClasica pregunta = new PreguntaClasica("pregunta",respuesta);
-        assertThrows(ExcepcionPreguntaNoEsDeTipoConPenalidad.class, () -> {
-           pregunta.usarMultiplicador();
-        });
+        PreguntaClasica pregunta = new PreguntaClasica("pregunta", respuesta);
+        assertThrows(ExcepcionPreguntaNoEsDeTipoConPenalidad.class, pregunta::usarMultiplicador);
     }
 }

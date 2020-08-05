@@ -1,15 +1,12 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.excepciones.ExcepcionPreguntaNoEsDeTipoConPenalidad;
 import edu.fiuba.algo3.modelo.preguntas.PreguntaConPenalidad;
-import edu.fiuba.algo3.modelo.preguntas.PreguntaConPuntajeParcial;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PreguntaConPenalidadTest {
 
@@ -69,7 +66,7 @@ public class PreguntaConPenalidadTest {
 
         Jugador jugador1 = new Jugador("Rulo");
 
-        PreguntaConPenalidad pregunta = new PreguntaConPenalidad("pregunta",respuesta);
+        PreguntaConPenalidad pregunta = new PreguntaConPenalidad("pregunta", respuesta);
 
         jugador1.estadoDuplicador();
         pregunta.usarMultiplicador();
