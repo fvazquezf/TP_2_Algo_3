@@ -21,6 +21,8 @@ class Panel{
        + crearPregunta(String, String, set<Steing>
        + crearJugador(String)
        + hacerPregunta(String, set<String>)
+       + usarDuplicador(String)
+       + usarTriplicador(String)
        + pedirPuntos(String): Int
 }
 
@@ -36,14 +38,16 @@ class Jugador{
         - triplicador: boolean
         + Jugador(String)
         + pedirPuntos(): Int
+        + estadoDuplicador()
+        + estadoTriplicador()
         + asignarPuntos(Int)
 }
-
 
 abstract class Pregunta{
         - opcionesCorrectas: Collection<String>
         - textoPregunta: String
         + compararRespuestas(): Int
+        + usarMultiplicador()
 }
 
 class PreguntaClasica{
@@ -77,8 +81,8 @@ class Triplicador{
         - multiplicar(Int): Int
 }
 
-Panel o-->"2" Jugador
-Panel o-- Pregunta
+Panel o-->"1..*" Jugador
+Panel o--"1--*" Pregunta
 Panel o-left->"1" FabricaPreguntas
 FabricaPreguntas ..> Pregunta
 PreguntaClasica -up-|> Pregunta
@@ -87,7 +91,7 @@ PreguntaConPuntajeParcial -up-|> Pregunta
 Unplicador .up.|> Multiplicador
 Duplicador .up.|> Multiplicador
 Triplicador .up.|> Multiplicador
-Jugador o--> Multiplicador
+Jugador o-->"2" Multiplicador
 PreguntaConPenalidad ..> Multiplicador
 
 @enduml
