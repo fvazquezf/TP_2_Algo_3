@@ -30,13 +30,13 @@ public class Panel {
 
     public void activarDuplicador(String nombreJugador) {
         Jugador jugador = jugadores.get(nombreJugador);
-        pregunta.usarMultiplicador();
+        pregunta.activarMultiplicador();
         jugador.estadoDuplicador();
     }
 
     public void activarTriplicador(String nombreJugador) {
         Jugador jugador = jugadores.get(nombreJugador);
-        pregunta.usarMultiplicador();
+        pregunta.activarMultiplicador();
         jugador.estadoTriplicador();
     }
 

@@ -141,6 +141,6 @@ public class PreguntaClasicaTest {
         respuesta.add("F");
 
         PreguntaClasica pregunta = new PreguntaClasica("pregunta", respuesta);
-        assertThrows(ExcepcionPreguntaNoEsDeTipoConPenalidad.class, pregunta::usarMultiplicador);
+        assertThrows(ExcepcionPreguntaNoEsDeTipoConPenalidad.class, pregunta::activarMultiplicador);
     }
 }
