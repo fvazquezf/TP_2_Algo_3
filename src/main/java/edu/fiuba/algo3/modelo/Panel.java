@@ -28,13 +28,13 @@ public class Panel {
         jugador.asignarPuntos(puntos);
     }
 
-    public void usarDuplicador(String nombreJugador) {
+    public void activarDuplicador(String nombreJugador) {
         Jugador jugador = jugadores.get(nombreJugador);
         pregunta.usarMultiplicador();
         jugador.estadoDuplicador();
     }
 
-    public void usarTriplicador(String nombreJugador) {
+    public void activarTriplicador(String nombreJugador) {
         Jugador jugador = jugadores.get(nombreJugador);
         pregunta.usarMultiplicador();
         jugador.estadoTriplicador();
