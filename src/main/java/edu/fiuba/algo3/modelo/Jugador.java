@@ -12,8 +12,8 @@ public class Jugador {
     private final String nombre;
     private int puntos;
     private Multiplicador multiplicador;
-    boolean duplicador = true;
-    boolean triplicador = true;
+    boolean duplicadorDisponible = true;
+    boolean triplicadorDisponible = true;
 
     public Jugador(String nombre) {
         this.nombre = nombre;
@@ -26,15 +26,15 @@ public class Jugador {
     }
 
     public void estadoDuplicador() {
-        if (duplicador) multiplicador = new Duplicador();
+        if (duplicadorDisponible) multiplicador = new Duplicador();
         else throw new ExcepcionYaUsasteTuDuplicadorSalame();
-        duplicador = false;
+        duplicadorDisponible = false;
     }
 
     public void estadoTriplicador() {
-        if (triplicador) multiplicador = new Triplicador();
+        if (triplicadorDisponible) multiplicador = new Triplicador();
         else throw new ExcepcionYaUsasteTuTriplicadorSalame();
-        triplicador = false;
+        triplicadorDisponible = false;
     }
 
     public void asignarPuntos(int puntos) {

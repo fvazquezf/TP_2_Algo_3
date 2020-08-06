@@ -394,7 +394,7 @@ public class PanelTest {
 
         panel.crearPregunta("preguntaVoFConPenalidad", "pregunta", respuestaCorrecta);
         panel.crearJugador("Stef");
-        panel.usarDuplicador("Stef");
+        panel.activarDuplicador("Stef");
         panel.hacerPregunta("Stef", respuestaJugador);
 
         assertEquals(-2, panel.pedirPuntos("Stef"));
@@ -412,7 +412,7 @@ public class PanelTest {
 
         panel.crearPregunta("preguntaVoFConPenalidad", "pregunta", respuestaCorrecta);
         panel.crearJugador("Stef");
-        panel.usarDuplicador("Stef");
+        panel.activarDuplicador("Stef");
         panel.hacerPregunta("Stef", respuestaJugador);
 
         assertEquals(2, panel.pedirPuntos("Stef"));
@@ -430,7 +430,7 @@ public class PanelTest {
 
         panel.crearPregunta("preguntaVoFConPenalidad", "pregunta", respuestaCorrecta);
         panel.crearJugador("Stef");
-        panel.usarTriplicador("Stef");
+        panel.activarTriplicador("Stef");
         panel.hacerPregunta("Stef", respuestaJugador);
 
         assertEquals(-3, panel.pedirPuntos("Stef"));
@@ -448,7 +448,7 @@ public class PanelTest {
 
         panel.crearPregunta("preguntaVoFConPenalidad", "pregunta", respuestaCorrecta);
         panel.crearJugador("Stef");
-        panel.usarTriplicador("Stef");
+        panel.activarTriplicador("Stef");
         panel.hacerPregunta("Stef", respuestaJugador);
 
         assertEquals(3, panel.pedirPuntos("Stef"));
@@ -469,7 +469,7 @@ public class PanelTest {
 
         panel.crearPregunta("preguntaMCConPenalidad", "pregunta", respuestaCorrecta);
         panel.crearJugador("Stef");
-        panel.usarDuplicador("Stef");
+        panel.activarDuplicador("Stef");
         panel.hacerPregunta("Stef", respuestaJugador);
 
         assertEquals(-4, panel.pedirPuntos("Stef"));
@@ -491,7 +491,7 @@ public class PanelTest {
 
         panel.crearPregunta("preguntaMCConPenalidad", "pregunta", respuestaCorrecta);
         panel.crearJugador("Stef");
-        panel.usarDuplicador("Stef");
+        panel.activarDuplicador("Stef");
         panel.hacerPregunta("Stef", respuestaJugador);
 
         assertEquals(6, panel.pedirPuntos("Stef"));
@@ -513,7 +513,7 @@ public class PanelTest {
 
         panel.crearPregunta("preguntaMCConPenalidad", "pregunta", respuestaCorrecta);
         panel.crearJugador("Stef");
-        panel.usarTriplicador("Stef");
+        panel.activarTriplicador("Stef");
         panel.hacerPregunta("Stef", respuestaJugador);
 
         assertEquals(-6, panel.pedirPuntos("Stef"));
@@ -537,7 +537,7 @@ public class PanelTest {
 
         panel.crearPregunta("preguntaVoFConPenalidad", "pregunta", respuestaCorrecta);
         panel.crearJugador("Stef");
-        panel.usarTriplicador("Stef");
+        panel.activarTriplicador("Stef");
         panel.hacerPregunta("Stef", respuestaJugador);
 
         assertEquals(12, panel.pedirPuntos("Stef"));
@@ -555,8 +555,8 @@ public class PanelTest {
 
         panel.crearPregunta("preguntaVoFConPenalidad", "pregunta", respuestaCorrecta);
         panel.crearJugador("Stef");
-        panel.usarDuplicador("Stef");
-        assertThrows(ExcepcionYaUsasteTuDuplicadorSalame.class, () -> panel.usarDuplicador("Stef"));
+        panel.activarDuplicador("Stef");
+        assertThrows(ExcepcionYaUsasteTuDuplicadorSalame.class, () -> panel.activarDuplicador("Stef"));
     }
 
     @Test
@@ -571,8 +571,8 @@ public class PanelTest {
 
         panel.crearPregunta("preguntaVoFConPenalidad", "pregunta", respuestaCorrecta);
         panel.crearJugador("Stef");
-        panel.usarTriplicador("Stef");
-        assertThrows(ExcepcionYaUsasteTuTriplicadorSalame.class, () -> panel.usarTriplicador("Stef"));
+        panel.activarTriplicador("Stef");
+        assertThrows(ExcepcionYaUsasteTuTriplicadorSalame.class, () -> panel.activarTriplicador("Stef"));
     }
 
     @Test
@@ -588,7 +588,7 @@ public class PanelTest {
         panel.crearPregunta("preguntaMCClasica", "pregunta", respuestaCorrecta);
         panel.crearJugador("Stef");
 
-        assertThrows(ExcepcionPreguntaNoEsDeTipoConPenalidad.class, () -> panel.usarDuplicador("Stef"));
+        assertThrows(ExcepcionPreguntaNoEsDeTipoConPenalidad.class, () -> panel.activarDuplicador("Stef"));
     }
 
     @Test
@@ -604,7 +604,7 @@ public class PanelTest {
         panel.crearPregunta("preguntaMCConPuntajeParcial", "pregunta", respuestaCorrecta);
         panel.crearJugador("Stef");
 
-        assertThrows(ExcepcionPreguntaNoEsDeTipoConPenalidad.class, () -> panel.usarTriplicador("Stef"));
+        assertThrows(ExcepcionPreguntaNoEsDeTipoConPenalidad.class, () -> panel.activarTriplicador("Stef"));
     }
 
 }
