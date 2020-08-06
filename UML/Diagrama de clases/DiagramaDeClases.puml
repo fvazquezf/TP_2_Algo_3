@@ -21,6 +21,8 @@ class Panel{
        + crearPregunta(String, String, set<Steing>
        + crearJugador(String)
        + hacerPregunta(String, set<String>)
+       + usarDuplicador(String)
+       + usarTriplicador(String)
        + pedirPuntos(String): Int
 }
 
@@ -31,16 +33,21 @@ class FabricaPreguntas{
 class Jugador{
         - nombre: String
         - puntos: Int
+        - multiplicador: Multiplicador
+        - duplicadorDisponible: boolean
+        - triplicadorDisponible: boolean
         + Jugador(String)
         + pedirPuntos(): Int
+        + estadoDuplicador()
+        + estadoTriplicador()
         + asignarPuntos(Int)
 }
-
 
 abstract class Pregunta{
         - opcionesCorrectas: Collection<String>
         - textoPregunta: String
         + compararRespuestas(): Int
+        + usarMultiplicador()
 }
 
 class PreguntaClasica{
@@ -51,6 +58,7 @@ class PreguntaClasica{
 class PreguntaConPenalidad{
         + PreguntaConPenalidad(String, set<String>)
         + compararRespuestas(Collection<String>): Integer
+        + usarMultiplicador()
 }
 
 class PreguntaConPuntajeParcial{
@@ -58,12 +66,33 @@ class PreguntaConPuntajeParcial{
         + compararRespuestas(Collection<String>): Int
 }
 
-Panel o--> Jugador
-Panel o-- Pregunta
-Panel o-left-> FabricaPreguntas
+interface Multiplicador{
+        - multiplicar(Int): Int
+}
+
+class Unplicador{
+        - multiplicar(Int): Int
+}
+
+class Duplicador{
+        - multiplicar(Int): Int
+}
+
+class Triplicador{
+        - multiplicar(Int): Int
+}
+
+Panel o-->"1..*" Jugador
+Panel o--"1--*" Pregunta
+Panel o-left->"1" FabricaPreguntas
 FabricaPreguntas ..> Pregunta
 PreguntaClasica -up-|> Pregunta
 PreguntaConPenalidad -up-|> Pregunta
 PreguntaConPuntajeParcial -up-|> Pregunta
+Unplicador .up.|> Multiplicador
+Duplicador .up.|> Multiplicador
+Triplicador .up.|> Multiplicador
+Jugador o-->"1" Multiplicador
+PreguntaConPenalidad ..> Multiplicador
 
 @enduml
