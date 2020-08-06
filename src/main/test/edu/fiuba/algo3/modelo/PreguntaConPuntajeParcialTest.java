@@ -86,6 +86,6 @@ public class PreguntaConPuntajeParcialTest {
         respuesta.add("F");
 
         PreguntaConPuntajeParcial pregunta = new PreguntaConPuntajeParcial("pregunta", respuesta);
-        assertThrows(ExcepcionPreguntaNoEsDeTipoConPenalidad.class, pregunta::usarMultiplicador);
+        assertThrows(ExcepcionPreguntaNoEsDeTipoConPenalidad.class, pregunta::activarMultiplicador);
     }
 }

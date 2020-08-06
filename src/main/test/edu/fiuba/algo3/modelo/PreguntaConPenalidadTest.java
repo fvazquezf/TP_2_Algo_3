@@ -69,7 +69,7 @@ public class PreguntaConPenalidadTest {
         PreguntaConPenalidad pregunta = new PreguntaConPenalidad("pregunta", respuesta);
 
         jugador1.estadoDuplicador();
-        pregunta.usarMultiplicador();
+        pregunta.activarMultiplicador();
         jugador1.asignarPuntos(3);
 
         assertEquals(6, jugador1.pedirPuntos());

@@ -10,7 +10,7 @@ public abstract class Pregunta {
 
     public abstract Integer compararRespuestas(Collection<String> respuestasJugador);
 
-    public void usarMultiplicador() {
+    public void activarMultiplicador() {
         throw new ExcepcionPreguntaNoEsDeTipoConPenalidad();
     }
 }

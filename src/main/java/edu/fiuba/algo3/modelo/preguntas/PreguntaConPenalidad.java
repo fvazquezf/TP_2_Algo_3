@@ -21,6 +21,6 @@ public class PreguntaConPenalidad extends Pregunta {
     }
 
     @Override
-    public void usarMultiplicador() {
+    public void activarMultiplicador() {
     }
 }
