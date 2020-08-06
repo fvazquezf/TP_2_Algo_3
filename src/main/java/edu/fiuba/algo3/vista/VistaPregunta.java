@@ -14,7 +14,7 @@ public class VistaPregunta {
         BorderPane componentLayout = new BorderPane();
         componentLayout.setPadding(new Insets(20,20,10,20));
 
-        Label pregunta = new Label("una Pregunta");
+        Label pregunta = new Label("una PreguntaVoF con penalidad (la respuesta es Verdadera)");
         StackPane panelTop = new StackPane();
         panelTop.getChildren().add(pregunta);
 
