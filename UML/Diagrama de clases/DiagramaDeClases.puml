@@ -34,8 +34,8 @@ class Jugador{
         - nombre: String
         - puntos: Int
         - multiplicador: Multiplicador
-        - duplicador: boolean
-        - triplicador: boolean
+        - duplicadorDisponible: boolean
+        - triplicadorDisponible: boolean
         + Jugador(String)
         + pedirPuntos(): Int
         + estadoDuplicador()
@@ -58,6 +58,7 @@ class PreguntaClasica{
 class PreguntaConPenalidad{
         + PreguntaConPenalidad(String, set<String>)
         + compararRespuestas(Collection<String>): Integer
+        + usarMultiplicador()
 }
 
 class PreguntaConPuntajeParcial{
@@ -91,7 +92,7 @@ PreguntaConPuntajeParcial -up-|> Pregunta
 Unplicador .up.|> Multiplicador
 Duplicador .up.|> Multiplicador
 Triplicador .up.|> Multiplicador
-Jugador o-->"2" Multiplicador
+Jugador o-->"1" Multiplicador
 PreguntaConPenalidad ..> Multiplicador
 
 @enduml

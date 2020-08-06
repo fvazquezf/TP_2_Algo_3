@@ -53,7 +53,11 @@ TestCase -> Panel: hacerPregunta(String, Set<String>)
 Panel -> PreguntaClasica: compararRespuestas(Collection<String>)
 PreguntaClasica --> Panel: Int
 Panel -> Jugador: asignarPuntos(Int)
+Jugador -> Multiplicador: multiplicar(Int)
+activate Multiplicador
+Multiplicador --> Jugador: Int
 
+deactivate Multiplicador
 
 deactivate PreguntaClasica
 deactivate Jugador

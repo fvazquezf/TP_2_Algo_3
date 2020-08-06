@@ -53,7 +53,9 @@ TestCase -> Panel: hacerPregunta(String, Set<String>)
 Panel -> PreguntaConPuntajeParcial: compararRespuestas(Collection<String>)
 PreguntaConPuntajeParcial --> Panel: Int
 Panel -> Jugador: asignarPuntos(Int)
-
+Jugador -> Multiplicador: multiplicar(Int)
+activate Multiplicador
+Multiplicador --> Jugador: Int
 
 deactivate PreguntaConPuntajeParcial
 deactivate Jugador
