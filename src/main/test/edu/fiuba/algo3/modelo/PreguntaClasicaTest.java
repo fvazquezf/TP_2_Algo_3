@@ -4,10 +4,7 @@ import edu.fiuba.algo3.modelo.excepciones.ExcepcionPreguntaNoEsDeTipoConPenalida
 import edu.fiuba.algo3.modelo.preguntas.PreguntaClasica;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -142,5 +139,81 @@ public class PreguntaClasicaTest {
 
         PreguntaClasica pregunta = new PreguntaClasica("pregunta", respuesta);
         assertThrows(ExcepcionPreguntaNoEsDeTipoConPenalidad.class, pregunta::activarMultiplicador);
+    }
+
+    @Test
+    public void Test09PreguntaClasicaGroupChoiceDevuelveUnPuntoPorAsignarCorrectamenteLosGrupos() {
+        Set<String> respuestasCorrectas = new HashSet<>();
+        respuestasCorrectas.add("a");
+        respuestasCorrectas.add("b");
+        respuestasCorrectas.add("c");
+        respuestasCorrectas.add("grupo1");
+
+        Set<String> respuestasJugador = new HashSet<>();
+        respuestasJugador.add("a");
+        respuestasJugador.add("b");
+        respuestasJugador.add("c");
+        respuestasJugador.add("grupo1");
+
+        PreguntaClasica pregunta = new PreguntaClasica("pregunta", respuestasCorrectas);
+        int puntos = pregunta.compararRespuestas(respuestasJugador);
+        assertEquals(1, puntos);
+    }
+
+    @Test
+    public void Test10PreguntaClasicaGroupChoiceDevuelveCeroPuntosPorNoAsignarPorCompletoLosGrupos() {
+        Set<String> respuestasCorrectas = new HashSet<>();
+        respuestasCorrectas.add("a");
+        respuestasCorrectas.add("b");
+        respuestasCorrectas.add("c");
+        respuestasCorrectas.add("grupo1");
+
+        Set<String> respuestasJugador = new HashSet<>();
+        respuestasJugador.add("a");
+        respuestasJugador.add("b");
+        respuestasJugador.add("grupo1");
+
+        PreguntaClasica pregunta = new PreguntaClasica("pregunta", respuestasCorrectas);
+        int puntos = pregunta.compararRespuestas(respuestasJugador);
+        assertEquals(0, puntos);
+    }
+
+    @Test
+    public void Test11PreguntaClasicaGroupChoiceDevuelveCeroPuntosPorAsignarIncorrectamenteLosGrupos() {
+        Set<String> respuestasCorrectas = new HashSet<>();
+        respuestasCorrectas.add("a");
+        respuestasCorrectas.add("b");
+        respuestasCorrectas.add("c");
+        respuestasCorrectas.add("grupo1");
+
+        Set<String> respuestasJugador = new HashSet<>();
+        respuestasJugador.add("z");
+        respuestasJugador.add("y");
+        respuestasJugador.add("x");
+        respuestasJugador.add("grupo1");
+
+        PreguntaClasica pregunta = new PreguntaClasica("pregunta", respuestasCorrectas);
+        int puntos = pregunta.compararRespuestas(respuestasJugador);
+        assertEquals(0, puntos);
+    }
+
+    @Test
+    public void Test11PreguntaClasicaGroupChoiceDevuelveUnPuntoPorAsignarCorrectamenteEnDesordenLosGrupos() {
+        Set<String> respuestasCorrectas = new HashSet<>();
+        respuestasCorrectas.add("a");
+        respuestasCorrectas.add("b");
+        respuestasCorrectas.add("c");
+        respuestasCorrectas.add("grupo1");
+
+        Set<String> respuestasJugador = new HashSet<>();
+        respuestasJugador.add("b");
+        respuestasJugador.add("grupo1");
+        respuestasJugador.add("c");
+        respuestasJugador.add("a");
+
+
+        PreguntaClasica pregunta = new PreguntaClasica("pregunta", respuestasCorrectas);
+        int puntos = pregunta.compararRespuestas(respuestasJugador);
+        assertEquals(1, puntos);
     }
 }
