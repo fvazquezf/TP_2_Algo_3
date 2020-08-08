@@ -1,50 +1,46 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import edu.fiuba.algo3.modelo.preguntas.FabricaPreguntas;
+import edu.fiuba.algo3.modelo.preguntas.Pregunta;
+
+import java.util.*;
 
 public class Panel {
     private final FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
-    private Pregunta preguntas;
-    private final ArrayList <Jugador> jugadores;
+    private Pregunta pregunta;
+    private final HashMap<String, Jugador> jugadores;
 
-    public Panel(){
-        jugadores = new ArrayList<>();
-    }
-// NOTA: QUEDA COMENTADO HASTA REFACTORIZACIÓN DE JSON.
-//    public void crearPreguntaVoFClasica(String archivo) {
-//        LectorDeArchivo lector = new LectorDeArchivo();
-//        preguntas = lector.leerArchivo(archivo);
-//    }
-
-    public void crearPregunta(String unTipoPregunta, String unaPregunta, ArrayList<Boolean> unaRespuesta) {
-        try{
-            preguntas = fabricaPreguntas.crearPregunta(unTipoPregunta, unaPregunta, unaRespuesta);
-        }
-        catch (ExcepcionTipoPreguntaInvalida e){
-            // En un futuro hay que refactorizar para pasar a la siguiente pregunta.
-            System.out.println("ERROR PREGUNTA INVALIDA");
-        }
+    public Panel() {
+        jugadores = new HashMap<>();
     }
 
-    public void crearJugador(String unNombre) {
-        jugadores.add(new Jugador(unNombre));
+    public void crearPregunta(String tipoPregunta, String pregunta, Collection<String> respuestas) {
+        this.pregunta = fabricaPreguntas.crearPregunta(tipoPregunta, pregunta, respuestas);
     }
 
-    public String pasarPregunta(){ return preguntas.pasarPregunta();}
-
-
-    public void hacerPregunta(ArrayList<HashMap<Integer,Boolean>> respuestasJugadores) {
-        preguntas.hacerPregunta(jugadores, respuestasJugadores);
+    public void crearJugador(String nombre) {
+        jugadores.put(nombre, (new Jugador(nombre)));
     }
 
-    public ArrayList<Integer> pedirPuntos() {
-        ArrayList<Integer> puntos = new ArrayList<>();
-        for (Jugador jugador : jugadores) {
-            puntos.add(jugador.pedirPuntos());
-        }
-        return puntos;
+    public void hacerPregunta(String nombreJugador, Collection<String> respuestasJugadores) {
+        Jugador jugador = jugadores.get(nombreJugador);
+        int puntos = pregunta.compararRespuestas(respuestasJugadores);
+        jugador.asignarPuntos(puntos);
     }
 
+    public void activarDuplicador(String nombreJugador) {
+        Jugador jugador = jugadores.get(nombreJugador);
+        pregunta.activarMultiplicador();
+        jugador.estadoDuplicador();
+    }
 
+    public void activarTriplicador(String nombreJugador) {
+        Jugador jugador = jugadores.get(nombreJugador);
+        pregunta.activarMultiplicador();
+        jugador.estadoTriplicador();
+    }
+
+    public int pedirPuntos(String nombreJugador) {
+        return jugadores.get(nombreJugador).pedirPuntos();
+    }
 }

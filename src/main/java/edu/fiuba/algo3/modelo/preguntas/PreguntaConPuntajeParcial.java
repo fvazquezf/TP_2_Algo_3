@@ -1,0 +1,23 @@
+package edu.fiuba.algo3.modelo.preguntas;
+
+import java.util.Collection;
+
+public class PreguntaConPuntajeParcial extends Pregunta {
+
+    public PreguntaConPuntajeParcial(String pregunta, Collection<String> opcionesCorrectas) {
+        textoPregunta = pregunta;
+        this.opcionesCorrectas = opcionesCorrectas;
+    }
+
+    public Integer compararRespuestas(Collection<String> respuestasJugador) {
+        int puntos = 0;
+        for (String respuestaDelJugador : respuestasJugador) {
+            if (opcionesCorrectas.contains(respuestaDelJugador))
+                puntos++;
+            else {
+                return 0;
+            }
+        }
+        return puntos;
+    }
+}
