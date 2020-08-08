@@ -4,8 +4,7 @@ import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaUsasteTuDuplicadorSalame;
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaUsasteTuTriplicadorSalame;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class JugadorTest {
     @Test
@@ -28,7 +27,16 @@ public class JugadorTest {
         Jugador jugador1 = new Jugador("Rulo");
         jugador1.estadoDuplicador();
         jugador1.asignarPuntos(3);
-        assertThrows(ExcepcionYaUsasteTuDuplicadorSalame.class, jugador1::estadoDuplicador);
+
+        boolean seLanzoError = false;
+
+        try{
+            jugador1.estadoDuplicador();
+        }catch(ExcepcionYaUsasteTuDuplicadorSalame e){
+            seLanzoError = true;
+        }
+
+        assertTrue(seLanzoError);
     }
 
     @Test
@@ -53,7 +61,16 @@ public class JugadorTest {
         Jugador jugador1 = new Jugador("Rulo");
         jugador1.estadoTriplicador();
         jugador1.asignarPuntos(1);
-        assertThrows(ExcepcionYaUsasteTuTriplicadorSalame.class, jugador1::estadoTriplicador);
+
+        boolean seLanzoError = false;
+
+        try{
+            jugador1.estadoTriplicador();
+        }catch(ExcepcionYaUsasteTuTriplicadorSalame e){
+            seLanzoError = true;
+        }
+
+        assertTrue(seLanzoError);
     }
 
     @Test

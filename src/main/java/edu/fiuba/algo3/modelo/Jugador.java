@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaUsasteTuDuplicadorSalame;
-import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaUsasteTuTriplicadorSalame;
 import edu.fiuba.algo3.modelo.multiplicadores.Duplicador;
 import edu.fiuba.algo3.modelo.multiplicadores.Multiplicador;
 import edu.fiuba.algo3.modelo.multiplicadores.Triplicador;
@@ -12,13 +10,15 @@ public class Jugador {
     private final String nombre;
     private int puntos;
     private Multiplicador multiplicador;
-    boolean duplicadorDisponible = true;
-    boolean triplicadorDisponible = true;
+    private int duplicadoresDisponibles;
+    private int triplicadoresDisponibles;
 
     public Jugador(String nombre) {
         this.nombre = nombre;
         puntos = 0;
         multiplicador = new Uniplicador();
+        duplicadoresDisponibles = 1;
+        triplicadoresDisponibles = 1;
     }
 
     public int pedirPuntos() {
@@ -26,15 +26,13 @@ public class Jugador {
     }
 
     public void estadoDuplicador() {
-        if (duplicadorDisponible) multiplicador = new Duplicador();
-        else throw new ExcepcionYaUsasteTuDuplicadorSalame();
-        duplicadorDisponible = false;
+        multiplicador = new Duplicador(duplicadoresDisponibles);
+        duplicadoresDisponibles --;
     }
 
     public void estadoTriplicador() {
-        if (triplicadorDisponible) multiplicador = new Triplicador();
-        else throw new ExcepcionYaUsasteTuTriplicadorSalame();
-        triplicadorDisponible = false;
+        multiplicador = new Triplicador(triplicadoresDisponibles);
+        triplicadoresDisponibles --;
     }
 
     public void asignarPuntos(int puntos) {
