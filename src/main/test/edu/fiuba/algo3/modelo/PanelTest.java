@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.excepciones.ExcepcionPreguntaNoEsDeTipoConPenalidad;
+import edu.fiuba.algo3.modelo.excepciones.ExcepcionSoloPreguntaConPenalidadPuedeUsarMultiplicador;
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaUsasteTuDuplicadorSalame;
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaUsasteTuTriplicadorSalame;
 import org.junit.jupiter.api.Test;
@@ -588,7 +588,7 @@ public class PanelTest {
         panel.crearPregunta("preguntaMCClasica", "pregunta", respuestaCorrecta);
         panel.crearJugador("Stef");
 
-        assertThrows(ExcepcionPreguntaNoEsDeTipoConPenalidad.class, () -> panel.activarDuplicador("Stef"));
+        assertThrows(ExcepcionSoloPreguntaConPenalidadPuedeUsarMultiplicador.class, () -> panel.activarDuplicador("Stef"));
     }
 
     @Test
@@ -604,7 +604,7 @@ public class PanelTest {
         panel.crearPregunta("preguntaMCConPuntajeParcial", "pregunta", respuestaCorrecta);
         panel.crearJugador("Stef");
 
-        assertThrows(ExcepcionPreguntaNoEsDeTipoConPenalidad.class, () -> panel.activarTriplicador("Stef"));
+        assertThrows(ExcepcionSoloPreguntaConPenalidadPuedeUsarMultiplicador.class, () -> panel.activarTriplicador("Stef"));
     }
 
 }

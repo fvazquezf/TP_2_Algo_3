@@ -30,6 +30,10 @@ public class Jugador {
     public void asignarPuntos(int puntos) {
         this.puntos += estadoMultiplicador.multiplicar(puntos);
     }
+
+    public void estadoExclusividad() {
+        estadoMultiplicador.estadoExclusividad();
+    }
 }
 
 

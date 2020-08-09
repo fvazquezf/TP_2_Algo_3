@@ -5,5 +5,4 @@ public class Uniplicador implements Multiplicador {
         return puntos;
     }
 
-
 }

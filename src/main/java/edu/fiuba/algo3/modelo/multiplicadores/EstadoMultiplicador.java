@@ -3,8 +3,9 @@ package edu.fiuba.algo3.modelo.multiplicadores;
 public class EstadoMultiplicador {
 
     private Uniplicador uniplicador = new Uniplicador();
-    private Duplicador duplicador = new Duplicador();
+    private Duplicador duplicador = new Duplicador(1);
     private Triplicador triplicador = new Triplicador();
+    private Duplicador exclusividad = new Duplicador(2);
     private Multiplicador multiplicadorActual = uniplicador;
 
     public EstadoMultiplicador() {
@@ -24,5 +25,10 @@ public class EstadoMultiplicador {
     public void estadoTriplicador() {
         triplicador.cambiarEstado();
         multiplicadorActual = triplicador;
+    }
+
+    public void estadoExclusividad() {
+        exclusividad.cambiarEstado();
+        multiplicadorActual = exclusividad;
     }
 }
