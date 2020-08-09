@@ -33,14 +33,15 @@ public class Panel {
 
     public void activarExclusividad(String nombreJugador) {
         Jugador jugador = jugadores.get(nombreJugador);
+        pregunta.activarExclusividad();
         jugador.activarExclusividad();
         estadoExclusividad.activarExclusividad();
     }
 
     public void calcularExclusividad() {
         estadoExclusividad.calcularExclusividad(jugadores);
+        estadoExclusividad.desactivarExclusividad();
     }
-
 
     public void activarDuplicador(String nombreJugador) {
         Jugador jugador = jugadores.get(nombreJugador);
