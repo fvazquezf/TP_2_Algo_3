@@ -1617,10 +1617,9 @@ public class PanelTest {
         assertEquals(2,panel.pedirPuntos("Ivan"));
 
         panel.crearPregunta("preguntaMCClasica", "pregunta", respuestaCorrectaMCC);
-
         panel.activarExclusividad("Stef");
+
         panel.hacerPregunta("Stef",respuestaJugador1MCC);
-        
         panel.activarExclusividad("Ivan");
         panel.hacerPregunta("Ivan",respuestaJugador2MCC);
 
