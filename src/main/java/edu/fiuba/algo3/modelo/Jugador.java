@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaUsasteTuDuplicadorSalame;
-import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaUsasteTuTriplicadorSalame;
 import edu.fiuba.algo3.modelo.multiplicadores.*;
 
 public class Jugador {
@@ -22,16 +20,15 @@ public class Jugador {
     }
 
     public void estadoDuplicador() {
-        estadoMultiplicador.setearDuplicador();
+        estadoMultiplicador.estadoDuplicador();
     }
 
     public void estadoTriplicador() {
-        estadoMultiplicador.setearTriplicador();
+        estadoMultiplicador.estadoTriplicador();
     }
 
     public void asignarPuntos(int puntos) {
         this.puntos += estadoMultiplicador.multiplicar(puntos);
-        estadoMultiplicador.setearUnificador();
     }
 }
 

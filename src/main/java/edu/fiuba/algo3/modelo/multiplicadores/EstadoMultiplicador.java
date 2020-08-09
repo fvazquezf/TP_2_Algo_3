@@ -1,45 +1,28 @@
 package edu.fiuba.algo3.modelo.multiplicadores;
 
-import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaUsasteTuDuplicadorSalame;
-import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaUsasteTuTriplicadorSalame;
-
 public class EstadoMultiplicador {
 
-    private Uniplicador uniplicador;
-    private Duplicador duplicador;
-    private Triplicador triplicador;
-    private Multiplicador multiplicadorActual;
-    Integer cantidadDuplicador;
-    Integer cantidadTriplicador;
+    private Uniplicador uniplicador = new Uniplicador();
+    private Duplicador duplicador = new Duplicador();
+    private Triplicador triplicador = new Triplicador();
+    private Multiplicador multiplicadorActual = uniplicador;
 
     public EstadoMultiplicador() {
-        uniplicador = new Uniplicador();
-        duplicador = new Duplicador();
-        triplicador = new Triplicador();
-        multiplicadorActual = uniplicador;
-        cantidadDuplicador = 1;
-        cantidadTriplicador = 1;
     }
 
     public Integer multiplicar(int puntos) {
-        return multiplicadorActual.multiplicar(puntos);
-    }
-
-    public void setearUnificador() {
+        puntos = multiplicadorActual.multiplicar(puntos);
         multiplicadorActual = uniplicador;
+        return puntos;
     }
 
-    public void setearDuplicador() {
-        if (cantidadDuplicador < 1)
-            throw new ExcepcionYaUsasteTuDuplicadorSalame();
+    public void estadoDuplicador() {
+        duplicador.cambiarEstado();
         multiplicadorActual = duplicador;
-        cantidadDuplicador--;
     }
 
-    public void setearTriplicador() {
-        if (cantidadTriplicador < 1)
-            throw new ExcepcionYaUsasteTuTriplicadorSalame();
+    public void estadoTriplicador() {
+        triplicador.cambiarEstado();
         multiplicadorActual = triplicador;
-        cantidadTriplicador--;
     }
 }
