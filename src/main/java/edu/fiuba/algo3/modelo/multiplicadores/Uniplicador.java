@@ -4,4 +4,6 @@ public class Uniplicador implements Multiplicador {
     public Integer multiplicar(int puntos) {
         return puntos;
     }
+
+
 }
