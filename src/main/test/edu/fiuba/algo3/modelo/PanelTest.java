@@ -494,6 +494,7 @@ public class PanelTest {
         panel.activarDuplicador("Stef");
         panel.hacerPregunta("Stef", respuestaJugador);
 
+
         assertEquals(6, panel.pedirPuntos("Stef"));
     }
 
@@ -606,5 +607,7 @@ public class PanelTest {
 
         assertThrows(ExcepcionSoloPreguntaConPenalidadPuedeUsarMultiplicador.class, () -> panel.activarTriplicador("Stef"));
     }
+
+
 
 }

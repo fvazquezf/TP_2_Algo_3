@@ -9,6 +9,8 @@ public class Panel {
     private final FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
     private Pregunta pregunta;
     private final HashMap<String, Jugador> jugadores;
+    private EstadoExclusividad estadoExclusividad = new EstadoExclusividad();
+
 
     public Panel() {
         jugadores = new HashMap<>();
@@ -26,7 +28,19 @@ public class Panel {
         Jugador jugador = jugadores.get(nombreJugador);
         int puntos = pregunta.compararRespuestas(respuestasJugadores);
         jugador.asignarPuntos(puntos);
+        estadoExclusividad.guardarRespuesta(nombreJugador, puntos);
     }
+
+    public void activarExclusividad(String nombreJugador) {
+        Jugador jugador = jugadores.get(nombreJugador);
+        jugador.activarExclusividad();
+        estadoExclusividad.activarExclusividad();
+    }
+
+    public void calcularExclusividad() {
+        estadoExclusividad.calcularExclusividad(jugadores);
+    }
+
 
     public void activarDuplicador(String nombreJugador) {
         Jugador jugador = jugadores.get(nombreJugador);

@@ -3,11 +3,8 @@ package edu.fiuba.algo3.modelo.multiplicadores;
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaUsasteTuDuplicadorSalame;
 
 public class Duplicador implements Multiplicador {
-    private int cantidadDuplicador;
+    private int cantidadDuplicador = 1;
 
-    public Duplicador(int usos) {
-        cantidadDuplicador = usos;
-    }
 
     public Integer multiplicar(int puntos) {
         return puntos * 2;
@@ -17,5 +14,10 @@ public class Duplicador implements Multiplicador {
         if (cantidadDuplicador < 1)
             throw new ExcepcionYaUsasteTuDuplicadorSalame();
         cantidadDuplicador--;
+    }
+
+    @Override
+    public Multiplicador proximo() {
+        return null;
     }
 }

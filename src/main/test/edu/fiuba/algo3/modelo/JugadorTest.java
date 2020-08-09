@@ -64,33 +64,4 @@ public class JugadorTest {
         jugador1.asignarPuntos(2);
         assertEquals(5, jugador1.pedirPuntos());
     }
-
-    @Test
-    public void Test08JugadorUsaExclusividadRespondeCorrectamenteSeLeAsignanDosPuntos() {
-        Jugador jugador1 = new Jugador("Rulo");
-        jugador1.estadoExclusividad();
-        jugador1.asignarPuntos(1);
-        assertEquals(2, jugador1.pedirPuntos());
-    }
-
-    @Test
-    public void Test09JugadorUsaExclusividadDosVecesRespondeCorrectamenteSeLeAsignanCuatroPuntos() {
-        Jugador jugador1 = new Jugador("Rulo");
-        jugador1.estadoExclusividad();
-        jugador1.asignarPuntos(1);
-        jugador1.estadoExclusividad();
-        jugador1.asignarPuntos(1);
-        assertEquals(4, jugador1.pedirPuntos());
-    }
-
-    @Test
-    public void Test10JugadorUsaExclusividadTresVecesLanzaExcepcion() {
-        Jugador jugador1 = new Jugador("Rulo");
-        jugador1.estadoExclusividad();
-        jugador1.asignarPuntos(1);
-        jugador1.estadoExclusividad();
-        jugador1.asignarPuntos(1);
-        assertThrows(ExcepcionYaUsasteTuDuplicadorSalame.class, jugador1::estadoExclusividad);
-    }
-
 }
