@@ -14,4 +14,7 @@ public abstract class Pregunta {
     public void activarMultiplicador() {
         throw new ExcepcionSoloPreguntaConPenalidadPuedeUsarMultiplicador();
     }
+
+    public void activarExclusividad() {
+    }
 }
