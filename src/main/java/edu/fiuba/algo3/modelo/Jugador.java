@@ -27,12 +27,12 @@ public class Jugador {
 
     public void estadoDuplicador() {
         multiplicador = new Duplicador(duplicadoresDisponibles);
-        duplicadoresDisponibles --;
+        duplicadoresDisponibles--;
     }
 
     public void estadoTriplicador() {
         multiplicador = new Triplicador(triplicadoresDisponibles);
-        triplicadoresDisponibles --;
+        triplicadoresDisponibles--;
     }
 
     public void asignarPuntos(int puntos) {

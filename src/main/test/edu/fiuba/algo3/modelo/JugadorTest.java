@@ -30,13 +30,13 @@ public class JugadorTest {
 
         boolean seLanzoError = false;
 
-        try{
+        try {
             jugador1.estadoDuplicador();
-        }catch(ExcepcionYaUsasteTuDuplicadorSalame e){
+        } catch (ExcepcionYaUsasteTuDuplicadorSalame e) {
             seLanzoError = true;
         }
 
-        assertTrue(seLanzoError);
+        assert (seLanzoError);
     }
 
     @Test
@@ -64,13 +64,13 @@ public class JugadorTest {
 
         boolean seLanzoError = false;
 
-        try{
+        try {
             jugador1.estadoTriplicador();
-        }catch(ExcepcionYaUsasteTuTriplicadorSalame e){
+        } catch (ExcepcionYaUsasteTuTriplicadorSalame e) {
             seLanzoError = true;
         }
 
-        assertTrue(seLanzoError);
+        assert (seLanzoError);
     }
 
     @Test
