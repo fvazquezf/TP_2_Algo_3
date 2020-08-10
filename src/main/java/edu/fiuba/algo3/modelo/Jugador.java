@@ -1,18 +1,18 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaUsasteLasExclusividadesSalame;
 import edu.fiuba.algo3.modelo.multiplicadores.*;
 
 public class Jugador {
 
     private final String nombre;
-    private int puntos;
-    private EstadoMultiplicador estadoMultiplicador;
+    private int puntos = 0;
+    private EstadoMultiplicador estadoMultiplicador = new EstadoMultiplicador();
+    private int exclusividadDisponible = 2;
 
 
     public Jugador(String nombre) {
         this.nombre = nombre;
-        puntos = 0;
-        estadoMultiplicador = new EstadoMultiplicador();
     }
 
     public int pedirPuntos() {
@@ -29,6 +29,13 @@ public class Jugador {
 
     public void asignarPuntos(int puntos) {
         this.puntos += estadoMultiplicador.multiplicar(puntos);
+    }
+
+    public void activarExclusividad() {
+        if(exclusividadDisponible == 0){
+            throw new ExcepcionYaUsasteLasExclusividadesSalame();
+        }
+        exclusividadDisponible--;
     }
 }
 

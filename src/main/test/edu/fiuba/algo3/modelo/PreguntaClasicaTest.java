@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.excepciones.ExcepcionPreguntaNoEsDeTipoConPenalidad;
+
+import edu.fiuba.algo3.modelo.excepciones.ExcepcionSoloPreguntaConPenalidadPuedeUsarMultiplicador;
 import edu.fiuba.algo3.modelo.preguntas.PreguntaClasica;
 import org.junit.jupiter.api.Test;
 
@@ -138,7 +139,7 @@ public class PreguntaClasicaTest {
         respuesta.add("F");
 
         PreguntaClasica pregunta = new PreguntaClasica("pregunta", respuesta);
-        assertThrows(ExcepcionPreguntaNoEsDeTipoConPenalidad.class, pregunta::activarMultiplicador);
+        assertThrows(ExcepcionSoloPreguntaConPenalidadPuedeUsarMultiplicador.class, pregunta::activarMultiplicador);
     }
 
     @Test
@@ -216,4 +217,5 @@ public class PreguntaClasicaTest {
         int puntos = pregunta.compararRespuestas(respuestasJugador);
         assertEquals(1, puntos);
     }
+
 }

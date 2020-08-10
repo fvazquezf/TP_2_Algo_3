@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.preguntas;
 
+import edu.fiuba.algo3.modelo.excepciones.ExcepcionSoloPreguntasClasicasYPuntajeParcialPuedeUsarExclusividad;
+
 import java.util.Collection;
 
 public class PreguntaConPenalidad extends Pregunta {
@@ -22,5 +24,9 @@ public class PreguntaConPenalidad extends Pregunta {
 
     @Override
     public void activarMultiplicador() {
+    }
+
+    public void activarExclusividad() {
+        throw new ExcepcionSoloPreguntasClasicasYPuntajeParcialPuedeUsarExclusividad();
     }
 }

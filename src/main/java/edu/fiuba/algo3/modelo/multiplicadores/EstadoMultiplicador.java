@@ -7,9 +7,6 @@ public class EstadoMultiplicador {
     private Triplicador triplicador = new Triplicador();
     private Multiplicador multiplicadorActual = uniplicador;
 
-    public EstadoMultiplicador() {
-    }
-
     public Integer multiplicar(int puntos) {
         puntos = multiplicadorActual.multiplicar(puntos);
         multiplicadorActual = uniplicador;
@@ -25,4 +22,7 @@ public class EstadoMultiplicador {
         triplicador.cambiarEstado();
         multiplicadorActual = triplicador;
     }
+
+
+
 }

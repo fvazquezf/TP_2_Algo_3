@@ -5,5 +5,7 @@ public class Uniplicador implements Multiplicador {
         return puntos;
     }
 
-
+    public Multiplicador proximo(){
+        return new Triplicador();
+    }
 }

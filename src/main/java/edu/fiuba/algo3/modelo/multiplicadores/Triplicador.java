@@ -14,4 +14,9 @@ public class Triplicador implements Multiplicador {
             throw new ExcepcionYaUsasteTuTriplicadorSalame();
         cantidadTriplicador--;
     }
+
+    @Override
+    public Multiplicador proximo() {
+        return null;
+    }
 }
