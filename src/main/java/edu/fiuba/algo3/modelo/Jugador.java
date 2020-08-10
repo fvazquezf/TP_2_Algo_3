@@ -1,24 +1,18 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaUsasteTuDuplicadorSalame;
-import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaUsasteTuTriplicadorSalame;
-import edu.fiuba.algo3.modelo.multiplicadores.Duplicador;
-import edu.fiuba.algo3.modelo.multiplicadores.Multiplicador;
-import edu.fiuba.algo3.modelo.multiplicadores.Triplicador;
-import edu.fiuba.algo3.modelo.multiplicadores.Uniplicador;
+import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaUsasteLasExclusividadesSalame;
+import edu.fiuba.algo3.modelo.multiplicadores.*;
 
 public class Jugador {
 
     private final String nombre;
-    private int puntos;
-    private Multiplicador multiplicador;
-    boolean duplicador = true;
-    boolean triplicador = true;
+    private int puntos = 0;
+    private EstadoMultiplicador estadoMultiplicador = new EstadoMultiplicador();
+    private int exclusividadDisponible = 2;
+
 
     public Jugador(String nombre) {
         this.nombre = nombre;
-        puntos = 0;
-        multiplicador = new Uniplicador();
     }
 
     public int pedirPuntos() {
@@ -26,20 +20,22 @@ public class Jugador {
     }
 
     public void estadoDuplicador() {
-        if (duplicador) multiplicador = new Duplicador();
-        else throw new ExcepcionYaUsasteTuDuplicadorSalame();
-        duplicador = false;
+        estadoMultiplicador.estadoDuplicador();
     }
 
     public void estadoTriplicador() {
-        if (triplicador) multiplicador = new Triplicador();
-        else throw new ExcepcionYaUsasteTuTriplicadorSalame();
-        triplicador = false;
+        estadoMultiplicador.estadoTriplicador();
     }
 
     public void asignarPuntos(int puntos) {
-        this.puntos += multiplicador.multiplicar(puntos);
-        multiplicador = new Uniplicador();
+        this.puntos += estadoMultiplicador.multiplicar(puntos);
+    }
+
+    public void activarExclusividad() {
+        if(exclusividadDisponible == 0){
+            throw new ExcepcionYaUsasteLasExclusividadesSalame();
+        }
+        exclusividadDisponible--;
     }
 }
 

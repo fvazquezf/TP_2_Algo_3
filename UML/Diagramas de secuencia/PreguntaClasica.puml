@@ -1,0 +1,68 @@
+@startuml TP2
+
+title Diagrama de secuencia para pregunta verdadero o falso clásica
+
+hide footbox
+skinparam backgroundColor white
+
+skinparam sequence {
+ArrowColor DimGray
+ActorBorderColor DodgerBlue
+LifeLineBorderColor Navy
+LifeLineBackgroundColor CornflowerBlue
+ParticipantBorderColor LighSlateGray
+ParticipantBackgroundColor CornflowerBlue
+ParticipantFontName Impact
+ParticipantFontSize 17
+ParticipantFontColor #A9DCDF
+ActorBackgroundColor mintCream
+ActorFontColor CornflowerBlue
+ActorFontSize 17
+ActorFontName Aapex
+}
+
+actor TestCase
+activate TestCase
+
+participant ":Panel" as Panel
+create Panel
+TestCase -> Panel : new()
+activate Panel
+
+participant ":FabricaDePreguntas" as FabricaDePreguntas
+create FabricaDePreguntas
+Panel -> FabricaDePreguntas :  new()
+activate FabricaDePreguntas
+FabricaDePreguntas --> Panel : FabricaDePreguntas
+
+TestCase -> Panel : crearPregunta(String, String, Set<String>)
+
+Panel -> FabricaDePreguntas : crearPregunta(String, String, Set<String>)
+
+FabricaDePreguntas -> PreguntaClasica: new()
+activate PreguntaClasica
+PreguntaClasica --> FabricaDePreguntas: PreguntaClasica
+FabricaDePreguntas --> Panel: PreguntaClasica
+
+TestCase -> Panel: crearJugador(String)
+Panel -> Jugador: new(String)
+activate Jugador
+Jugador --> Panel: Jugador
+
+TestCase -> Panel: hacerPregunta(String, Set<String>)
+Panel -> PreguntaClasica: compararRespuestas(Collection<String>)
+PreguntaClasica --> Panel: Int
+Panel -> Jugador: asignarPuntos(Int)
+Jugador -> Multiplicador: multiplicar(Int)
+activate Multiplicador
+Multiplicador --> Jugador: Int
+
+deactivate Multiplicador
+
+deactivate PreguntaClasica
+deactivate Jugador
+deactivate FabricaDePreguntas
+deactivate Panel
+deactivate TestCase
+
+@enduml

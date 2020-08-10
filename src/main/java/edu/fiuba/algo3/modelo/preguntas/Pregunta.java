@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.preguntas;
 
-import edu.fiuba.algo3.modelo.excepciones.ExcepcionPreguntaNoEsDeTipoConPenalidad;
+
+import edu.fiuba.algo3.modelo.excepciones.ExcepcionSoloPreguntaConPenalidadPuedeUsarMultiplicador;
 
 import java.util.Collection;
 
@@ -10,7 +11,10 @@ public abstract class Pregunta {
 
     public abstract Integer compararRespuestas(Collection<String> respuestasJugador);
 
-    public void usarMultiplicador() {
-        throw new ExcepcionPreguntaNoEsDeTipoConPenalidad();
+    public void activarMultiplicador() {
+        throw new ExcepcionSoloPreguntaConPenalidadPuedeUsarMultiplicador();
+    }
+
+    public void activarExclusividad() {
     }
 }
