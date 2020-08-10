@@ -21,13 +21,9 @@ public class EstadoExclusividad {
         Enumeration<String> nombresJugadores = puntosJugadores.keys();
         String J1 = nombresJugadores.nextElement();
         String J2 = nombresJugadores.nextElement();
-
         if((puntosJugadores.get(J1).equals(0) || puntosJugadores.get(J2).equals(0))) {
-            jugadores.get(J1).asignarPuntos(estadoActual.multiplicar(puntosJugadores.get(J1)));
-            jugadores.get(J2).asignarPuntos(estadoActual.multiplicar(puntosJugadores.get(J2)));
+            jugadores.forEach((s, jugador) -> jugador.asignarPuntos(estadoActual.multiplicar(puntosJugadores.get(s))));
         }
-
-
         estadoActual = new Ceroplicador();
     }
 }
