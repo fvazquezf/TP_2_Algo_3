@@ -1061,7 +1061,7 @@ public class PanelTest {
     }
 
     @Test
-    public void test42CreoUnaPreguntaMCConPuntajeParcialElJugadorUnoActivaExclusividadContestaBienYElSegundoContestaParcialmenteBienSeLeDuplicanLosPuntosAlPrimerJugador() {
+    public void test42CreoUnaPreguntaMCConPuntajeParcialElJugadorUnoActivaExclusividadContestaBienYElSegundoContestaParcialmenteBienNoSeLeDuplicanLosPuntos() {
         Set<String> respuestaCorrecta = new HashSet<>();
         respuestaCorrecta.add("a");
         respuestaCorrecta.add("c");
@@ -1092,7 +1092,7 @@ public class PanelTest {
 
         panel.calcularExclusividad();
 
-        assertEquals(6,panel.pedirPuntos("Stef"));
+        assertEquals(3,panel.pedirPuntos("Stef"));
         assertEquals(2,panel.pedirPuntos("Ivan"));
     }
 
@@ -1135,7 +1135,7 @@ public class PanelTest {
     }
 
     @Test
-    public void test44CreoUnaPreguntaMCConPuntajeParcialElJugadorUnoActivaExclusividadContestaParcialmenteBienYElSegundoContestaParcialmenteBienMejorQueElJugadorUnoSeLeDuplicanLosPuntosAlSegundoJugador() {
+    public void test44CreoUnaPreguntaMCConPuntajeParcialElJugadorUnoActivaExclusividadContestaParcialmenteBienYElSegundoContestaParcialmenteBienMejorQueElJugadorUnoNoSeLeDuplicanLosPuntos() {
         Set<String> respuestaCorrecta = new HashSet<>();
         respuestaCorrecta.add("a");
         respuestaCorrecta.add("c");
@@ -1168,7 +1168,7 @@ public class PanelTest {
         panel.calcularExclusividad();
 
         assertEquals(2,panel.pedirPuntos("Stef"));
-        assertEquals(6,panel.pedirPuntos("Ivan"));
+        assertEquals(3,panel.pedirPuntos("Ivan"));
     }
 
     @Test
@@ -1548,86 +1548,4 @@ public class PanelTest {
 
         assertThrows(ExcepcionYaUsasteLasExclusividadesSalame.class, ()->panel.activarExclusividad("Stef"));
     }
-
-    @Test
-    public void test54CreoUnaPreguntaVoFClasicaOtraMCPuntajePArcialyunMCClasicaEljugador1ContestaTodasBienElSegundoContestaParcialmenteBienLaSegunda() {
-
-        Set<String> respuestaCorrectaVF = new HashSet<>();
-        respuestaCorrectaVF.add("a");
-
-        Set<String> respuestaJugador1VF = new HashSet<>();
-        respuestaJugador1VF.add("a");
-
-        Set<String> respuestaJugador2VF = new HashSet<>();
-        respuestaJugador2VF.add("b");
-
-        Set<String> respuestaCorrectaMC = new HashSet<>();
-        respuestaCorrectaMC.add("a");
-        respuestaCorrectaMC.add("b");
-        respuestaCorrectaMC.add("d");
-
-        Set<String> respuestaJugador1MC = new HashSet<>();
-        respuestaJugador1MC.add("a");
-        respuestaJugador1MC.add("b");
-        respuestaJugador1MC.add("d");
-
-        Set<String> respuestaJugador2MC = new HashSet<>();
-        respuestaJugador2MC.add("a");
-        respuestaJugador2MC.add("d");
-
-        Set<String> respuestaCorrectaMCC = new HashSet<>();
-        respuestaCorrectaMCC.add("a");
-        respuestaCorrectaMCC.add("c");
-
-        Set<String> respuestaJugador1MCC = new HashSet<>();
-        respuestaJugador1MCC.add("c");
-        respuestaJugador1MCC.add("a");
-
-        Set<String> respuestaJugador2MCC = new HashSet<>();
-        respuestaJugador2MCC.add("a");
-        respuestaJugador2MCC.add("d");
-
-        Panel panel = new Panel();
-
-        panel.crearPregunta("preguntaVoFClasica", "pregunta", respuestaCorrectaVF);
-
-        panel.crearJugador("Stef");
-        panel.crearJugador("Ivan");
-
-
-        panel.hacerPregunta("Stef",respuestaJugador1VF);
-
-        panel.hacerPregunta("Ivan",respuestaJugador2VF);
-
-        panel.calcularExclusividad();
-
-        assertEquals(1,panel.pedirPuntos("Stef"));
-        assertEquals(0,panel.pedirPuntos("Ivan"));
-
-        panel.crearPregunta("preguntaMCConPuntajeParcial", "pregunta", respuestaCorrectaMC);
-
-        panel.activarExclusividad("Stef");
-        panel.hacerPregunta("Stef",respuestaJugador1MC);
-
-        panel.hacerPregunta("Ivan",respuestaJugador2MC);
-
-        panel.calcularExclusividad();
-
-        assertEquals(7,panel.pedirPuntos("Stef"));
-        assertEquals(2,panel.pedirPuntos("Ivan"));
-
-        panel.crearPregunta("preguntaMCClasica", "pregunta", respuestaCorrectaMCC);
-        panel.activarExclusividad("Stef");
-
-        panel.hacerPregunta("Stef",respuestaJugador1MCC);
-        panel.activarExclusividad("Ivan");
-        panel.hacerPregunta("Ivan",respuestaJugador2MCC);
-
-        panel.calcularExclusividad();
-
-        assertEquals(11,panel.pedirPuntos("Stef"));
-        assertEquals(2,panel.pedirPuntos("Ivan"));
-    }
-
-
 }

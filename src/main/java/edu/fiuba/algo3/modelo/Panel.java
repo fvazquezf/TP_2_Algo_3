@@ -25,22 +25,19 @@ public class Panel {
     }
 
     public void hacerPregunta(String nombreJugador, Collection<String> respuestasJugadores) {
-        Jugador jugador = jugadores.get(nombreJugador);
         int puntos = pregunta.compararRespuestas(respuestasJugadores);
-        jugador.asignarPuntos(puntos);
+        jugadores.get(nombreJugador).asignarPuntos(puntos);
         estadoExclusividad.guardarRespuesta(nombreJugador, puntos);
     }
 
     public void activarExclusividad(String nombreJugador) {
-        Jugador jugador = jugadores.get(nombreJugador);
         pregunta.activarExclusividad();
-        jugador.activarExclusividad();
+        jugadores.get(nombreJugador).activarExclusividad();
         estadoExclusividad.activarExclusividad();
     }
 
     public void calcularExclusividad() {
         estadoExclusividad.calcularExclusividad(jugadores);
-        estadoExclusividad.desactivarExclusividad();
     }
 
     public void activarDuplicador(String nombreJugador) {
