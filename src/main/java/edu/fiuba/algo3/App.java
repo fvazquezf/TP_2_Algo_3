@@ -16,12 +16,16 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        Panel.obtenerPanel().crearJugador("Pancho");
+        Panel panel = new Panel();
+        panel.crearJugador("Pancho");
+
         Set<String> respuestaCorrecta = new HashSet<>();
         respuestaCorrecta.add("V");
-        Panel.obtenerPanel().crearPregunta("preguntaVoFConPenalidad", "pregunta", respuestaCorrecta);
+        panel.crearPregunta("preguntaVoFConPenalidad", "pregunta", respuestaCorrecta);
 
-        Scene scene = VistaPregunta.devolverVistaPregunta();
+        VistaPregunta vistaPregunta = new VistaPregunta(panel);
+        Scene scene = vistaPregunta.devolverVistaPregunta();
+
         stage.setTitle("elCajú");
         stage.setScene(scene);
         stage.show();

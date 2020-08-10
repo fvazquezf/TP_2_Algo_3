@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaUsasteLasExclusividadesSalame;
 import edu.fiuba.algo3.modelo.multiplicadores.*;
 
+import java.util.ArrayList;
+
 public class Jugador {
 
     private final String nombre;

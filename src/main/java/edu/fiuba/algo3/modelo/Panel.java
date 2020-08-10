@@ -5,22 +5,16 @@ import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 
 import java.util.*;
 
-public class Panel {
-
-    private final static Panel panel = new Panel();
-
+public class Panel implements Observable{
     private final FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
     private Pregunta pregunta;
     private final HashMap<String, Jugador> jugadores;
     private EstadoExclusividad estadoExclusividad = new EstadoExclusividad();
-
+    private ArrayList<Observador> observadores;
 
     public Panel() {
+        observadores = new ArrayList<Observador>();
         jugadores = new HashMap<>();
-    }
-
-    public static Panel obtenerPanel(){
-        return panel;
     }
 
     public void crearPregunta(String tipoPregunta, String pregunta, Collection<String> respuestas) {
@@ -35,6 +29,7 @@ public class Panel {
         int puntos = pregunta.compararRespuestas(respuestasJugadores);
         jugadores.get(nombreJugador).asignarPuntos(puntos);
         estadoExclusividad.guardarRespuesta(nombreJugador, puntos);
+        this.notificarObservador();
     }
 
     public void activarExclusividad(String nombreJugador) {
@@ -45,6 +40,7 @@ public class Panel {
 
     public void calcularExclusividad() {
         estadoExclusividad.calcularExclusividad(jugadores);
+        this.notificarObservador();
     }
 
     public void activarDuplicador(String nombreJugador) {
@@ -59,5 +55,15 @@ public class Panel {
 
     public int pedirPuntos(String nombreJugador) {
         return jugadores.get(nombreJugador).pedirPuntos();
+    }
+
+    @Override
+    public void agregarObservador(Observador observador) {
+        observadores.add(observador);
+    }
+
+    @Override
+    public void notificarObservador() {
+        observadores.stream().forEach(observer -> observer.actualizar());
     }
 }
