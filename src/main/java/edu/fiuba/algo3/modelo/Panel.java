@@ -23,6 +23,7 @@ public class Panel implements Observable{
 
     public void crearJugador(String nombre) {
         jugadores.put(nombre, (new Jugador(nombre)));
+        System.out.println(nombre);
     }
 
     public void hacerPregunta(String nombreJugador, Collection<String> respuestasJugadores) {

@@ -1,6 +1,7 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.modelo.Panel;
+import edu.fiuba.algo3.vista.VistaAgregarJugador;
 import edu.fiuba.algo3.vista.VistaPregunta;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -17,14 +18,18 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         Panel panel = new Panel();
-        panel.crearJugador("Pancho");
+
+        VistaAgregarJugador vistaAgregarJugador = new VistaAgregarJugador(panel);
+        Scene scene = vistaAgregarJugador.devolverVistaAgregarJugador();
+
+        //panel.crearJugador("Pancho");
 
         Set<String> respuestaCorrecta = new HashSet<>();
         respuestaCorrecta.add("V");
         panel.crearPregunta("preguntaVoFConPenalidad", "pregunta", respuestaCorrecta);
 
-        VistaPregunta vistaPregunta = new VistaPregunta(panel);
-        Scene scene = vistaPregunta.devolverVistaPregunta();
+//        VistaPregunta vistaPregunta = new VistaPregunta(panel);
+//        Scene scene = vistaPregunta.devolverVistaPregunta();
 
         stage.setTitle("elCajú");
         stage.setScene(scene);
