@@ -81,11 +81,11 @@ public class VistaPregunta implements Observador {
 
     @Override
     public void actualizar() {
-        String puntosJ1 = String.valueOf(panel.pedirPuntos(panel.jugadorActual()));
+        String puntosJ1 = String.valueOf(panel.pedirPuntos());
         panel.siguienteJugador();
         this.puntosJ1.setText(puntosJ1);
 
-        String puntosJ2 = String.valueOf(panel.pedirPuntos(panel.jugadorActual()));
+        String puntosJ2 = String.valueOf(panel.pedirPuntos());
         panel.siguienteJugador();
         this.puntosJ2.setText(puntosJ2);
 

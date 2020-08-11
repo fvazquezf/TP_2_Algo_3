@@ -20,7 +20,7 @@ public class ControladorBotonEnviar implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-       panel.crearJugador(vista.obtenerNombre());
+       panel.crearJugadores(vista.obtenerNombre(), "Rulo");
        ingresoNombre.setText("Jugador2 ingrese su nombre: ");
     }
 }

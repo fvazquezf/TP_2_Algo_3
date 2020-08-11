@@ -18,7 +18,7 @@ public class ControladorResponder implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
-        panel.hacerPregunta(panel.jugadorActual(), respuestaJugador);
+        panel.hacerPregunta(respuestaJugador);
         respuestaJugador.clear();
     }
 }
