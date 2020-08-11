@@ -7,18 +7,20 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 
 import java.util.HashSet;
 
 public class VistaPregunta implements Observador {
 
     private final Panel panel;
-    private Label puntos;
+    private Label puntosJ1;
+    private Label puntosJ2;
 
     public VistaPregunta(Panel panel){
         this.panel = panel;
-        panel.agregarObservador(this);
     }
 
 
@@ -30,9 +32,27 @@ public class VistaPregunta implements Observador {
         StackPane panelTop = new StackPane();
         panelTop.getChildren().add(pregunta);
 
-        puntos = new Label("0");
+
+        panel.siguienteJugador();
+        puntosJ1 = new Label("0");
+        Label nombreJ1 = new Label("Jugador 1 " + panel.jugadorActual() + ": ");
+        panel.siguienteJugador();
+
+        puntosJ2 = new Label("0");
+        Label nombreJ2 = new Label("Jugador 2 " + panel.jugadorActual() +": ");
+        panel.siguienteJugador();
+
+        HBox J1 = new HBox();
+        J1.getChildren().addAll(nombreJ1, puntosJ1);
+
+        HBox J2 = new HBox();
+        J2.getChildren().addAll(nombreJ2, puntosJ2);
+
+        VBox jugadores = new VBox();
+        jugadores.getChildren().addAll(J1, J2);
+
         StackPane panelBottom = new StackPane();
-        panelBottom.getChildren().add(puntos);
+        panelBottom.getChildren().add(jugadores);
 
         HashSet<String> respuestasJugador = new HashSet<>();
 
@@ -61,7 +81,13 @@ public class VistaPregunta implements Observador {
 
     @Override
     public void actualizar() {
-        String puntos = String.valueOf(panel.pedirPuntos("Pancho"));
-        this.puntos.setText(puntos);
+        String puntosJ1 = String.valueOf(panel.pedirPuntos(panel.jugadorActual()));
+        panel.siguienteJugador();
+        this.puntosJ1.setText(puntosJ1);
+
+        String puntosJ2 = String.valueOf(panel.pedirPuntos(panel.jugadorActual()));
+        panel.siguienteJugador();
+        this.puntosJ2.setText(puntosJ2);
+
     }
 }
