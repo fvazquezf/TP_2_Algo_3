@@ -33,8 +33,10 @@ public class VistaAgregarJugador{
 
         Label ingresoNombre1 = new Label( "Jugador1 ingrese su nombre: ");
         nombreJugador1 = new TextField();
+
         Label ingresoNombre2 = new Label( "Jugador2 ingrese su nombre: ");
         nombreJugador2 = new TextField();
+
         VBox vb = new VBox();
         vb.getChildren().addAll(ingresoNombre1, nombreJugador1, ingresoNombre2, nombreJugador2);
         vb.setSpacing(20);

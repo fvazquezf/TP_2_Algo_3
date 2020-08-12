@@ -4,9 +4,10 @@ import java.util.Collection;
 
 public class PreguntaConPuntajeParcial extends Pregunta {
 
-    public PreguntaConPuntajeParcial(String pregunta, Collection<String> opcionesCorrectas) {
+    public PreguntaConPuntajeParcial(String pregunta, Collection<String> opcionesCorrectas, Collection<String> todasLasOpciones) {
         textoPregunta = pregunta;
         this.opcionesCorrectas = opcionesCorrectas;
+        this.todasLasOpciones = todasLasOpciones;
     }
 
     public Integer compararRespuestas(Collection<String> respuestasJugador) {

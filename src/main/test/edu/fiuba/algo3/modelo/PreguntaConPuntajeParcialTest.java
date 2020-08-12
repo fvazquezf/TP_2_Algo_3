@@ -19,7 +19,7 @@ public class PreguntaConPuntajeParcialTest {
         Set<String> respuestasCorrectas = new HashSet<>();
         respuestasCorrectas.add("a");
 
-        PreguntaConPuntajeParcial preguntaConPuntajeParcial = new PreguntaConPuntajeParcial("Pregunta", respuestasCorrectas);
+        PreguntaConPuntajeParcial preguntaConPuntajeParcial = new PreguntaConPuntajeParcial("Pregunta", respuestasCorrectas, respuestasCorrectas);
 
         int puntos = preguntaConPuntajeParcial.compararRespuestas(respuestaElegidasDelJugador);
 
@@ -35,7 +35,7 @@ public class PreguntaConPuntajeParcialTest {
         respuestasCorrectas.add("a");
         respuestasCorrectas.add("b");
 
-        PreguntaConPuntajeParcial preguntaConPuntajeParcial = new PreguntaConPuntajeParcial("Pregunta", respuestasCorrectas);
+        PreguntaConPuntajeParcial preguntaConPuntajeParcial = new PreguntaConPuntajeParcial("Pregunta", respuestasCorrectas, respuestasCorrectas);
 
         int puntos = preguntaConPuntajeParcial.compararRespuestas(respuestaElegidasDelJugador);
 
@@ -52,7 +52,7 @@ public class PreguntaConPuntajeParcialTest {
         respuestasCorrectas.add("a");
         respuestasCorrectas.add("b");
 
-        PreguntaConPuntajeParcial preguntaConPuntajeParcial = new PreguntaConPuntajeParcial("Pregunta", respuestasCorrectas);
+        PreguntaConPuntajeParcial preguntaConPuntajeParcial = new PreguntaConPuntajeParcial("Pregunta", respuestasCorrectas, respuestasCorrectas);
 
         int puntos = preguntaConPuntajeParcial.compararRespuestas(respuestaElegidasDelJugador);
 
@@ -72,7 +72,7 @@ public class PreguntaConPuntajeParcialTest {
         respuestasCorrectas.add("d");
         respuestasCorrectas.add("b");
 
-        PreguntaConPuntajeParcial preguntaConPuntajeParcial = new PreguntaConPuntajeParcial("Pregunta", respuestasCorrectas);
+        PreguntaConPuntajeParcial preguntaConPuntajeParcial = new PreguntaConPuntajeParcial("Pregunta", respuestasCorrectas, respuestasCorrectas);
 
         int puntos = preguntaConPuntajeParcial.compararRespuestas(respuestaElegidasDelJugador);
 
@@ -85,7 +85,7 @@ public class PreguntaConPuntajeParcialTest {
         respuesta.add("V");
         respuesta.add("F");
 
-        PreguntaConPuntajeParcial pregunta = new PreguntaConPuntajeParcial("pregunta", respuesta);
+        PreguntaConPuntajeParcial pregunta = new PreguntaConPuntajeParcial("pregunta", respuesta,respuesta );
         assertThrows(ExcepcionSoloPreguntaConPenalidadPuedeUsarMultiplicador.class, pregunta::activarMultiplicador);
     }
 }
