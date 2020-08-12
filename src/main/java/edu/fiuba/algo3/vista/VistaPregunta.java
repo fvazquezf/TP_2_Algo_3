@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.Observador;
 import edu.fiuba.algo3.modelo.Panel;
 import javafx.geometry.Insets;
@@ -16,6 +17,8 @@ import java.util.HashSet;
 public class VistaPregunta implements Observador {
 
     private final Panel panel;
+    private Jugador j1;
+    private Jugador j2;
     private Label puntosJ1;
     private Label puntosJ2;
 
@@ -25,6 +28,13 @@ public class VistaPregunta implements Observador {
 
 
     public Scene devolverVistaPregunta(){
+
+        j1 = panel.pedirJugador1();
+        j1.agregarObservador(this);
+
+        j2 = panel.pedirJugador2();
+        j2.agregarObservador(this);
+
         BorderPane componentLayout = new BorderPane();
         componentLayout.setPadding(new Insets(20,100,10,100));
 
@@ -33,7 +43,6 @@ public class VistaPregunta implements Observador {
         panelTop.getChildren().add(pregunta);
 
 
-        panel.siguienteJugador();
         puntosJ1 = new Label("0");
         Label nombreJ1 = new Label("Jugador 1 " + panel.jugadorActual() + ": ");
         panel.siguienteJugador();
@@ -81,12 +90,10 @@ public class VistaPregunta implements Observador {
 
     @Override
     public void actualizar() {
-        String puntosJ1 = String.valueOf(panel.pedirPuntos());
-        panel.siguienteJugador();
+        String puntosJ1 = String.valueOf(j1.pedirPuntos());
         this.puntosJ1.setText(puntosJ1);
 
-        String puntosJ2 = String.valueOf(panel.pedirPuntos());
-        panel.siguienteJugador();
+        String puntosJ2 = String.valueOf(j2.pedirPuntos());
         this.puntosJ2.setText(puntosJ2);
 
     }

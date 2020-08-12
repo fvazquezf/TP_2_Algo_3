@@ -5,15 +5,19 @@ import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 
 import java.util.*;
 
-public class Panel{
+public class Panel implements Observable{
     private final FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
     private Pregunta pregunta;
 
     private Jugador jugadorActual;
     private Jugador jugadorSiguiente;
 
+    private Jugador jugador1;
+    private Jugador jugador2;
+
     private EstadoExclusividad estadoExclusividad = new EstadoExclusividad();
-    private ArrayList<Observador> observadores = new ArrayList<>();
+
+    private List<Observador> observadores  = new ArrayList<>();
 
 
     public void crearPregunta(String tipoPregunta, String pregunta, Collection<String> respuestas) {
@@ -21,8 +25,8 @@ public class Panel{
     }
 
     public void crearJugadores(String nombre1, String nombre2) {
-        jugadorActual = new Jugador(nombre1);
-        jugadorSiguiente = new Jugador(nombre2);
+        jugadorActual = jugador1 =  new Jugador(nombre1);
+        jugadorSiguiente = jugador2 = new Jugador(nombre2);
     }
 
     public void siguienteJugador() {
@@ -40,6 +44,7 @@ public class Panel{
         int puntos = pregunta.compararRespuestas(respuestasJugadores);
         jugadorActual.asignarPuntos(puntos);
         estadoExclusividad.guardarRespuesta(jugadorActual, puntos);
+        this.notificarObservador();
     }
 
     public void activarExclusividad() {
@@ -50,6 +55,7 @@ public class Panel{
 
     public void calcularExclusividad() {
         estadoExclusividad.calcularExclusividad(jugadorActual, jugadorSiguiente);
+        this.notificarObservador();
     }
 
     public void activarDuplicador() {
@@ -64,5 +70,22 @@ public class Panel{
 
     public int pedirPuntos(){
         return jugadorActual.pedirPuntos();
+    }
+
+    public Jugador pedirJugador1(){
+        return(jugador1);
+    }
+    public Jugador pedirJugador2(){
+        return(jugador2);
+    }
+
+    @Override
+    public void agregarObservador(Observador observador) {
+        observadores.add(observador);
+    }
+
+    @Override
+    public void notificarObservador() {
+        observadores.stream().forEach(observer -> observer.actualizar());
     }
 }
