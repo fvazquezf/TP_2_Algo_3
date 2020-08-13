@@ -20,7 +20,6 @@ public class CajaPregunta extends HBox implements Observador {
         super();
 
         this.panel = panel;
-        panel.agregarObservador(this);
 
         pregunta = new Label(panel.obtenerPreguntaActual());
 

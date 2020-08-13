@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.vista;
 
-
 import edu.fiuba.algo3.modelo.Observador;
 import edu.fiuba.algo3.modelo.Panel;
 import javafx.geometry.Insets;
