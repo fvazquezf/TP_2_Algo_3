@@ -7,22 +7,26 @@ import java.util.List;
 public class PreguntasJson {
     private String pregunta;
     private String tipoPregunta;
-    private List<String> respuestasCorrectas = new ArrayList<>();
-    private List<String> respuetaFalsa = new ArrayList<>();
+    private Opciones opcionesPosibles;
+    private Opciones opcionesCorrectas;
 
-    public PreguntasJson( String pregunta, String respuestaCorrecta, String respuestaFalsa) {
+    public PreguntasJson( String pregunta, String tipoPregunta, Opciones opcionesPosibles, Opciones opcionesCorrectas) {
         this.pregunta = pregunta;
-        this.respuestasCorrectas.add(respuestaCorrecta);
-        this.respuetaFalsa.add(respuestaFalsa);
+        this.tipoPregunta = tipoPregunta;
+        this.opcionesPosibles = opcionesPosibles;
+        this.opcionesCorrectas = opcionesCorrectas;
     }
 
     public String obtenerPregunta() {
-        return pregunta;
+        return this.pregunta;
     }
-    public List obtenerRespuestaCorrecta() {
-        return respuestasCorrectas;
+    public String obtenerTipoPregunta() {
+        return this.tipoPregunta;
     }
-        public List obtenerRespuestaFalsa() {
-        return respuetaFalsa;
+    public Opciones obtenerOpcionesPosibles() {
+        return this.opcionesPosibles;
+    }
+    public Opciones obtenerOpcionesCorrectas() {
+        return this.opcionesCorrectas;
     }
 }
