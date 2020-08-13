@@ -1,0 +1,79 @@
+@startuml
+
+title Diagrama de secuencia para pregunta Verdadero o Falso con Penalidad: los jugadores usan Duplicadores
+
+hide footbox
+skinparam backgroundColor white
+
+skinparam sequence {
+ArrowColor DimGray
+ActorBorderColor DodgerBlue
+LifeLineBorderColor Navy
+LifeLineBackgroundColor CornflowerBlue
+ParticipantBorderColor LighSlateGray
+ParticipantBackgroundColor CornflowerBlue
+ParticipantFontName Impact
+ParticipantFontSize 17
+ParticipantFontColor #A9DCDF
+ActorBackgroundColor mintCream
+ActorFontColor CornflowerBlue
+ActorFontSize 17
+ActorFontName Aapex
+}
+
+actor TestCase
+activate TestCase
+
+participant ":Panel" as Panel
+create Panel
+TestCase -> Panel : new()
+activate Panel
+
+
+TestCase -> Panel : crearPregunta(String, String, Set<String>, Set<String>)
+
+create PreguntaVoFConPenalidad
+Panel -> PreguntaVoFConPenalidad: new()
+activate PreguntaVoFConPenalidad
+PreguntaVoFConPenalidad -> Panel: PreguntaVoFConPenalidad
+
+TestCase -> Panel: crearJugadores(String, String)
+create Jugador
+Panel -> Jugador: new(String)
+activate Jugador
+Jugador --> Panel: JugadorActual
+Panel -> Jugador: new(String)
+Jugador --> Panel: JugadorSiguiente
+
+TestCase -> Panel: activarDuplicador(String, String)
+Panel -> Jugador: estadoDuplicador()
+create EstadoMultiplicador
+Jugador -> EstadoMultiplicador: new()
+activate EstadoMultiplicador
+Jugador -> EstadoMultiplicador: estadoDuplicador()
+create Duplicador
+EstadoMultiplicador -> Duplicador: new()
+activate Duplicador
+EstadoMultiplicador -> Duplicador: cambiarEstado()
+
+TestCase -> Panel: hacerPregunta(Set<String>)
+Panel -> PreguntaVoFConPenalidad: compararRespuestas(Collection<String>)
+PreguntaVoFConPenalidad --> Panel: Int
+Panel -> Jugador: asignarPuntos()
+Jugador -> EstadoMultiplicador: multiplicar()
+EstadoMultiplicador --> Jugador: Int
+
+TestCase -> Panel: hacerPregunta(Set<String>)
+Panel -> PreguntaVoFConPenalidad: compararRespuestas(Set<String>)
+PreguntaVoFConPenalidad --> Panel: Int
+Panel -> Jugador: asignarPuntos(Int)
+Jugador -> EstadoMultiplicador: multiplicar()
+EstadoMultiplicador --> Jugador: Int
+
+
+deactivate PreguntaVoFConPenalidad
+deactivate Jugador
+deactivate Panel
+deactivate TestCase
+
+@enduml

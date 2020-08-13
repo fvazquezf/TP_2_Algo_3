@@ -35,29 +35,34 @@ Panel -> FabricaDePreguntas :  new()
 activate FabricaDePreguntas
 FabricaDePreguntas --> Panel : FabricaDePreguntas
 
-TestCase -> Panel : crearPregunta(String, String, Set<String>)
+TestCase -> Panel : crearPregunta(String, String, Set<String>, Set<String>)
 
-Panel -> FabricaDePreguntas : crearPregunta(String, String, Set<String>)
+Panel -> FabricaDePreguntas : crearPregunta(String, String, Collection<String>, Collection<String>)
 
-FabricaDePreguntas -> PreguntaClasica: new()
+create PreguntaClasica
+FabricaDePreguntas -> PreguntaClasica: new(String, Collection<String>, Collection<String>)
 activate PreguntaClasica
 PreguntaClasica --> FabricaDePreguntas: PreguntaClasica
 FabricaDePreguntas --> Panel: PreguntaClasica
 
-TestCase -> Panel: crearJugador(String)
+
+TestCase -> Panel: crearJugadores(String, String)
+create Jugador
 Panel -> Jugador: new(String)
 activate Jugador
-Jugador --> Panel: Jugador
+Jugador --> Panel: JugadorActual
+Panel -> Jugador: new(String)
+Jugador --> Panel: JugadorSiguiente
 
-TestCase -> Panel: hacerPregunta(String, Set<String>)
-Panel -> PreguntaClasica: compararRespuestas(Collection<String>)
+TestCase -> Panel: hacerPregunta(Set<String>)
+Panel -> PreguntaClasica: compararRespuestas(Set<String>)
 PreguntaClasica --> Panel: Int
 Panel -> Jugador: asignarPuntos(Int)
-Jugador -> Multiplicador: multiplicar(Int)
-activate Multiplicador
-Multiplicador --> Jugador: Int
+TestCase -> Panel: hacerPregunta(Set<String>)
+Panel -> PreguntaClasica: compararRespuestas(Set<String>)
+PreguntaClasica --> Panel: Int
+Panel -> Jugador: asignarPuntos(Int)
 
-deactivate Multiplicador
 
 deactivate PreguntaClasica
 deactivate Jugador
