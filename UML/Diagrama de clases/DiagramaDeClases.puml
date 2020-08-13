@@ -15,16 +15,36 @@ BorderColor DimGray
 }
 
 class Panel{
-       - pregunta: Pregunta
-       - jugadores: HashMap<String, Jugador>
        - fabricaPreguntas: FabricaPreguntas
-       + crearPregunta(String, String, set<Steing>
-       + crearJugador(String)
-       + hacerPregunta(String, set<String>)
-       + usarDuplicador(String)
-       + usarTriplicador(String)
-       + pedirPuntos(String): Int
+       - preguntas: List<Pregunta>
+       - numeroDePreguntaActual: Int
+       - preguntaActual: Pregunta
+       - preguntaSiguiente: Pregunta
+       - jugadorActual: Jugador
+       - jugadorSiguiente: Jugador
+       - estadoExclusividad: EstadoExclusividad
+       - cambiarPregunta: boolean
+
+       + crearPregunta(String, String, Collection<String>, Collection<String>)
+       + siguientePregunta()
+       + crearJugadores(String, String)
+       + siguienteJugador()
+       + hacerPregunta(Collection<String>)
+       + activarExclusividad()
+       + calcularExclusividad()
+       + activarDuplicador()
+       + activarTriplicador()
 }
+
+class EstadoExclusividad{
+       - puntosJugadores: Dictionary<Jugador, Int>
+       - estadoActual: Multiplicador
+
+       + guardarRespuesta(Jugador, Int)
+       + activarExclusividad()
+       + calcularExclusividad(Jugador, Jugador)
+}
+
 
 class FabricaPreguntas{
        + crearPregunta(String, String, set<String>): Pregunta
@@ -33,66 +53,84 @@ class FabricaPreguntas{
 class Jugador{
         - nombre: String
         - puntos: Int
-        - multiplicador: Multiplicador
-        - duplicadorDisponible: boolean
-        - triplicadorDisponible: boolean
-        + Jugador(String)
-        + pedirPuntos(): Int
+        - estadoMultiplicador: EstadoMultiplicador
+        - exclusividadDisponible: Int
+
         + estadoDuplicador()
         + estadoTriplicador()
-        + asignarPuntos(Int)
+        + activarExclusividad()
 }
 
 abstract class Pregunta{
-        - opcionesCorrectas: Collection<String>
-        - textoPregunta: String
-        + compararRespuestas(): Int
-        + usarMultiplicador()
+        # opcionesCorrectas: Collection<String>
+        # todasLasOpciones: Collection<String>
+        # textoPregunta: String
+
+        + {abstract}compararRespuestas(Collection<String>): Int
+        + activarMultiplicador()
+        + activarExclusividad()
 }
 
 class PreguntaClasica{
-        + PreguntaClasica(String, Collection<String>)
         + compararRespuestas(Collection<String>): Int
 }
 
 class PreguntaConPenalidad{
-        + PreguntaConPenalidad(String, set<String>)
         + compararRespuestas(Collection<String>): Integer
-        + usarMultiplicador()
+        + activarMultiplicador()
+        + activarExclusividad
 }
 
 class PreguntaConPuntajeParcial{
-        + PreguntaConPuntajeParcial(String, set<String>)
         + compararRespuestas(Collection<String>): Int
 }
 
 interface Multiplicador{
-        - multiplicar(Int): Int
+        + multiplicar(Int): Int
+        + proximo(): Multiplicador
+}
+
+class Ceroplicador{
+        + multiplicar(Int): Int
+        + proximo(): Multiplicador
 }
 
 class Unplicador{
-        - multiplicar(Int): Int
+        + multiplicar(Int): Int
+        + proximo(): Multiplicador
 }
 
 class Duplicador{
-        - multiplicar(Int): Int
+        - cantidadDuplicador: Int
+
+        + multiplicar(Int): Int
+        + proximo(): Multiplicador
+        + cambiarEstado()
 }
 
 class Triplicador{
-        - multiplicar(Int): Int
+        - cantidadTriplicador: Int
+
+        + multiplicar(Int): Int
+        + proximo(): Multiplicador
+        + cambiarEstado()
 }
 
 Panel o-->"1..*" Jugador
 Panel o--"1--*" Pregunta
 Panel o-left->"1" FabricaPreguntas
+Panel o--> EstadoExclusividad
 FabricaPreguntas ..> Pregunta
 PreguntaClasica -up-|> Pregunta
 PreguntaConPenalidad -up-|> Pregunta
 PreguntaConPuntajeParcial -up-|> Pregunta
+Ceroplicador .up.|> Multiplicador
 Unplicador .up.|> Multiplicador
 Duplicador .up.|> Multiplicador
 Triplicador .up.|> Multiplicador
 Jugador o-->"1" Multiplicador
 PreguntaConPenalidad ..> Multiplicador
+PreguntaClasica ..> EstadoExclusividad
+PreguntaConPuntajeParcial ..> EstadoExclusividad
 
 @enduml
