@@ -15,14 +15,11 @@ BorderColor DimGray
 }
 
 class Panel{
-       - fabricaPreguntas: FabricaPreguntas
-       - preguntas: List<Pregunta>
        - numeroDePreguntaActual: Int
        - preguntaActual: Pregunta
        - preguntaSiguiente: Pregunta
        - jugadorActual: Jugador
        - jugadorSiguiente: Jugador
-       - estadoExclusividad: EstadoExclusividad
        - cambiarPregunta: boolean
 
        + crearPregunta(String, String, Collection<String>, Collection<String>)
