@@ -32,12 +32,13 @@ public class PanelTest {
         panel.crearJugadores("Stef", "Rulo");
 
         panel.hacerPregunta(respuestaJugador1);
-        assertEquals(1, panel.pedirJugador1().pedirPuntos());
+        assertEquals(1, panel.pedirJugadorSiguiente().pedirPuntos());
 
-        panel.siguienteJugador();
-
-        panel.hacerPregunta(respuestaJugador2);
-        assertEquals(0, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(0, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -69,12 +70,13 @@ public class PanelTest {
         panel.crearJugadores("Stef", "Rulo");
 
         panel.hacerPregunta(respuestaJugador1);
-        assertEquals(1, panel.pedirJugador1().pedirPuntos());
+        assertEquals(1, panel.pedirJugadorSiguiente().pedirPuntos());
 
-        panel.siguienteJugador();
-
-        panel.hacerPregunta(respuestaJugador2);
-        assertEquals(0, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(0, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -104,12 +106,13 @@ public class PanelTest {
         panel.crearJugadores("Stef", "Rulo");
 
         panel.hacerPregunta(respuestaJugador1);
-        assertEquals(1, panel.pedirJugador1().pedirPuntos());
+        assertEquals(1, panel.pedirJugadorSiguiente().pedirPuntos());
 
-        panel.siguienteJugador();
-
-        panel.hacerPregunta(respuestaJugador2);
-        assertEquals(0, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(0, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -136,12 +139,13 @@ public class PanelTest {
         panel.crearJugadores("Stef", "Rulo");
 
         panel.hacerPregunta(respuestaJugador1);
-        assertEquals(2, panel.pedirJugador1().pedirPuntos());
+        assertEquals(2, panel.pedirJugadorSiguiente().pedirPuntos());
 
-        panel.siguienteJugador();
-
-        panel.hacerPregunta(respuestaJugador2);
-        assertEquals(0, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(0, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -167,12 +171,13 @@ public class PanelTest {
         panel.crearJugadores("Stef", "Rulo");
 
         panel.hacerPregunta(respuestaJugador1);
-        assertEquals(3, panel.pedirJugador1().pedirPuntos());
+        assertEquals(3, panel.pedirJugadorSiguiente().pedirPuntos());
 
-        panel.siguienteJugador();
-
-        panel.hacerPregunta(respuestaJugador2);
-        assertEquals(0, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(0, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -197,12 +202,13 @@ public class PanelTest {
         panel.crearJugadores("Stef", "Rulo");
 
         panel.hacerPregunta(respuestaJugador1);
-        assertEquals(1, panel.pedirJugador1().pedirPuntos());
+        assertEquals(1, panel.pedirJugadorSiguiente().pedirPuntos());
 
-        panel.siguienteJugador();
-
-        panel.hacerPregunta(respuestaJugador2);
-        assertEquals(-1, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(-1, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -230,12 +236,14 @@ public class PanelTest {
         panel.crearJugadores("Stef", "Rulo");
 
         panel.hacerPregunta(respuestaJugador1);
-        assertEquals(3, panel.pedirJugador1().pedirPuntos());
+        assertEquals(3, panel.pedirJugadorSiguiente().pedirPuntos());
 
-        panel.siguienteJugador();
 
-        panel.hacerPregunta(respuestaJugador2);
-        assertEquals(2, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(2, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -256,12 +264,13 @@ public class PanelTest {
         panel.crearJugadores("Stef", "Rulo");
 
         panel.hacerPregunta(respuestaJugador1);
-        assertEquals(1, panel.pedirJugador1().pedirPuntos());
+        assertEquals(1, panel.pedirJugadorSiguiente().pedirPuntos());
 
-        panel.siguienteJugador();
-
-        panel.hacerPregunta(respuestaJugador2);
-        assertEquals(-1, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(-1, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -283,13 +292,15 @@ public class PanelTest {
 
         panel.activarDuplicador();
         panel.hacerPregunta(respuestaJugador1);
-        assertEquals(-2, panel.pedirJugador1().pedirPuntos());
-
-        panel.siguienteJugador();
+        assertEquals(-2, panel.pedirJugadorSiguiente().pedirPuntos());
 
         panel.activarDuplicador();
-        panel.hacerPregunta(respuestaJugador2);
-        assertEquals(2, panel.pedirJugador2().pedirPuntos());
+
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(2, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -311,12 +322,14 @@ public class PanelTest {
 
         panel.activarTriplicador();
         panel.hacerPregunta(respuestaJugador1);
-        assertEquals(-3, panel.pedirJugador1().pedirPuntos());
 
-        panel.siguienteJugador();
+        assertEquals(-3, panel.pedirJugadorSiguiente().pedirPuntos());
 
-        panel.hacerPregunta(respuestaJugador2);
-        assertEquals(1, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(1, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -343,13 +356,14 @@ public class PanelTest {
 
         panel.activarDuplicador();
         panel.hacerPregunta(respuestaJugador1);
-        assertEquals(-4, panel.pedirJugador1().pedirPuntos());
-
-        panel.siguienteJugador();
+        assertEquals(-4, panel.pedirJugadorSiguiente().pedirPuntos());
 
         panel.activarDuplicador();
-        panel.hacerPregunta(respuestaJugador2);
-        assertEquals(6, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(6, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -376,13 +390,15 @@ public class PanelTest {
 
         panel.activarTriplicador();
         panel.hacerPregunta(respuestaJugador1);
-        assertEquals(-3, panel.pedirJugador1().pedirPuntos());
+        assertEquals(-3, panel.pedirJugadorSiguiente().pedirPuntos());
 
-        panel.siguienteJugador();
 
         panel.activarTriplicador();
-        panel.hacerPregunta(respuestaJugador2);
-        assertEquals(6, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(6, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -498,21 +514,17 @@ public class PanelTest {
         Panel panel = new Panel();
 
         panel.crearPregunta("preguntaVoFClasica", "pregunta", respuestaCorrecta, todasLasRespuestas);
-        panel.crearPregunta("preguntaVoFClasica", "pregunta", respuestaCorrecta, todasLasRespuestas);
         panel.crearJugadores("Stef", "Ivan");
 
         panel.activarExclusividad();
         panel.hacerPregunta(respuestaJugador1);
 
-        panel.siguienteJugador();
-
-        panel.hacerPregunta(respuestaJugador2);
-
-        panel.siguienteJugador();
-
-        assertEquals(2, panel.pedirJugador1().pedirPuntos());
-
-        assertEquals(0, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(2, panel.pedirJugadorActual().pedirPuntos());
+            assertEquals(0, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -530,23 +542,20 @@ public class PanelTest {
         Panel panel = new Panel();
 
         panel.crearPregunta("preguntaVoFClasica", "pregunta", respuestaCorrecta, todasLasRespuestas);
-        panel.crearPregunta("preguntaVoFClasica", "pregunta", respuestaCorrecta, todasLasRespuestas);
 
         panel.crearJugadores("Stef", "Ivan");
 
         panel.activarExclusividad();
         panel.hacerPregunta(respuestaJugador1);
 
-        panel.siguienteJugador();
-
         panel.activarExclusividad();
-        panel.hacerPregunta(respuestaJugador2);
 
-        panel.siguienteJugador();
-
-        assertEquals(0, panel.pedirJugador1().pedirPuntos());
-
-        assertEquals(4, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(0, panel.pedirJugadorActual().pedirPuntos());
+            assertEquals(4, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -564,23 +573,20 @@ public class PanelTest {
         Panel panel = new Panel();
 
         panel.crearPregunta("preguntaVoFClasica", "pregunta", respuestaCorrecta, todasLasRespuestas);
-        panel.crearPregunta("preguntaVoFClasica", "pregunta", respuestaCorrecta, todasLasRespuestas);
+
         panel.crearJugadores("Stef", "Ivan");
 
         panel.activarExclusividad();
         panel.hacerPregunta(respuestaJugador1);
 
-        panel.siguienteJugador();
-
         panel.activarExclusividad();
-        panel.hacerPregunta(respuestaJugador2);
 
-
-        panel.siguienteJugador();
-
-        assertEquals(1, panel.pedirJugador1().pedirPuntos());
-
-        assertEquals(1, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(1, panel.pedirJugadorActual().pedirPuntos());
+            assertEquals(1, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -598,22 +604,20 @@ public class PanelTest {
         Panel panel = new Panel();
 
         panel.crearPregunta("preguntaVoFClasica", "pregunta", respuestaCorrecta, todasLasRespuestas);
-        panel.crearPregunta("preguntaVoFClasica", "pregunta", respuestaCorrecta, todasLasRespuestas);
+
         panel.crearJugadores("Stef", "Ivan");
 
         panel.activarExclusividad();
         panel.hacerPregunta(respuestaJugador1);
 
-        panel.siguienteJugador();
-
         panel.activarExclusividad();
-        panel.hacerPregunta(respuestaJugador2);
 
-        panel.siguienteJugador();
-
-        assertEquals(0, panel.pedirJugador1().pedirPuntos());
-
-        assertEquals(0, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(0, panel.pedirJugadorActual().pedirPuntos());
+            assertEquals(0, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -637,22 +641,18 @@ public class PanelTest {
         Panel panel = new Panel();
 
         panel.crearPregunta("preguntaMCClasica", "pregunta", respuestaCorrecta, todasLasRespuestas);
-        panel.crearPregunta("preguntaMCClasica", "pregunta", respuestaCorrecta, todasLasRespuestas);
+
         panel.crearJugadores("Stef", "Ivan");
 
         panel.activarExclusividad();
         panel.hacerPregunta(respuestaJugador1);
 
-        panel.siguienteJugador();
-
-        panel.hacerPregunta(respuestaJugador2);
-
-
-        panel.siguienteJugador();
-
-        assertEquals(2, panel.pedirJugador1().pedirPuntos());
-
-        assertEquals(0, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(2, panel.pedirJugadorActual().pedirPuntos());
+            assertEquals(0, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -676,21 +676,17 @@ public class PanelTest {
         Panel panel = new Panel();
 
         panel.crearPregunta("preguntaMCClasica", "pregunta", respuestaCorrecta, todasLasRespuestas);
-        panel.crearPregunta("preguntaMCClasica", "pregunta", respuestaCorrecta, todasLasRespuestas);
+
         panel.crearJugadores("Stef", "Ivan");
 
         panel.activarExclusividad();
         panel.hacerPregunta(respuestaJugador1);
-
-        panel.siguienteJugador();
-
-        panel.hacerPregunta(respuestaJugador2);
-
-        panel.siguienteJugador();
-
-        assertEquals(0, panel.pedirJugador1().pedirPuntos());
-
-        assertEquals(2, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(0, panel.pedirJugadorActual().pedirPuntos());
+            assertEquals(2, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -714,21 +710,18 @@ public class PanelTest {
         Panel panel = new Panel();
 
         panel.crearPregunta("preguntaMCClasica", "pregunta", respuestaCorrecta, todasLasRespuestas);
-        panel.crearPregunta("preguntaMCClasica", "pregunta", respuestaCorrecta, todasLasRespuestas);
+
         panel.crearJugadores("Stef", "Ivan");
 
         panel.hacerPregunta(respuestaJugador1);
 
-        panel.siguienteJugador();
-
         panel.activarExclusividad();
-        panel.hacerPregunta(respuestaJugador2);
-
-        panel.siguienteJugador();
-
-        assertEquals(1, panel.pedirJugador1().pedirPuntos());
-
-        assertEquals(1, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(1, panel.pedirJugadorActual().pedirPuntos());
+            assertEquals(1, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -752,21 +745,19 @@ public class PanelTest {
         Panel panel = new Panel();
 
         panel.crearPregunta("preguntaMCClasica", "pregunta", respuestaCorrecta, todasLasRespuestas);
-        panel.crearPregunta("preguntaMCClasica", "pregunta", respuestaCorrecta, todasLasRespuestas);
+
         panel.crearJugadores("Stef", "Ivan");
 
         panel.hacerPregunta(respuestaJugador1);
 
-        panel.siguienteJugador();
-
         panel.activarExclusividad();
-        panel.hacerPregunta(respuestaJugador2);
 
-        panel.siguienteJugador();
-
-        assertEquals(0, panel.pedirJugador1().pedirPuntos());
-
-        assertEquals(0, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(0, panel.pedirJugadorActual().pedirPuntos());
+            assertEquals(0, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -790,21 +781,18 @@ public class PanelTest {
         Panel panel = new Panel();
 
         panel.crearPregunta("preguntaMCClasica", "pregunta", respuestaCorrecta, todasLasRespuestas);
-        panel.crearPregunta("preguntaMCClasica", "pregunta", respuestaCorrecta, todasLasRespuestas);
+
         panel.crearJugadores("Stef", "Ivan");
 
         panel.hacerPregunta(respuestaJugador1);
 
-        panel.siguienteJugador();
-
         panel.activarExclusividad();
-        panel.hacerPregunta(respuestaJugador2);
-
-        panel.siguienteJugador();
-
-        assertEquals(2, panel.pedirJugador1().pedirPuntos());
-
-        assertEquals(0, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(2, panel.pedirJugadorActual().pedirPuntos());
+            assertEquals(0, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -830,22 +818,19 @@ public class PanelTest {
         Panel panel = new Panel();
 
         panel.crearPregunta("preguntaMCClasica", "pregunta", respuestaCorrecta, todasLasRespuestas);
-        panel.crearPregunta("preguntaMCClasica", "pregunta", respuestaCorrecta, todasLasRespuestas);
+
         panel.crearJugadores("Stef", "Ivan");
 
         panel.activarExclusividad();
         panel.hacerPregunta(respuestaJugador1);
 
-        panel.siguienteJugador();
-
         panel.activarExclusividad();
-        panel.hacerPregunta(respuestaJugador2);
-
-        panel.siguienteJugador();
-
-        assertEquals(0, panel.pedirJugador1().pedirPuntos());
-        panel.siguienteJugador();
-        assertEquals(4, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(0, panel.pedirJugadorActual().pedirPuntos());
+            assertEquals(4, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -867,22 +852,20 @@ public class PanelTest {
         Panel panel = new Panel();
 
         panel.crearPregunta("preguntaMCClasica", "pregunta", respuestaCorrecta, todasLasRespuestas);
-        panel.crearPregunta("preguntaMCClasica", "pregunta", respuestaCorrecta, todasLasRespuestas);
+
         panel.crearJugadores("Stef", "Ivan");
 
         panel.activarExclusividad();
         panel.hacerPregunta(respuestaJugador1);
 
-        panel.siguienteJugador();
-
         panel.activarExclusividad();
-        panel.hacerPregunta(respuestaJugador2);
 
-        panel.siguienteJugador();
-
-        assertEquals(1, panel.pedirJugador1().pedirPuntos());
-
-        assertEquals(1, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(1, panel.pedirJugadorActual().pedirPuntos());
+            assertEquals(1, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -905,21 +888,18 @@ public class PanelTest {
         Panel panel = new Panel();
 
         panel.crearPregunta("preguntaMCConPuntajeParcial", "pregunta", respuestaCorrecta, todasLasRespuestas);
-        panel.crearPregunta("preguntaMCConPuntajeParcial", "pregunta", respuestaCorrecta, todasLasRespuestas);
+
         panel.crearJugadores("Stef", "Ivan");
 
         panel.activarExclusividad();
         panel.hacerPregunta(respuestaJugador1);
 
-        panel.siguienteJugador();
-
-        panel.hacerPregunta(respuestaJugador2);
-
-        panel.siguienteJugador();
-
-        assertEquals(3, panel.pedirJugador1().pedirPuntos());
-
-        assertEquals(2, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(3, panel.pedirJugadorActual().pedirPuntos());
+            assertEquals(2, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -943,21 +923,18 @@ public class PanelTest {
         Panel panel = new Panel();
 
         panel.crearPregunta("preguntaMCConPuntajeParcial", "pregunta", respuestaCorrecta, todasLasRespuestas);
-        panel.crearPregunta("preguntaMCConPuntajeParcial", "pregunta", respuestaCorrecta, todasLasRespuestas);
+
         panel.crearJugadores("Stef", "Ivan");
 
         panel.activarExclusividad();
         panel.hacerPregunta(respuestaJugador1);
 
-        panel.siguienteJugador();
-
-        panel.hacerPregunta(respuestaJugador2);
-
-        panel.siguienteJugador();
-
-        assertEquals(4, panel.pedirJugador1().pedirPuntos());
-
-        assertEquals(0, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(4, panel.pedirJugadorActual().pedirPuntos());
+            assertEquals(0, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -982,22 +959,20 @@ public class PanelTest {
         Panel panel = new Panel();
 
         panel.crearPregunta("preguntaMCConPuntajeParcial", "pregunta", respuestaCorrecta, todasLasRespuestas);
-        panel.crearPregunta("preguntaMCConPuntajeParcial", "pregunta", respuestaCorrecta, todasLasRespuestas);
+
         panel.crearJugadores("Stef", "Ivan");
 
         panel.activarExclusividad();
         panel.hacerPregunta(respuestaJugador1);
 
-        panel.siguienteJugador();
-
         panel.activarExclusividad();
-        panel.hacerPregunta(respuestaJugador2);
 
-        panel.siguienteJugador();
-
-        assertEquals(0, panel.pedirJugador1().pedirPuntos());
-
-        assertEquals(16, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(0, panel.pedirJugadorActual().pedirPuntos());
+            assertEquals(16, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -1024,22 +999,19 @@ public class PanelTest {
         Panel panel = new Panel();
 
         panel.crearPregunta("preguntaMCConPuntajeParcial", "pregunta", respuestaCorrecta, todasLasRespuestas);
-        panel.crearPregunta("preguntaMCConPuntajeParcial", "pregunta", respuestaCorrecta, todasLasRespuestas);
+
         panel.crearJugadores("Stef", "Ivan");
 
         panel.activarExclusividad();
         panel.hacerPregunta(respuestaJugador1);
 
-        panel.siguienteJugador();
-
         panel.activarExclusividad();
-        panel.hacerPregunta(respuestaJugador2);
-
-        panel.siguienteJugador();
-
-        assertEquals(4, panel.pedirJugador1().pedirPuntos());
-
-        assertEquals(4, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(4, panel.pedirJugadorActual().pedirPuntos());
+            assertEquals(4, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -1066,23 +1038,19 @@ public class PanelTest {
         Panel panel = new Panel();
 
         panel.crearPregunta("preguntaOC", "pregunta", respuestaCorrecta, todasLasRespuestas);
-        panel.crearPregunta("preguntaOC", "pregunta", respuestaCorrecta, todasLasRespuestas);
 
         panel.crearJugadores("Stef", "Ivan");
 
         panel.activarExclusividad();
         panel.hacerPregunta(respuestaJugador1);
 
-        panel.siguienteJugador();
-
         panel.activarExclusividad();
-        panel.hacerPregunta(respuestaJugador2);
-
-        panel.siguienteJugador();
-
-        assertEquals(1, panel.pedirJugador1().pedirPuntos());
-
-        assertEquals(1, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(1, panel.pedirJugadorActual().pedirPuntos());
+            assertEquals(1, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -1109,22 +1077,19 @@ public class PanelTest {
         Panel panel = new Panel();
 
         panel.crearPregunta("preguntaOC", "pregunta", respuestaCorrecta, todasLasRespuestas);
-        panel.crearPregunta("preguntaOC", "pregunta", respuestaCorrecta, todasLasRespuestas);
+
         panel.crearJugadores("Stef", "Ivan");
 
         panel.activarExclusividad();
         panel.hacerPregunta(respuestaJugador1);
 
-        panel.siguienteJugador();
-
         panel.activarExclusividad();
-        panel.hacerPregunta(respuestaJugador2);
-
-        panel.siguienteJugador();
-
-        assertEquals(4, panel.pedirJugador1().pedirPuntos());
-
-        assertEquals(0, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(4, panel.pedirJugadorActual().pedirPuntos());
+            assertEquals(0, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -1152,22 +1117,19 @@ public class PanelTest {
         Panel panel = new Panel();
 
         panel.crearPregunta("preguntaGC", "pregunta", respuestaCorrecta, todasLasRespuestas);
-        panel.crearPregunta("preguntaGC", "pregunta", respuestaCorrecta, todasLasRespuestas);
+
         panel.crearJugadores("Stef", "Ivan");
 
         panel.activarExclusividad();
         panel.hacerPregunta(respuestaJugador1);
 
-        panel.siguienteJugador();
-
         panel.activarExclusividad();
-        panel.hacerPregunta(respuestaJugador2);
-
-        panel.siguienteJugador();
-
-        assertEquals(4, panel.pedirJugador1().pedirPuntos());
-
-        assertEquals(0, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(4, panel.pedirJugadorActual().pedirPuntos());
+            assertEquals(0, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
     @Test
@@ -1195,22 +1157,19 @@ public class PanelTest {
         Panel panel = new Panel();
 
         panel.crearPregunta("preguntaGC", "pregunta", respuestaCorrecta, todasLasRespuestas);
-        panel.crearPregunta("preguntaGC", "pregunta", respuestaCorrecta, todasLasRespuestas);
+
         panel.crearJugadores("Stef", "Ivan");
 
         panel.activarExclusividad();
         panel.hacerPregunta(respuestaJugador1);
 
-        panel.siguienteJugador();
-
         panel.activarExclusividad();
-        panel.hacerPregunta(respuestaJugador2);
-
-        panel.siguienteJugador();
-
-        assertEquals(0, panel.pedirJugador1().pedirPuntos());
-
-        assertEquals(0, panel.pedirJugador2().pedirPuntos());
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(0, panel.pedirJugadorActual().pedirPuntos());
+            assertEquals(0, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
     }
 
 }

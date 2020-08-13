@@ -5,13 +5,16 @@ import edu.fiuba.algo3.modelo.Panel;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 public class VistaPregunta implements Observador {
 
     private final Panel panel;
+    private final Stage stage;
 
-    public VistaPregunta(Panel panel){
+    public VistaPregunta(Panel panel, Stage stage){
         this.panel = panel;
+        this.stage = stage;
     }
 
 
@@ -22,7 +25,7 @@ public class VistaPregunta implements Observador {
 
         CajaJugadores cajaJugadores = new CajaJugadores(panel);
 
-        CajaPregunta cajaPregunta = new CajaPregunta(panel);
+        CajaPregunta cajaPregunta = new CajaPregunta(panel, stage);
 
         componentLayout.setCenter(cajaPregunta);
         componentLayout.setBottom(cajaJugadores);

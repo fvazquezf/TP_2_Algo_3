@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.util.HashSet;
 
@@ -16,10 +17,11 @@ public class CajaPregunta extends HBox implements Observador {
     private HBox cajaOpciones;
     private HashSet<String> respuestasJugador;
 
-    public CajaPregunta(Panel panel) {
+    public CajaPregunta(Panel panel, Stage stage) {
         super();
 
         this.panel = panel;
+        panel.agregarObservador(this);
 
         pregunta = new Label(panel.obtenerPreguntaActual());
 
@@ -29,7 +31,7 @@ public class CajaPregunta extends HBox implements Observador {
 
         panel.obtenerTodasLasOpciones().stream().forEach((o)-> { cajaOpciones.getChildren().add(new BotonOpcion(o, respuestasJugador));});
 
-        Button botonResponder = new BotonResponder(panel, respuestasJugador);
+        Button botonResponder = new BotonResponder(panel, respuestasJugador, stage);
 
         VBox vb = new VBox();
         vb.getChildren().addAll(pregunta, cajaOpciones, botonResponder);

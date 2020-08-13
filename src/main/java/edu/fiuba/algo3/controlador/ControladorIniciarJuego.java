@@ -24,7 +24,7 @@ public class ControladorIniciarJuego implements EventHandler<ActionEvent> {
     public void handle(ActionEvent event) {
         panel.crearJugadores(vista.obtenerNombre1(), vista.obtenerNombre2());
 
-        VistaPregunta vistaPregunta = new VistaPregunta(panel);
+        VistaPregunta vistaPregunta = new VistaPregunta(panel, stage);
         Scene scene = vistaPregunta.devolverVistaPregunta();
 
         stage.setScene(scene);

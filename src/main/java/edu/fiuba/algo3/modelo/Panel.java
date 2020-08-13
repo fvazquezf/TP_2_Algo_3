@@ -1,77 +1,77 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaNoHayPreguntasParaHacer;
 import edu.fiuba.algo3.modelo.preguntas.FabricaPreguntas;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 
 import java.util.*;
 
-public class Panel {
-    private final FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
+public class Panel implements Observable{
 
+    private final FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
     private List<Pregunta> preguntas = new ArrayList<>();
     int numeroDePreguntaActual = 0;
-    private Pregunta preguntaActual;
+
     private boolean cambiarPregunta = false;
 
     private Jugador jugadorActual;
     private Jugador jugadorSiguiente;
 
-    private Jugador jugador1;
-    private Jugador jugador2;
-
     private EstadoExclusividad estadoExclusividad = new EstadoExclusividad();
+    private ArrayList<Observador> observadores = new ArrayList<>();
+
 
     public void crearPregunta(String tipoPregunta, String pregunta, Collection<String> respuestasCorrectas, Collection<String> todasRespuestas) {
         this.preguntas.add(fabricaPreguntas.crearPregunta(tipoPregunta, pregunta, respuestasCorrectas, todasRespuestas));
-        preguntaActual = preguntas.get(0);
+    }
+
+    public void crearJugadores(String nombre1, String nombre2) {
+        jugadorActual = new Jugador(nombre1);
+        jugadorSiguiente = new Jugador(nombre2);
+    }
+
+    public String obtenerPreguntaActual() {
+        return preguntas.get(numeroDePreguntaActual).obtenerPregunta();
+    }
+
+    public Collection<String> obtenerTodasLasOpciones() {
+        return preguntas.get(numeroDePreguntaActual).obtenerTodasLasOpciones();
     }
 
     public void siguientePregunta() {
         numeroDePreguntaActual++;
-        preguntaActual = preguntas.get(numeroDePreguntaActual);
+        if(preguntas.size() == numeroDePreguntaActual) throw new ExcepcionYaNoHayPreguntasParaHacer();
+        notificarObservador();
     }
 
-    public String obtenerPreguntaActual() {
-        return preguntaActual.obtenerPregunta();
-    }
+    public void hacerPregunta(Collection<String> respuestasJugadores) {
+        int puntos = preguntas.get(numeroDePreguntaActual).compararRespuestas(respuestasJugadores);
+        jugadorActual.asignarPuntos(puntos);
+        estadoExclusividad.guardarRespuesta(jugadorActual, puntos);
 
-    public Collection<String> obtenerTodasLasOpciones() {
-        return preguntaActual.obtenerTodasLasOpciones();
-    }
-
-    public void crearJugadores(String nombre1, String nombre2) {
-        jugadorActual = jugador1 = new Jugador(nombre1);
-        jugadorSiguiente = jugador2 = new Jugador(nombre2);
+        siguienteJugador();
     }
 
     public void siguienteJugador() {
-
         Jugador jugadorTemp = jugadorActual;
         jugadorActual = jugadorSiguiente;
         jugadorSiguiente = jugadorTemp;
 
-        this.siguienteTurno();
-
+        siguienteTurno();
     }
 
     public void siguienteTurno() {
         if (cambiarPregunta) {
+            calcularExclusividad();
             siguientePregunta();
-            this.calcularExclusividad();
             cambiarPregunta = false;
         } else {
             cambiarPregunta = true;
         }
     }
 
-    public void hacerPregunta(Collection<String> respuestasJugadores) {
-        int puntos = preguntaActual.compararRespuestas(respuestasJugadores);
-        jugadorActual.asignarPuntos(puntos);
-        estadoExclusividad.guardarRespuesta(jugadorActual, puntos);
-    }
-
     public void activarExclusividad() {
-        preguntaActual.activarExclusividad();
+        preguntas.get(numeroDePreguntaActual).activarExclusividad();
         jugadorActual.activarExclusividad();
         estadoExclusividad.activarExclusividad();
     }
@@ -82,19 +82,29 @@ public class Panel {
 
     public void activarDuplicador() {
         jugadorActual.estadoDuplicador();
-        preguntaActual.activarMultiplicador();
+        preguntas.get(numeroDePreguntaActual).activarMultiplicador();
     }
 
     public void activarTriplicador() {
         jugadorActual.estadoTriplicador();
-        preguntaActual.activarMultiplicador();
+        preguntas.get(numeroDePreguntaActual).activarMultiplicador();
     }
 
-    public Jugador pedirJugador1() {
-        return (jugador1);
+    public Jugador pedirJugadorActual() {
+        return (jugadorActual);
     }
 
-    public Jugador pedirJugador2() {
-        return (jugador2);
+    public Jugador pedirJugadorSiguiente() {
+        return (jugadorSiguiente);
+    }
+
+    @Override
+    public void agregarObservador(Observador observador) {
+        observadores.add(observador);
+    }
+
+    @Override
+    public void notificarObservador() {
+        observadores.stream().forEach(observer -> observer.actualizar());
     }
 }

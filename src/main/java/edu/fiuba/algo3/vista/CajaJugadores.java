@@ -17,10 +17,10 @@ public class CajaJugadores extends VBox implements Observador {
 
     public CajaJugadores(Panel panel) {
 
-        j1 = panel.pedirJugador1();
+        j1 = panel.pedirJugadorActual();
         j1.agregarObservador(this);
 
-        j2 = panel.pedirJugador2();
+        j2 = panel.pedirJugadorSiguiente();
         j2.agregarObservador(this);
 
         puntosJ1 = new Label("0");
