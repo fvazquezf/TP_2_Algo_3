@@ -1,0 +1,79 @@
+@startuml
+
+title Diagrama de secuencia para pregunta Multiple Chioce con puntaje parcial: Jugadores utilizan Exclusividad
+
+hide footbox
+skinparam backgroundColor white
+
+skinparam sequence {
+ArrowColor DimGray
+ActorBorderColor DodgerBlue
+LifeLineBorderColor Navy
+LifeLineBackgroundColor CornflowerBlue
+ParticipantBorderColor LighSlateGray
+ParticipantBackgroundColor CornflowerBlue
+ParticipantFontName Impact
+ParticipantFontSize 17
+ParticipantFontColor #A9DCDF
+ActorBackgroundColor mintCream
+ActorFontColor CornflowerBlue
+ActorFontSize 17
+ActorFontName Aapex
+}
+
+actor TestCase
+activate TestCase
+
+participant ":Panel" as Panel
+create Panel
+TestCase -> Panel : new()
+activate Panel
+
+TestCase -> Panel : crearPregunta(String, String, Set<String>, Set<String>)
+
+
+
+create PreguntaMCConPuntajeParcial
+Panel -> PreguntaMCConPuntajeParcial : crearPregunta(String, String, Collection<String>, Collection<String>)
+activate PreguntaMCConPuntajeParcial
+
+TestCase -> Panel: crearJugadores(String, String)
+create Jugador
+Panel -> Jugador: new(String)
+activate Jugador
+Jugador --> Panel: JugadorActual
+Panel -> Jugador: new(String)
+Jugador --> Panel: JugadorSiguiente
+
+TestCase -> Panel: activarExclusividad()
+Panel -> PreguntaMCConPuntajeParcial:activarExclusividad()
+Panel -> Jugador:activarExclusividad()
+create EstadoExclusividad
+Panel -> EstadoExclusividad:new()
+activate EstadoExclusividad
+Panel -> EstadoExclusividad:activarExclusividad()
+
+TestCase -> Panel: hacerPregunta(Set<String>)
+Panel -> PreguntaMCConPuntajeParcial: compararRespuestas(Collection<String>)
+PreguntaMCConPuntajeParcial --> Panel: Int
+Panel -> Jugador: asignarPuntos(Int)
+Jugador --> Panel: Int
+Panel -> EstadoExclusividad: guardarRespuesta(Jugador, Int)
+
+TestCase -> Panel: hacerPregunta(Set<String>)
+Panel -> PreguntaMCConPuntajeParcial: compararRespuestas(Collection<String>)
+PreguntaMCConPuntajeParcial --> Panel: Int
+Panel -> Jugador: asignarPuntos(Int)
+Jugador --> Panel: Int
+Panel -> EstadoExclusividad: guardarRespuesta(Jugador, Int)
+
+TestCase -> Panel: calcularExclusividad()
+Panel -> EstadoExclusividad: calcularExclusividad(Jugador, Jugador)
+
+deactivate EstadoExclusividad
+deactivate PreguntaMCConPuntajeParcial
+deactivate Jugador
+deactivate Panel
+deactivate TestCase
+
+@enduml

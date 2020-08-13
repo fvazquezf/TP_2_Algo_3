@@ -1,0 +1,57 @@
+@startuml
+
+title Diagrama de secuencia para pregunta con Penalidad. Salta excepción al usar Exclusividad.
+
+hide footbox
+skinparam backgroundColor white
+
+skinparam sequence {
+ArrowColor DimGray
+ActorBorderColor DodgerBlue
+LifeLineBorderColor Navy
+LifeLineBackgroundColor CornflowerBlue
+ParticipantBorderColor LighSlateGray
+ParticipantBackgroundColor CornflowerBlue
+ParticipantFontName Impact
+ParticipantFontSize 17
+ParticipantFontColor #A9DCDF
+ActorBackgroundColor mintCream
+ActorFontColor CornflowerBlue
+ActorFontSize 17
+ActorFontName Aapex
+}
+
+actor TestCase
+activate TestCase
+
+participant ":Panel" as Panel
+create Panel
+TestCase -> Panel : new()
+activate Panel
+
+TestCase -> Panel : crearPregunta(String, String, Set<String>, Set<String>)
+
+
+
+create PreguntaConPenalidad
+Panel -> PreguntaConPenalidad : crearPregunta(String, String, Collection<String>, Collection<String>)
+activate PreguntaConPenalidad
+
+TestCase -> Panel: crearJugadores(String, String)
+create Jugador
+Panel -> Jugador: new(String)
+activate Jugador
+Jugador --> Panel: JugadorActual
+Panel -> Jugador: new(String)
+Jugador --> Panel: JugadorSiguiente
+
+TestCase -> Panel: activarExclusividad()
+Panel -> PreguntaConPenalidad: activarExclusividad()
+PreguntaConPenalidad -> Panel : ExcepcionSoloPreguntasClasicasYPuntajeParcialPuedeUsarExclusividad()
+
+deactivate PreguntaConPenalidad
+deactivate Jugador
+deactivate Panel
+deactivate TestCase
+
+@enduml
