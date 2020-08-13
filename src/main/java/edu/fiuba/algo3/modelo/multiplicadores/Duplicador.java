@@ -5,7 +5,6 @@ import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaUsasteTuDuplicadorSalame;
 public class Duplicador implements Multiplicador {
     private int cantidadDuplicador = 1;
 
-
     public Integer multiplicar(int puntos) {
         return puntos * 2;
     }

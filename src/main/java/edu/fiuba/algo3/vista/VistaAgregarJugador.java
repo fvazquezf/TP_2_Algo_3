@@ -17,8 +17,8 @@ public class VistaAgregarJugador{
 
     private final Panel panel;
     private final Stage stage;
-    private Label ingresoNombre;
-    private TextField nombre;
+    private TextField nombreJugador1;
+    private TextField nombreJugador2;
     private Scene scene;
 
     public VistaAgregarJugador(Panel panel, Stage stage) {
@@ -31,23 +31,22 @@ public class VistaAgregarJugador{
         BorderPane componentLayout = new BorderPane();
         componentLayout.setPadding(new Insets(20, 200, 10, 100));
 
-        ingresoNombre = new Label( "Jugador1 ingrese su nombre: ");
-        nombre = new TextField();
+        Label ingresoNombre1 = new Label( "Jugador1 ingrese su nombre: ");
+        nombreJugador1 = new TextField();
+
+        Label ingresoNombre2 = new Label( "Jugador2 ingrese su nombre: ");
+        nombreJugador2 = new TextField();
+
         VBox vb = new VBox();
-        vb.getChildren().addAll(ingresoNombre, nombre);
+        vb.getChildren().addAll(ingresoNombre1, nombreJugador1, ingresoNombre2, nombreJugador2);
         vb.setSpacing(20);
         StackPane panelCenter = new StackPane();
         panelCenter.getChildren().add(vb);
 
-        Button botonEnviar = new BotonEnviarNombre(panel, this, ingresoNombre);
-        StackPane panelBottom = new StackPane();
-        panelBottom.getChildren().add(botonEnviar);
-
-        Button botonIniciar = new BotonIniciarJuego(panel, stage);
+        Button botonIniciar = new BotonIniciarJuego(panel, stage, this);
         StackPane panelLeft = new StackPane();
         panelLeft.getChildren().add(botonIniciar);
 
-        componentLayout.setBottom(panelBottom);
         componentLayout.setCenter(panelCenter);
         componentLayout.setRight(panelLeft);
 
@@ -56,7 +55,10 @@ public class VistaAgregarJugador{
         return scene;
     }
 
-    public String obtenerNombre() {
-        return nombre.getText();
+    public String obtenerNombre1() {
+        return nombreJugador1.getText();
+    }
+    public String obtenerNombre2() {
+        return nombreJugador2.getText();
     }
 }

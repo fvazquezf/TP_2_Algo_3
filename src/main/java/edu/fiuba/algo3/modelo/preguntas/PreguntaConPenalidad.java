@@ -6,9 +6,10 @@ import java.util.Collection;
 
 public class PreguntaConPenalidad extends Pregunta {
 
-    public PreguntaConPenalidad(String pregunta, Collection<String> opcionesCorrectas) {
+    public PreguntaConPenalidad(String pregunta, Collection<String> opcionesCorrectas, Collection<String> todasLasOpciones) {
         textoPregunta = pregunta;
         this.opcionesCorrectas = opcionesCorrectas;
+        this.todasLasOpciones = todasLasOpciones;
     }
 
     public Integer compararRespuestas(Collection<String> respuestasJugador) {

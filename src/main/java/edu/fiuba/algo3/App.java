@@ -19,10 +19,26 @@ public class App extends Application {
     public void start(Stage stage) {
         Panel panel = new Panel();
 
-        Set<String> respuestaCorrecta = new HashSet<>();
-        respuestaCorrecta.add("V");
-        panel.crearPregunta("preguntaVoFConPenalidad", "pregunta", respuestaCorrecta);
+        Set<String> respuestaCorrectaVoF = new HashSet<>();
+        respuestaCorrectaVoF.add("V");
 
+        Set<String> todasRespuestaVoF = new HashSet<>();
+        todasRespuestaVoF.add("V");
+        todasRespuestaVoF.add("F");
+
+        Set<String> respuestaCorrectaMCParcial = new HashSet<>();
+        respuestaCorrectaMCParcial.add("A");
+        respuestaCorrectaMCParcial.add("C");
+
+        Set<String> todasRespuestaMCParcial = new HashSet<>();
+        todasRespuestaMCParcial.add("A");
+        todasRespuestaMCParcial.add("B");
+        todasRespuestaMCParcial.add("C");
+        todasRespuestaMCParcial.add("D");
+
+        panel.crearPregunta("preguntaMCConPuntajeParcial", "preguntaMCConPuntajeParcial", respuestaCorrectaMCParcial, todasRespuestaMCParcial);
+
+        panel.crearPregunta("preguntaVoFConPenalidad", "preguntaVoFConPEnalidad", respuestaCorrectaVoF, todasRespuestaVoF);
 
         VistaAgregarJugador vistaAgregarJugador = new VistaAgregarJugador(panel, stage);
         Scene scene = vistaAgregarJugador.devolverVistaAgregarJugador();
