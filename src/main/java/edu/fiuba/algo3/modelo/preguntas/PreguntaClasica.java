@@ -4,9 +4,11 @@ import java.util.Collection;
 
 public class PreguntaClasica extends Pregunta {
 
-    public PreguntaClasica(String pregunta, Collection<String> opcionesCorrectas) {
+    public PreguntaClasica(String pregunta, Collection<String> opcionesCorrectas, Collection<String> todasLasOpciones) {
         textoPregunta = pregunta;
         this.opcionesCorrectas = opcionesCorrectas;
+        this.todasLasOpciones = todasLasOpciones;
+
     }
 
     public Integer compararRespuestas(Collection<String> respuestasJugador) {

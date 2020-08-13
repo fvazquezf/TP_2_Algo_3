@@ -20,7 +20,7 @@ public class PreguntaConPenalidadTest {
         Set<String> respuestasCorrectas = new HashSet<>();
         respuestasCorrectas.add("a");
 
-        PreguntaConPenalidad preguntaConPenalidad = new PreguntaConPenalidad("Pregunta", respuestasCorrectas);
+        PreguntaConPenalidad preguntaConPenalidad = new PreguntaConPenalidad("Pregunta", respuestasCorrectas, respuestasCorrectas);
 
         int puntos = preguntaConPenalidad.compararRespuestas(respuestaElegidasDelJugador);
 
@@ -37,7 +37,7 @@ public class PreguntaConPenalidadTest {
         Set<String> respuestasCorrectas = new HashSet<>();
         respuestasCorrectas.add("a");
 
-        PreguntaConPenalidad preguntaConPenalidad = new PreguntaConPenalidad("Pregunta", respuestasCorrectas);
+        PreguntaConPenalidad preguntaConPenalidad = new PreguntaConPenalidad("Pregunta", respuestasCorrectas, respuestasCorrectas);
 
         int puntos = preguntaConPenalidad.compararRespuestas(respuestaElegidasDelJugador);
 
@@ -53,7 +53,7 @@ public class PreguntaConPenalidadTest {
         respuestasCorrectas.add("a");
         respuestasCorrectas.add("c");
 
-        PreguntaConPenalidad preguntaConPenalidad = new PreguntaConPenalidad("Pregunta", respuestasCorrectas);
+        PreguntaConPenalidad preguntaConPenalidad = new PreguntaConPenalidad("Pregunta", respuestasCorrectas, respuestasCorrectas);
 
         int puntos = preguntaConPenalidad.compararRespuestas(respuestaElegidasDelJugador);
 
@@ -68,7 +68,7 @@ public class PreguntaConPenalidadTest {
 
         Jugador jugador1 = new Jugador("Rulo");
 
-        PreguntaConPenalidad pregunta = new PreguntaConPenalidad("pregunta", respuesta);
+        PreguntaConPenalidad pregunta = new PreguntaConPenalidad("pregunta", respuesta, respuesta);
 
         jugador1.estadoDuplicador();
         pregunta.activarMultiplicador();
@@ -83,7 +83,7 @@ public class PreguntaConPenalidadTest {
         respuesta.add("V");
         respuesta.add("F");
 
-        PreguntaConPenalidad pregunta = new PreguntaConPenalidad("pregunta", respuesta);
+        PreguntaConPenalidad pregunta = new PreguntaConPenalidad("pregunta", respuesta, respuesta);
         assertThrows(ExcepcionSoloPreguntasClasicasYPuntajeParcialPuedeUsarExclusividad.class, pregunta::activarExclusividad);
     }
 

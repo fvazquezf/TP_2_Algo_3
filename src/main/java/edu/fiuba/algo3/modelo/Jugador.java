@@ -2,13 +2,16 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaUsasteLasExclusividadesSalame;
 import edu.fiuba.algo3.modelo.multiplicadores.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Jugador {
+public class Jugador implements Observable{
 
     private final String nombre;
     private int puntos = 0;
     private EstadoMultiplicador estadoMultiplicador = new EstadoMultiplicador();
     private int exclusividadDisponible = 2;
+    private List<Observador> observadores  = new ArrayList<>();
 
 
     public Jugador(String nombre) {
@@ -17,6 +20,10 @@ public class Jugador {
 
     public int pedirPuntos() {
         return puntos;
+    }
+
+    public String pedirNombre(){
+        return nombre;
     }
 
     public void estadoDuplicador() {
@@ -29,6 +36,7 @@ public class Jugador {
 
     public void asignarPuntos(int puntos) {
         this.puntos += estadoMultiplicador.multiplicar(puntos);
+        this.notificarObservador();
     }
 
     public void activarExclusividad() {
@@ -36,6 +44,16 @@ public class Jugador {
             throw new ExcepcionYaUsasteLasExclusividadesSalame();
         }
         exclusividadDisponible--;
+    }
+
+    @Override
+    public void agregarObservador(Observador observador) {
+        observadores.add(observador);
+    }
+
+    @Override
+    public void notificarObservador() {
+        observadores.stream().forEach(observer -> observer.actualizar());
     }
 }
 

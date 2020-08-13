@@ -1,10 +1,14 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.modelo.Panel;
+import edu.fiuba.algo3.vista.VistaAgregarJugador;
+import edu.fiuba.algo3.vista.VistaPregunta;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * JavaFX App
@@ -13,13 +17,37 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        var javaVersion = SystemInfo.javaVersion();
-        var javafxVersion = SystemInfo.javafxVersion();
+        Panel panel = new Panel();
 
-        var label = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
-        var scene = new Scene(new StackPane(label), 640, 480);
+        Set<String> respuestaCorrectaVoF = new HashSet<>();
+        respuestaCorrectaVoF.add("V");
+
+        Set<String> todasRespuestaVoF = new HashSet<>();
+        todasRespuestaVoF.add("V");
+        todasRespuestaVoF.add("F");
+
+        Set<String> respuestaCorrectaMCParcial = new HashSet<>();
+        respuestaCorrectaMCParcial.add("A");
+        respuestaCorrectaMCParcial.add("C");
+
+        Set<String> todasRespuestaMCParcial = new HashSet<>();
+        todasRespuestaMCParcial.add("A");
+        todasRespuestaMCParcial.add("B");
+        todasRespuestaMCParcial.add("C");
+        todasRespuestaMCParcial.add("D");
+
+        panel.crearPregunta("preguntaMCConPuntajeParcial", "preguntaMCConPuntajeParcial", respuestaCorrectaMCParcial, todasRespuestaMCParcial);
+
+        panel.crearPregunta("preguntaVoFConPenalidad", "preguntaVoFConPEnalidad", respuestaCorrectaVoF, todasRespuestaVoF);
+
+        VistaAgregarJugador vistaAgregarJugador = new VistaAgregarJugador(panel, stage);
+        Scene scene = vistaAgregarJugador.devolverVistaAgregarJugador();
+
+        stage.setTitle("elCajú");
         stage.setScene(scene);
         stage.show();
+
+
     }
 
     public static void main(String[] args) {

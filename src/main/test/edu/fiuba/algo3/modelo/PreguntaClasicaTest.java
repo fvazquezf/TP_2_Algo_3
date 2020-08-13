@@ -19,7 +19,7 @@ public class PreguntaClasicaTest {
         Set<String> respuestasCorrectas = new HashSet<>();
         respuestasCorrectas.add("a");
 
-        PreguntaClasica preguntaClasica = new PreguntaClasica("Pregunta", respuestasCorrectas);
+        PreguntaClasica preguntaClasica = new PreguntaClasica("Pregunta", respuestasCorrectas, respuestasCorrectas);
 
         int puntos = preguntaClasica.compararRespuestas(respuestaElegidasDelJugador);
 
@@ -34,7 +34,7 @@ public class PreguntaClasicaTest {
         Set<String> respuestasCorrectas = new HashSet<>();
         respuestasCorrectas.add("a");
 
-        PreguntaClasica preguntaClasica = new PreguntaClasica("Pregunta", respuestasCorrectas);
+        PreguntaClasica preguntaClasica = new PreguntaClasica("Pregunta", respuestasCorrectas, respuestasCorrectas);
 
         int puntos = preguntaClasica.compararRespuestas(respuestaElegidasDelJugador);
 
@@ -53,7 +53,7 @@ public class PreguntaClasicaTest {
         respuestasCorrectas.add("c");
         respuestasCorrectas.add("d");
 
-        PreguntaClasica preguntaClasica = new PreguntaClasica("Pregunta", respuestasCorrectas);
+        PreguntaClasica preguntaClasica = new PreguntaClasica("Pregunta", respuestasCorrectas, respuestasCorrectas);
 
         int puntos = preguntaClasica.compararRespuestas(respuestaElegidasDelJugador);
 
@@ -71,7 +71,7 @@ public class PreguntaClasicaTest {
         respuestasCorrectas.add("c");
         respuestasCorrectas.add("d");
 
-        PreguntaClasica preguntaClasica = new PreguntaClasica("Pregunta", respuestasCorrectas);
+        PreguntaClasica preguntaClasica = new PreguntaClasica("Pregunta", respuestasCorrectas, respuestasCorrectas);
 
         int puntos = preguntaClasica.compararRespuestas(respuestaElegidasDelJugador);
 
@@ -90,7 +90,7 @@ public class PreguntaClasicaTest {
         respuestasCorrectas.add("2");
         respuestasCorrectas.add("3");
 
-        PreguntaClasica preguntaClasica = new PreguntaClasica("Pregunta", respuestasCorrectas);
+        PreguntaClasica preguntaClasica = new PreguntaClasica("Pregunta", respuestasCorrectas, respuestasCorrectas);
 
         int puntos = preguntaClasica.compararRespuestas(respuestaElegidasDelJugador);
 
@@ -109,7 +109,7 @@ public class PreguntaClasicaTest {
         respuestasCorrectas.add("2");
         respuestasCorrectas.add("3");
 
-        PreguntaClasica preguntaClasica = new PreguntaClasica("Pregunta", respuestasCorrectas);
+        PreguntaClasica preguntaClasica = new PreguntaClasica("Pregunta", respuestasCorrectas, respuestasCorrectas);
 
         int puntos = preguntaClasica.compararRespuestas(respuestaElegidasDelJugador);
 
@@ -125,7 +125,7 @@ public class PreguntaClasicaTest {
         respuestasCorrectas.add("2");
         respuestasCorrectas.add("3");
 
-        PreguntaClasica preguntaClasica = new PreguntaClasica("Pregunta", respuestasCorrectas);
+        PreguntaClasica preguntaClasica = new PreguntaClasica("Pregunta", respuestasCorrectas, respuestasCorrectas);
 
         int puntos = preguntaClasica.compararRespuestas(respuestaElegidasDelJugador);
 
@@ -138,7 +138,7 @@ public class PreguntaClasicaTest {
         respuesta.add("V");
         respuesta.add("F");
 
-        PreguntaClasica pregunta = new PreguntaClasica("pregunta", respuesta);
+        PreguntaClasica pregunta = new PreguntaClasica("pregunta", respuesta, respuesta);
         assertThrows(ExcepcionSoloPreguntaConPenalidadPuedeUsarMultiplicador.class, pregunta::activarMultiplicador);
     }
 
@@ -156,7 +156,7 @@ public class PreguntaClasicaTest {
         respuestasJugador.add("c");
         respuestasJugador.add("grupo1");
 
-        PreguntaClasica pregunta = new PreguntaClasica("pregunta", respuestasCorrectas);
+        PreguntaClasica pregunta = new PreguntaClasica("pregunta", respuestasCorrectas, respuestasCorrectas);
         int puntos = pregunta.compararRespuestas(respuestasJugador);
         assertEquals(1, puntos);
     }
@@ -174,7 +174,7 @@ public class PreguntaClasicaTest {
         respuestasJugador.add("b");
         respuestasJugador.add("grupo1");
 
-        PreguntaClasica pregunta = new PreguntaClasica("pregunta", respuestasCorrectas);
+        PreguntaClasica pregunta = new PreguntaClasica("pregunta", respuestasCorrectas, respuestasCorrectas);
         int puntos = pregunta.compararRespuestas(respuestasJugador);
         assertEquals(0, puntos);
     }
@@ -193,7 +193,7 @@ public class PreguntaClasicaTest {
         respuestasJugador.add("x");
         respuestasJugador.add("grupo1");
 
-        PreguntaClasica pregunta = new PreguntaClasica("pregunta", respuestasCorrectas);
+        PreguntaClasica pregunta = new PreguntaClasica("pregunta", respuestasCorrectas, respuestasCorrectas);
         int puntos = pregunta.compararRespuestas(respuestasJugador);
         assertEquals(0, puntos);
     }
@@ -213,7 +213,7 @@ public class PreguntaClasicaTest {
         respuestasJugador.add("a");
 
 
-        PreguntaClasica pregunta = new PreguntaClasica("pregunta", respuestasCorrectas);
+        PreguntaClasica pregunta = new PreguntaClasica("pregunta", respuestasCorrectas, respuestasCorrectas);
         int puntos = pregunta.compararRespuestas(respuestasJugador);
         assertEquals(1, puntos);
     }
