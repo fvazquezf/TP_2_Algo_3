@@ -21,8 +21,8 @@ public class Panel implements Observable{
     private ArrayList<Observador> observadores = new ArrayList<>();
 
 
-    public void crearPregunta(String tipoPregunta, String pregunta, Collection<String> respuestasCorrectas, Collection<String> todasRespuestas) {
-        this.preguntas.add(fabricaPreguntas.crearPregunta(tipoPregunta, pregunta, respuestasCorrectas, todasRespuestas));
+    public void crearPregunta(String tipoPregunta, String pregunta, Collection<String> respuestasCorrectas, Collection<String> todasRespuestas, String[] grupos) {
+        this.preguntas.add(fabricaPreguntas.crearPregunta(tipoPregunta, pregunta, respuestasCorrectas, todasRespuestas, grupos));
     }
 
     public void crearJugadores(String nombre1, String nombre2) {
