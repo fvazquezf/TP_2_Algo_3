@@ -2,26 +2,26 @@
   {
     "tipoPregunta" : "preguntaVoFClasica",
     "pregunta": "¿Es blanco el caballo blanco de San Martin?",
-    "opcionesPosibles": {
-                            "opcionA":"Verdadero",
-                            "opcionB":"Falso"
-      },
-    "opcionesCorrectas" : {
-                             "opcionA":"Verdadero"
-      }
+    "opcionesPosibles": [
+                            "Verdadero",
+                            "Falso"
+      ],
+    "opcionesCorrectas" : [
+                             "Verdadero"
+      ]
   },
   {
     "tipoPregunta" : "preguntaMCConPuntajeParcial",
     "pregunta": "¿Qué es PDD?",
-    "opcionesPosibles": {
-                            "opcionA":"Test Driven development",
-                            "opcionB":"Print driven developnet",
-                            "OpcionC":"Metodo de desarrollo",
-                            "OpcionD":"Frula"
-      },
-    "opcionesCorrectas" : {
-                            "opcionA":"Print driven developnet",
-                            "opcionB":"Metodo de desarrollo"
-      }
+    "opcionesPosibles": [
+                            "Test Driven development",
+                            "Print driven developnet",
+                            "Metodo de desarrollo",
+                            "Frula"
+      ],
+    "opcionesCorrectas" : [
+                            "Print driven developnet",
+                            "Metodo de desarrollo"
+      ]
   }
 ]

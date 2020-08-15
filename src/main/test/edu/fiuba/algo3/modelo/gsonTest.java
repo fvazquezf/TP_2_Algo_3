@@ -26,21 +26,19 @@ public class gsonTest {
     @Test
     public void test02CargoUnArchivoConDosPreguntasYLasLeo() throws IOException {
 
+        String[] opcionesPosibles = {"Verdadero", "Falso"};
         Gson gson = new GsonBuilder().create();
-//        FileReader fr = new FileReader("D:\\Datos\\Google Drive\\Fiuba\\95.02 - Algoritmos y programación III\\TP2\\Repositorio\\TP_2_Algo_3\\rsc\\Preguntas.json");
-//        BufferedReader br = new BufferedReader(fr);
-//        System.out.println(br);
         String JsonTexto = new String(Files.readAllBytes(Paths.get("rsc/Preguntas.json")));
 
-        PreguntasJson[] preguntasJsons = gson.fromJson(JsonTexto,PreguntasJson[].class);
-//        for(PreguntasJson preguntasJson : preguntasJsons) {
-//            System.out.println(preguntasJsons);
-//        }
+        PreguntasJson[] preguntasJsons = gson.fromJson(JsonTexto, PreguntasJson[].class);
         System.out.println(preguntasJsons[0].obtenerPregunta());
         System.out.println(preguntasJsons[0].obtenerTipoPregunta());
-        System.out.println(preguntasJsons[0].obtenerOpcionesCorrectas().obtenerOpciones());
-        System.out.println(preguntasJsons[0].obtenerOpcionesPosibles().obtenerOpciones());
-        assertEquals(1,1);
+        System.out.println(preguntasJsons[0].obtenerOpcionesCorrectas()[0]);
+        System.out.println(preguntasJsons[0].obtenerOpcionesPosibles().length);
+        assertEquals("¿Es blanco el caballo blanco de San Martin?",preguntasJsons[0].obtenerPregunta());
+        assertEquals("¿Qué es PDD?",preguntasJsons[1].obtenerPregunta());
+        assertEquals(opcionesPosibles[1],preguntasJsons[0].obtenerOpcionesPosibles()[1]);
+
     }
 
 

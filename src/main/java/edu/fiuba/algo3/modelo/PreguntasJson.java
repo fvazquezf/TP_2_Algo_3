@@ -7,10 +7,10 @@ import java.util.List;
 public class PreguntasJson {
     private String pregunta;
     private String tipoPregunta;
-    private Opciones opcionesPosibles;
-    private Opciones opcionesCorrectas;
+    private String opcionesPosibles[];
+    private String opcionesCorrectas[];
 
-    public PreguntasJson( String pregunta, String tipoPregunta, Opciones opcionesPosibles, Opciones opcionesCorrectas) {
+    public PreguntasJson( String pregunta, String tipoPregunta, String[] opcionesPosibles, String[] opcionesCorrectas) {
         this.pregunta = pregunta;
         this.tipoPregunta = tipoPregunta;
         this.opcionesPosibles = opcionesPosibles;
@@ -23,10 +23,10 @@ public class PreguntasJson {
     public String obtenerTipoPregunta() {
         return this.tipoPregunta;
     }
-    public Opciones obtenerOpcionesPosibles() {
+    public String[] obtenerOpcionesPosibles() {
         return this.opcionesPosibles;
     }
-    public Opciones obtenerOpcionesCorrectas() {
+    public String[] obtenerOpcionesCorrectas() {
         return this.opcionesCorrectas;
     }
 }
