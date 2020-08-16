@@ -17,38 +17,14 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         Panel panel = new Panel();
-
-        PreguntasJson[] preguntas = new PreguntasJson[0];
+        Preguntas[] preguntas = new Preguntas[0];
+        
         try {
-             preguntas = panel.leerPreguntas();
-        }
-        catch (IOException e) {
+            preguntas = panel.leerPreguntas();
+        } catch (IOException e) {
             e.printStackTrace();
         }
-
-        for (PreguntasJson pregunta : preguntas) {
-            panel.crearPregunta(pregunta.obtenerTipoPregunta(), pregunta.obtenerPregunta(), Arrays.asList(pregunta.obtenerOpcionesCorrectas()), Arrays.asList(pregunta.obtenerOpcionesPosibles()));
-        }
-//        Set<String> respuestaCorrectaVoF = new HashSet<>();
-//        respuestaCorrectaVoF.add("V");
-//
-//        Set<String> todasRespuestaVoF = new HashSet<>();
-//        todasRespuestaVoF.add("V");
-//        todasRespuestaVoF.add("F");
-//
-//        Set<String> respuestaCorrectaMCParcial = new HashSet<>();
-//        respuestaCorrectaMCParcial.add("A");
-//        respuestaCorrectaMCParcial.add("C");
-//
-//        Set<String> todasRespuestaMCParcial = new HashSet<>();
-//        todasRespuestaMCParcial.add("A");
-//        todasRespuestaMCParcial.add("B");
-//        todasRespuestaMCParcial.add("C");
-//        todasRespuestaMCParcial.add("D");
-//
-//        panel.crearPregunta("preguntaMCConPuntajeParcial", "preguntaMCConPuntajeParcial", respuestaCorrectaMCParcial, todasRespuestaMCParcial);
-//
-//        panel.crearPregunta("preguntaVoFConPenalidad", "preguntaVoFConPEnalidad", respuestaCorrectaVoF, todasRespuestaVoF);
+        Arrays.stream(preguntas).forEach(pregunta -> panel.crearPregunta(pregunta.obtenerTipoPregunta(), pregunta.obtenerPregunta(), pregunta.obtenerOpcionesCorrectas(), pregunta.obtenerOpcionesPosbiles()));
 
         VistaAgregarJugador vistaAgregarJugador = new VistaAgregarJugador(panel, stage);
         Scene scene = vistaAgregarJugador.devolverVistaAgregarJugador();

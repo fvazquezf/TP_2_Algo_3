@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 import com.google.gson.Gson;
-import edu.fiuba.algo3.PreguntasJson;
+import edu.fiuba.algo3.Preguntas;
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaNoHayPreguntasParaHacer;
 import edu.fiuba.algo3.modelo.Exclusividad.EstadoExclusividad;
 import edu.fiuba.algo3.modelo.preguntas.FabricaPreguntas;
@@ -114,11 +114,11 @@ public class Panel implements Observable{
         observadores.stream().forEach(observer -> observer.actualizar());
     }
 
-    public PreguntasJson[] leerPreguntas() throws IOException {
+    public Preguntas[] leerPreguntas() throws IOException {
         Gson gson = new Gson();
         String preguntas = new String(Files.readAllBytes(Paths.get("rsc/Preguntas.json")), "UTF-8");
 
-        return gson.fromJson(preguntas, PreguntasJson[].class);
+        return gson.fromJson(preguntas, Preguntas[].class);
 
 
     }

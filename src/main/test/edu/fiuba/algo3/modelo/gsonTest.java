@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import edu.fiuba.algo3.PreguntasJson;
+import edu.fiuba.algo3.Preguntas;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -18,7 +18,7 @@ public class gsonTest {
     public void test01CargoUnStringConDAtosEnFormatoJsonyComparoResultados() {
         String json = "{\"pregunta\": \"¿Cómo festeja Diego?\",\"opcionesPosibles\":[\"Fiesta\", \"Frula\"],\"opcionesCorrectas\":[\"Fiesta\"]}";
         Gson gson = new Gson();
-        PreguntasJson preguntasJson = gson.fromJson(json,PreguntasJson.class);
+        Preguntas preguntasJson = gson.fromJson(json, Preguntas.class);
 
         assertEquals("¿Cómo festeja Diego?", preguntasJson.obtenerPregunta());
     }
@@ -30,27 +30,24 @@ public class gsonTest {
         String JsonTexto = new String(Files.readAllBytes(Paths.get("rsc/Preguntas.json")), "UTF-8");
 
 
-        PreguntasJson[] preguntasJsons = gson.fromJson(JsonTexto, PreguntasJson[].class);
+        Preguntas[] preguntasJsons = gson.fromJson(JsonTexto, Preguntas[].class);
 
-        assertEquals("¿Es blanco el caballo blanco de San Martin?",preguntasJsons[0].obtenerPregunta());
-        assertEquals("¿Qué es PDD?",preguntasJsons[1].obtenerPregunta());
-        assertEquals("Verdadero",preguntasJsons[0].obtenerOpcionesPosibles()[0]);
-        assertEquals("Metodo de desarrollo",preguntasJsons[1].obtenerOpcionesCorrectas()[1]);
-        assertEquals("Pares",preguntasJsons[3].obtenerGrupos().get("grupoAComparar"));
-        assertEquals("Impares",preguntasJsons[3].obtenerGrupos().get("otroGrupo"));
+        assertEquals("¿Es blanco el caballo blanco de San Martin?", preguntasJsons[0].obtenerPregunta());
+        assertEquals("¿Qué es PDD?", preguntasJsons[1].obtenerPregunta());
+        assertEquals("Pares", preguntasJsons[3].obtenerGrupos().get("grupoAComparar"));
+        assertEquals("Impares", preguntasJsons[3].obtenerGrupos().get("otroGrupo"));
     }
 
     @Test
     public void test03CargoUnArchivoConPreguntasCorroboroLosGruposCargadosAlRevées() throws IOException {
 
-        Gson gson = new GsonBuilder().create();
-        String JsonTexto = new String(Files.readAllBytes(Paths.get("rsc/Preguntas.json")), "UTF-8");
+        Gson gson = new Gson();
+        String texto = new String(Files.readAllBytes(Paths.get("rsc/Preguntas.json")), "UTF-8");
 
+        Preguntas[] preguntasJsons = gson.fromJson(texto, Preguntas[].class);
 
-        PreguntasJson[] preguntasJsons = gson.fromJson(JsonTexto, PreguntasJson[].class);
-
-        assertEquals("Fuego",preguntasJsons[4].obtenerGrupos().get("grupoAComparar"));
-        assertEquals("Electricidad",preguntasJsons[4].obtenerGrupos().get("otroGrupo"));
+        assertEquals("Fuego", preguntasJsons[4].obtenerGrupos().get("grupoAComparar"));
+        assertEquals("Electricidad", preguntasJsons[4].obtenerGrupos().get("otroGrupo"));
     }
 
 
