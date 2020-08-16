@@ -22,7 +22,7 @@ public class gsonTest {
     }
 
     @Test
-    public void test02CargoUnArchivoConDosPreguntasYLasLeo() throws IOException {
+    public void test02CargoUnArchivoConPreguntasLeoAlgunosCampos() throws IOException {
 
         Gson gson = new GsonBuilder().create();
         String JsonTexto = new String(Files.readAllBytes(Paths.get("rsc/Preguntas.json")), "UTF-8");
