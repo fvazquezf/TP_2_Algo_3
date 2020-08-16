@@ -29,11 +29,28 @@ public class gsonTest {
         Gson gson = new GsonBuilder().create();
         String JsonTexto = new String(Files.readAllBytes(Paths.get("rsc/Preguntas.json")), "UTF-8");
 
+
         PreguntasJson[] preguntasJsons = gson.fromJson(JsonTexto, PreguntasJson[].class);
+
         assertEquals("¿Es blanco el caballo blanco de San Martin?",preguntasJsons[0].obtenerPregunta());
         assertEquals("¿Qué es PDD?",preguntasJsons[1].obtenerPregunta());
         assertEquals("Verdadero",preguntasJsons[0].obtenerOpcionesPosibles()[0]);
         assertEquals("Metodo de desarrollo",preguntasJsons[1].obtenerOpcionesCorrectas()[1]);
+        assertEquals("Pares",preguntasJsons[3].obtenerGrupos().get("grupoAComparar"));
+        assertEquals("Impares",preguntasJsons[3].obtenerGrupos().get("otroGrupo"));
+    }
+
+    @Test
+    public void test03CargoUnArchivoConPreguntasCorroboroLosGruposCargadosAlRevées() throws IOException {
+
+        Gson gson = new GsonBuilder().create();
+        String JsonTexto = new String(Files.readAllBytes(Paths.get("rsc/Preguntas.json")), "UTF-8");
+
+
+        PreguntasJson[] preguntasJsons = gson.fromJson(JsonTexto, PreguntasJson[].class);
+
+        assertEquals("Fuego",preguntasJsons[4].obtenerGrupos().get("grupoAComparar"));
+        assertEquals("Electricidad",preguntasJsons[4].obtenerGrupos().get("otroGrupo"));
     }
 
 

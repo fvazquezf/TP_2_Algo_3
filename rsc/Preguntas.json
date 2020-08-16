@@ -3,13 +3,13 @@
     "tipoPregunta" : "preguntaVoFClasica",
     "pregunta": "¿Es blanco el caballo blanco de San Martin?",
     "opcionesPosibles": [
-
+                            "Verdadero",
+                            "Falso"
       ],
     "opcionesCorrectas" : [
                              "Verdadero"
       ],
     "grupos": [
-
     ]
   },
   {
@@ -33,7 +33,8 @@
     "tipoPregunta" : "preguntaVoFClasica",
     "pregunta": "Independiente es un grande",
     "opcionesPosibles": [
-
+                            "Verdadero",
+                            "Falso"
     ],
     "opcionesCorrectas" : [
                               "Falso"
@@ -60,9 +61,31 @@
                             "Uno"
     ],
     "grupos": [
-                "Pares",
-                "Impares"
+                {
+                  "grupoAComparar": "Pares",
+                  "otroGrupo": "Impares"
+                }
+    ]
+  },
+  {
+    "tipoPregunta" : "preguntaOC",
+    "pregunta": "Separe los pokemons",
+    "opcionesPosibles": [
+      "Pikachu",
+      "Charizar",
+      "Raychu",
+      "Charmander"
+    ],
+    "opcionesCorrectas" : [
+      "Charizar",
+      "Charmander"
 
+    ],
+    "grupos": [
+      {
+        "otroGrupo": "Electricidad",
+        "grupoAComparar": "Fuego"
+      }
     ]
   }
 ]
