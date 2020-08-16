@@ -1,7 +1,11 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.excepciones.ExcepcionPreguntaMCInvalida;
+import edu.fiuba.algo3.modelo.excepciones.ExcepcionPreguntaVOFInvalida;
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionSoloPreguntasClasicasYPuntajeParcialPuedeUsarExclusividad;
-import edu.fiuba.algo3.modelo.preguntas.PreguntaConPenalidad;
+import edu.fiuba.algo3.modelo.preguntas.Pregunta;
+import edu.fiuba.algo3.modelo.preguntas.PreguntaMCConPenalidad;
+import edu.fiuba.algo3.modelo.preguntas.PreguntaVoFConPenalidad;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
@@ -11,80 +15,173 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PreguntaConPenalidadTest {
-
     @Test
-    public void Test01PreguntaConPenalidadComparaConUnaOpcionCorrectaYDevuelveUnPunto() {
-        Set<String> respuestaElegidasDelJugador = new HashSet<>();
-        respuestaElegidasDelJugador.add("a");
+    public void Test01PreguntaVOFConPenalidadContestaCorrectamenteDevuelveUnPunto() {
+        Set<String> opcionCorrecta = new HashSet<>();
+        opcionCorrecta.add("V");
 
-        Set<String> respuestasCorrectas = new HashSet<>();
-        respuestasCorrectas.add("a");
+        Set<String> opcionJugador = new HashSet<>();
+        opcionJugador.add("V");
 
-        PreguntaConPenalidad preguntaConPenalidad = new PreguntaConPenalidad("Pregunta", respuestasCorrectas, respuestasCorrectas);
+        Pregunta preguntaConPenalidad = new PreguntaVoFConPenalidad("Es blanco el caballo blanco de San Martin?", opcionCorrecta);
 
-        int puntos = preguntaConPenalidad.compararRespuestas(respuestaElegidasDelJugador);
+        int puntos = preguntaConPenalidad.compararRespuestas(opcionJugador);
 
         assertEquals(1, puntos);
     }
 
     @Test
-    public void Test02PreguntaConPenalidadComparoConUnaOpcionCorrectaYDosIncorrectasDevuelveMenosUnPunto() {
-        Set<String> respuestaElegidasDelJugador = new HashSet<>();
-        respuestaElegidasDelJugador.add("a");
-        respuestaElegidasDelJugador.add("b");
-        respuestaElegidasDelJugador.add("d");
+    public void Test02PreguntaVOFConPenalidadContestaIncorrectamenteDevuelveMenosUnPuntos() {
+        Set<String> opcionCorrecta = new HashSet<>();
+        opcionCorrecta.add("V");
 
-        Set<String> respuestasCorrectas = new HashSet<>();
-        respuestasCorrectas.add("a");
+        Set<String> opcionJugador = new HashSet<>();
+        opcionJugador.add("F");
 
-        PreguntaConPenalidad preguntaConPenalidad = new PreguntaConPenalidad("Pregunta", respuestasCorrectas, respuestasCorrectas);
+        Pregunta preguntaConPenalidad = new PreguntaVoFConPenalidad("Es blanco el caballo blanco de San Martin?", opcionCorrecta);
 
-        int puntos = preguntaConPenalidad.compararRespuestas(respuestaElegidasDelJugador);
+        int puntos = preguntaConPenalidad.compararRespuestas(opcionJugador);
 
         assertEquals(-1, puntos);
     }
 
     @Test
-    public void Test03PreguntaConPenalidadComparaConDosOpcionesYEligeSolaUnaYDevuelveUnPunto() {
-        Set<String> respuestaElegidasDelJugador = new HashSet<>();
-        respuestaElegidasDelJugador.add("a");
+    public void Test03PreguntaMCConPenalidadContestaCorrectamenteDevuelveTresPuntos() {
+        Set<String> todasLasOpciones = new HashSet<>();
+        todasLasOpciones.add("Argentina");
+        todasLasOpciones.add("Colombia");
+        todasLasOpciones.add("Venezuela");
+        todasLasOpciones.add("Bariloche");
 
-        Set<String> respuestasCorrectas = new HashSet<>();
-        respuestasCorrectas.add("a");
-        respuestasCorrectas.add("c");
+        Set<String> opcionesCorrectas = new HashSet<>();
+        opcionesCorrectas.add("Argentina");
+        opcionesCorrectas.add("Venezuela");
+        opcionesCorrectas.add("Colombia");
 
-        PreguntaConPenalidad preguntaConPenalidad = new PreguntaConPenalidad("Pregunta", respuestasCorrectas, respuestasCorrectas);
+        Set<String> opcionesJugador = new HashSet<>();
+        opcionesJugador.add("Argentina");
+        opcionesJugador.add("Venezuela");
+        opcionesJugador.add("Colombia");
 
-        int puntos = preguntaConPenalidad.compararRespuestas(respuestaElegidasDelJugador);
+        Pregunta preguntaConPenalidad = new PreguntaMCConPenalidad("seleccionar los paises", opcionesCorrectas, todasLasOpciones);
 
-        assertEquals(1, puntos);
+        int puntos = preguntaConPenalidad.compararRespuestas(opcionesJugador);
+
+        assertEquals(3, puntos);
     }
 
     @Test
-    public void Test04PreguntaConPenalidadSiPuedeUsarDuplicadorRecibeTresPuntosDevuelveSeis() {
-        Set<String> respuesta = new HashSet<>();
-        respuesta.add("V");
-        respuesta.add("F");
+    public void Test04PreguntaMCConPenalidadContestaTresBienUnaMalDevuelveDosPuntos() {
+        Set<String> todasLasOpciones = new HashSet<>();
+        todasLasOpciones.add("Argentina");
+        todasLasOpciones.add("Colombia");
+        todasLasOpciones.add("Venezuela");
+        todasLasOpciones.add("Bariloche");
 
-        Jugador jugador1 = new Jugador("Rulo");
+        Set<String> opcionesCorrectas = new HashSet<>();
+        opcionesCorrectas.add("Argentina");
+        opcionesCorrectas.add("Venezuela");
+        opcionesCorrectas.add("Colombia");
 
-        PreguntaConPenalidad pregunta = new PreguntaConPenalidad("pregunta", respuesta, respuesta);
+        Set<String> opcionesJugador = new HashSet<>();
+        opcionesJugador.add("Argentina");
+        opcionesJugador.add("Venezuela");
+        opcionesJugador.add("Colombia");
+        opcionesJugador.add("Bariloche");
 
-        jugador1.estadoDuplicador();
-        pregunta.activarMultiplicador();
-        jugador1.asignarPuntos(3);
+        Pregunta preguntaConPenalidad = new PreguntaMCConPenalidad("seleccionar los paises", opcionesCorrectas, todasLasOpciones);
 
-        assertEquals(6, jugador1.pedirPuntos());
+        int puntos = preguntaConPenalidad.compararRespuestas(opcionesJugador);
+
+        assertEquals(2, puntos);
     }
 
     @Test
-    public void Test05PreguntaConPenalidadNoPuedeUsarExclusividadLanzaExcepcion() {
-        Set<String> respuesta = new HashSet<>();
-        respuesta.add("V");
-        respuesta.add("F");
+    public void Test05PreguntaMCConPenalidadContestaDosMalUnaBienDevuelveMenosUnPuntos() {
+        Set<String> todasLasOpciones = new HashSet<>();
+        todasLasOpciones.add("Argentina");
+        todasLasOpciones.add("Colombia");
+        todasLasOpciones.add("Jujuy");
+        todasLasOpciones.add("Bariloche");
 
-        PreguntaConPenalidad pregunta = new PreguntaConPenalidad("pregunta", respuesta, respuesta);
+        Set<String> opcionesCorrectas = new HashSet<>();
+        opcionesCorrectas.add("Argentina");
+        opcionesCorrectas.add("Colombia");
+
+        Set<String> opcionesJugador = new HashSet<>();
+        opcionesJugador.add("Argentina");
+        opcionesJugador.add("Jujuy");
+        opcionesJugador.add("Bariloche");
+
+        Pregunta preguntaConPenalidad = new PreguntaMCConPenalidad("seleccionar los paises", opcionesCorrectas, todasLasOpciones);
+
+        int puntos = preguntaConPenalidad.compararRespuestas(opcionesJugador);
+
+        assertEquals(-1, puntos);
+    }
+
+    @Test
+    public void Test06PreguntaVOFConPenalidadNoPuedeUsarExclusividadLanzaExcepcion() {
+        Set<String> opcionCorrecta = new HashSet<>();
+        opcionCorrecta.add("V");
+
+        Pregunta pregunta = new PreguntaVoFConPenalidad("Es blanco el caballo blanco de San Martin?", opcionCorrecta);
         assertThrows(ExcepcionSoloPreguntasClasicasYPuntajeParcialPuedeUsarExclusividad.class, pregunta::activarExclusividad);
     }
 
+    @Test
+    public void Test07PreguntaMCConPenalidadNoPuedeUsarExclusividadLanzaExcepcion() {
+        Set<String> todasLasOpciones = new HashSet<>();
+        todasLasOpciones.add("Argentina");
+        todasLasOpciones.add("Colombia");
+        todasLasOpciones.add("Venezuela");
+        todasLasOpciones.add("Bariloche");
+
+        Set<String> opcionesCorrectas = new HashSet<>();
+        opcionesCorrectas.add("Argentina");
+        opcionesCorrectas.add("Venezuela");
+        opcionesCorrectas.add("Colombia");
+
+        Pregunta pregunta = new PreguntaMCConPenalidad("Es blanco el caballo blanco de San Martin?", opcionesCorrectas, todasLasOpciones);
+        assertThrows(ExcepcionSoloPreguntasClasicasYPuntajeParcialPuedeUsarExclusividad.class, pregunta::activarExclusividad);
+    }
+
+    @Test
+    public void Test08PreguntaMCConPenalidadDebeTenerCincoOMenosOpciones() {
+        Set<String> todasLasOpciones = new HashSet<>();
+        todasLasOpciones.add("1");
+        todasLasOpciones.add("3");
+        todasLasOpciones.add("8");
+        todasLasOpciones.add("9");
+        todasLasOpciones.add("7");
+        todasLasOpciones.add("4");
+
+        Set<String> opcionesCorrectas = new HashSet<>();
+
+        assertThrows(ExcepcionPreguntaMCInvalida.class, () -> new PreguntaMCConPenalidad("Ordenar ascendentemente", opcionesCorrectas, todasLasOpciones));
+    }
+
+    @Test
+    public void Test09PreguntaMCConPenalidadDebeTenerDosOMasOpciones() {
+        Set<String> todasLasOpciones = new HashSet<>();
+        todasLasOpciones.add("1");
+        todasLasOpciones.add("3");
+        todasLasOpciones.add("8");
+        todasLasOpciones.add("9");
+        todasLasOpciones.add("7");
+        todasLasOpciones.add("4");
+
+        Set<String> opcionesCorrectas = new HashSet<>();
+
+        assertThrows(ExcepcionPreguntaMCInvalida.class, () -> new PreguntaMCConPenalidad("Ordenar ascendentemente", opcionesCorrectas, todasLasOpciones));
+    }
+
+    @Test
+    public void Test10PreguntaVOFConPenalidadNoPuedeTenerMasDeUnaOpcionCorrecta() {
+        Set<String> opcionesCorrectas = new HashSet<>();
+        opcionesCorrectas.add("V");
+        opcionesCorrectas.add("F");
+
+        assertThrows(ExcepcionPreguntaVOFInvalida.class, () -> new PreguntaVoFConPenalidad("El caballo blanco de San Martin es blanco?", opcionesCorrectas));
+    }
 }

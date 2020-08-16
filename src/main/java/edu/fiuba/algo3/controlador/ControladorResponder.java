@@ -26,13 +26,15 @@ public class ControladorResponder implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
-        try{panel.hacerPregunta(respuestaJugador);}
-        catch(ExcepcionYaNoHayPreguntasParaHacer excepcion){
+        try {
+            panel.hacerPregunta(respuestaJugador);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer excepcion) {
 
             VistaGameOver gameOver = new VistaGameOver();
             Scene scene = gameOver.devolverVistaGameOver();
 
             stage.setScene(scene);
-            stage.show();}
+            stage.show();
+        }
     }
 }

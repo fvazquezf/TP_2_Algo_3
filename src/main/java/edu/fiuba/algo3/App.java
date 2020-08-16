@@ -36,9 +36,11 @@ public class App extends Application {
         todasRespuestaMCParcial.add("C");
         todasRespuestaMCParcial.add("D");
 
-        panel.crearPregunta("preguntaMCConPuntajeParcial", "preguntaMCConPuntajeParcial", respuestaCorrectaMCParcial, todasRespuestaMCParcial);
+        String[] grupos = new String[0];
 
-        panel.crearPregunta("preguntaVoFConPenalidad", "preguntaVoFConPEnalidad", respuestaCorrectaVoF, todasRespuestaVoF);
+        panel.crearPregunta("preguntaMCConPuntajeParcial", "preguntaMCConPuntajeParcial", respuestaCorrectaMCParcial, todasRespuestaMCParcial, grupos);
+
+        panel.crearPregunta("preguntaVoFConPenalidad", "preguntaVoFConPEnalidad", respuestaCorrectaVoF, todasRespuestaVoF, grupos);
 
         VistaAgregarJugador vistaAgregarJugador = new VistaAgregarJugador(panel, stage);
         Scene scene = vistaAgregarJugador.devolverVistaAgregarJugador();
