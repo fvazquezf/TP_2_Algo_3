@@ -10,9 +10,9 @@ public class PreguntasJson {
     private String opcionesPosibles[];
     private String opcionesCorrectas[];
 
-    public PreguntasJson( String pregunta, String tipoPregunta, String[] opcionesPosibles, String[] opcionesCorrectas) {
-        this.pregunta = pregunta;
+    public PreguntasJson( String tipoPregunta, String pregunta, String[] opcionesPosibles, String[] opcionesCorrectas) {
         this.tipoPregunta = tipoPregunta;
+        this.pregunta = pregunta;
         this.opcionesPosibles = opcionesPosibles;
         this.opcionesCorrectas = opcionesCorrectas;
     }

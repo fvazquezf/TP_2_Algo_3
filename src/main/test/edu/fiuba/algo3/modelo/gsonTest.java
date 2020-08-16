@@ -16,7 +16,7 @@ public class gsonTest {
 
     @Test
     public void test01CargoUnStringConDAtosEnFormatoJsonyComparoResultados() {
-        String json = "{\"pregunta\": \"¿Cómo festeja Diego?\",\"respuestasCorrectas\":[\"Fiesta\"],\"respuestaFalsa\":[\"Frula\"]}";
+        String json = "{\"pregunta\": \"¿Cómo festeja Diego?\",\"opcionesPosibles\":[\"Fiesta\", \"Frula\"],\"opcionesCorrectas\":[\"Fiesta\"]}";
         Gson gson = new Gson();
         PreguntasJson preguntasJson = gson.fromJson(json,PreguntasJson.class);
 
@@ -26,19 +26,14 @@ public class gsonTest {
     @Test
     public void test02CargoUnArchivoConDosPreguntasYLasLeo() throws IOException {
 
-        String[] opcionesPosibles = {"Verdadero", "Falso"};
         Gson gson = new GsonBuilder().create();
         String JsonTexto = new String(Files.readAllBytes(Paths.get("rsc/Preguntas.json")));
 
         PreguntasJson[] preguntasJsons = gson.fromJson(JsonTexto, PreguntasJson[].class);
-        System.out.println(preguntasJsons[0].obtenerPregunta());
-        System.out.println(preguntasJsons[0].obtenerTipoPregunta());
-        System.out.println(preguntasJsons[0].obtenerOpcionesCorrectas()[0]);
-        System.out.println(preguntasJsons[0].obtenerOpcionesPosibles().length);
         assertEquals("¿Es blanco el caballo blanco de San Martin?",preguntasJsons[0].obtenerPregunta());
         assertEquals("¿Qué es PDD?",preguntasJsons[1].obtenerPregunta());
-        assertEquals(opcionesPosibles[1],preguntasJsons[0].obtenerOpcionesPosibles()[1]);
-
+        assertEquals("Verdadero",preguntasJsons[0].obtenerOpcionesPosibles()[0]);
+        assertEquals("Metodo de desarrollo",preguntasJsons[1].obtenerOpcionesCorrectas()[1]);
     }
 
 

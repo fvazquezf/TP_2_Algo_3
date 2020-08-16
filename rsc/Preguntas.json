@@ -8,7 +8,10 @@
       ],
     "opcionesCorrectas" : [
                              "Verdadero"
-      ]
+      ],
+    "grupos": [
+
+    ]
   },
   {
     "tipoPregunta" : "preguntaMCConPuntajeParcial",
@@ -22,6 +25,32 @@
     "opcionesCorrectas" : [
                             "Print driven developnet",
                             "Metodo de desarrollo"
-      ]
+      ],
+    "grupos": [
+
+    ]
+  },
+  {
+    "tipoPregunta" : "preguntaOC",
+    "pregunta": "Separe en pares e impares",
+    "opcionesPosibles": [
+                          "Tres",
+                          "Cuarenta",
+                          "Doce",
+                          "Uno",
+                          "Quince"
+    ],
+    "opcionesCorrectas" : [
+                            "Cuarenta",
+                            "Quince",
+                            "Tres",
+                            "dos",
+                            "Uno"
+    ],
+    "grupos": [
+                "Pares",
+                "Impares"
+
+    ]
   }
 ]
