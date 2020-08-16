@@ -12,7 +12,7 @@ public class PreguntaMCConPenalidad extends Pregunta {
 
     public PreguntaMCConPenalidad(String pregunta, Set<String> opcionesCorrectas, Set<String> todasLasOpciones) {
         super(pregunta, opcionesCorrectas, todasLasOpciones);
-        if (todasLasOpciones.size() >= 5 || todasLasOpciones.size() <= 2)
+        if (todasLasOpciones.size() > 5 || todasLasOpciones.size() < 2)
             throw new ExcepcionPreguntaMCInvalida();
     }
 

@@ -16,7 +16,7 @@ public class PreguntaVoFConPenalidad extends Pregunta {
         todasLasOpciones = new HashSet<>();
         todasLasOpciones.add("V");
         todasLasOpciones.add("F");
-        if (todasLasOpciones.size() != 2 || opcionesCorrectas.size() != 1)
+        if (opcionesCorrectas.size() != 1)
             throw new ExcepcionPreguntaVOFInvalida();
     }
 
