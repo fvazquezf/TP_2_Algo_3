@@ -1,7 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import edu.fiuba.algo3.PreguntasJson;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

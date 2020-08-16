@@ -3,8 +3,7 @@
     "tipoPregunta" : "preguntaVoFClasica",
     "pregunta": "¿Es blanco el caballo blanco de San Martin?",
     "opcionesPosibles": [
-                            "Verdadero",
-                            "Falso"
+
       ],
     "opcionesCorrectas" : [
                              "Verdadero"
@@ -26,6 +25,19 @@
                             "Print driven developnet",
                             "Metodo de desarrollo"
       ],
+    "grupos": [
+
+    ]
+  },
+  {
+    "tipoPregunta" : "preguntaVoFClasica",
+    "pregunta": "Independiente es un grande",
+    "opcionesPosibles": [
+
+    ],
+    "opcionesCorrectas" : [
+                              "Falso"
+    ],
     "grupos": [
 
     ]
