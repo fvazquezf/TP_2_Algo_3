@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaNoHayPreguntasParaHacer;
+import edu.fiuba.algo3.modelo.Exclusividad.EstadoExclusividad;
 import edu.fiuba.algo3.modelo.preguntas.FabricaPreguntas;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 

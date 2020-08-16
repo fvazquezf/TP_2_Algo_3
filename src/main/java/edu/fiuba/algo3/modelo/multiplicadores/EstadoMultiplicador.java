@@ -22,7 +22,4 @@ public class EstadoMultiplicador {
         triplicador.cambiarEstado();
         multiplicadorActual = triplicador;
     }
-
-
-
 }
