@@ -16,41 +16,41 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class PreguntasComportamientoClasicoTest {
     @Test
     public void Test01PreguntaVOFClasicaRespondeCorrectamenteDevuelveUnPunto() {
-        Set<String> respuestaElegidasDelJugador = new HashSet<>();
-        respuestaElegidasDelJugador.add("V");
+        Set<String> opcionCorrecta = new HashSet<>();
+        opcionCorrecta.add("V");
 
-        Set<String> respuestaCorrecta = new HashSet<>();
-        respuestaCorrecta.add("V");
+        Set<String> opcionJugador = new HashSet<>();
+        opcionJugador.add("V");
 
-        Pregunta pregunta = new PreguntaVOFClasica("Para ser grande hay que ser campeón mundial", respuestaCorrecta);
+        Pregunta pregunta = new PreguntaVOFClasica("Para ser grande hay que ser campeón mundial", opcionCorrecta);
 
-        int puntos = pregunta.compararRespuestas(respuestaElegidasDelJugador);
+        int puntos = pregunta.compararRespuestas(opcionJugador);
 
         assertEquals(1, puntos);
     }
 
     @Test
     public void Test02PreguntaVOFClasicaRespondeIncorrectamenteDevuelveCeroPuntos() {
-        Set<String> respuestaElegidasDelJugador = new HashSet<>();
-        respuestaElegidasDelJugador.add("F");
+        Set<String> opcionCorrecta = new HashSet<>();
+        opcionCorrecta.add("V");
 
-        Set<String> respuestaCorrecta = new HashSet<>();
-        respuestaCorrecta.add("V");
+        Set<String> opcionJugador = new HashSet<>();
+        opcionJugador.add("F");
 
-        Pregunta pregunta = new PreguntaVOFClasica("Independiente nunca perdió su clásico con dos jugadores más", respuestaCorrecta);
+        Pregunta pregunta = new PreguntaVOFClasica("Independiente nunca perdió su clásico con dos jugadores más", opcionCorrecta);
 
-        int puntos = pregunta.compararRespuestas(respuestaElegidasDelJugador);
+        int puntos = pregunta.compararRespuestas(opcionJugador);
 
         assertEquals(0, puntos);
     }
 
     @Test
     public void Test03PreguntaVOFClasicaSoloPuedeRecibirUnaOpcionCorrecta() {
-        Set<String> respuestaCorrecta = new HashSet<>();
-        respuestaCorrecta.add("V");
-        respuestaCorrecta.add("F");
+        Set<String> opcionesCorrectas = new HashSet<>();
+        opcionesCorrectas.add("V");
+        opcionesCorrectas.add("F");
 
-        assertThrows(ExcepcionPreguntaVOFInvalida.class, () -> new PreguntaVOFClasica("Independiente nunca perdió su clásico con dos jugadores más", respuestaCorrecta));
+        assertThrows(ExcepcionPreguntaVOFInvalida.class, () -> new PreguntaVOFClasica("Independiente nunca perdió su clásico con dos jugadores más", opcionesCorrectas));
     }
 
     @Test
