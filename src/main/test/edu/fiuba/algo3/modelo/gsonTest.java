@@ -1,12 +1,10 @@
 package edu.fiuba.algo3.modelo;
 
-import com.google.gson.*;
-import edu.fiuba.algo3.modelo.preguntas.Pregunta;
-import org.junit.Test;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import org.junit.jupiter.api.Test;
 
-
-import java.io.*;
-import java.nio.Buffer;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -27,7 +25,7 @@ public class gsonTest {
     public void test02CargoUnArchivoConDosPreguntasYLasLeo() throws IOException {
 
         Gson gson = new GsonBuilder().create();
-        String JsonTexto = new String(Files.readAllBytes(Paths.get("rsc/Preguntas.json")));
+        String JsonTexto = new String(Files.readAllBytes(Paths.get("rsc/Preguntas.json")), "UTF-8");
 
         PreguntasJson[] preguntasJsons = gson.fromJson(JsonTexto, PreguntasJson[].class);
         assertEquals("¿Es blanco el caballo blanco de San Martin?",preguntasJsons[0].obtenerPregunta());
