@@ -21,7 +21,9 @@ public class CajaPregunta extends HBox implements Observador {
         super();
 
         this.panel = panel;
-        panel.agregarObservador(this);
+        //Para el borrado de las respuesta del jugador, hago que caja Pregunta observe a los jugadores en vez del panel.
+        panel.pedirJugadorActual().agregarObservador(this);
+        panel.pedirJugadorSiguiente().agregarObservador(this);
 
         pregunta = new Label(panel.obtenerPreguntaActual());
 
@@ -41,9 +43,9 @@ public class CajaPregunta extends HBox implements Observador {
 
     @Override
     public void actualizar() {
-        pregunta.setText(panel.obtenerPreguntaActual());
-        cajaOpciones.getChildren().clear();
+//        pregunta.setText(panel.obtenerPreguntaActual());
+//        cajaOpciones.getChildren().clear();
         respuestasJugador.clear();
-        panel.obtenerTodasLasOpciones().stream().forEach((o)-> { cajaOpciones.getChildren().add(new BotonOpcion(o, respuestasJugador));});
+//        panel.obtenerTodasLasOpciones().stream().forEach((o)-> { cajaOpciones.getChildren().add(new BotonOpcion(o, respuestasJugador));});
     }
 }

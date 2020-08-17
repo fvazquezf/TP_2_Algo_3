@@ -30,7 +30,6 @@ public class VistaJuego implements Observador {
     public void actualizar() {
         VistaPregunta vistaPregunta = new VistaPregunta(panel);
         Scene scene = vistaPregunta.devolverVistaPregunta();
-
         stage.setScene(scene);
         stage.show();
 

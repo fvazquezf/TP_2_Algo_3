@@ -12,4 +12,9 @@ public class SiguienteTurno implements FlowDelJuego {
     public FlowDelJuego siguiente() {
         return new SiguienteRonda();
     }
+
+    @Override
+    public void siguientePregunta(Panel panel) {
+        panel.siguientePregunta();
+    }
 }
