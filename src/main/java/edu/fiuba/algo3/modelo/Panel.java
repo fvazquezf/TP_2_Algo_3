@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import edu.fiuba.algo3.Preguntas;
 import edu.fiuba.algo3.modelo.Exclusividad.EstadoExclusividad;
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaNoHayPreguntasParaHacer;
+import edu.fiuba.algo3.modelo.manejoDeTurnos.EstadoFlowDelJuego;
 import edu.fiuba.algo3.modelo.preguntas.FabricaPreguntas;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 
@@ -18,12 +19,13 @@ public class Panel implements Observable {
     private List<Pregunta> preguntas = new ArrayList<>();
     int numeroDePreguntaActual = 0;
 
-    private boolean cambiarPregunta = false;
+    private EstadoFlowDelJuego estadoDelJuego = new EstadoFlowDelJuego();
 
     private Jugador jugadorActual;
     private Jugador jugadorSiguiente;
 
     private EstadoExclusividad estadoExclusividad = new EstadoExclusividad();
+
     private ArrayList<Observador> observadores = new ArrayList<>();
 
     public Panel(){
@@ -47,36 +49,24 @@ public class Panel implements Observable {
         return preguntas.get(numeroDePreguntaActual).obtenerTodasLasOpciones();
     }
 
+    public void hacerPregunta(Collection<String> respuestasJugadores) {
+        int puntos = preguntas.get(numeroDePreguntaActual).compararRespuestas(respuestasJugadores);
+        jugadorActual.asignarPuntos(puntos);
+        estadoExclusividad.guardarRespuesta(jugadorActual, puntos);
+
+        estadoDelJuego.proximoEstado(this);
+    }
+
     public void siguientePregunta() {
         numeroDePreguntaActual++;
         if (preguntas.size() == numeroDePreguntaActual) throw new ExcepcionYaNoHayPreguntasParaHacer();
         notificarObservador();
     }
 
-    public void hacerPregunta(Collection<String> respuestasJugadores) {
-        int puntos = preguntas.get(numeroDePreguntaActual).compararRespuestas(respuestasJugadores);
-        jugadorActual.asignarPuntos(puntos);
-        estadoExclusividad.guardarRespuesta(jugadorActual, puntos);
-
-        siguienteJugador();
-    }
-
     public void siguienteJugador() {
         Jugador jugadorTemp = jugadorActual;
         jugadorActual = jugadorSiguiente;
         jugadorSiguiente = jugadorTemp;
-
-        siguienteTurno();
-    }
-
-    public void siguienteTurno() {
-        if (cambiarPregunta) {
-            calcularExclusividad();
-            siguientePregunta();
-            cambiarPregunta = false;
-        } else {
-            cambiarPregunta = true;
-        }
     }
 
     public void activarExclusividad() {
