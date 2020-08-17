@@ -9,7 +9,7 @@ import java.util.Set;
 public class PreguntaMCConPuntajeParcial extends Pregunta {
     private ComportamientoConPuntajeParcial comportamiento = new ComportamientoConPuntajeParcial();
 
-    public PreguntaMCConPuntajeParcial(String pregunta, Set<String> opcionesCorrectas, Set<String> todasLasOpciones) {
+    public PreguntaMCConPuntajeParcial(String pregunta, String[] opcionesCorrectas, Set<String> todasLasOpciones) {
         super(pregunta, opcionesCorrectas, todasLasOpciones);
         if (todasLasOpciones.size() > 5 || todasLasOpciones.size() < 2)
             throw new ExcepcionPreguntaMCInvalida();

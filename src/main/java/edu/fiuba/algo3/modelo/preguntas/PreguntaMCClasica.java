@@ -9,7 +9,7 @@ import java.util.Set;
 public class PreguntaMCClasica extends Pregunta {
     private final ComportamientoClasico comportamiento = new ComportamientoClasico();
 
-    public PreguntaMCClasica(String pregunta, Set<String> opcionesCorrectas, Set<String> todasLasOpciones) {
+    public PreguntaMCClasica(String pregunta, String[] opcionesCorrectas, Set<String> todasLasOpciones) {
         super(pregunta, opcionesCorrectas, todasLasOpciones);
         if (todasLasOpciones.size() > 5 || todasLasOpciones.size() < 2)
             throw new ExcepcionPreguntaMCInvalida();

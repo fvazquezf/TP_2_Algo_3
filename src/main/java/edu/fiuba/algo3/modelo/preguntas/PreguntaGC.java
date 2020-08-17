@@ -10,16 +10,16 @@ import java.util.Set;
 
 public class PreguntaGC extends Pregunta {
     private final ComportamientoClasico comportamiento = new ComportamientoClasico();
-    Map<String, String> grupos = new HashMap<>();
+    Map<String, String> grupos;
 
-    public PreguntaGC(String pregunta, Set<String> opcionesCorrectas, Set<String> todasLasOpciones, Map<String, String> grupos) {
+    public PreguntaGC(String pregunta, String[] opcionesCorrectas, Set<String> todasLasOpciones, Map<String, String> grupos) {
         super(pregunta, opcionesCorrectas, todasLasOpciones);
         if (todasLasOpciones.size() < 2 || todasLasOpciones.size() > 6)
             throw new ExcepcionPreguntaGCInvalida();
         if (todasLasOpciones.contains(grupos.get("grupoAComparar")) || todasLasOpciones.contains(grupos.get("OtroGrupo")))
             throw new ExcepcionPreguntaGCInvalida();
         this.grupos = grupos;
-        opcionesCorrectas.add(grupos.get("grupoAComparar"));
+        this.opcionesCorrectas.add(grupos.get("grupoAComparar"));
     }
 
     @Override

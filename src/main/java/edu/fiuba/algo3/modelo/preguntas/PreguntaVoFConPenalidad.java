@@ -11,12 +11,12 @@ import java.util.Set;
 public class PreguntaVoFConPenalidad extends Pregunta {
     private ComportamientoConPenalidad comportamiento = new ComportamientoConPenalidad();
 
-    public PreguntaVoFConPenalidad(String pregunta, Set<String> opcionesCorrectas) {
+    public PreguntaVoFConPenalidad(String pregunta, String[] opcionesCorrectas) {
         super(pregunta, opcionesCorrectas);
         todasLasOpciones = new HashSet<>();
         todasLasOpciones.add("V");
         todasLasOpciones.add("F");
-        if (opcionesCorrectas.size() != 1)
+        if (this.opcionesCorrectas.size() != 1)
             throw new ExcepcionPreguntaVOFInvalida();
     }
 

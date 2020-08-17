@@ -35,9 +35,7 @@ public class Preguntas {
         return opPosibles;
     }
 
-    public Collection<String> obtenerOpcionesCorrectas() {
-        Set<String> opCorrectas = new HashSet<>();
-        Collections.addAll(opCorrectas, this.opcionesCorrectas);
-        return opCorrectas;
+    public String[] obtenerOpcionesCorrectas() {
+        return opcionesCorrectas;
     }
 }

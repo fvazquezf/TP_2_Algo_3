@@ -2,21 +2,27 @@ package edu.fiuba.algo3.modelo.preguntas;
 
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionSoloPreguntaConPenalidadPuedeUsarMultiplicador;
 
-import java.util.Collection;
-import java.util.HashSet;
+import java.util.*;
 
 public abstract class Pregunta {
     protected Collection<String> opcionesCorrectas;
     protected Collection<String> todasLasOpciones;
     protected String textoPregunta;
 
-    public Pregunta(String textoPregunta, Collection<String> opcionesCorrectas) {
-        this.opcionesCorrectas = opcionesCorrectas;
+    public Pregunta(String textoPregunta, String[] opcionesCorrectas) {
+        this.opcionesCorrectas = new HashSet<>();
+        Collections.addAll(this.opcionesCorrectas, opcionesCorrectas);
         this.textoPregunta = textoPregunta;
     }
 
-    public Pregunta(String textoPregunta, Collection<String> opcionesCorrectas, Collection<String> todasLasOpciones) {
-        this.opcionesCorrectas = opcionesCorrectas;
+    public Pregunta(String textoPregunta, String[] opcionesCorrectas, Collection<String> todasLasOpciones) {
+        this.opcionesCorrectas = new HashSet<>();
+        Collections.addAll(this.opcionesCorrectas, opcionesCorrectas);
+        this.textoPregunta = textoPregunta;
+        this.todasLasOpciones = todasLasOpciones;
+    }
+    public Pregunta(String textoPregunta, List opcionesCorrectas, Collection<String> todasLasOpciones) {
+        this.opcionesCorrectas = new LinkedList<>(opcionesCorrectas);
         this.textoPregunta = textoPregunta;
         this.todasLasOpciones = todasLasOpciones;
     }

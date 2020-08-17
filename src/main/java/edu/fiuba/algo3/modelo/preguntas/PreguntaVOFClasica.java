@@ -10,12 +10,12 @@ import java.util.Set;
 public class PreguntaVOFClasica extends Pregunta {
     private final ComportamientoClasico comportamiento = new ComportamientoClasico();
 
-    public PreguntaVOFClasica(String pregunta, Set<String> opcionesCorrectas) {
+    public PreguntaVOFClasica(String pregunta, String[] opcionesCorrectas) {
         super(pregunta, opcionesCorrectas);
         todasLasOpciones = new HashSet<>();
         todasLasOpciones.add("V");
         todasLasOpciones.add("F");
-        if (opcionesCorrectas.size() != 1)
+        if (this.opcionesCorrectas.size() != 1)
             throw new ExcepcionPreguntaVOFInvalida();
     }
 

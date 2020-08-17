@@ -2,8 +2,8 @@ package edu.fiuba.algo3.modelo;
 
 import com.google.gson.Gson;
 import edu.fiuba.algo3.Preguntas;
-import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaNoHayPreguntasParaHacer;
 import edu.fiuba.algo3.modelo.Exclusividad.EstadoExclusividad;
+import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaNoHayPreguntasParaHacer;
 import edu.fiuba.algo3.modelo.preguntas.FabricaPreguntas;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 
@@ -12,7 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 
-public class Panel implements Observable{
+public class Panel implements Observable {
 
     private final FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
     private List<Pregunta> preguntas = new ArrayList<>();
@@ -26,8 +26,11 @@ public class Panel implements Observable{
     private EstadoExclusividad estadoExclusividad = new EstadoExclusividad();
     private ArrayList<Observador> observadores = new ArrayList<>();
 
+    public Panel(){
+        this.leerPreguntas();
+    }
 
-    public void crearPregunta(String tipoPregunta, String pregunta, Collection<String> respuestasCorrectas, Collection<String> todasRespuestas, Map<String,String> grupos) {
+    public void crearPregunta(String tipoPregunta, String pregunta, String[] respuestasCorrectas, Collection<String> todasRespuestas, Map<String, String> grupos) {
         this.preguntas.add(fabricaPreguntas.crearPregunta(tipoPregunta, pregunta, respuestasCorrectas, todasRespuestas, grupos));
     }
 
@@ -46,7 +49,7 @@ public class Panel implements Observable{
 
     public void siguientePregunta() {
         numeroDePreguntaActual++;
-        if(preguntas.size() == numeroDePreguntaActual) throw new ExcepcionYaNoHayPreguntasParaHacer();
+        if (preguntas.size() == numeroDePreguntaActual) throw new ExcepcionYaNoHayPreguntasParaHacer();
         notificarObservador();
     }
 
@@ -114,11 +117,17 @@ public class Panel implements Observable{
         observadores.stream().forEach(observer -> observer.actualizar());
     }
 
-    public Preguntas[] leerPreguntas() throws IOException {
+    public void leerPreguntas() {
         Gson gson = new Gson();
-        String preguntas = new String(Files.readAllBytes(Paths.get("rsc/Preguntas.json")), "UTF-8");
+        String preguntas = null;
 
-        return gson.fromJson(preguntas, Preguntas[].class);
+        try {
+            preguntas = new String(Files.readAllBytes(Paths.get("rsc/Preguntas.json")), "UTF-8");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Arrays.stream(gson.fromJson(preguntas, Preguntas[].class)).forEach(pregunta -> this.crearPregunta(pregunta.obtenerTipoPregunta(), pregunta.obtenerPregunta(), pregunta.obtenerOpcionesCorrectas(), pregunta.obtenerOpcionesPosbiles(), pregunta.obtenerGrupos()));
 
     }
 }
