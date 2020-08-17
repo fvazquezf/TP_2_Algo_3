@@ -39,6 +39,8 @@ public class Panel implements Observable {
     public void crearJugadores(String nombre1, String nombre2) {
         jugadorActual = new Jugador(nombre1);
         jugadorSiguiente = new Jugador(nombre2);
+
+        notificarObservador();
     }
 
     public String obtenerPreguntaActual() {
@@ -60,6 +62,7 @@ public class Panel implements Observable {
     public void siguientePregunta() {
         numeroDePreguntaActual++;
         if (preguntas.size() == numeroDePreguntaActual) throw new ExcepcionYaNoHayPreguntasParaHacer();
+
         notificarObservador();
     }
 
@@ -97,16 +100,6 @@ public class Panel implements Observable {
         return (jugadorSiguiente);
     }
 
-    @Override
-    public void agregarObservador(Observador observador) {
-        observadores.add(observador);
-    }
-
-    @Override
-    public void notificarObservador() {
-        observadores.stream().forEach(observer -> observer.actualizar());
-    }
-
     public void leerPreguntas() {
         Gson gson = new Gson();
         String preguntas = null;
@@ -119,5 +112,15 @@ public class Panel implements Observable {
 
         Arrays.stream(gson.fromJson(preguntas, Preguntas[].class)).forEach(pregunta -> this.crearPregunta(pregunta.obtenerTipoPregunta(), pregunta.obtenerPregunta(), pregunta.obtenerOpcionesCorrectas(), pregunta.obtenerOpcionesPosbiles(), pregunta.obtenerGrupos()));
 
+    }
+
+    @Override
+    public void agregarObservador(Observador observador) {
+        observadores.add(observador);
+    }
+
+    @Override
+    public void notificarObservador() {
+        observadores.stream().forEach(observer -> observer.actualizar());
     }
 }

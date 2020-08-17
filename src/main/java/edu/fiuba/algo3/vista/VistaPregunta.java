@@ -10,11 +10,9 @@ import javafx.stage.Stage;
 public class VistaPregunta implements Observador {
 
     private final Panel panel;
-    private final Stage stage;
 
-    public VistaPregunta(Panel panel, Stage stage){
+    public VistaPregunta(Panel panel){
         this.panel = panel;
-        this.stage = stage;
     }
 
 
@@ -25,7 +23,7 @@ public class VistaPregunta implements Observador {
 
         CajaJugadores cajaJugadores = new CajaJugadores(panel);
 
-        CajaPregunta cajaPregunta = new CajaPregunta(panel, stage);
+        CajaPregunta cajaPregunta = new CajaPregunta(panel);
 
         componentLayout.setCenter(cajaPregunta);
         componentLayout.setBottom(cajaJugadores);

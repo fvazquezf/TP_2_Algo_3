@@ -23,10 +23,10 @@ public class CajaJugadores extends VBox implements Observador {
         j2 = panel.pedirJugadorSiguiente();
         j2.agregarObservador(this);
 
-        puntosJ1 = new Label("0");
+        puntosJ1 = new Label(String.valueOf(j1.pedirPuntos()));
         Label nombreJ1 = new Label("Jugador 1 " + j1.pedirNombre() + ": ");
 
-        puntosJ2 = new Label("0");
+        puntosJ2 = new Label(String.valueOf(j2.pedirPuntos()));
         Label nombreJ2 = new Label("Jugador 2 " + j2.pedirNombre() + ": ");
 
         HBox J1 = new HBox();
@@ -41,6 +41,7 @@ public class CajaJugadores extends VBox implements Observador {
 
     @Override
     public void actualizar() {
+
         String puntosJ1 = String.valueOf(j1.pedirPuntos());
         this.puntosJ1.setText(puntosJ1);
 

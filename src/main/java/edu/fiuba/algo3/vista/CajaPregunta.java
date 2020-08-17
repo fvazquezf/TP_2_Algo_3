@@ -17,7 +17,7 @@ public class CajaPregunta extends HBox implements Observador {
     private HBox cajaOpciones;
     private HashSet<String> respuestasJugador;
 
-    public CajaPregunta(Panel panel, Stage stage) {
+    public CajaPregunta(Panel panel) {
         super();
 
         this.panel = panel;
@@ -31,7 +31,7 @@ public class CajaPregunta extends HBox implements Observador {
 
         panel.obtenerTodasLasOpciones().stream().forEach((o)-> { cajaOpciones.getChildren().add(new BotonOpcion(o, respuestasJugador));});
 
-        Button botonResponder = new BotonResponder(panel, respuestasJugador, stage);
+        Button botonResponder = new BotonResponder(panel, respuestasJugador);
 
         VBox vb = new VBox();
         vb.getChildren().addAll(pregunta, cajaOpciones, botonResponder);

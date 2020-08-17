@@ -13,17 +13,16 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 
-public class VistaAgregarJugador{
+public class VistaAgregarJugador {
 
     private final Panel panel;
-    private final Stage stage;
+
     private TextField nombreJugador1;
     private TextField nombreJugador2;
     private Scene scene;
 
-    public VistaAgregarJugador(Panel panel, Stage stage) {
+    public VistaAgregarJugador(Panel panel) {
         this.panel = panel;
-        this.stage = stage;
     }
 
     public Scene devolverVistaAgregarJugador() {
@@ -31,10 +30,10 @@ public class VistaAgregarJugador{
         BorderPane componentLayout = new BorderPane();
         componentLayout.setPadding(new Insets(20, 200, 10, 100));
 
-        Label ingresoNombre1 = new Label( "Jugador1 ingrese su nombre: ");
+        Label ingresoNombre1 = new Label("Jugador1 ingrese su nombre: ");
         nombreJugador1 = new TextField();
 
-        Label ingresoNombre2 = new Label( "Jugador2 ingrese su nombre: ");
+        Label ingresoNombre2 = new Label("Jugador2 ingrese su nombre: ");
         nombreJugador2 = new TextField();
 
         VBox vb = new VBox();
@@ -43,7 +42,7 @@ public class VistaAgregarJugador{
         StackPane panelCenter = new StackPane();
         panelCenter.getChildren().add(vb);
 
-        Button botonIniciar = new BotonIniciarJuego(panel, stage, this);
+        Button botonIniciar = new BotonIniciarJuego(panel, this);
         StackPane panelLeft = new StackPane();
         panelLeft.getChildren().add(botonIniciar);
 
@@ -58,6 +57,7 @@ public class VistaAgregarJugador{
     public String obtenerNombre1() {
         return nombreJugador1.getText();
     }
+
     public String obtenerNombre2() {
         return nombreJugador2.getText();
     }

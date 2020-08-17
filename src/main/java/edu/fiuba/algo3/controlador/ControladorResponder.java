@@ -15,26 +15,16 @@ import java.util.HashSet;
 public class ControladorResponder implements EventHandler<ActionEvent> {
 
     private final Panel panel;
-    private final Stage stage;
+
     private Collection<String> respuestaJugador;
 
-    public ControladorResponder(Panel panel, HashSet<String> respuestaJugador, Stage stage) {
+    public ControladorResponder(Panel panel, HashSet<String> respuestaJugador) {
         this.panel = panel;
         this.respuestaJugador = respuestaJugador;
-        this.stage = stage;
     }
 
     @Override
     public void handle(ActionEvent event) {
-        try {
-            panel.hacerPregunta(respuestaJugador);
-        } catch (ExcepcionYaNoHayPreguntasParaHacer excepcion) {
-
-            VistaGameOver gameOver = new VistaGameOver();
-            Scene scene = gameOver.devolverVistaGameOver();
-
-            stage.setScene(scene);
-            stage.show();
-        }
+        panel.hacerPregunta(respuestaJugador);
     }
 }

@@ -1,54 +1,52 @@
-//package edu.fiuba.algo3.modelo;
-//
-//import edu.fiuba.algo3.modelo.excepciones.*;
-//import org.junit.jupiter.api.Test;
-//
-//import java.util.HashSet;
-//import java.util.LinkedList;
-//import java.util.List;
-//import java.util.Set;
-//
-//import static org.junit.jupiter.api.Assertions.assertEquals;
-//import static org.junit.jupiter.api.Assertions.assertThrows;
-//
-//public class PanelTest {
-//
-//    @Test
-//    public void test01PreguntaVoFClasicaJugador1ContestaBienSeLeAsigna1PuntoJugador2ContestaMalSeLeAigna0Puntos() {
-//        Set<String> respuestaCorrecta = new HashSet<>();
-//        Set<String> todasLasRespuestas = new HashSet<>();
-//        respuestaCorrecta.add("a");
-//
-//        Set<String> respuestaJugador1 = new HashSet<>();
-//        respuestaJugador1.add("a");
-//
-//        Set<String> respuestaJugador2 = new HashSet<>();
-//        respuestaJugador2.add("b");
-//
-//        Panel panel = new Panel();
-//
-//        panel.crearPregunta("preguntaVoFClasica", "pregunta", respuestaCorrecta, todasLasRespuestas);
-//
-//        panel.crearJugadores("Stef", "Rulo");
-//
-//        panel.hacerPregunta(respuestaJugador1);
-//        assertEquals(1, panel.pedirJugadorSiguiente().pedirPuntos());
-//
-//        try {
-//            panel.hacerPregunta(respuestaJugador2);
-//        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
-//            assertEquals(0, panel.pedirJugadorSiguiente().pedirPuntos());
-//        }
-//    }
-//
+package edu.fiuba.algo3.modelo;
+
+import edu.fiuba.algo3.modelo.excepciones.*;
+import org.junit.jupiter.api.Test;
+
+import java.util.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class PanelTest {
+
+    @Test
+    public void test01PreguntaVoFClasicaJugador1ContestaBienSeLeAsigna1PuntoJugador2ContestaMalSeLeAigna0Puntos() {
+        Set<String> respuestaJugador1 = new HashSet<>();
+        respuestaJugador1.add("V");
+
+        Set<String> respuestaJugador2 = new HashSet<>();
+        respuestaJugador2.add("F");
+
+        Panel panel = new Panel();
+
+        panel.crearJugadores("Stef", "Rulo");
+
+        panel.hacerPregunta(respuestaJugador1);
+        assertEquals(1, panel.pedirJugadorSiguiente().pedirPuntos());
+
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(0, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
+    }
+
 //    @Test
 //    public void test02PreguntaMCClasicaJugador1ContestaBienSeLeAsignaUnPuntoJugador2ConstestaMalSeLeAsigna0Puntos() {
-//        Set<String> respuestaCorrecta = new HashSet<>();
 //        Set<String> todasLasRespuestas = new HashSet<>();
-//        respuestaCorrecta.add("a");
-//        respuestaCorrecta.add("b");
-//        respuestaCorrecta.add("c");
-//        respuestaCorrecta.add("d");
+//        todasLasRespuestas.add("a");
+//        todasLasRespuestas.add("b");
+//        todasLasRespuestas.add("c");
+//        todasLasRespuestas.add("d");
+//        todasLasRespuestas.add("e");
+//
+//        Map<String, String> grupos = new HashMap<>();
+//
+//        String[] respuestaCorrecta = new String[4];
+//        respuestaCorrecta[0] = "a";
+//        respuestaCorrecta[1] = "b";
+//        respuestaCorrecta[2] = "c";
+//        respuestaCorrecta[3] = "d";
 //
 //        Set<String> respuestaJugador1 = new HashSet<>();
 //        respuestaJugador1.add("d");
@@ -65,11 +63,15 @@
 //
 //        Panel panel = new Panel();
 //
-//        panel.crearPregunta("preguntaMCClasica", "pregunta", respuestaCorrecta, todasLasRespuestas);
+//        panel.crearPregunta("preguntaMCClasica", "pregunta", respuestaCorrecta, todasLasRespuestas, grupos);
 //
 //        panel.crearJugadores("Stef", "Rulo");
 //
 //        panel.hacerPregunta(respuestaJugador1);
+//        Jugador jugador = panel.pedirJugadorSiguiente();
+//        System.out.println(jugador.pedirPuntos());
+//        System.out.println(jugador.pedirNombre());
+//
 //        assertEquals(1, panel.pedirJugadorSiguiente().pedirPuntos());
 //
 //        try {
@@ -1172,4 +1174,4 @@
 //        }
 //    }
 //
-//}
+}
