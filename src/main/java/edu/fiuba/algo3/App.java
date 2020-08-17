@@ -18,13 +18,13 @@ public class App extends Application {
     public void start(Stage stage) {
         Panel panel = new Panel();
         Preguntas[] preguntas = new Preguntas[0];
-        
+
         try {
             preguntas = panel.leerPreguntas();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Arrays.stream(preguntas).forEach(pregunta -> panel.crearPregunta(pregunta.obtenerTipoPregunta(), pregunta.obtenerPregunta(), pregunta.obtenerOpcionesCorrectas(), pregunta.obtenerOpcionesPosbiles()));
+        Arrays.stream(preguntas).forEach(pregunta -> panel.crearPregunta(pregunta.obtenerTipoPregunta(), pregunta.obtenerPregunta(), pregunta.obtenerOpcionesCorrectas(), pregunta.obtenerOpcionesPosbiles(), pregunta.obtenerGrupos()));
 
         VistaAgregarJugador vistaAgregarJugador = new VistaAgregarJugador(panel, stage);
         Scene scene = vistaAgregarJugador.devolverVistaAgregarJugador();

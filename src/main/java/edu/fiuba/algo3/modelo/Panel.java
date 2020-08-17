@@ -27,7 +27,7 @@ public class Panel implements Observable{
     private ArrayList<Observador> observadores = new ArrayList<>();
 
 
-    public void crearPregunta(String tipoPregunta, String pregunta, Collection<String> respuestasCorrectas, Collection<String> todasRespuestas, String[] grupos) {
+    public void crearPregunta(String tipoPregunta, String pregunta, Collection<String> respuestasCorrectas, Collection<String> todasRespuestas, Map<String,String> grupos) {
         this.preguntas.add(fabricaPreguntas.crearPregunta(tipoPregunta, pregunta, respuestasCorrectas, todasRespuestas, grupos));
     }
 
@@ -119,7 +119,6 @@ public class Panel implements Observable{
         String preguntas = new String(Files.readAllBytes(Paths.get("rsc/Preguntas.json")), "UTF-8");
 
         return gson.fromJson(preguntas, Preguntas[].class);
-
 
     }
 }

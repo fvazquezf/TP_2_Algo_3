@@ -2,14 +2,11 @@ package edu.fiuba.algo3.modelo.preguntas;
 
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionTipoPreguntaInvalida;
 
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class FabricaPreguntas {
 
-    public Pregunta crearPregunta(String tipoPregunta, String pregunta, Collection<String> respuestasCorrectas, Collection<String> todasRespuestas, String[] grupos) {
+    public Pregunta crearPregunta(String tipoPregunta, String pregunta, Collection<String> respuestasCorrectas, Collection<String> todasRespuestas, Map<String, String> grupos) {
         switch (tipoPregunta) {
             case "preguntaVoFClasica":
                 return (new PreguntaVOFClasica(pregunta, (Set<String>) respuestasCorrectas));

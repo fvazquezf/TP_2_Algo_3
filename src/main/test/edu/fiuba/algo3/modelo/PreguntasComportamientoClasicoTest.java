@@ -141,9 +141,9 @@ public class PreguntasComportamientoClasicoTest {
         opcionesJugador.add("Impares");
         opcionesJugador.add("3");
 
-        String[] grupos = new String[2];
-        grupos[0] = "Impares";
-        grupos[1] = "Pares";
+        Map<String, String> grupos= new HashMap<>();
+        grupos.put("grupoAComparar","Impares");
+        grupos.put("otroGrupo","Pares");
 
         Pregunta pregunta = new PreguntaGC("Separe los numeros en pares e impares", opcionesCorrectas, todasLasOpciones, grupos);
         int puntos = pregunta.compararRespuestas(opcionesJugador);
@@ -168,9 +168,9 @@ public class PreguntasComportamientoClasicoTest {
         opcionesJugador.add("Impares");
         opcionesJugador.add("2");
 
-        String[] grupos = new String[2];
-        grupos[0] = "Impares";
-        grupos[1] = "Pares";
+        Map<String, String> grupos= new HashMap<>();
+        grupos.put("grupoAComparar","Impares");
+        grupos.put("otroGrupo","Pares");
 
         Pregunta pregunta = new PreguntaGC("Separe los numeros en pares e impares", opcionesCorrectas, todasLasOpciones, grupos);
         int puntos = pregunta.compararRespuestas(opcionesJugador);
@@ -185,8 +185,10 @@ public class PreguntasComportamientoClasicoTest {
 
         Set<String> opcionesCorrectas = new HashSet<>();
 
-        String[] grupos = new String[0];
 
+        Map<String, String> grupos= new HashMap<>();
+        grupos.put("grupoAComparar","Impares");
+        grupos.put("otroGrupo","Pares");
         assertThrows(ExcepcionPreguntaGCInvalida.class, () -> new PreguntaGC("Separe los numeros en pares e impares", opcionesCorrectas, todasLasOpciones, grupos));
     }
 
@@ -203,7 +205,9 @@ public class PreguntasComportamientoClasicoTest {
 
         Set<String> opcionesCorrectas = new HashSet<>();
 
-        String[] grupos = new String[0];
+        Map<String, String> grupos= new HashMap<>();
+        grupos.put("grupoAComparar","Impares");
+        grupos.put("otroGrupo","Pares");
 
         assertThrows(ExcepcionPreguntaGCInvalida.class, () -> new PreguntaGC("Separe los numeros en pares e impares", opcionesCorrectas, todasLasOpciones, grupos));
     }
@@ -217,9 +221,9 @@ public class PreguntasComportamientoClasicoTest {
 
         Set<String> opcionesCorrectas = new HashSet<>();
 
-        String[] grupos = new String[2];
-        grupos[0] = "Impares";
-        grupos[1] = "Pares";
+        Map<String, String> grupos= new HashMap<>();
+        grupos.put("grupoAComparar","Impares");
+        grupos.put("otroGrupo","Pares");
 
         assertThrows(ExcepcionPreguntaGCInvalida.class, () -> new PreguntaGC("Separe los numeros en pares e impares", opcionesCorrectas, todasLasOpciones, grupos));
     }
@@ -338,9 +342,9 @@ public class PreguntasComportamientoClasicoTest {
         opcionesCorrectas.add("1");
         opcionesCorrectas.add("3");
 
-        String[] grupos = new String[2];
-        grupos[0] = "Impares";
-        grupos[1] = "Pares";
+        Map<String, String> grupos= new HashMap<>();
+        grupos.put("grupoAComparar","Impares");
+        grupos.put("otroGrupo","Pares");
 
         Pregunta pregunta = new PreguntaGC("Agrupar en pares e impares", opcionesCorrectas, todasLasOpciones, grupos);
         assertThrows(ExcepcionSoloPreguntaConPenalidadPuedeUsarMultiplicador.class, pregunta::activarMultiplicador);
