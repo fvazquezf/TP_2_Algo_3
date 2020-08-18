@@ -21,16 +21,14 @@ public class PanelTest {
         List<Pregunta> preguntaTest = new ArrayList<>();
         FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
         String[] respuestaCorrecta = new String[1];
-        respuestaCorrecta[0] = "a";
+        respuestaCorrecta[0] = "V";
 
         String[] todasLasRespuestas = new String[0];
 
         List<Grupo> grupos = new LinkedList<>();
-        grupos.add(new Grupo("Pares", "Imapres"));
+        grupos.add(new Grupo("", ""));
 
-        Preguntas pregunta = new Preguntas("preguntaVoFClasica", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
-        Preguntas[] preguntas = new Preguntas[1];
-        preguntas[0] = pregunta;
+        Preguntas pregunta = new Preguntas("preguntaVoFClasica", "Era blanco el caballo blanco de San Martin?", todasLasRespuestas, respuestaCorrecta, grupos);
 
         preguntaTest.add(fabricaPreguntas.crearPregunta(pregunta.obtenerTipoPregunta(), pregunta.obtenerPregunta(), pregunta.obtenerOpcionesCorrectas(), pregunta.obtenerOpcionesPosbiles(), pregunta.obtenerGrupos()));
         LectorPreguntas mockedLector = mock(LectorPreguntas.class);
@@ -38,10 +36,10 @@ public class PanelTest {
         when(mockedLector.parsearPreguntas()).thenReturn(preguntaTest);
 
         Set<String> respuestaJugador1 = new HashSet<>();
-        respuestaJugador1.add("a");
+        respuestaJugador1.add("V");
 
         Set<String> respuestaJugador2 = new HashSet<>();
-        respuestaJugador2.add("b");
+        respuestaJugador2.add("F");
 
         Panel panel = new Panel(mockedLector);
 
@@ -58,60 +56,55 @@ public class PanelTest {
             assertEquals(0, panel.pedirJugadorActual().pedirPuntos());
         }
     }
-//
-//    @Test
-//    public void test02PreguntaMCClasicaJugador1ContestaBienSeLeAsignaUnPuntoJugador2ConstestaMalSeLeAsigna0Puntos() {
-//        String[] respuestaCorrecta = new String[4];
-//        String[] todasLasRespuestas = new String[5];
-//        respuestaCorrecta[0] = "a";
-//        respuestaCorrecta[1] = "b";
-//        respuestaCorrecta[2] = "c";
-//        respuestaCorrecta[3] = "d";
-//
-//        todasLasRespuestas[0] = "d";
-//        todasLasRespuestas[1] = "b";
-//        todasLasRespuestas[2] = "c";
-//        todasLasRespuestas[3] = "d";
-//        todasLasRespuestas[4] = "z";
-//
-//        Set<String> respuestaJugador1 = new HashSet<>();
-//        respuestaJugador1.add("d");
-//        respuestaJugador1.add("a");
-//        respuestaJugador1.add("b");
-//        respuestaJugador1.add("c");
-//
-//        Set<String> respuestaJugador2 = new HashSet<>();
-//        respuestaJugador2.add("d");
-//        respuestaJugador2.add("a");
-//        respuestaJugador2.add("b");
-//        respuestaJugador2.add("c");
-//        respuestaJugador2.add("z");
-//
-//        List<Grupo> grupos = new LinkedList<>();
-//        grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
-//
-//        Preguntas pregunta = new Preguntas("preguntaMCClasica", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
-//        Preguntas[] preguntas = new Preguntas[1];
-//        preguntas[0] = pregunta;
-//
-//        LectorPreguntas mockedLector = mock(LectorPreguntas.class);
-//
-//        when(mockedLector.leerPreguntas()).thenReturn(preguntas);
-//
-//        Panel panel = new Panel(mockedLector);
-//
-//        panel.crearJugadores("Stef", "Rulo");
-//
-//        panel.hacerPregunta(respuestaJugador1);
-//        assertEquals(1, panel.pedirJugadorSiguiente().pedirPuntos());
-//
-//        try {
-//            panel.hacerPregunta(respuestaJugador2);
-//        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
-//            assertEquals(0, panel.pedirJugadorActual().pedirPuntos());
-//        }
-//    }
-//
+
+    @Test
+    public void test02PreguntaMCClasicaJugador1ContestaBienSeLeAsignaUnPuntoJugador2ConstestaMalSeLeAsigna0Puntos() {
+        List<Pregunta> preguntaTest = new ArrayList<>();
+        FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
+        String[] respuestasCorrectas = new String[2];
+        respuestasCorrectas[0] = "A";
+        respuestasCorrectas[1] = "B";
+
+        String[] todasLasRespuestas = new String[5];
+        todasLasRespuestas[0] = "A";
+        todasLasRespuestas[0] = "j";
+        todasLasRespuestas[0] = "7";
+        todasLasRespuestas[0] = "B";
+        todasLasRespuestas[0] = "-";
+
+
+        List<Grupo> grupos = new LinkedList<>();
+        grupos.add(new Grupo("", ""));
+
+        Preguntas pregunta = new Preguntas("preguntaMCClasica", "Primeras 2 letras del abecesario?", todasLasRespuestas, respuestasCorrectas, grupos);
+
+        preguntaTest.add(fabricaPreguntas.crearPregunta(pregunta.obtenerTipoPregunta(), pregunta.obtenerPregunta(), pregunta.obtenerOpcionesCorrectas(), pregunta.obtenerOpcionesPosbiles(), pregunta.obtenerGrupos()));
+        LectorPreguntas mockedLector = mock(LectorPreguntas.class);
+
+        when(mockedLector.parsearPreguntas()).thenReturn(preguntaTest);
+
+        Set<String> respuestasJugador1 = new HashSet<>();
+        respuestasJugador1.add("A");
+        respuestasJugador1.add("B");
+
+        Set<String> respuestasJugador2 = new HashSet<>();
+        respuestasJugador2.add("7");
+
+        Panel panel = new Panel(mockedLector);
+
+
+        panel.crearJugadores("Ivan", "Lu");
+
+        panel.hacerPregunta(respuestasJugador1);
+        assertEquals(1, panel.pedirJugadorSiguiente().pedirPuntos());
+
+        try {
+            panel.hacerPregunta(respuestasJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(0, panel.pedirJugadorActual().pedirPuntos());
+        }
+    }
+
 //    @Test
 //    public void test03PreguntaOCJugador1ContestaOrdenadoSeLeAsignaUnPuntoJugador2ContestaDesordenadoSeLeAsigna0Puntos() {
 //        String[] respuestaCorrecta = new String[4];

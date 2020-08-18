@@ -5,7 +5,6 @@ import edu.fiuba.algo3.modelo.excepciones.ExcepcionPreguntaVOFInvalida;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 
 public class PreguntaVOFClasica extends Pregunta {
     private final ComportamientoClasico comportamiento = new ComportamientoClasico();
