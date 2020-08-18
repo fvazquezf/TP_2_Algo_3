@@ -15,7 +15,7 @@ import java.util.*;
 
 public class Panel implements Observable {
 
-    private final FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
+
     private List<Pregunta> preguntas = new ArrayList<>();
     int numeroDePreguntaActual = 0;
 
@@ -29,11 +29,7 @@ public class Panel implements Observable {
     private ArrayList<Observador> observadores = new ArrayList<>();
 
     public Panel(LectorPreguntas lector){
-        this.leerPreguntas(lector.leerPreguntas());
-    }
-
-    public void crearPregunta(String tipoPregunta, String pregunta, String[] respuestasCorrectas, Collection<String> todasRespuestas, Map<String, String> grupos) {
-        this.preguntas.add(fabricaPreguntas.crearPregunta(tipoPregunta, pregunta, respuestasCorrectas, todasRespuestas, grupos));
+        preguntas.addAll(lector.parsearPreguntas());
     }
 
     public void crearJugadores(String nombre1, String nombre2) {
@@ -105,10 +101,5 @@ public class Panel implements Observable {
     @Override
     public void notificarObservador() {
         observadores.stream().forEach(observer -> observer.actualizar());
-    }
-
-    public void leerPreguntas(Preguntas[] preguntas) {
-        Arrays.stream(preguntas).forEach(pregunta -> this.crearPregunta(pregunta.obtenerTipoPregunta(), pregunta.obtenerPregunta(), pregunta.obtenerOpcionesCorrectas(), pregunta.obtenerOpcionesPosbiles(), pregunta.obtenerGrupos()));
-
     }
 }
