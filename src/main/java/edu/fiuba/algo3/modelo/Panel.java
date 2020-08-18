@@ -28,8 +28,8 @@ public class Panel implements Observable {
 
     private ArrayList<Observador> observadores = new ArrayList<>();
 
-    public Panel(){
-        this.leerPreguntas();
+    public Panel(LectorPreguntas lector){
+        this.leerPreguntas(lector.leerPreguntas());
     }
 
     public void crearPregunta(String tipoPregunta, String pregunta, String[] respuestasCorrectas, Collection<String> todasRespuestas, Map<String, String> grupos) {
@@ -107,17 +107,8 @@ public class Panel implements Observable {
         observadores.stream().forEach(observer -> observer.actualizar());
     }
 
-    public void leerPreguntas() {
-        Gson gson = new Gson();
-        String preguntas = null;
-
-        try {
-            preguntas = new String(Files.readAllBytes(Paths.get("rsc/Preguntas.json")), "UTF-8");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Arrays.stream(gson.fromJson(preguntas, Preguntas[].class)).forEach(pregunta -> this.crearPregunta(pregunta.obtenerTipoPregunta(), pregunta.obtenerPregunta(), pregunta.obtenerOpcionesCorrectas(), pregunta.obtenerOpcionesPosbiles(), pregunta.obtenerGrupos()));
+    public void leerPreguntas(Preguntas[] preguntas) {
+        Arrays.stream(preguntas).forEach(pregunta -> this.crearPregunta(pregunta.obtenerTipoPregunta(), pregunta.obtenerPregunta(), pregunta.obtenerOpcionesCorrectas(), pregunta.obtenerOpcionesPosbiles(), pregunta.obtenerGrupos()));
 
     }
 }

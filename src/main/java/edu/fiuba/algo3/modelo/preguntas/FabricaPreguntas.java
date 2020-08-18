@@ -18,7 +18,7 @@ public class FabricaPreguntas {
             case "preguntaGC":
                 return (new PreguntaGC(pregunta, respuestasCorrectas, (Set<String>) todasRespuestas, grupos));
             case "preguntaOC":
-                return (new PreguntaOC(pregunta, respuestasCorrectas, (LinkedList<String>) todasRespuestas));
+                return (new PreguntaOC(pregunta, respuestasCorrectas, new LinkedList<String>( todasRespuestas)));
             case "preguntaMCConPuntajeParcial":
                 return (new PreguntaMCConPuntajeParcial(pregunta, respuestasCorrectas, (Set<String>) todasRespuestas));
             case "preguntaMCConPenalidad":

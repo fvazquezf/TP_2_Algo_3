@@ -1,5 +1,6 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.modelo.LectorPreguntas;
 import edu.fiuba.algo3.modelo.Panel;
 import edu.fiuba.algo3.vista.VistaAgregarJugador;
 import javafx.application.Application;
@@ -16,7 +17,8 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        Panel panel = new Panel();
+        LectorPreguntas lector = new LectorPreguntas();
+        Panel panel = new Panel(lector);
 
         VistaAgregarJugador vistaAgregarJugador = new VistaAgregarJugador(panel, stage);
         Scene scene = vistaAgregarJugador.devolverVistaAgregarJugador();
