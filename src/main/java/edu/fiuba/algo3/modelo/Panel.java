@@ -28,7 +28,7 @@ public class Panel implements Observable {
 
     private ArrayList<Observador> observadores = new ArrayList<>();
 
-    public Panel(){
+    public Panel() {
         this.leerPreguntas();
     }
 
@@ -47,6 +47,10 @@ public class Panel implements Observable {
         return preguntas.get(numeroDePreguntaActual).obtenerPregunta();
     }
 
+    public String obtenerGrupoAComparar(){
+        return preguntas.get(numeroDePreguntaActual).obtenerGrupoCorrecto();
+    }
+
     public Collection<String> obtenerTodasLasOpciones() {
         return preguntas.get(numeroDePreguntaActual).obtenerTodasLasOpciones();
     }
@@ -56,11 +60,7 @@ public class Panel implements Observable {
         jugadorActual.asignarPuntos(puntos);
         estadoExclusividad.guardarRespuesta(jugadorActual, puntos);
 
-        try{
-            estadoDelJuego.proximoEstado(this);
-        } catch(ExcepcionYaNoHayPreguntasParaHacer e) {
-            notificarObservador();
-        }
+        estadoDelJuego.proximoEstado(this);
     }
 
     public void siguientePregunta() {
@@ -126,5 +126,9 @@ public class Panel implements Observable {
     @Override
     public void notificarObservador() {
         observadores.stream().forEach(observer -> observer.actualizar());
+    }
+
+    public String tipoDePreguntaActual() {
+        return preguntas.get(numeroDePreguntaActual).obtenerTipoPregunta();
     }
 }

@@ -1,10 +1,10 @@
-package edu.fiuba.algo3.vista;
+package edu.fiuba.algo3.vista.botones;
 
 
 import edu.fiuba.algo3.controlador.ControladorIniciarJuego;
 import edu.fiuba.algo3.modelo.Panel;
+import edu.fiuba.algo3.vista.VistaAgregarJugador;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
 
 public class BotonIniciarJuego extends Button {
 

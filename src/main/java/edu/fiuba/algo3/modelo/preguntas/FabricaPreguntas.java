@@ -12,19 +12,19 @@ public class FabricaPreguntas {
     public Pregunta crearPregunta(String tipoPregunta, String pregunta, String[] respuestasCorrectas, Collection<String> todasRespuestas, Map<String, String> grupos) {
         switch (tipoPregunta) {
             case "preguntaVoFClasica":
-                return (new PreguntaVOFClasica(pregunta, respuestasCorrectas));
+                return (new PreguntaVOFClasica(tipoPregunta, pregunta, respuestasCorrectas));
             case "preguntaMCClasica":
-                return (new PreguntaMCClasica(pregunta, respuestasCorrectas, (Set<String>) todasRespuestas));
+                return (new PreguntaMCClasica(tipoPregunta, pregunta, respuestasCorrectas, (Set<String>) todasRespuestas));
             case "preguntaGC":
-                return (new PreguntaGC(pregunta, respuestasCorrectas, (Set<String>) todasRespuestas, grupos));
+                return (new PreguntaGC(tipoPregunta, pregunta, respuestasCorrectas, (Set<String>) todasRespuestas, grupos));
             case "preguntaOC":
-                return (new PreguntaOC(pregunta, respuestasCorrectas, (LinkedList<String>) todasRespuestas));
+                return (new PreguntaOC(tipoPregunta, pregunta, respuestasCorrectas, (LinkedList<String>) todasRespuestas));
             case "preguntaMCConPuntajeParcial":
-                return (new PreguntaMCConPuntajeParcial(pregunta, respuestasCorrectas, (Set<String>) todasRespuestas));
+                return (new PreguntaMCConPuntajeParcial(tipoPregunta, pregunta, respuestasCorrectas, (Set<String>) todasRespuestas));
             case "preguntaMCConPenalidad":
-                return (new PreguntaMCConPenalidad(pregunta, respuestasCorrectas, (Set<String>) todasRespuestas));
+                return (new PreguntaMCConPenalidad(tipoPregunta, pregunta, respuestasCorrectas, (Set<String>) todasRespuestas));
             case "preguntaVoFConPenalidad":
-                return (new PreguntaVoFConPenalidad(pregunta, respuestasCorrectas));
+                return (new PreguntaVoFConPenalidad(tipoPregunta, pregunta, respuestasCorrectas));
             default:
                 throw new ExcepcionTipoPreguntaInvalida();
         }

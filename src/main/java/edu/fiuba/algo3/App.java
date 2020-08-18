@@ -1,14 +1,9 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.modelo.Panel;
-import edu.fiuba.algo3.vista.VistaAgregarJugador;
 import edu.fiuba.algo3.vista.VistaJuego;
 import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.io.IOException;
-import java.util.Arrays;
 
 /**
  * JavaFX App

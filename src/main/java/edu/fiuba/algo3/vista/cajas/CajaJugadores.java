@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.vista;
+package edu.fiuba.algo3.vista.cajas;
 
 import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.Observador;
@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import java.util.Collection;
 import java.util.Set;
 
 public class CajaJugadores extends VBox implements Observador {
@@ -17,9 +18,9 @@ public class CajaJugadores extends VBox implements Observador {
     private final Label puntosJ1;
     private final Label puntosJ2;
 
-    private final Set<String> respuestasJugador;
+    private final Collection<String> respuestasJugador;
 
-    public CajaJugadores(Panel panel, Set<String> respuestasJugador) {
+    public CajaJugadores(Panel panel, Collection<String> respuestasJugador) {
 
         j1 = panel.pedirJugadorActual();
         j1.agregarObservador(this);

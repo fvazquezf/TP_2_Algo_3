@@ -2,13 +2,13 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.Observador;
 import edu.fiuba.algo3.modelo.Panel;
-import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaNoHayPreguntasParaHacer;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class VistaJuego implements Observador {
     private final Panel panel;
     private Stage stage;
+    private FabricaVistaPregunta fabricaVistaPregunta = new FabricaVistaPregunta();
 
     public VistaJuego(Stage stage, Panel panel) {
         this.stage = stage;
@@ -29,9 +29,8 @@ public class VistaJuego implements Observador {
 
     @Override
     public void actualizar() {
-        VistaPregunta vistaPregunta = new VistaPregunta(panel);
-        Scene scene = vistaPregunta.devolverVistaPregunta();
-        stage.setScene(scene);
+        Scene vistaPregunta = fabricaVistaPregunta.crearVista(panel, panel.tipoDePreguntaActual());
+        stage.setScene(vistaPregunta);
         stage.show();
     }
 }

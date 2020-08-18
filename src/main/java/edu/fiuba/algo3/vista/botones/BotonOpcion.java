@@ -1,14 +1,15 @@
-package edu.fiuba.algo3.vista;
+package edu.fiuba.algo3.vista.botones;
 
 import edu.fiuba.algo3.controlador.ControladorBotonOpcion;
 import javafx.scene.control.Button;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
 public class BotonOpcion extends Button {
 
-    public BotonOpcion(String opcion, Set<String> respuestasElegidas) {
+    public BotonOpcion(String opcion, Collection<String> respuestasElegidas) {
         super();
         this.setText(opcion);
         ControladorBotonOpcion controladorBotonOpcion = new ControladorBotonOpcion(respuestasElegidas, opcion);

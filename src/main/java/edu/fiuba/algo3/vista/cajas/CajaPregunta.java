@@ -1,15 +1,15 @@
-package edu.fiuba.algo3.vista;
+package edu.fiuba.algo3.vista.cajas;
 
 import edu.fiuba.algo3.modelo.Observador;
 import edu.fiuba.algo3.modelo.Panel;
+import edu.fiuba.algo3.vista.botones.BotonOpcion;
+import edu.fiuba.algo3.vista.botones.BotonResponder;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Collection;
 
 public class CajaPregunta extends HBox implements Observador {
 
@@ -17,7 +17,7 @@ public class CajaPregunta extends HBox implements Observador {
     private HBox cajaOpciones;
 
 
-    public CajaPregunta(Panel panel, Set<String> respuestasJugador) {
+    public CajaPregunta(Panel panel, Collection<String> respuestasJugador) {
         super();
 
         pregunta = new Label(panel.obtenerPreguntaActual());

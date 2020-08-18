@@ -11,8 +11,8 @@ import java.util.List;
 public class PreguntaOC extends Pregunta {
     private ComportamientoClasico comportamiento = new ComportamientoClasico();
 
-    public PreguntaOC(String pregunta, String[] opcionesCorrectas, List<String> todasLasOpciones) {
-        super(pregunta, Arrays.asList(opcionesCorrectas), todasLasOpciones);
+    public PreguntaOC(String tipoPregunta, String pregunta, String[] opcionesCorrectas, List<String> todasLasOpciones) {
+        super(tipoPregunta, pregunta, Arrays.asList(opcionesCorrectas), todasLasOpciones);
         if (todasLasOpciones.size() < 2 || todasLasOpciones.size() > 5)
             throw new ExcepcionPreguntaOCInvalida();
     }

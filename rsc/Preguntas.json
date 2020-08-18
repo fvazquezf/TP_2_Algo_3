@@ -1,75 +1,74 @@
 [
   {
-    "tipoPregunta" : "preguntaVoFClasica",
+    "tipoPregunta": "preguntaVoFClasica",
     "pregunta": "¿Es blanco el caballo blanco de San Martin?",
     "opcionesPosibles": [
-                            "Verdadero",
-                            "Falso"
-      ],
-    "opcionesCorrectas" : [
-                             "V"
-      ],
+      "Verdadero",
+      "Falso"
+    ],
+    "opcionesCorrectas": [
+      "V"
+    ],
     "grupos": [
       {
-        "grupoAComparar": "Pares",
-        "otroGrupo": "Impares"
+        "grupoAComparar": "",
+        "otroGrupo": ""
       }
     ]
   },
   {
-    "tipoPregunta" : "preguntaMCConPuntajeParcial",
+    "tipoPregunta": "preguntaMCConPuntajeParcial",
     "pregunta": "¿Qué es PDD?",
     "opcionesPosibles": [
-                            "Test Driven development",
-                            "Print driven developnet",
-                            "Metodo de desarrollo",
-                            "Frula"
-      ],
-    "opcionesCorrectas" : [
-                            "Print driven developnet",
-                            "Metodo de desarrollo"
-      ],
+      "Test Driven development",
+      "Print driven developnet",
+      "Metodo de desarrollo",
+      "Frula"
+    ],
+    "opcionesCorrectas": [
+      "Print driven developnet",
+      "Metodo de desarrollo"
+    ],
     "grupos": [
       {
-        "grupoAComparar": "Pares",
-        "otroGrupo": "Impares"
+        "grupoAComparar": "",
+        "otroGrupo": ""
       }
     ]
   },
   {
-    "tipoPregunta" : "preguntaVoFClasica",
+    "tipoPregunta": "preguntaVoFClasica",
     "pregunta": "Independiente es un grande",
     "opcionesPosibles": [
-                            "Verdadero",
-                            "Falso"
+      "Verdadero",
+      "Falso"
     ],
-    "opcionesCorrectas" : [
-                              "F"
+    "opcionesCorrectas": [
+      "F"
     ],
     "grupos": [
       {
-        "grupoAComparar": "Pares",
-        "otroGrupo": "Impares"
+        "grupoAComparar": "",
+        "otroGrupo": ""
       }
     ]
   },
   {
-    "tipoPregunta" : "preguntaGC",
-    "pregunta": "Separe los pokemons",
+    "tipoPregunta": "preguntaGC",
+    "pregunta": "Separe los pokemons en tipo Fuego y Electrico",
     "opcionesPosibles": [
       "Pikachu",
       "Charizar",
       "Raychu",
       "Charmander"
     ],
-    "opcionesCorrectas" : [
+    "opcionesCorrectas": [
       "Charizar",
       "Charmander"
-
     ],
     "grupos": [
       {
-        "otroGrupo": "Electricidad",
+        "otroGrupo": "Electrico",
         "grupoAComparar": "Fuego"
       }
     ]
