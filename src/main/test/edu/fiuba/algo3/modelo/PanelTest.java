@@ -105,386 +105,479 @@ public class PanelTest {
         }
     }
 
-//    @Test
-//    public void test03PreguntaOCJugador1ContestaOrdenadoSeLeAsignaUnPuntoJugador2ContestaDesordenadoSeLeAsigna0Puntos() {
-//        String[] respuestaCorrecta = new String[4];
-//
-//        respuestaCorrecta[0] = "j";
-//        respuestaCorrecta[1] = "b";
-//        respuestaCorrecta[2] = "h";
-//        respuestaCorrecta[3] = "d";
-//
-//        String[] todasLasRespuestas = new String[4];
-//        todasLasRespuestas[0] = "j";
-//        todasLasRespuestas[1] = "b";
-//        todasLasRespuestas[2] = "h";
-//        todasLasRespuestas[3] = "d";
-//
-//        List<String> respuestaJugador1 = new LinkedList<>();
-//        respuestaJugador1.add("j");
-//        respuestaJugador1.add("b");
-//        respuestaJugador1.add("h");
-//        respuestaJugador1.add("d");
-//
-//        List<String> respuestaJugador2 = new LinkedList<>();
-//        respuestaJugador2.add("b");
-//        respuestaJugador2.add("j");
-//        respuestaJugador2.add("h");
-//        respuestaJugador2.add("d");
-//
-//        List<Grupo> grupos = new LinkedList<>();
-//        grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
-//
-//        Preguntas pregunta = new Preguntas("preguntaOC", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
-//        Preguntas[] preguntas = new Preguntas[1];
-//        preguntas[0] = pregunta;
-//
-//        LectorPreguntas mockedLector = mock(LectorPreguntas.class);
-//
-//        when(mockedLector.leerPreguntas()).thenReturn(preguntas);
-//        Panel panel = new Panel(mockedLector);
-//
-//
-//        panel.crearJugadores("Stef", "Rulo");
-//
-//        panel.hacerPregunta(respuestaJugador1);
-//        assertEquals(1, panel.pedirJugadorSiguiente().pedirPuntos());
-//
-//        try {
-//            panel.hacerPregunta(respuestaJugador2);
-//        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
-//            assertEquals(0, panel.pedirJugadorActual().pedirPuntos());
-//        }
-//    }
-//
-//    @Test
-//    public void test04PreguntaMCConPuntajeParcialJugador1Contesta2BienDe3SeLeAsigna2PuntosJugador2Contesta2BienY1MalSeLeAsigna0Puntos() {
-//        String[] respuestaCorrecta = new String[3];
-//        respuestaCorrecta[0] = "a";
-//        respuestaCorrecta[1] = "b";
-//        respuestaCorrecta[2] = "c";
-//
-//        String[] todasLasRespuestas = new String[4];
-//        todasLasRespuestas[0] = "a";
-//        todasLasRespuestas[1] = "b";
-//        todasLasRespuestas[2] = "c";
-//        todasLasRespuestas[3] = "h";
-//
-//        Set<String> respuestaJugador1 = new HashSet<>();
-//        respuestaJugador1.add("a");
-//        respuestaJugador1.add("c");
-//
-//        Set<String> respuestaJugador2 = new HashSet<>();
-//        respuestaJugador2.add("a");
-//        respuestaJugador2.add("c");
-//        respuestaJugador2.add("h");
-//
-//        List<Grupo> grupos = new LinkedList<>();
-//        grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
-//
-//        Preguntas pregunta = new Preguntas("preguntaMCConPuntajeParcial", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
-//        Preguntas[] preguntas = new Preguntas[1];
-//        preguntas[0] = pregunta;
-//
-//        LectorPreguntas mockedLector = mock(LectorPreguntas.class);
-//
-//        when(mockedLector.leerPreguntas()).thenReturn(preguntas);
-//        Panel panel = new Panel(mockedLector);
-//
-//        panel.crearJugadores("Stef", "Rulo");
-//
-//        panel.hacerPregunta(respuestaJugador1);
-//        assertEquals(2, panel.pedirJugadorSiguiente().pedirPuntos());
-//
-//        try {
-//            panel.hacerPregunta(respuestaJugador2);
-//        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
-//            assertEquals(0, panel.pedirJugadorActual().pedirPuntos());
-//        }
-//    }
-//
-//    @Test
-//    public void test05PreguntaMCConPuntajeParcialJugador1Contesta3BienDe3SeLeAsigna3PuntosJugador2Contesta2MalSeLeAsigna0Puntos() {
-//        String[] respuestaCorrecta = new String[3];
-//        respuestaCorrecta[0] = "h";
-//        respuestaCorrecta[1] = "u";
-//        respuestaCorrecta[2] = "p";
-//
-//        String[] todasLasRespuestas = new String[5];
-//        todasLasRespuestas[0] = "h";
-//        todasLasRespuestas[1] = "u";
-//        todasLasRespuestas[2] = "p";
-//        todasLasRespuestas[3] = "a";
-//        todasLasRespuestas[4] = "c";
-//
-//        Set<String> respuestaJugador1 = new HashSet<>();
-//        respuestaJugador1.add("p");
-//        respuestaJugador1.add("u");
-//        respuestaJugador1.add("h");
-//
-//        Set<String> respuestaJugador2 = new HashSet<>();
-//        respuestaJugador2.add("a");
-//        respuestaJugador2.add("c");
-//
-//        List<Grupo> grupos = new LinkedList<>();
-//        grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
-//
-//        Preguntas pregunta = new Preguntas("preguntaMCConPuntajeParcial", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
-//        Preguntas[] preguntas = new Preguntas[1];
-//        preguntas[0] = pregunta;
-//
-//        LectorPreguntas mockedLector = mock(LectorPreguntas.class);
-//
-//        when(mockedLector.leerPreguntas()).thenReturn(preguntas);
-//        Panel panel = new Panel(mockedLector);
-//
-//        panel.crearJugadores("Stef", "Rulo");
-//
-//        panel.hacerPregunta(respuestaJugador1);
-//        assertEquals(3, panel.pedirJugadorSiguiente().pedirPuntos());
-//
-//        try {
-//            panel.hacerPregunta(respuestaJugador2);
-//        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
-//            assertEquals(0, panel.pedirJugadorActual().pedirPuntos());
-//        }
-//    }
-//
-//    @Test
-//    public void test06PreguntaMCConPenalidadJugador1ContestaBien2Y1MalSeLeAsigna1PuntoJugador2Contesta1MalYSeLeAsignaMenos1Puntos() {
-//        String[] respuestaCorrecta = new String[3];
-//        respuestaCorrecta[0] = "a";
-//        respuestaCorrecta[1] = "b";
-//        respuestaCorrecta[2] = "c";
-//
-//        String[] todasLasRespuestas = new String[4];
-//        todasLasRespuestas[0] = "a";
-//        todasLasRespuestas[1] = "b";
-//        todasLasRespuestas[2] = "c";
-//        todasLasRespuestas[3] = "z";
-//
-//        Set<String> respuestaJugador1 = new HashSet<>();
-//        respuestaJugador1.add("b");
-//        respuestaJugador1.add("c");
-//        respuestaJugador1.add("z");
-//
-//        Set<String> respuestaJugador2 = new HashSet<>();
-//        respuestaJugador2.add("z");
-//
-//        List<Grupo> grupos = new LinkedList<>();
-//        grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
-//
-//        Preguntas pregunta = new Preguntas("preguntaMCConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
-//        Preguntas[] preguntas = new Preguntas[1];
-//        preguntas[0] = pregunta;
-//
-//        LectorPreguntas mockedLector = mock(LectorPreguntas.class);
-//
-//        when(mockedLector.leerPreguntas()).thenReturn(preguntas);
-//        Panel panel = new Panel(mockedLector);
-//
-//        panel.crearJugadores("Stef", "Rulo");
-//
-//        panel.hacerPregunta(respuestaJugador1);
-//        assertEquals(1, panel.pedirJugadorSiguiente().pedirPuntos());
-//
-//        try {
-//            panel.hacerPregunta(respuestaJugador2);
-//        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
-//            assertEquals(-1, panel.pedirJugadorActual().pedirPuntos());
-//        }
-//    }
-////
-////    @Test
-////    public void test07PreguntaMCConPenalidadJugador1ContestaBien3SeLeAsigna3PuntosJugador2Contesta3Bien1MalSeLeAsigna2Puntos() {
-////        Set<String> respuestaCorrecta = new HashSet<>();
-////        Set<String> todasLasRespuestas = new HashSet<>();
-////        respuestaCorrecta.add("a");
-////        respuestaCorrecta.add("b");
-////        respuestaCorrecta.add("c");
-////
-////        Set<String> respuestaJugador1 = new HashSet<>();
-////        respuestaJugador1.add("b");
-////        respuestaJugador1.add("c");
-////        respuestaJugador1.add("a");
-////
-////        Set<String> respuestaJugador2 = new HashSet<>();
-////        respuestaJugador2.add("z");
-////        respuestaJugador2.add("b");
-////        respuestaJugador2.add("c");
-////        respuestaJugador2.add("a");
-////
-////        Panel panel = new Panel();
-////
-////        panel.crearPregunta("preguntaMCConPenalidad", "pregunta", respuestaCorrecta, todasLasRespuestas);
-////        panel.crearJugadores("Stef", "Rulo");
-////
-////        panel.hacerPregunta(respuestaJugador1);
-////        assertEquals(3, panel.pedirJugadorSiguiente().pedirPuntos());
-////
-////
-////        try {
-////            panel.hacerPregunta(respuestaJugador2);
-////        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
-////            assertEquals(2, panel.pedirJugadorSiguiente().pedirPuntos());
-////        }
-////    }
-////
-////    @Test
-////    public void gtest08PreguntaVoFConPenalidadJugador1ContestaBienSeLeAsigna1PuntoJugador2ContestaMalSeLeAsignaMenos1Punto() {
-////        Set<String> respuestaCorrecta = new HashSet<>();
-////        Set<String> todasLasRespuestas = new HashSet<>();
-////        respuestaCorrecta.add("a");
-////
-////        Set<String> respuestaJugador1 = new HashSet<>();
-////        respuestaJugador1.add("a");
-////
-////        Set<String> respuestaJugador2 = new HashSet<>();
-////        respuestaJugador2.add("b");
-////
-////        Panel panel = new Panel();
-////
-////        panel.crearPregunta("preguntaVoFConPenalidad", "pregunta", respuestaCorrecta, todasLasRespuestas);
-////        panel.crearJugadores("Stef", "Rulo");
-////
-////        panel.hacerPregunta(respuestaJugador1);
-////        assertEquals(1, panel.pedirJugadorSiguiente().pedirPuntos());
-////
-////        try {
-////            panel.hacerPregunta(respuestaJugador2);
-////        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
-////            assertEquals(-1, panel.pedirJugadorSiguiente().pedirPuntos());
-////        }
-////    }
-////
-////    @Test
-////    public void test09PreguntaVoFConPenalidadJugador1UsaMultiplicadorX2ContestaMalSeLeAsignaMenos2PuntosJugador2UsaMultiplicadorX2ContestaBienSeLeAsigna2Puntos() {
-////        Set<String> respuestaCorrecta = new HashSet<>();
-////        Set<String> todasLasRespuestas = new HashSet<>();
-////        respuestaCorrecta.add("a");
-////
-////        Set<String> respuestaJugador1 = new HashSet<>();
-////        respuestaJugador1.add("b");
-////
-////        Set<String> respuestaJugador2 = new HashSet<>();
-////        respuestaJugador2.add("a");
-////
-////        Panel panel = new Panel();
-////
-////        panel.crearPregunta("preguntaVoFConPenalidad", "pregunta", respuestaCorrecta, todasLasRespuestas);
-////        panel.crearJugadores("Stef", "Rulo");
-////
-////        panel.activarDuplicador();
-////        panel.hacerPregunta(respuestaJugador1);
-////        assertEquals(-2, panel.pedirJugadorSiguiente().pedirPuntos());
-////
-////        panel.activarDuplicador();
-////
-////        try {
-////            panel.hacerPregunta(respuestaJugador2);
-////        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
-////            assertEquals(2, panel.pedirJugadorSiguiente().pedirPuntos());
-////        }
-////    }
-////
-////    @Test
-////    public void test10PreguntaVoFConPenalidadJugador1UsaMultiplicadorX3ContestaMalSeLeAsignaMenos3PuntosJugador2NoUsaMultiplicadorContestaBienSeLeAsigna1Punto() {
-////        Set<String> respuestaCorrecta = new HashSet<>();
-////        Set<String> todasLasRespuestas = new HashSet<>();
-////        respuestaCorrecta.add("a");
-////
-////        Set<String> respuestaJugador1 = new HashSet<>();
-////        respuestaJugador1.add("b");
-////
-////        Set<String> respuestaJugador2 = new HashSet<>();
-////        respuestaJugador2.add("a");
-////
-////        Panel panel = new Panel();
-////
-////        panel.crearPregunta("preguntaVoFConPenalidad", "pregunta", respuestaCorrecta, todasLasRespuestas);
-////        panel.crearJugadores("Stef", "Rulo");
-////
-////        panel.activarTriplicador();
-////        panel.hacerPregunta(respuestaJugador1);
-////
-////        assertEquals(-3, panel.pedirJugadorSiguiente().pedirPuntos());
-////
-////        try {
-////            panel.hacerPregunta(respuestaJugador2);
-////        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
-////            assertEquals(1, panel.pedirJugadorSiguiente().pedirPuntos());
-////        }
-////    }
-////
-////    @Test
-////    public void test11PreguntaMCConPenalidadJugador1UsaMultiplicadorX2Contesta2MalSeLeAsignaMenos4PuntosJugador2UsaMultiplicadorX2Contesta3BienSeLeAsigna6Puntos() {
-////        Set<String> respuestaCorrecta = new HashSet<>();
-////        Set<String> todasLasRespuestas = new HashSet<>();
-////        respuestaCorrecta.add("a");
-////        respuestaCorrecta.add("c");
-////        respuestaCorrecta.add("d");
-////
-////        Set<String> respuestaJugador1 = new HashSet<>();
-////        respuestaJugador1.add("b");
-////        respuestaJugador1.add("e");
-////
-////        Set<String> respuestaJugador2 = new HashSet<>();
-////        respuestaJugador2.add("a");
-////        respuestaJugador2.add("d");
-////        respuestaJugador2.add("c");
-////
-////        Panel panel = new Panel();
-////
-////        panel.crearPregunta("preguntaMCConPenalidad", "pregunta", respuestaCorrecta, todasLasRespuestas);
-////        panel.crearJugadores("Stef", "Rulo");
-////
-////        panel.activarDuplicador();
-////        panel.hacerPregunta(respuestaJugador1);
-////        assertEquals(-4, panel.pedirJugadorSiguiente().pedirPuntos());
-////
-////        panel.activarDuplicador();
-////        try {
-////            panel.hacerPregunta(respuestaJugador2);
-////        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
-////            assertEquals(6, panel.pedirJugadorSiguiente().pedirPuntos());
-////        }
-////    }
-////
-////    @Test
-////    public void test12PreguntaMCConPenalidadJugador1UsaMultiplicadorX3Contesta1Bien2MalSeLeAsignaMenos3PuntosJugador2UsaMultiplicadorX3Contesta2BienSeLeAsigna6Puntos() {
-////        Set<String> respuestaCorrecta = new HashSet<>();
-////        Set<String> todasLasRespuestas = new HashSet<>();
-////        respuestaCorrecta.add("d");
-////        respuestaCorrecta.add("c");
-////        respuestaCorrecta.add("e");
-////
-////        Set<String> respuestaJugador1 = new HashSet<>();
-////        respuestaJugador1.add("b");
-////        respuestaJugador1.add("e");
-////        respuestaJugador1.add("z");
-////
-////        Set<String> respuestaJugador2 = new HashSet<>();
-////        respuestaJugador2.add("e");
-////        respuestaJugador2.add("d");
-////
-////        Panel panel = new Panel();
-////
-////        panel.crearPregunta("preguntaMCConPenalidad", "pregunta", respuestaCorrecta, todasLasRespuestas);
-////        panel.crearJugadores("Stef", "Rulo");
-////
-////        panel.activarTriplicador();
-////        panel.hacerPregunta(respuestaJugador1);
-////        assertEquals(-3, panel.pedirJugadorSiguiente().pedirPuntos());
-////
-////
-////        panel.activarTriplicador();
-////        try {
-////            panel.hacerPregunta(respuestaJugador2);
-////        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
-////            assertEquals(6, panel.pedirJugadorSiguiente().pedirPuntos());
-////        }
-////    }
-////
+    @Test
+    public void test03PreguntaOCJugador1ContestaOrdenadoSeLeAsignaUnPuntoJugador2ContestaDesordenadoSeLeAsigna0Puntos() {
+        List<Pregunta> preguntaTest = new ArrayList<>();
+        FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
+        String[] respuestaCorrecta = new String[4];
+
+        respuestaCorrecta[0] = "j";
+        respuestaCorrecta[1] = "b";
+        respuestaCorrecta[2] = "h";
+        respuestaCorrecta[3] = "d";
+
+        String[] todasLasRespuestas = new String[4];
+        todasLasRespuestas[0] = "j";
+        todasLasRespuestas[1] = "b";
+        todasLasRespuestas[2] = "h";
+        todasLasRespuestas[3] = "d";
+
+        List<String> respuestaJugador1 = new LinkedList<>();
+        respuestaJugador1.add("j");
+        respuestaJugador1.add("b");
+        respuestaJugador1.add("h");
+        respuestaJugador1.add("d");
+
+        List<String> respuestaJugador2 = new LinkedList<>();
+        respuestaJugador2.add("b");
+        respuestaJugador2.add("j");
+        respuestaJugador2.add("h");
+        respuestaJugador2.add("d");
+
+        List<Grupo> grupos = new LinkedList<>();
+        grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
+
+        Preguntas pregunta = new Preguntas("preguntaOC", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas[] preguntas = new Preguntas[1];
+        preguntas[0] = pregunta;
+
+        preguntaTest.add(fabricaPreguntas.crearPregunta(pregunta.obtenerTipoPregunta(), pregunta.obtenerPregunta(), pregunta.obtenerOpcionesCorrectas(), pregunta.obtenerOpcionesPosbiles(), pregunta.obtenerGrupos()));
+        LectorPreguntas mockedLector = mock(LectorPreguntas.class);
+
+        when(mockedLector.parsearPreguntas()).thenReturn(preguntaTest);
+        Panel panel = new Panel(mockedLector);
+
+
+        panel.crearJugadores("Stef", "Rulo");
+
+        panel.hacerPregunta(respuestaJugador1);
+        assertEquals(1, panel.pedirJugadorSiguiente().pedirPuntos());
+
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(0, panel.pedirJugadorActual().pedirPuntos());
+        }
+    }
+
+    @Test
+    public void test04PreguntaMCConPuntajeParcialJugador1Contesta2BienDe3SeLeAsigna2PuntosJugador2Contesta2BienY1MalSeLeAsigna0Puntos() {
+        List<Pregunta> preguntaTest = new ArrayList<>();
+        FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
+        String[] respuestaCorrecta = new String[3];
+        respuestaCorrecta[0] = "a";
+        respuestaCorrecta[1] = "b";
+        respuestaCorrecta[2] = "c";
+
+        String[] todasLasRespuestas = new String[4];
+        todasLasRespuestas[0] = "a";
+        todasLasRespuestas[1] = "b";
+        todasLasRespuestas[2] = "c";
+        todasLasRespuestas[3] = "h";
+
+        Set<String> respuestaJugador1 = new HashSet<>();
+        respuestaJugador1.add("a");
+        respuestaJugador1.add("c");
+
+        Set<String> respuestaJugador2 = new HashSet<>();
+        respuestaJugador2.add("a");
+        respuestaJugador2.add("c");
+        respuestaJugador2.add("h");
+
+        List<Grupo> grupos = new LinkedList<>();
+        grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
+
+        Preguntas pregunta = new Preguntas("preguntaMCConPuntajeParcial", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas[] preguntas = new Preguntas[1];
+        preguntas[0] = pregunta;
+
+        LectorPreguntas mockedLector = mock(LectorPreguntas.class);
+        preguntaTest.add(fabricaPreguntas.crearPregunta(pregunta.obtenerTipoPregunta(), pregunta.obtenerPregunta(), pregunta.obtenerOpcionesCorrectas(), pregunta.obtenerOpcionesPosbiles(), pregunta.obtenerGrupos()));
+        when(mockedLector.parsearPreguntas()).thenReturn(preguntaTest);
+        Panel panel = new Panel(mockedLector);
+
+        panel.crearJugadores("Stef", "Rulo");
+
+        panel.hacerPregunta(respuestaJugador1);
+        assertEquals(2, panel.pedirJugadorSiguiente().pedirPuntos());
+
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(0, panel.pedirJugadorActual().pedirPuntos());
+        }
+    }
+
+    @Test
+    public void test05PreguntaMCConPuntajeParcialJugador1Contesta3BienDe3SeLeAsigna3PuntosJugador2Contesta2MalSeLeAsigna0Puntos() {
+        List<Pregunta> preguntaTest = new ArrayList<>();
+        FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
+        String[] respuestaCorrecta = new String[3];
+        respuestaCorrecta[0] = "h";
+        respuestaCorrecta[1] = "u";
+        respuestaCorrecta[2] = "p";
+
+        String[] todasLasRespuestas = new String[5];
+        todasLasRespuestas[0] = "h";
+        todasLasRespuestas[1] = "u";
+        todasLasRespuestas[2] = "p";
+        todasLasRespuestas[3] = "a";
+        todasLasRespuestas[4] = "c";
+
+        Set<String> respuestaJugador1 = new HashSet<>();
+        respuestaJugador1.add("p");
+        respuestaJugador1.add("u");
+        respuestaJugador1.add("h");
+
+        Set<String> respuestaJugador2 = new HashSet<>();
+        respuestaJugador2.add("a");
+        respuestaJugador2.add("c");
+
+        List<Grupo> grupos = new LinkedList<>();
+        grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
+
+        Preguntas pregunta = new Preguntas("preguntaMCConPuntajeParcial", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas[] preguntas = new Preguntas[1];
+        preguntas[0] = pregunta;
+
+        LectorPreguntas mockedLector = mock(LectorPreguntas.class);
+        preguntaTest.add(fabricaPreguntas.crearPregunta(pregunta.obtenerTipoPregunta(), pregunta.obtenerPregunta(), pregunta.obtenerOpcionesCorrectas(), pregunta.obtenerOpcionesPosbiles(), pregunta.obtenerGrupos()));
+        when(mockedLector.parsearPreguntas()).thenReturn(preguntaTest);
+        Panel panel = new Panel(mockedLector);
+
+        panel.crearJugadores("Stef", "Rulo");
+
+        panel.hacerPregunta(respuestaJugador1);
+        assertEquals(3, panel.pedirJugadorSiguiente().pedirPuntos());
+
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(0, panel.pedirJugadorActual().pedirPuntos());
+        }
+    }
+
+    @Test
+    public void test06PreguntaMCConPenalidadJugador1ContestaBien2Y1MalSeLeAsigna1PuntoJugador2Contesta1MalYSeLeAsignaMenos1Puntos() {
+        List<Pregunta> preguntaTest = new ArrayList<>();
+        FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
+        String[] respuestaCorrecta = new String[3];
+        respuestaCorrecta[0] = "a";
+        respuestaCorrecta[1] = "b";
+        respuestaCorrecta[2] = "c";
+
+        String[] todasLasRespuestas = new String[4];
+        todasLasRespuestas[0] = "a";
+        todasLasRespuestas[1] = "b";
+        todasLasRespuestas[2] = "c";
+        todasLasRespuestas[3] = "z";
+
+        Set<String> respuestaJugador1 = new HashSet<>();
+        respuestaJugador1.add("b");
+        respuestaJugador1.add("c");
+        respuestaJugador1.add("z");
+
+        Set<String> respuestaJugador2 = new HashSet<>();
+        respuestaJugador2.add("z");
+
+        List<Grupo> grupos = new LinkedList<>();
+        grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
+
+        Preguntas pregunta = new Preguntas("preguntaMCConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas[] preguntas = new Preguntas[1];
+        preguntas[0] = pregunta;
+
+        LectorPreguntas mockedLector = mock(LectorPreguntas.class);
+        preguntaTest.add(fabricaPreguntas.crearPregunta(pregunta.obtenerTipoPregunta(), pregunta.obtenerPregunta(), pregunta.obtenerOpcionesCorrectas(), pregunta.obtenerOpcionesPosbiles(), pregunta.obtenerGrupos()));
+        when(mockedLector.parsearPreguntas()).thenReturn(preguntaTest);
+        Panel panel = new Panel(mockedLector);
+
+        panel.crearJugadores("Stef", "Rulo");
+
+        panel.hacerPregunta(respuestaJugador1);
+        assertEquals(1, panel.pedirJugadorSiguiente().pedirPuntos());
+
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(-1, panel.pedirJugadorActual().pedirPuntos());
+        }
+    }
+
+    @Test
+    public void test07PreguntaMCConPenalidadJugador1ContestaBien3SeLeAsigna3PuntosJugador2Contesta3Bien1MalSeLeAsigna2Puntos() {
+        List<Pregunta> preguntaTest = new ArrayList<>();
+        FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
+        String[] respuestaCorrecta = new String[3];
+        respuestaCorrecta[0] = "a";
+        respuestaCorrecta[1] = "b";
+        respuestaCorrecta[2] = "c";
+
+        String[] todasLasRespuestas = new String[4];
+        todasLasRespuestas[0] = "a";
+        todasLasRespuestas[1] = "b";
+        todasLasRespuestas[2] = "c";
+        todasLasRespuestas[3] = "z";
+
+        Set<String> respuestaJugador1 = new HashSet<>();
+        respuestaJugador1.add("b");
+        respuestaJugador1.add("c");
+        respuestaJugador1.add("a");
+
+        Set<String> respuestaJugador2 = new HashSet<>();
+        respuestaJugador2.add("z");
+        respuestaJugador2.add("b");
+        respuestaJugador2.add("c");
+        respuestaJugador2.add("a");
+
+        List<Grupo> grupos = new LinkedList<>();
+        grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
+
+        Preguntas pregunta = new Preguntas("preguntaMCConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas[] preguntas = new Preguntas[1];
+        preguntas[0] = pregunta;
+
+        LectorPreguntas mockedLector = mock(LectorPreguntas.class);
+        preguntaTest.add(fabricaPreguntas.crearPregunta(pregunta.obtenerTipoPregunta(), pregunta.obtenerPregunta(), pregunta.obtenerOpcionesCorrectas(), pregunta.obtenerOpcionesPosbiles(), pregunta.obtenerGrupos()));
+        when(mockedLector.parsearPreguntas()).thenReturn(preguntaTest);
+        Panel panel = new Panel(mockedLector);
+
+        panel.crearJugadores("Stef", "Rulo");
+
+        panel.hacerPregunta(respuestaJugador1);
+        assertEquals(3, panel.pedirJugadorSiguiente().pedirPuntos());
+
+
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(2, panel.pedirJugadorActual().pedirPuntos());
+        }
+    }
+
+    @Test
+    public void gtest08PreguntaVoFConPenalidadJugador1ContestaBienSeLeAsigna1PuntoJugador2ContestaMalSeLeAsignaMenos1Punto() {
+        List<Pregunta> preguntaTest = new ArrayList<>();
+        FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
+
+        String[] respuestaCorrecta = new String[1];
+        respuestaCorrecta[0] = "a";
+
+        String[] todasLasRespuestas = new String[1];
+        todasLasRespuestas[0] = "a";
+
+        Set<String> respuestaJugador1 = new HashSet<>();
+        respuestaJugador1.add("a");
+
+        Set<String> respuestaJugador2 = new HashSet<>();
+        respuestaJugador2.add("b");
+
+        List<Grupo> grupos = new LinkedList<>();
+        grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
+
+        Preguntas pregunta = new Preguntas("preguntaVoFConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas[] preguntas = new Preguntas[1];
+        preguntas[0] = pregunta;
+
+        LectorPreguntas mockedLector = mock(LectorPreguntas.class);
+        preguntaTest.add(fabricaPreguntas.crearPregunta(pregunta.obtenerTipoPregunta(), pregunta.obtenerPregunta(), pregunta.obtenerOpcionesCorrectas(), pregunta.obtenerOpcionesPosbiles(), pregunta.obtenerGrupos()));
+        when(mockedLector.parsearPreguntas()).thenReturn(preguntaTest);
+        Panel panel = new Panel(mockedLector);
+
+        panel.crearJugadores("Stef", "Rulo");
+
+        panel.hacerPregunta(respuestaJugador1);
+        assertEquals(1, panel.pedirJugadorSiguiente().pedirPuntos());
+
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(-1, panel.pedirJugadorActual().pedirPuntos());
+        }
+    }
+
+    @Test
+    public void test09PreguntaVoFConPenalidadJugador1UsaMultiplicadorX2ContestaMalSeLeAsignaMenos2PuntosJugador2UsaMultiplicadorX2ContestaBienSeLeAsigna2Puntos() {
+        List<Pregunta> preguntaTest = new ArrayList<>();
+        FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
+
+        String[] respuestaCorrecta = new String[1];
+        respuestaCorrecta[0] = "a";
+
+        String[] todasLasRespuestas = new String[1];
+        todasLasRespuestas[0] = "a";
+
+        Set<String> respuestaJugador1 = new HashSet<>();
+        respuestaJugador1.add("b");
+
+        Set<String> respuestaJugador2 = new HashSet<>();
+        respuestaJugador2.add("a");
+
+        List<Grupo> grupos = new LinkedList<>();
+        grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
+
+        Preguntas pregunta = new Preguntas("preguntaVoFConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas[] preguntas = new Preguntas[1];
+        preguntas[0] = pregunta;
+
+        LectorPreguntas mockedLector = mock(LectorPreguntas.class);
+        preguntaTest.add(fabricaPreguntas.crearPregunta(pregunta.obtenerTipoPregunta(), pregunta.obtenerPregunta(), pregunta.obtenerOpcionesCorrectas(), pregunta.obtenerOpcionesPosbiles(), pregunta.obtenerGrupos()));
+        when(mockedLector.parsearPreguntas()).thenReturn(preguntaTest);
+        Panel panel = new Panel(mockedLector);
+
+        panel.crearJugadores("Stef", "Rulo");
+
+        panel.activarDuplicador();
+        panel.hacerPregunta(respuestaJugador1);
+        assertEquals(-2, panel.pedirJugadorSiguiente().pedirPuntos());
+
+        panel.activarDuplicador();
+
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(2, panel.pedirJugadorActual().pedirPuntos());
+        }
+    }
+
+    @Test
+    public void test10PreguntaVoFConPenalidadJugador1UsaMultiplicadorX3ContestaMalSeLeAsignaMenos3PuntosJugador2NoUsaMultiplicadorContestaBienSeLeAsigna1Punto() {
+        List<Pregunta> preguntaTest = new ArrayList<>();
+        FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
+
+        String[] respuestaCorrecta = new String[1];
+        respuestaCorrecta[0] = "a";
+
+        String[] todasLasRespuestas = new String[1];
+        todasLasRespuestas[0] = "a";
+
+        Set<String> respuestaJugador1 = new HashSet<>();
+        respuestaJugador1.add("b");
+
+        Set<String> respuestaJugador2 = new HashSet<>();
+        respuestaJugador2.add("a");
+
+        List<Grupo> grupos = new LinkedList<>();
+        grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
+
+        Preguntas pregunta = new Preguntas("preguntaVoFConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas[] preguntas = new Preguntas[1];
+        preguntas[0] = pregunta;
+
+        LectorPreguntas mockedLector = mock(LectorPreguntas.class);
+        preguntaTest.add(fabricaPreguntas.crearPregunta(pregunta.obtenerTipoPregunta(), pregunta.obtenerPregunta(), pregunta.obtenerOpcionesCorrectas(), pregunta.obtenerOpcionesPosbiles(), pregunta.obtenerGrupos()));
+        when(mockedLector.parsearPreguntas()).thenReturn(preguntaTest);
+        Panel panel = new Panel(mockedLector);
+
+        panel.crearJugadores("Stef", "Rulo");
+
+        panel.activarTriplicador();
+        panel.hacerPregunta(respuestaJugador1);
+
+        assertEquals(-3, panel.pedirJugadorSiguiente().pedirPuntos());
+
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(1, panel.pedirJugadorActual().pedirPuntos());
+        }
+    }
+
+    @Test
+    public void test11PreguntaMCConPenalidadJugador1UsaMultiplicadorX2Contesta2MalSeLeAsignaMenos4PuntosJugador2UsaMultiplicadorX2Contesta3BienSeLeAsigna6Puntos() {
+        List<Pregunta> preguntaTest = new ArrayList<>();
+        FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
+
+        String[] respuestaCorrecta = new String[3];
+        respuestaCorrecta[0] = "a";
+        respuestaCorrecta[1] = "c";
+        respuestaCorrecta[2] = "d";
+
+        String[] todasLasRespuestas = new String[5];
+        todasLasRespuestas[0] = "a";
+        todasLasRespuestas[1] = "c";
+        todasLasRespuestas[2] = "d";
+        todasLasRespuestas[3] = "b";
+        todasLasRespuestas[4] = "e";
+
+
+        Set<String> respuestaJugador1 = new HashSet<>();
+        respuestaJugador1.add("b");
+        respuestaJugador1.add("e");
+
+        Set<String> respuestaJugador2 = new HashSet<>();
+        respuestaJugador2.add("a");
+        respuestaJugador2.add("d");
+        respuestaJugador2.add("c");
+
+        List<Grupo> grupos = new LinkedList<>();
+        grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
+
+        Preguntas pregunta = new Preguntas("preguntaMCConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas[] preguntas = new Preguntas[1];
+        preguntas[0] = pregunta;
+
+        LectorPreguntas mockedLector = mock(LectorPreguntas.class);
+        preguntaTest.add(fabricaPreguntas.crearPregunta(pregunta.obtenerTipoPregunta(), pregunta.obtenerPregunta(), pregunta.obtenerOpcionesCorrectas(), pregunta.obtenerOpcionesPosbiles(), pregunta.obtenerGrupos()));
+        when(mockedLector.parsearPreguntas()).thenReturn(preguntaTest);
+        Panel panel = new Panel(mockedLector);
+
+        panel.crearJugadores("Stef", "Rulo");
+
+        panel.activarDuplicador();
+        panel.hacerPregunta(respuestaJugador1);
+        assertEquals(-4, panel.pedirJugadorSiguiente().pedirPuntos());
+
+        panel.activarDuplicador();
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(6, panel.pedirJugadorActual().pedirPuntos());
+        }
+    }
+
+    @Test
+    public void test12PreguntaMCConPenalidadJugador1UsaMultiplicadorX3Contesta1Bien2MalSeLeAsignaMenos3PuntosJugador2UsaMultiplicadorX3Contesta2BienSeLeAsigna6Puntos() {
+        List<Pregunta> preguntaTest = new ArrayList<>();
+        FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
+
+        Set<String> respuestaCorrecta = new HashSet<>();
+        respuestaCorrecta[0] = "d";
+        respuestaCorrecta[1] = "c";
+        respuestaCorrecta[2] = "e";
+
+        Set<String> todasLasRespuestas = new HashSet<>();
+        respuestaCorrecta.add("d");
+        respuestaCorrecta.add("c");
+        respuestaCorrecta.add("e");
+
+        Set<String> respuestaJugador1 = new HashSet<>();
+        respuestaJugador1.add("b");
+        respuestaJugador1.add("e");
+        respuestaJugador1.add("z");
+
+        Set<String> respuestaJugador2 = new HashSet<>();
+        respuestaJugador2.add("e");
+        respuestaJugador2.add("d");
+
+        Panel panel = new Panel();
+
+        panel.crearPregunta("preguntaMCConPenalidad", "pregunta", respuestaCorrecta, todasLasRespuestas);
+        panel.crearJugadores("Stef", "Rulo");
+
+        panel.activarTriplicador();
+        panel.hacerPregunta(respuestaJugador1);
+        assertEquals(-3, panel.pedirJugadorSiguiente().pedirPuntos());
+
+
+        panel.activarTriplicador();
+        try {
+            panel.hacerPregunta(respuestaJugador2);
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            assertEquals(6, panel.pedirJugadorSiguiente().pedirPuntos());
+        }
+    }
+
 ////    @Test
 ////    public void test13PidoUsarDosVecesElDuplicadorYSeLanzaExcepcion() {
 ////        Set<String> respuestaCorrecta = new HashSet<>();
