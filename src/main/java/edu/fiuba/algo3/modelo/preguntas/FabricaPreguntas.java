@@ -14,15 +14,15 @@ public class FabricaPreguntas {
             case "preguntaVoFClasica":
                 return (new PreguntaVOFClasica(pregunta, respuestasCorrectas));
             case "preguntaMCClasica":
-                return (new PreguntaMCClasica(pregunta, respuestasCorrectas, (Set<String>) todasRespuestas));
+                return (new PreguntaMCClasica(pregunta, respuestasCorrectas, todasRespuestas));
             case "preguntaGC":
-                return (new PreguntaGC(pregunta, respuestasCorrectas, (Set<String>) todasRespuestas, grupos));
+                return (new PreguntaGC(pregunta, respuestasCorrectas,  todasRespuestas, grupos));
             case "preguntaOC":
-                return (new PreguntaOC(pregunta, respuestasCorrectas, new LinkedList<String>( todasRespuestas)));
+                return (new PreguntaOC(pregunta, respuestasCorrectas, todasRespuestas));
             case "preguntaMCConPuntajeParcial":
-                return (new PreguntaMCConPuntajeParcial(pregunta, respuestasCorrectas, (Set<String>) todasRespuestas));
+                return (new PreguntaMCConPuntajeParcial(pregunta, respuestasCorrectas,  todasRespuestas));
             case "preguntaMCConPenalidad":
-                return (new PreguntaMCConPenalidad(pregunta, respuestasCorrectas, (Set<String>) todasRespuestas));
+                return (new PreguntaMCConPenalidad(pregunta, respuestasCorrectas, todasRespuestas));
             case "preguntaVoFConPenalidad":
                 return (new PreguntaVoFConPenalidad(pregunta, respuestasCorrectas));
             default:

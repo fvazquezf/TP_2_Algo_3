@@ -12,7 +12,7 @@ public class PreguntaGC extends Pregunta {
     private final ComportamientoClasico comportamiento = new ComportamientoClasico();
     Map<String, String> grupos;
 
-    public PreguntaGC(String pregunta, String[] opcionesCorrectas, Set<String> todasLasOpciones, Map<String, String> grupos) {
+    public PreguntaGC(String pregunta, String[] opcionesCorrectas, Collection<String> todasLasOpciones, Map<String, String> grupos) {
         super(pregunta, opcionesCorrectas, todasLasOpciones);
         if (todasLasOpciones.size() < 2 || todasLasOpciones.size() > 6)
             throw new ExcepcionPreguntaGCInvalida();
