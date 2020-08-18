@@ -7,6 +7,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import java.util.Set;
+
 public class CajaJugadores extends VBox implements Observador {
 
     private final Jugador j1;
@@ -15,13 +17,17 @@ public class CajaJugadores extends VBox implements Observador {
     private final Label puntosJ1;
     private final Label puntosJ2;
 
-    public CajaJugadores(Panel panel) {
+    private final Set<String> respuestasJugador;
+
+    public CajaJugadores(Panel panel, Set<String> respuestasJugador) {
 
         j1 = panel.pedirJugadorActual();
         j1.agregarObservador(this);
 
         j2 = panel.pedirJugadorSiguiente();
         j2.agregarObservador(this);
+
+        this.respuestasJugador = respuestasJugador;
 
         puntosJ1 = new Label(String.valueOf(j1.pedirPuntos()));
         Label nombreJ1 = new Label("Jugador 1 " + j1.pedirNombre() + ": ");
@@ -41,6 +47,8 @@ public class CajaJugadores extends VBox implements Observador {
 
     @Override
     public void actualizar() {
+
+        respuestasJugador.clear();
 
         String puntosJ1 = String.valueOf(j1.pedirPuntos());
         this.puntosJ1.setText(puntosJ1);

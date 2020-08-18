@@ -9,25 +9,18 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.util.HashSet;
+import java.util.Set;
 
 public class CajaPregunta extends HBox implements Observador {
 
-    private final Panel panel;
     private Label pregunta;
     private HBox cajaOpciones;
-    private HashSet<String> respuestasJugador;
 
-    public CajaPregunta(Panel panel) {
+
+    public CajaPregunta(Panel panel, Set<String> respuestasJugador) {
         super();
 
-        this.panel = panel;
-        //Para el borrado de las respuesta del jugador, hago que caja Pregunta observe a los jugadores en vez del panel.
-        panel.pedirJugadorActual().agregarObservador(this);
-        panel.pedirJugadorSiguiente().agregarObservador(this);
-
         pregunta = new Label(panel.obtenerPreguntaActual());
-
-        respuestasJugador = new HashSet<>();
 
         cajaOpciones = new HBox();
 
@@ -43,9 +36,5 @@ public class CajaPregunta extends HBox implements Observador {
 
     @Override
     public void actualizar() {
-//        pregunta.setText(panel.obtenerPreguntaActual());
-//        cajaOpciones.getChildren().clear();
-        respuestasJugador.clear();
-//        panel.obtenerTodasLasOpciones().stream().forEach((o)-> { cajaOpciones.getChildren().add(new BotonOpcion(o, respuestasJugador));});
     }
 }

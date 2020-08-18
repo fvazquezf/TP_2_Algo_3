@@ -4,15 +4,16 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 import java.util.HashSet;
+import java.util.Set;
 
 
 public class ControladorBotonOpcion implements EventHandler<ActionEvent> {
 
 
-    private final HashSet<String> respuestasElegidas;
+    private final Set<String> respuestasElegidas;
     private final String opcion;
 
-    public ControladorBotonOpcion(HashSet<String> respuestasElegidas, String opcion) {
+    public ControladorBotonOpcion(Set<String> respuestasElegidas, String opcion) {
         this.respuestasElegidas = respuestasElegidas;
         this.opcion = opcion;
     }

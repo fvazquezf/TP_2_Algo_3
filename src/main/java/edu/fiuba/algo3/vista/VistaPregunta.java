@@ -5,7 +5,9 @@ import edu.fiuba.algo3.modelo.Panel;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class VistaPregunta implements Observador {
 
@@ -21,9 +23,11 @@ public class VistaPregunta implements Observador {
         BorderPane componentLayout = new BorderPane();
         componentLayout.setPadding(new Insets(20,100,10,100));
 
-        CajaJugadores cajaJugadores = new CajaJugadores(panel);
+        Set<String> respuestasJugador = new HashSet<>();
 
-        CajaPregunta cajaPregunta = new CajaPregunta(panel);
+        CajaJugadores cajaJugadores = new CajaJugadores(panel, respuestasJugador);
+
+        CajaPregunta cajaPregunta = new CajaPregunta(panel, respuestasJugador);
 
         componentLayout.setCenter(cajaPregunta);
         componentLayout.setBottom(cajaJugadores);

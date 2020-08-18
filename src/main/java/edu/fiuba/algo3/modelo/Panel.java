@@ -56,7 +56,11 @@ public class Panel implements Observable {
         jugadorActual.asignarPuntos(puntos);
         estadoExclusividad.guardarRespuesta(jugadorActual, puntos);
 
-        estadoDelJuego.proximoEstado(this);
+        try{
+            estadoDelJuego.proximoEstado(this);
+        } catch(ExcepcionYaNoHayPreguntasParaHacer e) {
+            notificarObservador();
+        }
     }
 
     public void siguientePregunta() {

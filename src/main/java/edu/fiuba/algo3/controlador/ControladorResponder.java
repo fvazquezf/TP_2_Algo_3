@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Set;
 
 public class ControladorResponder implements EventHandler<ActionEvent> {
 
@@ -18,7 +19,7 @@ public class ControladorResponder implements EventHandler<ActionEvent> {
 
     private Collection<String> respuestaJugador;
 
-    public ControladorResponder(Panel panel, HashSet<String> respuestaJugador) {
+    public ControladorResponder(Panel panel, Set<String> respuestaJugador) {
         this.panel = panel;
         this.respuestaJugador = respuestaJugador;
     }
@@ -26,5 +27,6 @@ public class ControladorResponder implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
         panel.hacerPregunta(respuestaJugador);
+        throw new ExcepcionYaNoHayPreguntasParaHacer();
     }
 }

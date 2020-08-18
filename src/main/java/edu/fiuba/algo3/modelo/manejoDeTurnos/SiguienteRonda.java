@@ -7,7 +7,7 @@ public class SiguienteRonda implements FlowDelJuego{
     public void siguienteTurno(Panel panel) {
         panel.calcularExclusividad();
         panel.siguienteJugador();
-//        panel.siguientePregunta();
+        panel.siguientePregunta();
     }
 
     @Override
@@ -15,7 +15,4 @@ public class SiguienteRonda implements FlowDelJuego{
         return new SiguienteTurno();
     }
 
-    public void siguientePregunta(Panel panel) {
-
-    }
 }
