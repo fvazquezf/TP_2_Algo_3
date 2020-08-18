@@ -43,8 +43,8 @@ public class Panel implements Observable {
         notificarObservador();
     }
 
-    public Pregunta obtenerPreguntaActual() {
-        return preguntas.get(numeroDePreguntaActual);
+    public String obtenerPreguntaActual() {
+        return preguntas.get(numeroDePreguntaActual).obtenerPregunta();
     }
 
     public Collection<String> obtenerTodasLasOpciones() {
@@ -56,13 +56,18 @@ public class Panel implements Observable {
         jugadorActual.asignarPuntos(puntos);
         estadoExclusividad.guardarRespuesta(jugadorActual, puntos);
 
-        estadoDelJuego.proximoEstado(this);
+        try{
+            estadoDelJuego.proximoEstado(this);
+        } catch(ExcepcionYaNoHayPreguntasParaHacer e) {
+            notificarObservador();
+        }
     }
 
     public void siguientePregunta() {
         numeroDePreguntaActual++;
         if (preguntas.size() == numeroDePreguntaActual) throw new ExcepcionYaNoHayPreguntasParaHacer();
 
+        notificarObservador();
     }
 
     public void siguienteJugador() {

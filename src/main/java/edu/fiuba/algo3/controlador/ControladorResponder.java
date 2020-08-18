@@ -27,5 +27,6 @@ public class ControladorResponder implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
         panel.hacerPregunta(respuestaJugador);
+        throw new ExcepcionYaNoHayPreguntasParaHacer();
     }
 }
