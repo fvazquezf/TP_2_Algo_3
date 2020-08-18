@@ -8,5 +8,6 @@ public class EstadoFlowDelJuego {
     public void proximoEstado(Panel panel){
         flow.siguienteTurno(panel);
         flow = flow.siguiente();
+        panel.obtenerPreguntaActual().notificarObservador();
     }
 }
