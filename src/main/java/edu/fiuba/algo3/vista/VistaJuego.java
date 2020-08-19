@@ -21,8 +21,12 @@ public class VistaJuego implements Observador {
         VistaAgregarJugador vistaAgregarJugador = new VistaAgregarJugador(panel);
 
         Scene scene = vistaAgregarJugador.devolverVistaAgregarJugador();
+        Stage escenarioJugadores = new Stage();
+        escenarioJugadores.setScene(scene);
+        escenarioJugadores.showAndWait();
 
-        stage.setScene(scene);
+        Scene vistaPregunta = fabricaVistaPregunta.crearVista(panel, panel.tipoDePreguntaActual());
+        stage.setScene(vistaPregunta);
         stage.show();
     }
 

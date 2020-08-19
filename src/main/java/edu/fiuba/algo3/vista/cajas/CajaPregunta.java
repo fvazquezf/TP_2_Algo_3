@@ -17,7 +17,7 @@ public class CajaPregunta extends HBox implements Observador {
     private Collection<String> respuestasJugador;
     private Pregunta pregunta;
     private Label labelPregunta;
-    private HBox cajaOpciones;
+    private VBox cajaOpciones;
 
 
     public CajaPregunta(Panel panel, Collection<String> respuestasJugador) {
@@ -29,13 +29,14 @@ public class CajaPregunta extends HBox implements Observador {
 
         labelPregunta = new Label(pregunta.obtenerPregunta());
 
-        cajaOpciones = new HBox();
+        cajaOpciones = new VBox();
 
         pregunta.obtenerTodasLasOpciones().stream().forEach((o)-> { cajaOpciones.getChildren().add(new BotonOpcion(o, respuestasJugador));});
 
         Button botonResponder = new BotonResponder(panel, respuestasJugador);
 
         VBox vb = new VBox();
+        vb.setSpacing(25);
         vb.getChildren().addAll(labelPregunta, cajaOpciones, botonResponder);
 
         this.getChildren().addAll(vb);

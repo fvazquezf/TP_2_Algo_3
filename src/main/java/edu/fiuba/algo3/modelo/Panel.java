@@ -36,8 +36,6 @@ public class Panel implements Observable {
     public void crearJugadores(String nombre1, String nombre2) {
         jugadorActual = new Jugador(nombre1);
         jugadorSiguiente = new Jugador(nombre2);
-
-        notificarObservador();
     }
 
     public Pregunta obtenerPreguntaActual() {

@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.preguntas;
 
 import edu.fiuba.algo3.modelo.comportamientos.ComportamientoClasico;
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionPreguntaOCInvalida;
+import edu.fiuba.algo3.modelo.excepciones.ExcepcionTipoPreguntaInvalida;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -12,7 +13,7 @@ public class PreguntaOC extends Pregunta {
     public PreguntaOC(String tipoPregunta, String pregunta, String[] opcionesCorrectas, Collection<String> todasLasOpciones) {
         super(tipoPregunta, pregunta, Arrays.asList(opcionesCorrectas), todasLasOpciones);
         if (todasLasOpciones.size() < 2 || todasLasOpciones.size() > 5)
-            throw new ExcepcionPreguntaOCInvalida();
+            throw new ExcepcionTipoPreguntaInvalida();
     }
 
     @Override
