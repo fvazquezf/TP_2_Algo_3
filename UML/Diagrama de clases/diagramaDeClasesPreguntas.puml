@@ -1,0 +1,103 @@
+@startuml TP2
+
+title Diagrama De Clases De Pregunta Cajú
+
+hide circle
+skinparam classAttributeIconSize 0
+skinparam roundcorner 25
+skinparam sequenceArrowThickness 2
+skinparam classFontSize 20
+
+skinparam class {
+BackgroundColor FloralWhite
+ArrowColor DimGray
+BorderColor DimGray
+}
+
+abstract class Pregunta{
+        # tipoPregunta: String
+        # opcionesCorrectas: Collection<String>
+        # todasLasOpciones: Collection<String>
+        # textoPregunta: String
+        + compararRespuestas(Collection<String>): Int
+        + activarMultiplicador()
+        + activarExclusividad()
+}
+
+class PreguntaMCClasica{
+        + PreguntaMCClasica(String, String, String[], Collection<String>)
+        + compararRespuestas(Collection<String>): Int
+}
+
+class PreguntaMCConPenalidad{
+        + PreguntaMCConPenalidad(String, String, String[], Collection<String>)
+        + compararRespuestas(Collection<String>): Int
+        + activarExclusividad()
+}
+
+class PreguntaMCConPuntajeParcial{
+        + PreguntaMCConPuntajeParcial(String, String, String[], Collection<String>)
+        + compararRespuestas(Collection<String>): Int
+}
+
+class PreguntaGC{
+        - grupos: Map<String, String>
+        + PreguntaGC(String, String, String[], Collection<String>, Map<String, String>)
+        + compararRespuestas(Collection<String>): Int
+}
+
+class PreguntaOC{
+        + PreguntaOC(String, String, String[], Collection<String>)
+        + compararRespuestas(Collection<String>): Int
+}
+
+class PreguntaVoFClasica{
+        + PreguntaVoFClasica(String, String, String[])
+        + compararRespuestas(Collection<String>): Int
+}
+
+class PreguntaVoFConPenalidad{
+        + PreguntaVoFConPenalidad(String, String, String[])
+        + compararRespuestas(Collection<String>): Int
+        + activarExclusividad()
+}
+
+interface Comportamiento{
+        + compararRespuestas(Collection<String>, Collection<String>): Int
+}
+
+class ComportamientoClasico{
+        + compararRespuestas(Collection<String>, Collection<String>): Int
+}
+
+class ComportamientoConPenalidad{
+        + compararRespuestas(Collection<String>, Collection<String>): Int
+}
+
+class ComportamientoConPuntajeParcial{
+        + compararRespuestas(Collection<String>, Collection<String>): Int
+}
+
+PreguntaMCClasica -up-|> Pregunta
+PreguntaVoFClasica -up-|> Pregunta
+PreguntaMCConPenalidad -right-|> Pregunta
+PreguntaVoFConPenalidad -right-|> Pregunta
+PreguntaMCConPuntajeParcial -left-|> Pregunta
+PreguntaOC -up-|> Pregunta
+PreguntaGC -up-|> Pregunta
+
+ComportamientoConPuntajeParcial .left.|> Comportamiento
+ComportamientoConPenalidad .|> Comportamiento
+ComportamientoClasico ..|> Comportamiento
+
+PreguntaMCClasica --> ComportamientoClasico
+PreguntaVoFClasica --> ComportamientoClasico
+PreguntaOC --> ComportamientoClasico
+PreguntaGC --> ComportamientoClasico
+PreguntaVoFConPenalidad --> ComportamientoConPenalidad
+PreguntaMCConPenalidad --> ComportamientoConPenalidad
+PreguntaMCConPuntajeParcial --> ComportamientoConPuntajeParcial
+
+
+
+@enduml

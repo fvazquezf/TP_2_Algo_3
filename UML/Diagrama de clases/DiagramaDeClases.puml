@@ -18,81 +18,213 @@ class Panel{
        - pregunta: Pregunta
        - jugadores: HashMap<String, Jugador>
        - fabricaPreguntas: FabricaPreguntas
-       + crearPregunta(String, String, set<Steing>
-       + crearJugador(String)
-       + hacerPregunta(String, set<String>)
-       + usarDuplicador(String)
-       + usarTriplicador(String)
-       + pedirPuntos(String): Int
-}
-
-class FabricaPreguntas{
-       + crearPregunta(String, String, set<String>): Pregunta
+       - estadoDelJuego: EstadoFlowDelJuego
+       - jugadorActual: Jugador
+       - jugadorSiguiente: Jugador
+       - estadoExclusividad: EstadoExclusividad
+       + Panel(LectorPreguntas)
+       + crearJugadores(String, String)
+       + hacerPregunta(Collection<String>)
+       + siguientePregunta()
+       + siguienteJugador()
+       + activarExclusividad()
+       + calcularExclusividad()
+       + activarDuplicador()
+       + activarTriplicador()
 }
 
 class Jugador{
         - nombre: String
         - puntos: Int
-        - multiplicador: Multiplicador
-        - duplicadorDisponible: boolean
-        - triplicadorDisponible: boolean
+        - estadoMultiplicador: EstadoMultiplicador
+        - exclusividadDisponible: Int
         + Jugador(String)
         + pedirPuntos(): Int
         + estadoDuplicador()
         + estadoTriplicador()
         + asignarPuntos(Int)
+        + activarExclusividad()
 }
 
 abstract class Pregunta{
-        - opcionesCorrectas: Collection<String>
-        - textoPregunta: String
-        + compararRespuestas(): Int
-        + usarMultiplicador()
+        # tipoPregunta: String
+        # opcionesCorrectas: Collection<String>
+        # todasLasOpciones: Collection<String>
+        # textoPregunta: String
+        + compararRespuestas(Collection<String>): Int
+        + activarMultiplicador()
+        + activarExclusividad()
 }
 
-class PreguntaClasica{
-        + PreguntaClasica(String, Collection<String>)
+class PreguntaMCClasica{
+        - comportamiento: ComportamientoClasico
+        + PreguntaMCClasica(String, String, String[], Collection<String>)
         + compararRespuestas(Collection<String>): Int
 }
 
-class PreguntaConPenalidad{
-        + PreguntaConPenalidad(String, set<String>)
-        + compararRespuestas(Collection<String>): Integer
-        + usarMultiplicador()
+class PreguntaMCConPenalidad{
+        - comportamiento: ComportamientoConPenalidad
+        + PreguntaMCConPenalidad(String, String, String[], Collection<String>)
+        + compararRespuestas(Collection<String>): Int
+        + activarExclusividad()
 }
 
-class PreguntaConPuntajeParcial{
-        + PreguntaConPuntajeParcial(String, set<String>)
+class PreguntaMCConPuntajeParcial{
+        - comportamiento: ComportamientoConPuntajeParcial
+        + PreguntaMCConPuntajeParcial(String, String, String[], Collection<String>)
         + compararRespuestas(Collection<String>): Int
 }
+
+class PreguntaGC{
+        - comportamiento: ComportamientoClasico
+        - grupos: Map<String, String>
+        + PreguntaGC(String, String, String[], Collection<String>, Map<String, String>)
+        + compararRespuestas(Collection<String>): Int
+}
+
+class PreguntaOC{
+        - comportamiento: ComportamientoClasico
+        + PreguntaOC(String, String, String[], Collection<String>)
+        + compararRespuestas(Collection<String>): Int
+}
+
+class PreguntaVoFClasica{
+        - comportamiento: ComportamientoClasico
+        + PreguntaVoFClasica(String, String, String[])
+        + compararRespuestas(Collection<String>): Int
+}
+
+class PreguntaVoFConPenalidad{
+        - comportamiento: ComportamientoConPenalidad
+        + PreguntaVoFConPenalidad(String, String, String[])
+        + compararRespuestas(Collection<String>): Int
+        + activarExclusividad()
+}
+
+class FabricaPreguntas{
+       + crearPregunta(String, String, String[], Collection<String>, Map<String, String>): Pregunta
+}
+
 
 interface Multiplicador{
-        - multiplicar(Int): Int
+        + multiplicar(Int): Int
 }
 
-class Unplicador{
-        - multiplicar(Int): Int
+class Uniplicador{
+        + multiplicar(Int): Int
 }
 
 class Duplicador{
-        - multiplicar(Int): Int
+        - cantidadDuplicador: Int
+        + multiplicar(Int): Int
+        + cambiarEstado()
 }
 
 class Triplicador{
-        - multiplicar(Int): Int
+        - cantidadTriplicador: Int
+        + multiplicar(Int): Int
+        + cambiarEstado()
 }
 
-Panel o-->"1..*" Jugador
-Panel o--"1--*" Pregunta
-Panel o-left->"1" FabricaPreguntas
+class EstadoMultiplicador{
+        - uniplicador: Uniplicador
+        - duplicador: Duplicador
+        - triplicador: Triplicador
+        - multiplicadorActual: Multiplicador
+        + multiplicar(Int): Int
+        + estadoDuplicador()
+        + estadoTriplicador()
+}
+
+interface Exclusividad{
+        + multiplicar(Int): Int
+        + proximo(): Exclusividad
+}
+
+class ExclusividadDesactivada{
+        + multiplicar(Int): Int
+        + proximo(): Exclusividad
+}
+
+class ExclusividadDoble{
+        + multiplicar(Int): Int
+        + proximo(): Exclusividad
+}
+
+class ExclusividadSimple{
+        + multiplicar(Int): Int
+        + proximo(): Exclusividad
+}
+
+class EstadoExclusividad{
+        - puntosJugadores: Dictionary<Jugador, Int>
+        - estadoActual: Exclusividad
+        + guardarRespuesta(Jugador, Integer)
+        + activarExclusividad()
+        + calcularExclusividad(Jugador, Jugador)
+}
+
+interface FlowDelJuego{
+        + siguienteTurno(Panel)
+        + siguiente(): FlowDelJuego
+}
+
+class EstadoFlowDelJuego{
+        - flow: FlowDelJuego
+        + proximoEstado(Panel)
+}
+
+class SiguienteRonda{
+        + siguienteTurno(Panel)
+        + siguiente(): FlowDelJuego
+}
+
+class SiguienteTurno{
+        + siguienteTurno(Panel)
+        + siguiente(): FlowDelJuego
+}
+
+class LectorPreguntas{
+        - fabricaPreguntas: FabricaPreguntas
+        + parsearPreguntas(): List<Pregunta>
+}
+
+
+Panel "1 " o-- "2  " Jugador
+Panel "1 " o-- "*" Pregunta
+LectorPreguntas --> FabricaPreguntas
+
+
+PreguntaMCClasica --right-|> Pregunta
+PreguntaMCConPenalidad -up-|> Pregunta
+PreguntaMCConPuntajeParcial ---right-|> Pregunta
+PreguntaOC -up-|> Pregunta
+PreguntaGC -up-|> Pregunta
+PreguntaVoFClasica -up-|> Pregunta
+PreguntaVoFConPenalidad -left-|> Pregunta
 FabricaPreguntas ..> Pregunta
-PreguntaClasica -up-|> Pregunta
-PreguntaConPenalidad -up-|> Pregunta
-PreguntaConPuntajeParcial -up-|> Pregunta
-Unplicador .up.|> Multiplicador
-Duplicador .up.|> Multiplicador
-Triplicador .up.|> Multiplicador
-Jugador o-->"1" Multiplicador
-PreguntaConPenalidad ..> Multiplicador
+
+Uniplicador ..|> Multiplicador
+Duplicador ..|> Multiplicador
+Triplicador ..|> Multiplicador
+EstadoMultiplicador --> Uniplicador
+EstadoMultiplicador --> Duplicador
+EstadoMultiplicador --> Triplicador
+Jugador "1 " *--> "2  " EstadoMultiplicador
+
+ExclusividadDesactivada ..|> Exclusividad
+ExclusividadDoble ..|> Exclusividad
+ExclusividadSimple ..|> Exclusividad
+EstadoExclusividad --> ExclusividadDesactivada
+EstadoExclusividad --> ExclusividadDoble
+EstadoExclusividad --> ExclusividadSimple
+Panel " 1" *--> "1    " EstadoExclusividad
+
+Panel " 1 " *-right-> "1 " EstadoFlowDelJuego
+SiguienteRonda ..|> FlowDelJuego
+SiguienteTurno ..|> FlowDelJuego
+EstadoFlowDelJuego --> SiguienteRonda
+EstadoFlowDelJuego --> SiguienteTurno
+
 
 @enduml
