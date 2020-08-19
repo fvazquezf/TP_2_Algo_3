@@ -16,7 +16,7 @@ public class PreguntaVOFClasica extends Pregunta {
         todasLasOpciones.add("V");
         todasLasOpciones.add("F");
         if (this.opcionesCorrectas.size() != 1)
-            throw new ExcepcionTipoPreguntaInvalida();
+            throw new ExcepcionPreguntaVOFInvalida();
     }
 
     @Override

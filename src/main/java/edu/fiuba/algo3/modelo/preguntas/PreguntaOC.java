@@ -13,7 +13,7 @@ public class PreguntaOC extends Pregunta {
     public PreguntaOC(String tipoPregunta, String pregunta, String[] opcionesCorrectas, Collection<String> todasLasOpciones) {
         super(tipoPregunta, pregunta, Arrays.asList(opcionesCorrectas), todasLasOpciones);
         if (todasLasOpciones.size() < 2 || todasLasOpciones.size() > 5)
-            throw new ExcepcionTipoPreguntaInvalida();
+            throw new ExcepcionPreguntaOCInvalida();
     }
 
     @Override

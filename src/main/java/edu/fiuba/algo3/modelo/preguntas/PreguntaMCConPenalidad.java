@@ -14,7 +14,7 @@ public class PreguntaMCConPenalidad extends Pregunta {
         super(tipoPregunta, pregunta, opcionesCorrectas, todasLasOpciones);
 
         if (todasLasOpciones.size() > 5 || todasLasOpciones.size() < 2)
-            throw new ExcepcionTipoPreguntaInvalida();
+            throw new ExcepcionPreguntaMCInvalida();
     }
 
     @Override

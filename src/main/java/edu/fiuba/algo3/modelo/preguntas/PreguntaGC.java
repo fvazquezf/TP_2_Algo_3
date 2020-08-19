@@ -15,9 +15,9 @@ public class PreguntaGC extends Pregunta {
     public PreguntaGC(String tipoPregunta, String pregunta, String[] opcionesCorrectas, Collection<String> todasLasOpciones, Map<String, String> grupos) {
         super(tipoPregunta, pregunta, opcionesCorrectas, todasLasOpciones);
         if (todasLasOpciones.size() < 2 || todasLasOpciones.size() > 6)
-            throw new ExcepcionTipoPreguntaInvalida();
+            throw new ExcepcionPreguntaGCInvalida();
         if (todasLasOpciones.contains(grupos.get("grupoAComparar")) || todasLasOpciones.contains(grupos.get("OtroGrupo")))
-            throw new ExcepcionTipoPreguntaInvalida();
+            throw new ExcepcionPreguntaGCInvalida();
         this.grupos = grupos;
         this.opcionesCorrectas.add(grupos.get("grupoAComparar"));
     }
