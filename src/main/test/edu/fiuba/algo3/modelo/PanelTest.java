@@ -541,15 +541,17 @@ public class PanelTest {
         List<Pregunta> preguntaTest = new ArrayList<>();
         FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
 
-        Set<String> respuestaCorrecta = new HashSet<>();
+        String[] respuestaCorrecta = new String[3];
         respuestaCorrecta[0] = "d";
         respuestaCorrecta[1] = "c";
         respuestaCorrecta[2] = "e";
 
-        Set<String> todasLasRespuestas = new HashSet<>();
-        respuestaCorrecta.add("d");
-        respuestaCorrecta.add("c");
-        respuestaCorrecta.add("e");
+        String[] todasLasRespuestas = new String[5];
+        todasLasRespuestas[0] = "d";
+        todasLasRespuestas[1] = "c";
+        todasLasRespuestas[2] = "e";
+        todasLasRespuestas[3] = "b";
+        todasLasRespuestas[4] = "e";
 
         Set<String> respuestaJugador1 = new HashSet<>();
         respuestaJugador1.add("b");
@@ -560,9 +562,18 @@ public class PanelTest {
         respuestaJugador2.add("e");
         respuestaJugador2.add("d");
 
-        Panel panel = new Panel();
+        List<Grupo> grupos = new LinkedList<>();
+        grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
 
-        panel.crearPregunta("preguntaMCConPenalidad", "pregunta", respuestaCorrecta, todasLasRespuestas);
+        Preguntas pregunta = new Preguntas("preguntaMCConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas[] preguntas = new Preguntas[1];
+        preguntas[0] = pregunta;
+
+        LectorPreguntas mockedLector = mock(LectorPreguntas.class);
+        preguntaTest.add(fabricaPreguntas.crearPregunta(pregunta.obtenerTipoPregunta(), pregunta.obtenerPregunta(), pregunta.obtenerOpcionesCorrectas(), pregunta.obtenerOpcionesPosbiles(), pregunta.obtenerGrupos()));
+        when(mockedLector.parsearPreguntas()).thenReturn(preguntaTest);
+        Panel panel = new Panel(mockedLector);
+
         panel.crearJugadores("Stef", "Rulo");
 
         panel.activarTriplicador();
@@ -574,43 +585,70 @@ public class PanelTest {
         try {
             panel.hacerPregunta(respuestaJugador2);
         } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
-            assertEquals(6, panel.pedirJugadorSiguiente().pedirPuntos());
+            assertEquals(6, panel.pedirJugadorActual().pedirPuntos());
         }
     }
 
-////    @Test
-////    public void test13PidoUsarDosVecesElDuplicadorYSeLanzaExcepcion() {
-////        Set<String> respuestaCorrecta = new HashSet<>();
-////        Set<String> todasLasRespuestas = new HashSet<>();
-////        respuestaCorrecta.add("a");
-////        respuestaCorrecta.add("c");
-////        respuestaCorrecta.add("d");
-////        respuestaCorrecta.add("e");
-////
-////        Panel panel = new Panel();
-////
-////        panel.crearPregunta("preguntaVoFConPenalidad", "pregunta", respuestaCorrecta, todasLasRespuestas);
-////        panel.crearJugadores("Stef", "Rulo");
-////        panel.activarDuplicador();
-////        assertThrows(ExcepcionYaUsasteTuDuplicadorSalame.class, panel::activarDuplicador);
-////    }
-////
-////    @Test
-////    public void test14PidoUsarDosVecesElTriplicadorYSeLanzaExcepcion() {
-////        Set<String> respuestaCorrecta = new HashSet<>();
-////        Set<String> todasLasRespuestas = new HashSet<>();
-////        respuestaCorrecta.add("a");
-////        respuestaCorrecta.add("c");
-////        respuestaCorrecta.add("d");
-////        respuestaCorrecta.add("e");
-////
-////        Panel panel = new Panel();
-////
-////        panel.crearPregunta("preguntaVoFConPenalidad", "pregunta", respuestaCorrecta, todasLasRespuestas);
-////        panel.crearJugadores("Stef", "Rulo");
-////        panel.activarTriplicador();
-////        assertThrows(ExcepcionYaUsasteTuTriplicadorSalame.class, panel::activarTriplicador);
-////    }
+    @Test
+    public void test13PidoUsarDosVecesElDuplicadorYSeLanzaExcepcion() {
+        List<Pregunta> preguntaTest = new ArrayList<>();
+        FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
+
+        String[] respuestaCorrecta = new String[1];
+        respuestaCorrecta[0] = "V";
+
+
+        String[] todasLasRespuestas = new String[2];
+        todasLasRespuestas[0] = "V";
+        todasLasRespuestas[1] = "F";
+
+        List<Grupo> grupos = new LinkedList<>();
+        grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
+
+        Preguntas pregunta = new Preguntas("preguntaVoFConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas[] preguntas = new Preguntas[1];
+        preguntas[0] = pregunta;
+
+        LectorPreguntas mockedLector = mock(LectorPreguntas.class);
+        preguntaTest.add(fabricaPreguntas.crearPregunta(pregunta.obtenerTipoPregunta(), pregunta.obtenerPregunta(), pregunta.obtenerOpcionesCorrectas(), pregunta.obtenerOpcionesPosbiles(), pregunta.obtenerGrupos()));
+        when(mockedLector.parsearPreguntas()).thenReturn(preguntaTest);
+        Panel panel = new Panel(mockedLector);
+
+
+        panel.crearJugadores("Stef", "Rulo");
+        panel.activarDuplicador();
+        assertThrows(ExcepcionYaUsasteTuDuplicadorSalame.class, panel::activarDuplicador);
+    }
+
+    @Test
+    public void test14PidoUsarDosVecesElTriplicadorYSeLanzaExcepcion() {
+        List<Pregunta> preguntaTest = new ArrayList<>();
+        FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
+
+        String[] respuestaCorrecta = new String[1];
+        respuestaCorrecta[0] = "V";;
+
+        String[] todasLasRespuestas = new String[2];
+        todasLasRespuestas[0] = "V";
+        todasLasRespuestas[1] = "F";
+
+
+        List<Grupo> grupos = new LinkedList<>();
+        grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
+
+        Preguntas pregunta = new Preguntas("preguntaVoFConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas[] preguntas = new Preguntas[1];
+        preguntas[0] = pregunta;
+
+        LectorPreguntas mockedLector = mock(LectorPreguntas.class);
+        preguntaTest.add(fabricaPreguntas.crearPregunta(pregunta.obtenerTipoPregunta(), pregunta.obtenerPregunta(), pregunta.obtenerOpcionesCorrectas(), pregunta.obtenerOpcionesPosbiles(), pregunta.obtenerGrupos()));
+        when(mockedLector.parsearPreguntas()).thenReturn(preguntaTest);
+        Panel panel = new Panel(mockedLector);
+
+        panel.crearJugadores("Stef", "Rulo");
+        panel.activarTriplicador();
+        assertThrows(ExcepcionYaUsasteTuTriplicadorSalame.class, panel::activarTriplicador);
+    }
 ////
 ////    @Test
 ////    public void test15PreguntaMCClasicaPidoUsarDuplicadorYLanzaExcepcion() {
