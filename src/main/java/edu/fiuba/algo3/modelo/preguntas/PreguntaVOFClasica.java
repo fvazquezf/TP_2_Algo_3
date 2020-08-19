@@ -5,17 +5,16 @@ import edu.fiuba.algo3.modelo.excepciones.ExcepcionPreguntaVOFInvalida;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 
 public class PreguntaVOFClasica extends Pregunta {
     private final ComportamientoClasico comportamiento = new ComportamientoClasico();
 
-    public PreguntaVOFClasica(String pregunta, Set<String> opcionesCorrectas) {
-        super(pregunta, opcionesCorrectas);
+    public PreguntaVOFClasica(String tipoPregunta, String pregunta, String[] opcionesCorrectas) {
+        super(tipoPregunta, pregunta, opcionesCorrectas);
         todasLasOpciones = new HashSet<>();
         todasLasOpciones.add("V");
         todasLasOpciones.add("F");
-        if (opcionesCorrectas.size() != 1)
+        if (this.opcionesCorrectas.size() != 1)
             throw new ExcepcionPreguntaVOFInvalida();
     }
 

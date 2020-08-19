@@ -16,13 +16,13 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class PreguntasComportamientoClasicoTest {
     @Test
     public void Test01PreguntaVOFClasicaRespondeCorrectamenteDevuelveUnPunto() {
-        Set<String> opcionCorrecta = new HashSet<>();
-        opcionCorrecta.add("V");
+        String[] opcionCorrecta = new String[1];
+        opcionCorrecta[0] = "V";
 
         Set<String> opcionJugador = new HashSet<>();
         opcionJugador.add("V");
 
-        Pregunta pregunta = new PreguntaVOFClasica("Para ser grande hay que ser campeón mundial", opcionCorrecta);
+        Pregunta pregunta = new PreguntaVOFClasica("PreguntaVoFClasica", "Para ser grande hay que ser campeón mundial", opcionCorrecta);
 
         int puntos = pregunta.compararRespuestas(opcionJugador);
 
@@ -31,13 +31,13 @@ public class PreguntasComportamientoClasicoTest {
 
     @Test
     public void Test02PreguntaVOFClasicaRespondeIncorrectamenteDevuelveCeroPuntos() {
-        Set<String> opcionCorrecta = new HashSet<>();
-        opcionCorrecta.add("V");
+        String[] opcionCorrecta = new String[1];
+        opcionCorrecta[0] = "V";
 
         Set<String> opcionJugador = new HashSet<>();
         opcionJugador.add("F");
 
-        Pregunta pregunta = new PreguntaVOFClasica("Independiente nunca perdió su clásico con dos jugadores más", opcionCorrecta);
+        Pregunta pregunta = new PreguntaVOFClasica("PreguntaVoFClasica", "Independiente nunca perdió su clásico con dos jugadores más", opcionCorrecta);
 
         int puntos = pregunta.compararRespuestas(opcionJugador);
 
@@ -46,11 +46,11 @@ public class PreguntasComportamientoClasicoTest {
 
     @Test
     public void Test03PreguntaVOFClasicaSoloPuedeRecibirUnaOpcionCorrecta() {
-        Set<String> opcionesCorrectas = new HashSet<>();
-        opcionesCorrectas.add("V");
-        opcionesCorrectas.add("F");
+        String[] opcionesCorrectas = new String[2];
+        opcionesCorrectas[0] = "V";
+        opcionesCorrectas[1] = "F";
 
-        assertThrows(ExcepcionPreguntaVOFInvalida.class, () -> new PreguntaVOFClasica("Independiente nunca perdió su clásico con dos jugadores más", opcionesCorrectas));
+        assertThrows(ExcepcionPreguntaVOFInvalida.class, () -> new PreguntaVOFClasica("PreguntaVoFClasica", "Independiente nunca perdió su clásico con dos jugadores más", opcionesCorrectas));
     }
 
     @Test
@@ -61,15 +61,15 @@ public class PreguntasComportamientoClasicoTest {
         todasLasOpciones.add("3");
         todasLasOpciones.add("4");
 
-        Set<String> opcionesCorrectas = new HashSet<>();
-        opcionesCorrectas.add("2");
-        opcionesCorrectas.add("4");
+        String[] opcionesCorrectas = new String[2];
+        opcionesCorrectas[0] = "2";
+        opcionesCorrectas[1] = "4";
 
         Set<String> respuestaElegidasDelJugador = new HashSet<>();
         respuestaElegidasDelJugador.add("2");
         respuestaElegidasDelJugador.add("4");
 
-        Pregunta pregunta = new PreguntaMCClasica("Cual de estos numeros son pares", opcionesCorrectas, todasLasOpciones);
+        Pregunta pregunta = new PreguntaMCClasica("PreguntaMCClasico","Cual de estos numeros son pares", opcionesCorrectas, todasLasOpciones);
 
         int puntos = pregunta.compararRespuestas(respuestaElegidasDelJugador);
 
@@ -84,15 +84,15 @@ public class PreguntasComportamientoClasicoTest {
         todasLasOpciones.add("3");
         todasLasOpciones.add("4");
 
-        Set<String> opcionesCorrectas = new HashSet<>();
-        opcionesCorrectas.add("2");
-        opcionesCorrectas.add("4");
+        String[] opcionesCorrectas = new String[2];
+        opcionesCorrectas[0] = "2";
+        opcionesCorrectas[1] = "4";
 
         Set<String> respuestaElegidasDelJugador = new HashSet<>();
         respuestaElegidasDelJugador.add("1");
         respuestaElegidasDelJugador.add("4");
 
-        Pregunta pregunta = new PreguntaMCClasica("Cual de estos numeros son pares", opcionesCorrectas, todasLasOpciones);
+        Pregunta pregunta = new PreguntaMCClasica("PreguntaMCClasica","Cual de estos numeros son pares", opcionesCorrectas, todasLasOpciones);
 
         int puntos = pregunta.compararRespuestas(respuestaElegidasDelJugador);
 
@@ -104,9 +104,9 @@ public class PreguntasComportamientoClasicoTest {
         Set<String> todasLasOpciones = new HashSet<>();
         todasLasOpciones.add("1");
 
-        Set<String> opcionesCorrectas = new HashSet<>();
+        String[] opcionesCorrectas = new String[0];
 
-        assertThrows(ExcepcionPreguntaMCInvalida.class, () -> new PreguntaMCClasica("Cual de estos numeros son pares", opcionesCorrectas, todasLasOpciones));
+        assertThrows(ExcepcionPreguntaMCInvalida.class, () -> new PreguntaMCClasica("PreguntaMCClasica","Cual de estos numeros son pares", opcionesCorrectas, todasLasOpciones));
     }
 
     @Test
@@ -119,9 +119,9 @@ public class PreguntasComportamientoClasicoTest {
         todasLasOpciones.add("5");
         todasLasOpciones.add("6");
 
-        Set<String> opcionesCorrectas = new HashSet<>();
+        String[] opcionesCorrectas = new String[0];
 
-        assertThrows(ExcepcionPreguntaMCInvalida.class, () -> new PreguntaMCClasica("Cual de estos numeros son pares", opcionesCorrectas, todasLasOpciones));
+        assertThrows(ExcepcionPreguntaMCInvalida.class, () -> new PreguntaMCClasica("PreguntaMCClasica", "Cual de estos numeros son pares", opcionesCorrectas, todasLasOpciones));
     }
 
     @Test
@@ -132,20 +132,20 @@ public class PreguntasComportamientoClasicoTest {
         todasLasOpciones.add("3");
         todasLasOpciones.add("4");
 
-        Set<String> opcionesCorrectas = new HashSet<>();
-        opcionesCorrectas.add("1");
-        opcionesCorrectas.add("3");
+        String[] opcionesCorrectas = new String[2];
+        opcionesCorrectas[0] = "1";
+        opcionesCorrectas[1] = "3";
 
         Set<String> opcionesJugador = new HashSet<>();
         opcionesJugador.add("1");
         opcionesJugador.add("Impares");
         opcionesJugador.add("3");
 
-        String[] grupos = new String[2];
-        grupos[0] = "Impares";
-        grupos[1] = "Pares";
+        Map<String, String> grupos= new HashMap<>();
+        grupos.put("grupoAComparar","Impares");
+        grupos.put("otroGrupo","Pares");
 
-        Pregunta pregunta = new PreguntaGC("Separe los numeros en pares e impares", opcionesCorrectas, todasLasOpciones, grupos);
+        Pregunta pregunta = new PreguntaGC("PreguntaGC","Separe los numeros en pares e impares", opcionesCorrectas, todasLasOpciones, grupos);
         int puntos = pregunta.compararRespuestas(opcionesJugador);
 
         assertEquals(1, puntos);
@@ -159,20 +159,20 @@ public class PreguntasComportamientoClasicoTest {
         todasLasOpciones.add("3");
         todasLasOpciones.add("4");
 
-        Set<String> opcionesCorrectas = new HashSet<>();
-        opcionesCorrectas.add("1");
-        opcionesCorrectas.add("3");
+        String[] opcionesCorrectas = new String[2];
+        opcionesCorrectas[0] = "1";
+        opcionesCorrectas[1] = "3";
 
         Set<String> opcionesJugador = new HashSet<>();
         opcionesJugador.add("1");
         opcionesJugador.add("Impares");
         opcionesJugador.add("2");
 
-        String[] grupos = new String[2];
-        grupos[0] = "Impares";
-        grupos[1] = "Pares";
+        Map<String, String> grupos= new HashMap<>();
+        grupos.put("grupoAComparar","Impares");
+        grupos.put("otroGrupo","Pares");
 
-        Pregunta pregunta = new PreguntaGC("Separe los numeros en pares e impares", opcionesCorrectas, todasLasOpciones, grupos);
+        Pregunta pregunta = new PreguntaGC("PreguntaGC","Separe los numeros en pares e impares", opcionesCorrectas, todasLasOpciones, grupos);
         int puntos = pregunta.compararRespuestas(opcionesJugador);
 
         assertEquals(0, puntos);
@@ -183,11 +183,12 @@ public class PreguntasComportamientoClasicoTest {
         Set<String> todasLasOpciones = new HashSet<>();
         todasLasOpciones.add("1");
 
-        Set<String> opcionesCorrectas = new HashSet<>();
+        String[] opcionesCorrectas = new String[0];
 
-        String[] grupos = new String[0];
-
-        assertThrows(ExcepcionPreguntaGCInvalida.class, () -> new PreguntaGC("Separe los numeros en pares e impares", opcionesCorrectas, todasLasOpciones, grupos));
+        Map<String, String> grupos= new HashMap<>();
+        grupos.put("grupoAComparar","Impares");
+        grupos.put("otroGrupo","Pares");
+        assertThrows(ExcepcionPreguntaGCInvalida.class, () -> new PreguntaGC("PreguntaGC","Separe los numeros en pares e impares", opcionesCorrectas, todasLasOpciones, grupos));
     }
 
     @Test
@@ -201,11 +202,14 @@ public class PreguntasComportamientoClasicoTest {
         todasLasOpciones.add("6");
         todasLasOpciones.add("7");
 
-        Set<String> opcionesCorrectas = new HashSet<>();
+        String[] opcionesCorrectas = new String[0];
 
-        String[] grupos = new String[0];
 
-        assertThrows(ExcepcionPreguntaGCInvalida.class, () -> new PreguntaGC("Separe los numeros en pares e impares", opcionesCorrectas, todasLasOpciones, grupos));
+        Map<String, String> grupos= new HashMap<>();
+        grupos.put("grupoAComparar","Impares");
+        grupos.put("otroGrupo","Pares");
+
+        assertThrows(ExcepcionPreguntaGCInvalida.class, () -> new PreguntaGC("PreguntaGC","Separe los numeros en pares e impares", opcionesCorrectas, todasLasOpciones, grupos));
     }
 
     @Test
@@ -215,13 +219,13 @@ public class PreguntasComportamientoClasicoTest {
         todasLasOpciones.add("2");
         todasLasOpciones.add("Impares");
 
-        Set<String> opcionesCorrectas = new HashSet<>();
+        String[] opcionesCorrectas = new String[0];
 
-        String[] grupos = new String[2];
-        grupos[0] = "Impares";
-        grupos[1] = "Pares";
+        Map<String, String> grupos= new HashMap<>();
+        grupos.put("grupoAComparar","Impares");
+        grupos.put("otroGrupo","Pares");
 
-        assertThrows(ExcepcionPreguntaGCInvalida.class, () -> new PreguntaGC("Separe los numeros en pares e impares", opcionesCorrectas, todasLasOpciones, grupos));
+        assertThrows(ExcepcionPreguntaGCInvalida.class, () -> new PreguntaGC("PreguntaGC","Separe los numeros en pares e impares", opcionesCorrectas, todasLasOpciones, grupos));
     }
 
     @Test
@@ -232,11 +236,11 @@ public class PreguntasComportamientoClasicoTest {
         todasLasOpciones.add("5");
         todasLasOpciones.add("7");
 
-        List<String> opcionesOrdenadas = new LinkedList<>();
-        opcionesOrdenadas.add("1");
-        opcionesOrdenadas.add("2");
-        opcionesOrdenadas.add("5");
-        opcionesOrdenadas.add("7");
+        String[] opcionesOrdenadas = new String[4];
+        opcionesOrdenadas[0] = "1";
+        opcionesOrdenadas[1] = "2";
+        opcionesOrdenadas[2] = "5";
+        opcionesOrdenadas[3] = "7";
 
         List<String> opcionesJugador = new LinkedList<>();
         opcionesJugador.add("1");
@@ -244,7 +248,7 @@ public class PreguntasComportamientoClasicoTest {
         opcionesJugador.add("5");
         opcionesJugador.add("7");
 
-        Pregunta preguntaClasica = new PreguntaOC("Ordenar ascendentemente", opcionesOrdenadas, todasLasOpciones);
+        Pregunta preguntaClasica = new PreguntaOC("PreguntaGC","Ordenar ascendentemente", opcionesOrdenadas, todasLasOpciones);
 
         int puntos = preguntaClasica.compararRespuestas(opcionesJugador);
 
@@ -259,11 +263,11 @@ public class PreguntasComportamientoClasicoTest {
         todasLasOpciones.add("5");
         todasLasOpciones.add("7");
 
-        List<String> opcionesOrdenadas = new LinkedList<>();
-        opcionesOrdenadas.add("1");
-        opcionesOrdenadas.add("2");
-        opcionesOrdenadas.add("5");
-        opcionesOrdenadas.add("7");
+        String[] opcionesOrdenadas = new String[4];
+        opcionesOrdenadas[0] = "1";
+        opcionesOrdenadas[1] = "2";
+        opcionesOrdenadas[2] = "5";
+        opcionesOrdenadas[3] = "7";
 
         List<String> opcionesJugador = new LinkedList<>();
         opcionesJugador.add("2");
@@ -271,7 +275,7 @@ public class PreguntasComportamientoClasicoTest {
         opcionesJugador.add("7");
         opcionesJugador.add("5");
 
-        Pregunta preguntaClasica = new PreguntaOC("Ordenar ascendentemente", opcionesOrdenadas, todasLasOpciones);
+        Pregunta preguntaClasica = new PreguntaOC("PreguntaGC","Ordenar ascendentemente", opcionesOrdenadas, todasLasOpciones);
 
         int puntos = preguntaClasica.compararRespuestas(opcionesJugador);
 
@@ -283,9 +287,9 @@ public class PreguntasComportamientoClasicoTest {
         Set<String> todasLasOpciones = new HashSet<>();
         todasLasOpciones.add("1");
 
-        Set<String> opcionesCorrectas = new HashSet<>();
+        String[] opcionesCorrectas = new String[0];
 
-        assertThrows(ExcepcionPreguntaMCInvalida.class, () -> new PreguntaMCClasica("Ordenar ascendentemente", opcionesCorrectas, todasLasOpciones));
+        assertThrows(ExcepcionPreguntaMCInvalida.class, () -> new PreguntaMCClasica("PreguntaGC","Ordenar ascendentemente", opcionesCorrectas, todasLasOpciones));
     }
 
     @Test
@@ -298,17 +302,17 @@ public class PreguntasComportamientoClasicoTest {
         todasLasOpciones.add("7");
         todasLasOpciones.add("4");
 
-        Set<String> opcionesCorrectas = new HashSet<>();
+        String[] opcionesCorrectas = new String[0];
 
-        assertThrows(ExcepcionPreguntaMCInvalida.class, () -> new PreguntaMCClasica("Ordenar ascendentemente", opcionesCorrectas, todasLasOpciones));
+        assertThrows(ExcepcionPreguntaMCInvalida.class, () -> new PreguntaMCClasica("PreguntaGC","Ordenar ascendentemente", opcionesCorrectas, todasLasOpciones));
     }
 
     @Test
     public void Test17PreguntaVOFClasicaNoPuedeUsarMultiplicadorLanzaExcepcion() {
-        Set<String> opcionCorrecta = new HashSet<>();
-        opcionCorrecta.add("V");
+        String[] opcionCorrecta = new String[1];
+        opcionCorrecta[0] = "V";
 
-        Pregunta pregunta = new PreguntaVOFClasica("Para ser grande hay que ser campeón mundial", opcionCorrecta);
+        Pregunta pregunta = new PreguntaVOFClasica("PreguntaGC","Para ser grande hay que ser campeón mundial", opcionCorrecta);
         assertThrows(ExcepcionSoloPreguntaConPenalidadPuedeUsarMultiplicador.class, pregunta::activarMultiplicador);
     }
 
@@ -319,10 +323,10 @@ public class PreguntasComportamientoClasicoTest {
         todasLasOpciones.add("2");
         todasLasOpciones.add("3");
 
-        Set<String> opcionCorrecta = new HashSet<>();
-        todasLasOpciones.add("2");
+        String[] opcionCorrecta = new String[1];
+        opcionCorrecta[0] = "2";
 
-        Pregunta pregunta = new PreguntaMCClasica("Cuales de los siguientes numeros son pares", opcionCorrecta, todasLasOpciones);
+        Pregunta pregunta = new PreguntaMCClasica("PreguntaGC","Cuales de los siguientes numeros son pares", opcionCorrecta, todasLasOpciones);
         assertThrows(ExcepcionSoloPreguntaConPenalidadPuedeUsarMultiplicador.class, pregunta::activarMultiplicador);
     }
 
@@ -334,15 +338,15 @@ public class PreguntasComportamientoClasicoTest {
         todasLasOpciones.add("3");
         todasLasOpciones.add("4");
 
-        Set<String> opcionesCorrectas = new HashSet<>();
-        opcionesCorrectas.add("1");
-        opcionesCorrectas.add("3");
+        String[] opcionesCorrectas = new String[2];
+        opcionesCorrectas[0] = "1";
+        opcionesCorrectas[1] = "3";
 
-        String[] grupos = new String[2];
-        grupos[0] = "Impares";
-        grupos[1] = "Pares";
+        Map<String, String> grupos= new HashMap<>();
+        grupos.put("grupoAComparar","Impares");
+        grupos.put("otroGrupo","Pares");
 
-        Pregunta pregunta = new PreguntaGC("Agrupar en pares e impares", opcionesCorrectas, todasLasOpciones, grupos);
+        Pregunta pregunta = new PreguntaGC("PreguntaGC","Agrupar en pares e impares", opcionesCorrectas, todasLasOpciones, grupos);
         assertThrows(ExcepcionSoloPreguntaConPenalidadPuedeUsarMultiplicador.class, pregunta::activarMultiplicador);
     }
 
@@ -353,12 +357,12 @@ public class PreguntasComportamientoClasicoTest {
         todasLasOpciones.add("2");
         todasLasOpciones.add("3");
 
-        List<String> opcionesOrdenadas = new LinkedList<>();
-        opcionesOrdenadas.add("1");
-        opcionesOrdenadas.add("2");
-        opcionesOrdenadas.add("3");
+        String[] opcionesOrdenadas = new String[3];
+        opcionesOrdenadas[0] = "1";
+        opcionesOrdenadas[1] = "2";
+        opcionesOrdenadas[2] = "3";
 
-        Pregunta pregunta = new PreguntaOC("Cuales de los siguientes numeros son pares", opcionesOrdenadas, todasLasOpciones);
+        Pregunta pregunta = new PreguntaOC("PreguntaGC","Cuales de los siguientes numeros son pares", opcionesOrdenadas, todasLasOpciones);
         assertThrows(ExcepcionSoloPreguntaConPenalidadPuedeUsarMultiplicador.class, pregunta::activarMultiplicador);
     }
 }

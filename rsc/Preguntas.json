@@ -1,12 +1,76 @@
-{
-  "Preguntas": [
-    {
-      "Pregunta": "Es blanco el caballo blanco de San Martin?",
-      "PosiblesRespuestas": [
-        true,
-        false
-      ],
-      "RespuestaCorrecta" : true
-    }
-  ]
-}
+[
+  {
+    "tipoPregunta": "preguntaVoFClasica",
+    "pregunta": "¿Es blanco el caballo blanco de San Martin?",
+    "opcionesPosibles": [
+      "Verdadero",
+      "Falso"
+    ],
+    "opcionesCorrectas": [
+      "V"
+    ],
+    "grupos": [
+      {
+        "grupoAComparar": "",
+        "otroGrupo": ""
+      }
+    ]
+  },
+  {
+    "tipoPregunta": "preguntaMCConPuntajeParcial",
+    "pregunta": "¿Qué es PDD?",
+    "opcionesPosibles": [
+      "Test Driven development",
+      "Print driven developnet",
+      "Metodo de desarrollo",
+      "Frula"
+    ],
+    "opcionesCorrectas": [
+      "Print driven developnet",
+      "Metodo de desarrollo"
+    ],
+    "grupos": [
+      {
+        "grupoAComparar": "",
+        "otroGrupo": ""
+      }
+    ]
+  },
+  {
+    "tipoPregunta": "preguntaVoFClasica",
+    "pregunta": "Independiente es un grande",
+    "opcionesPosibles": [
+      "Verdadero",
+      "Falso"
+    ],
+    "opcionesCorrectas": [
+      "F"
+    ],
+    "grupos": [
+      {
+        "grupoAComparar": "",
+        "otroGrupo": ""
+      }
+    ]
+  },
+  {
+    "tipoPregunta": "preguntaGC",
+    "pregunta": "Separe los pokemons en tipo Fuego y Electrico",
+    "opcionesPosibles": [
+      "Pikachu",
+      "Charizar",
+      "Raychu",
+      "Charmander"
+    ],
+    "opcionesCorrectas": [
+      "Charizar",
+      "Charmander"
+    ],
+    "grupos": [
+      {
+        "otroGrupo": "Electrico",
+        "grupoAComparar": "Fuego"
+      }
+    ]
+  }
+]

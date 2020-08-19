@@ -21,13 +21,13 @@ public class PreguntaConPuntajeParcialTest {
         todasLasOpciones.add("Jujuy");
         todasLasOpciones.add("Bariloche");
 
-        Set<String> opcionesCorrectas = new HashSet<>();
-        opcionesCorrectas.add("Argentina");
+        String[] opcionesCorrectas = new String[1];
+        opcionesCorrectas[0] = "Argentina";
 
         Set<String> opcionesJugador = new HashSet<>();
         opcionesJugador.add("Argentina");
 
-        Pregunta preguntaConPuntajeParcial = new PreguntaMCConPuntajeParcial("seleccione los paises", opcionesCorrectas, todasLasOpciones);
+        Pregunta preguntaConPuntajeParcial = new PreguntaMCConPuntajeParcial("preguntaMCConPuntajeParcial" ,"seleccione los paises", opcionesCorrectas, todasLasOpciones);
 
         int puntos = preguntaConPuntajeParcial.compararRespuestas(opcionesJugador);
 
@@ -42,14 +42,14 @@ public class PreguntaConPuntajeParcialTest {
         todasLasOpciones.add("Jujuy");
         todasLasOpciones.add("Bariloche");
 
-        Set<String> opcionesCorrectas = new HashSet<>();
-        opcionesCorrectas.add("Argentina");
-        opcionesCorrectas.add("Venezuela");
+        String[] opcionesCorrectas = new String[2];
+        opcionesCorrectas[0] = "Argentina";
+        opcionesCorrectas[1] = "Venezuela";
 
         Set<String> opcionesJugador = new HashSet<>();
         opcionesJugador.add("Argentina");
 
-        Pregunta preguntaConPuntajeParcial = new PreguntaMCConPuntajeParcial("seleccione los paises", opcionesCorrectas, todasLasOpciones);
+        Pregunta preguntaConPuntajeParcial = new PreguntaMCConPuntajeParcial("preguntaMCConPuntajeParcial" ,"seleccione los paises", opcionesCorrectas, todasLasOpciones);
 
         int puntos = preguntaConPuntajeParcial.compararRespuestas(opcionesJugador);
 
@@ -64,14 +64,14 @@ public class PreguntaConPuntajeParcialTest {
         todasLasOpciones.add("Jujuy");
         todasLasOpciones.add("Bariloche");
 
-        Set<String> opcionesCorrectas = new HashSet<>();
-        opcionesCorrectas.add("Argentina");
-        opcionesCorrectas.add("Venezuela");
+        String[] opcionesCorrectas = new String[2];
+        opcionesCorrectas[0] = "Argentina";
+        opcionesCorrectas[1] = "Venezuela";
 
         Set<String> opcionesJugador = new HashSet<>();
         opcionesJugador.add("Jujuy");
 
-        Pregunta preguntaConPuntajeParcial = new PreguntaMCConPuntajeParcial("seleccione los paises", opcionesCorrectas, todasLasOpciones);
+        Pregunta preguntaConPuntajeParcial = new PreguntaMCConPuntajeParcial("preguntaMCConPuntajeParcial" ,"seleccione los paises", opcionesCorrectas, todasLasOpciones);
 
         int puntos = preguntaConPuntajeParcial.compararRespuestas(opcionesJugador);
 
@@ -87,18 +87,18 @@ public class PreguntaConPuntajeParcialTest {
         todasLasOpciones.add("Brasil");
         todasLasOpciones.add("Bariloche");
 
-        Set<String> opcionesCorrectas = new HashSet<>();
-        opcionesCorrectas.add("Argentina");
-        opcionesCorrectas.add("Venezuela");
-        opcionesCorrectas.add("Brasil");
-        opcionesCorrectas.add("Colombia");
+        String[] opcionesCorrectas = new String[4];
+        opcionesCorrectas[0] = "Argentina";
+        opcionesCorrectas[1] = "Venezuela";
+        opcionesCorrectas[2] = "Brasil";
+        opcionesCorrectas[3] = "Colombia";
 
         Set<String> opcionesJugador = new HashSet<>();
         opcionesJugador.add("Argentina");
         opcionesJugador.add("Venezuela");
         opcionesJugador.add("Brasil");
 
-        Pregunta preguntaConPuntajeParcial = new PreguntaMCConPuntajeParcial("seleccione los paises", opcionesCorrectas, todasLasOpciones);
+        Pregunta preguntaConPuntajeParcial = new PreguntaMCConPuntajeParcial("preguntaMCConPuntajeParcial" ,"seleccione los paises", opcionesCorrectas, todasLasOpciones);
 
         int puntos = preguntaConPuntajeParcial.compararRespuestas(opcionesJugador);
 
@@ -114,13 +114,13 @@ public class PreguntaConPuntajeParcialTest {
         todasLasOpciones.add("Brasil");
         todasLasOpciones.add("Bariloche");
 
-        Set<String> opcionesCorrectas = new HashSet<>();
-        opcionesCorrectas.add("Argentina");
-        opcionesCorrectas.add("Venezuela");
-        opcionesCorrectas.add("Brasil");
-        opcionesCorrectas.add("Colombia");
+        String[] opcionesCorrectas = new String[4];
+        opcionesCorrectas[0] = "Argentina";
+        opcionesCorrectas[1] = "Venezuela";
+        opcionesCorrectas[2] = "Brasil";
+        opcionesCorrectas[3] = "Colombia";
 
-        Pregunta pregunta = new PreguntaMCConPuntajeParcial("seleccione los paises", opcionesCorrectas, todasLasOpciones);
+        Pregunta pregunta = new PreguntaMCConPuntajeParcial("preguntaMCConPuntajeParcial" ,"seleccione los paises", opcionesCorrectas, todasLasOpciones);
         assertThrows(ExcepcionSoloPreguntaConPenalidadPuedeUsarMultiplicador.class, pregunta::activarMultiplicador);
     }
 
@@ -134,13 +134,13 @@ public class PreguntaConPuntajeParcialTest {
         todasLasOpciones.add("Bariloche");
         todasLasOpciones.add("Jujuy");
 
-        Set<String> opcionesCorrectas = new HashSet<>();
-        opcionesCorrectas.add("Argentina");
-        opcionesCorrectas.add("Venezuela");
-        opcionesCorrectas.add("Brasil");
-        opcionesCorrectas.add("Colombia");
+        String[] opcionesCorrectas = new String[4];
+        opcionesCorrectas[0] = "Argentina";
+        opcionesCorrectas[1] = "Venezuela";
+        opcionesCorrectas[2] = "Brasil";
+        opcionesCorrectas[3] = "Colombia";
 
-        assertThrows(ExcepcionPreguntaMCInvalida.class, () -> new PreguntaMCConPuntajeParcial("seleccionar los paises", opcionesCorrectas, todasLasOpciones));
+        assertThrows(ExcepcionPreguntaMCInvalida.class, () -> new PreguntaMCConPuntajeParcial("preguntaMCConPuntajeParcial" ,"seleccionar los paises", opcionesCorrectas, todasLasOpciones));
     }
 
     @Test
@@ -148,9 +148,10 @@ public class PreguntaConPuntajeParcialTest {
         Set<String> todasLasOpciones = new HashSet<>();
         todasLasOpciones.add("Argentina");
 
-        Set<String> opcionesCorrectas = new HashSet<>();
-        opcionesCorrectas.add("Argentina");
+        String[] opcionesCorrectas = new String[1];
+        opcionesCorrectas[0] = "Argentina";
 
-        assertThrows(ExcepcionPreguntaMCInvalida.class, () -> new PreguntaMCConPuntajeParcial("seleccionar los paises", opcionesCorrectas, todasLasOpciones));
+
+        assertThrows(ExcepcionPreguntaMCInvalida.class, () -> new PreguntaMCConPuntajeParcial("preguntaMCConPuntajeParcial" ,"seleccionar los paises", opcionesCorrectas, todasLasOpciones));
     }
 }
