@@ -3,14 +3,11 @@ package edu.fiuba.algo3.vista.cajas;
 import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.Observador;
 import edu.fiuba.algo3.modelo.Panel;
-import edu.fiuba.algo3.vista.botones.BotonExclusividad;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.util.Collection;
-import java.util.Set;
 
 public class CajaJugadores extends VBox implements Observador {
 
@@ -50,8 +47,6 @@ public class CajaJugadores extends VBox implements Observador {
 
     @Override
     public void actualizar() {
-
-        respuestasJugador.clear();
 
         String puntosJ1 = String.valueOf(j1.pedirPuntos());
         this.puntosJ1.setText(puntosJ1);

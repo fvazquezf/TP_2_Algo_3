@@ -29,7 +29,7 @@ public class VistaPreguntaConPenalidad implements VistaPregunta {
         CajaJugadores cajaJugadores = new CajaJugadores(panel, respuestasJugador);
 
         CajaPregunta cajaPregunta = new CajaPregunta(panel, respuestasJugador);
-
+        panel.obtenerPreguntaActual().agregarObservador(cajaPregunta);
         CajaMultiplicadores cajaMultiplicadores = new CajaMultiplicadores(panel);
 
         componentLayout.setCenter(cajaPregunta);

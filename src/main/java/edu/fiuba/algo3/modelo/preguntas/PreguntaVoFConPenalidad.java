@@ -22,7 +22,9 @@ public class PreguntaVoFConPenalidad extends Pregunta {
 
     @Override
     public Integer compararRespuestas(Collection<String> opcionesJugador) {
-        return comportamiento.compararRespuestas(opcionesJugador, opcionesCorrectas);
+        int puntos = comportamiento.compararRespuestas(opcionesJugador, opcionesCorrectas);
+        notificarObservador();
+        return puntos;
     }
 
     @Override

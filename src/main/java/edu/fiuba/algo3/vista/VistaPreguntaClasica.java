@@ -30,8 +30,10 @@ public class VistaPreguntaClasica implements VistaPregunta {
         CajaJugadores cajaJugadores = new CajaJugadores(panel, respuestasJugador);
 
         CajaPregunta cajaPregunta = new CajaPregunta(panel, respuestasJugador);
+        panel.obtenerPreguntaActual().agregarObservador(cajaPregunta);
 
         CajaExclusividades cajaExclusividades = new CajaExclusividades(panel);
+        panel.obtenerEstadoExclusividad().agregarObservador(cajaExclusividades);
 
         componentLayout.setCenter(cajaPregunta);
         componentLayout.setBottom(cajaJugadores);

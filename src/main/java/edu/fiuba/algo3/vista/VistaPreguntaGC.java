@@ -25,13 +25,15 @@ public class VistaPreguntaGC implements VistaPregunta{
         componentLayout.setPadding(new Insets(20,100,10,100));
 
         Set<String> respuestasJugador = new HashSet<>();
-        respuestasJugador.add(panel.obtenerGrupoAComparar());
+        respuestasJugador.add(panel.obtenerPreguntaActual().obtenerGrupoCorrecto());
 
         CajaJugadores cajaJugadores = new CajaJugadores(panel, respuestasJugador);
 
         CajaPregunta cajaPregunta = new CajaPregunta(panel, respuestasJugador);
+        panel.obtenerPreguntaActual().agregarObservador(cajaPregunta);
 
         CajaExclusividades cajaExclusividades = new CajaExclusividades(panel);
+        panel.obtenerEstadoExclusividad().agregarObservador(cajaExclusividades);
 
         componentLayout.setCenter(cajaPregunta);
         componentLayout.setBottom(cajaJugadores);

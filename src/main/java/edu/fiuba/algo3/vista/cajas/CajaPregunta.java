@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vista.cajas;
 
 import edu.fiuba.algo3.modelo.Observador;
 import edu.fiuba.algo3.modelo.Panel;
+import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 import edu.fiuba.algo3.vista.botones.BotonOpcion;
 import edu.fiuba.algo3.vista.botones.BotonResponder;
 import javafx.scene.control.Button;
@@ -13,28 +14,35 @@ import java.util.Collection;
 
 public class CajaPregunta extends HBox implements Observador {
 
-    private Label pregunta;
+    private Collection<String> respuestasJugador;
+    private Pregunta pregunta;
+    private Label labelPregunta;
     private HBox cajaOpciones;
 
 
     public CajaPregunta(Panel panel, Collection<String> respuestasJugador) {
         super();
 
-        pregunta = new Label(panel.obtenerPreguntaActual());
+        this.respuestasJugador = respuestasJugador;
+
+        this.pregunta = panel.obtenerPreguntaActual();
+
+        labelPregunta = new Label(pregunta.obtenerPregunta());
 
         cajaOpciones = new HBox();
 
-        panel.obtenerTodasLasOpciones().stream().forEach((o)-> { cajaOpciones.getChildren().add(new BotonOpcion(o, respuestasJugador));});
+        pregunta.obtenerTodasLasOpciones().stream().forEach((o)-> { cajaOpciones.getChildren().add(new BotonOpcion(o, respuestasJugador));});
 
         Button botonResponder = new BotonResponder(panel, respuestasJugador);
 
         VBox vb = new VBox();
-        vb.getChildren().addAll(pregunta, cajaOpciones, botonResponder);
+        vb.getChildren().addAll(labelPregunta, cajaOpciones, botonResponder);
 
         this.getChildren().addAll(vb);
     }
 
     @Override
     public void actualizar() {
+        respuestasJugador.removeAll(pregunta.obtenerTodasLasOpciones());
     }
 }
