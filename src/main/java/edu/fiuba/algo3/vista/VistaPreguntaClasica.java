@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.Panel;
+import edu.fiuba.algo3.vista.cajas.CajaExclusividades;
 import edu.fiuba.algo3.vista.cajas.CajaJugadores;
 import edu.fiuba.algo3.vista.cajas.CajaPregunta;
 import javafx.geometry.Insets;
@@ -30,8 +31,11 @@ public class VistaPreguntaClasica implements VistaPregunta {
 
         CajaPregunta cajaPregunta = new CajaPregunta(panel, respuestasJugador);
 
+        CajaExclusividades cajaExclusividades = new CajaExclusividades(panel);
+
         componentLayout.setCenter(cajaPregunta);
         componentLayout.setBottom(cajaJugadores);
+        componentLayout.setRight(cajaExclusividades);
 
 
         Scene scene = new Scene(componentLayout, 640, 480);

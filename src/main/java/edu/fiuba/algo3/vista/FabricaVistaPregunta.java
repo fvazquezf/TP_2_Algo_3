@@ -8,8 +8,12 @@ public class FabricaVistaPregunta {
 
     public Scene crearVista(Panel panel, String tipoPregunta) {
         switch (tipoPregunta) {
+            case "preguntaMCConPenalidad":
+            case "preguntaVoFConPenalidad":
+                VistaPregunta vistaPregunta = new VistaPreguntaConPenalidad(panel);
+                return vistaPregunta.devolverVistaPregunta();
             case "preguntaGC":
-                VistaPregunta vistaPregunta = new VistaPreguntaGC(panel);
+                vistaPregunta = new VistaPreguntaGC(panel);
                 return  vistaPregunta.devolverVistaPregunta();
             case "preguntaOC":
                 vistaPregunta = new VistaPreguntaOC(panel);
