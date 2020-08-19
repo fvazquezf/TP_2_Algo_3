@@ -26,6 +26,12 @@ public class PreguntaVoFConPenalidad extends Pregunta {
     }
 
     @Override
+    public void activarMultiplicador() {
+
+    }
+
+
+    @Override
     public void activarExclusividad() {
         throw new ExcepcionSoloPreguntasClasicasYPuntajeParcialPuedeUsarExclusividad();
     }
