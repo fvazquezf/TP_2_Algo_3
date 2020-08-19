@@ -1,23 +1,28 @@
 package edu.fiuba.algo3.modelo;
 
+
 import edu.fiuba.algo3.Grupo;
 import edu.fiuba.algo3.Preguntas;
 import edu.fiuba.algo3.modelo.excepciones.*;
 import edu.fiuba.algo3.modelo.preguntas.FabricaPreguntas;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
+
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+
 
 public class PanelTest {
 
     @Test
     public void test01PreguntaVoFClasicaJugador1ContestaBienSeLeAsigna1PuntoJugador2ContestaMalSeLeAigna0Puntos() {
+
         List<Pregunta> preguntaTest = new ArrayList<>();
         FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
         String[] respuestaCorrecta = new String[1];
@@ -45,7 +50,6 @@ public class PanelTest {
 
 
         panel.crearJugadores("Stef", "Rulo");
-
 
         panel.hacerPregunta(respuestaJugador1);
         assertEquals(1, panel.pedirJugadorSiguiente().pedirPuntos());

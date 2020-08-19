@@ -35,10 +35,16 @@ public class Panel implements Observable {
     public void crearJugadores(String nombre1, String nombre2) {
         jugadorActual = new Jugador(nombre1);
         jugadorSiguiente = new Jugador(nombre2);
+
+        notificarObservador();
     }
 
     public String obtenerPreguntaActual() {
         return preguntas.get(numeroDePreguntaActual).obtenerPregunta();
+    }
+
+    public String obtenerGrupoAComparar(){
+        return preguntas.get(numeroDePreguntaActual).obtenerGrupoCorrecto();
     }
 
     public Collection<String> obtenerTodasLasOpciones() {
@@ -56,6 +62,7 @@ public class Panel implements Observable {
     public void siguientePregunta() {
         numeroDePreguntaActual++;
         if (preguntas.size() == numeroDePreguntaActual) throw new ExcepcionYaNoHayPreguntasParaHacer();
+
         notificarObservador();
     }
 
@@ -102,4 +109,9 @@ public class Panel implements Observable {
     public void notificarObservador() {
         observadores.stream().forEach(observer -> observer.actualizar());
     }
+
+    public String tipoDePreguntaActual() {
+        return preguntas.get(numeroDePreguntaActual).obtenerTipoPregunta();
+    }
+
 }

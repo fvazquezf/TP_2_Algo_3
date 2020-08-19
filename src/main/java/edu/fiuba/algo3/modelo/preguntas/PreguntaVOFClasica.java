@@ -9,8 +9,8 @@ import java.util.HashSet;
 public class PreguntaVOFClasica extends Pregunta {
     private final ComportamientoClasico comportamiento = new ComportamientoClasico();
 
-    public PreguntaVOFClasica(String pregunta, String[] opcionesCorrectas) {
-        super(pregunta, opcionesCorrectas);
+    public PreguntaVOFClasica(String tipoPregunta, String pregunta, String[] opcionesCorrectas) {
+        super(tipoPregunta, pregunta, opcionesCorrectas);
         todasLasOpciones = new HashSet<>();
         todasLasOpciones.add("V");
         todasLasOpciones.add("F");

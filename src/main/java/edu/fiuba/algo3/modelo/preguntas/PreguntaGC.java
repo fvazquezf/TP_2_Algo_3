@@ -12,8 +12,9 @@ public class PreguntaGC extends Pregunta {
     private final ComportamientoClasico comportamiento = new ComportamientoClasico();
     Map<String, String> grupos;
 
-    public PreguntaGC(String pregunta, String[] opcionesCorrectas, Collection<String> todasLasOpciones, Map<String, String> grupos) {
-        super(pregunta, opcionesCorrectas, todasLasOpciones);
+
+    public PreguntaGC(String tipoPregunta, String pregunta, String[] opcionesCorrectas, Set<String> todasLasOpciones, Map<String, String> grupos) {
+        super(tipoPregunta, pregunta, opcionesCorrectas, todasLasOpciones);
         if (todasLasOpciones.size() < 2 || todasLasOpciones.size() > 6)
             throw new ExcepcionPreguntaGCInvalida();
         if (todasLasOpciones.contains(grupos.get("grupoAComparar")) || todasLasOpciones.contains(grupos.get("OtroGrupo")))
@@ -25,5 +26,9 @@ public class PreguntaGC extends Pregunta {
     @Override
     public Integer compararRespuestas(Collection<String> opcionesJugador) {
         return comportamiento.compararRespuestas(opcionesJugador, opcionesCorrectas);
+    }
+
+    public String obtenerGrupoCorrecto(){
+        return grupos.get("grupoAComparar");
     }
 }

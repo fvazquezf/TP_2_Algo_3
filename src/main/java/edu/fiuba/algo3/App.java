@@ -2,13 +2,9 @@ package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.modelo.LectorPreguntas;
 import edu.fiuba.algo3.modelo.Panel;
-import edu.fiuba.algo3.vista.VistaAgregarJugador;
+import edu.fiuba.algo3.vista.VistaJuego;
 import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.io.IOException;
-import java.util.Arrays;
 
 /**
  * JavaFX App
@@ -20,14 +16,9 @@ public class App extends Application {
         LectorPreguntas lector = new LectorPreguntas();
         Panel panel = new Panel(lector);
 
-        VistaAgregarJugador vistaAgregarJugador = new VistaAgregarJugador(panel, stage);
-        Scene scene = vistaAgregarJugador.devolverVistaAgregarJugador();
+        VistaJuego vistaJuego = new VistaJuego(stage, panel);
 
-        stage.setTitle("elCajú");
-        stage.setScene(scene);
-        stage.show();
-
-
+        vistaJuego.iniciarJuego();
     }
 
     public static void main(String[] args) {
