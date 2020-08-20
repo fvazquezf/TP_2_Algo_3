@@ -1,0 +1,42 @@
+@startuml TP2
+
+title Diagrama de Clases Flow Del Juego Cajú
+
+hide circle
+skinparam classAttributeIconSize 0
+skinparam roundcorner 25
+skinparam sequenceArrowThickness 2
+skinparam classFontSize 20
+
+skinparam class {
+BackgroundColor FloralWhite
+ArrowColor DimGray
+BorderColor DimGray
+}
+
+interface FlowDelJuego{
+        + siguienteTurno(Panel)
+        + siguiente(): FlowDelJuego
+}
+
+class EstadoFlowDelJuego{
+        + proximoEstado(Panel)
+}
+
+class SiguienteRonda{
+        + siguienteTurno(Panel)
+        + siguiente(): FlowDelJuego
+}
+
+class SiguienteTurno{
+        + siguienteTurno(Panel)
+        + siguiente(): FlowDelJuego
+}
+
+SiguienteRonda ..|> FlowDelJuego
+SiguienteTurno ..|> FlowDelJuego
+EstadoFlowDelJuego --> SiguienteRonda
+EstadoFlowDelJuego --> SiguienteTurno
+
+
+@enduml
