@@ -228,7 +228,6 @@ public class EstadoExclusividadTest {
     @Test
     public void test10CreoUnJugadorYTrataDeUsarTresVecesLaExclusividadYSaltaExcepcion() {
         Jugador jugador1 = new Jugador("Fran");
-        EstadoExclusividad estadoExclusividad = new EstadoExclusividad();
 
         jugador1.activarExclusividad();
         jugador1.activarExclusividad();

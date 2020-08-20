@@ -141,7 +141,7 @@ public class PanelTest {
         List<Grupo> grupos = new LinkedList<>();
         grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
 
-        Preguntas pregunta = new Preguntas("preguntaOC", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas pregunta = new Preguntas("preguntaOC", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos);
         Preguntas[] preguntas = new Preguntas[1];
         preguntas[0] = pregunta;
 
@@ -191,7 +191,7 @@ public class PanelTest {
         List<Grupo> grupos = new LinkedList<>();
         grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
 
-        Preguntas pregunta = new Preguntas("preguntaMCConPuntajeParcial", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas pregunta = new Preguntas("preguntaMCConPuntajeParcial", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos);
         Preguntas[] preguntas = new Preguntas[1];
         preguntas[0] = pregunta;
 
@@ -240,7 +240,7 @@ public class PanelTest {
         List<Grupo> grupos = new LinkedList<>();
         grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
 
-        Preguntas pregunta = new Preguntas("preguntaMCConPuntajeParcial", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas pregunta = new Preguntas("preguntaMCConPuntajeParcial", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos);
         Preguntas[] preguntas = new Preguntas[1];
         preguntas[0] = pregunta;
 
@@ -287,7 +287,7 @@ public class PanelTest {
         List<Grupo> grupos = new LinkedList<>();
         grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
 
-        Preguntas pregunta = new Preguntas("preguntaMCConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas pregunta = new Preguntas("preguntaMCConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos);
         Preguntas[] preguntas = new Preguntas[1];
         preguntas[0] = pregunta;
 
@@ -337,7 +337,7 @@ public class PanelTest {
         List<Grupo> grupos = new LinkedList<>();
         grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
 
-        Preguntas pregunta = new Preguntas("preguntaMCConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas pregunta = new Preguntas("preguntaMCConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos);
         Preguntas[] preguntas = new Preguntas[1];
         preguntas[0] = pregunta;
 
@@ -379,7 +379,7 @@ public class PanelTest {
         List<Grupo> grupos = new LinkedList<>();
         grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
 
-        Preguntas pregunta = new Preguntas("preguntaVoFConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas pregunta = new Preguntas("preguntaVoFConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos);
         Preguntas[] preguntas = new Preguntas[1];
         preguntas[0] = pregunta;
 
@@ -420,7 +420,7 @@ public class PanelTest {
         List<Grupo> grupos = new LinkedList<>();
         grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
 
-        Preguntas pregunta = new Preguntas("preguntaVoFConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas pregunta = new Preguntas("preguntaVoFConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos);
         Preguntas[] preguntas = new Preguntas[1];
         preguntas[0] = pregunta;
 
@@ -464,7 +464,7 @@ public class PanelTest {
         List<Grupo> grupos = new LinkedList<>();
         grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
 
-        Preguntas pregunta = new Preguntas("preguntaVoFConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas pregunta = new Preguntas("preguntaVoFConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos);
         Preguntas[] preguntas = new Preguntas[1];
         preguntas[0] = pregunta;
 
@@ -517,7 +517,7 @@ public class PanelTest {
         List<Grupo> grupos = new LinkedList<>();
         grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
 
-        Preguntas pregunta = new Preguntas("preguntaMCConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas pregunta = new Preguntas("preguntaMCConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos);
         Preguntas[] preguntas = new Preguntas[1];
         preguntas[0] = pregunta;
 
@@ -569,7 +569,7 @@ public class PanelTest {
         List<Grupo> grupos = new LinkedList<>();
         grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
 
-        Preguntas pregunta = new Preguntas("preguntaMCConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas pregunta = new Preguntas("preguntaMCConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos);
         Preguntas[] preguntas = new Preguntas[1];
         preguntas[0] = pregunta;
 
@@ -609,7 +609,7 @@ public class PanelTest {
         List<Grupo> grupos = new LinkedList<>();
         grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
 
-        Preguntas pregunta = new Preguntas("preguntaVoFConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas pregunta = new Preguntas("preguntaVoFConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos);
         Preguntas[] preguntas = new Preguntas[1];
         preguntas[0] = pregunta;
 
@@ -630,7 +630,8 @@ public class PanelTest {
         FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
 
         String[] respuestaCorrecta = new String[1];
-        respuestaCorrecta[0] = "V";;
+        respuestaCorrecta[0] = "V";
+        ;
 
         String[] todasLasRespuestas = new String[2];
         todasLasRespuestas[0] = "V";
@@ -639,7 +640,7 @@ public class PanelTest {
         List<Grupo> grupos = new LinkedList<>();
         grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
 
-        Preguntas pregunta = new Preguntas("preguntaVoFConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas pregunta = new Preguntas("preguntaVoFConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos);
         Preguntas[] preguntas = new Preguntas[1];
         preguntas[0] = pregunta;
 
@@ -673,7 +674,7 @@ public class PanelTest {
         List<Grupo> grupos = new LinkedList<>();
         grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
 
-        Preguntas pregunta = new Preguntas("preguntaMCClasica", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas pregunta = new Preguntas("preguntaMCClasica", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos);
         Preguntas[] preguntas = new Preguntas[1];
         preguntas[0] = pregunta;
 
@@ -707,7 +708,7 @@ public class PanelTest {
         List<Grupo> grupos = new LinkedList<>();
         grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
 
-        Preguntas pregunta = new Preguntas("preguntaMCConPuntajeParcial", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas pregunta = new Preguntas("preguntaMCConPuntajeParcial", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos);
         Preguntas[] preguntas = new Preguntas[1];
         preguntas[0] = pregunta;
 
@@ -736,7 +737,7 @@ public class PanelTest {
         List<Grupo> grupos = new LinkedList<>();
         grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
 
-        Preguntas pregunta = new Preguntas("preguntaVoFConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas pregunta = new Preguntas("preguntaVoFConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos);
         Preguntas[] preguntas = new Preguntas[1];
         preguntas[0] = pregunta;
 
@@ -767,7 +768,7 @@ public class PanelTest {
         List<Grupo> grupos = new LinkedList<>();
         grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
 
-        Preguntas pregunta = new Preguntas("preguntaMCConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas pregunta = new Preguntas("preguntaMCConPenalidad", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos);
         Preguntas[] preguntas = new Preguntas[1];
         preguntas[0] = pregunta;
 
@@ -803,7 +804,7 @@ public class PanelTest {
         List<Grupo> grupos = new LinkedList<>();
         grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
 
-        Preguntas pregunta = new Preguntas("preguntaVoFClasica", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas pregunta = new Preguntas("preguntaVoFClasica", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos);
         Preguntas[] preguntas = new Preguntas[1];
         preguntas[0] = pregunta;
 
@@ -846,7 +847,7 @@ public class PanelTest {
         List<Grupo> grupos = new LinkedList<>();
         grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
 
-        Preguntas pregunta = new Preguntas("preguntaVoFClasica", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas pregunta = new Preguntas("preguntaVoFClasica", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos);
         Preguntas[] preguntas = new Preguntas[1];
         preguntas[0] = pregunta;
 
@@ -892,7 +893,7 @@ public class PanelTest {
         List<Grupo> grupos = new LinkedList<>();
         grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
 
-        Preguntas pregunta = new Preguntas("preguntaVoFClasica", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas pregunta = new Preguntas("preguntaVoFClasica", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos);
         Preguntas[] preguntas = new Preguntas[1];
         preguntas[0] = pregunta;
 
@@ -922,7 +923,8 @@ public class PanelTest {
         FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
 
         String[] respuestaCorrecta = new String[1];
-        respuestaCorrecta[0] = "V";;
+        respuestaCorrecta[0] = "V";
+        ;
 
         String[] todasLasRespuestas = new String[2];
         todasLasRespuestas[0] = "V";
@@ -937,7 +939,7 @@ public class PanelTest {
         List<Grupo> grupos = new LinkedList<>();
         grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
 
-        Preguntas pregunta = new Preguntas("preguntaVoFClasica", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas pregunta = new Preguntas("preguntaVoFClasica", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos);
         Preguntas[] preguntas = new Preguntas[1];
         preguntas[0] = pregunta;
 
@@ -991,7 +993,7 @@ public class PanelTest {
         List<Grupo> grupos = new LinkedList<>();
         grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
 
-        Preguntas pregunta = new Preguntas("preguntaMCClasica", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas pregunta = new Preguntas("preguntaMCClasica", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos);
         Preguntas[] preguntas = new Preguntas[1];
         preguntas[0] = pregunta;
 
@@ -1042,7 +1044,7 @@ public class PanelTest {
         List<Grupo> grupos = new LinkedList<>();
         grupos.add(new Grupo("UnGrupo", "OtroGrupo"));
 
-        Preguntas pregunta = new Preguntas("preguntaMCClasica", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos );
+        Preguntas pregunta = new Preguntas("preguntaMCClasica", "pregunta", todasLasRespuestas, respuestaCorrecta, grupos);
         Preguntas[] preguntas = new Preguntas[1];
         preguntas[0] = pregunta;
 
@@ -1063,6 +1065,7 @@ public class PanelTest {
             assertEquals(2, panel.pedirJugadorSiguiente().pedirPuntos());
         }
     }
+
     @Test
     public void test25PreguntaMCClasicaJugador2ActivaExclusividadAmbosContestanBienYNoSeLeDuplicaElPuntaje() {
         List<Pregunta> preguntaTest = new ArrayList<>();
