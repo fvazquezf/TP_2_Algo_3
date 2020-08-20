@@ -28,7 +28,7 @@ public class FabricaVistaPregunta {
                 vistaPregunta = new VistaPreguntaClasica(panel, cajaJugadores, cajaTimer);
                 return vistaPregunta.devolverVistaPregunta();
             default:
-                VistaGameOver vistaGameOver = new VistaGameOver();
+                VistaGameOver vistaGameOver = new VistaGameOver(panel);
                 return vistaGameOver.devolverVistaGameOver();
         }
     }

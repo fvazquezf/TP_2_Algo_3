@@ -36,6 +36,8 @@ public abstract class Pregunta implements Observable {
     }
 
 
+    public abstract Integer compararRespuestas(Collection<String> respuestasJugador);
+
     public String obtenerPregunta() {
         return textoPregunta;
     }
@@ -43,8 +45,6 @@ public abstract class Pregunta implements Observable {
     public Collection<String> obtenerTodasLasOpciones() {
         return todasLasOpciones;
     }
-
-    public abstract Integer compararRespuestas(Collection<String> respuestasJugador);
 
     public void activarMultiplicador() {
         throw new ExcepcionSoloPreguntaConPenalidadPuedeUsarMultiplicador();

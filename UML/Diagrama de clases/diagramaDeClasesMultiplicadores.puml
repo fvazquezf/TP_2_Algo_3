@@ -36,8 +36,8 @@ class Triplicador{
 class EstadoMultiplicador{
         - multiplicadorActual: Multiplicador
         + multiplicar(Int): Int
-        + estadoDuplicador()
-        + estadoTriplicador()
+        + activarDuplicador()
+        + activarTriplicador()
 }
 
 Uniplicador ..|> Multiplicador

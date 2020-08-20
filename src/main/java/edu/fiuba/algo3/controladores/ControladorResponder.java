@@ -32,7 +32,7 @@ public class ControladorResponder implements EventHandler<ActionEvent> {
         } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
             Node source = (Node) event.getSource();
             Stage stage = (Stage) source.getScene().getWindow();
-            VistaGameOver vistaGameOver = new VistaGameOver();
+            VistaGameOver vistaGameOver = new VistaGameOver(panel);
             stage.setScene(vistaGameOver.devolverVistaGameOver());
             stage.show();
         }

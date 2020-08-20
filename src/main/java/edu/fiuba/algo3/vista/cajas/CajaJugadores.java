@@ -68,6 +68,8 @@ public class CajaJugadores extends HBox implements Observador {
         multiplicadores.setSpacing(10);
         multiplicadores.getChildren().addAll(cajaMultiplicadoresJ1, cajaMultiplicadoresJ2);
 
+        this.setSpacing(10);
+
         this.getChildren().addAll(jugadores, exclusividades, multiplicadores);
     }
 

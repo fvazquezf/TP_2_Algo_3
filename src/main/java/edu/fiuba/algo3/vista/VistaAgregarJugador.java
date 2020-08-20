@@ -48,7 +48,7 @@ public class VistaAgregarJugador {
         componentLayout.setCenter(panelCenter);
         componentLayout.setRight(panelLeft);
 
-        Scene scene = new Scene(componentLayout, 640, 480);
+        Scene scene = new Scene(componentLayout, 1280, 720);
 
         return scene;
     }

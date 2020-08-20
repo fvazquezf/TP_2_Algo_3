@@ -13,12 +13,12 @@ public class EstadoMultiplicador {
         return puntos;
     }
 
-    public void estadoDuplicador() {
+    public void activarDuplicador() {
         duplicador.cambiarEstado();
         multiplicadorActual = duplicador;
     }
 
-    public void estadoTriplicador() {
+    public void activarTriplicador() {
         triplicador.cambiarEstado();
         multiplicadorActual = triplicador;
     }

@@ -27,7 +27,7 @@ public class VistaPreguntaClasica implements VistaPregunta {
     public Scene devolverVistaPregunta() {
 
         BorderPane componentLayout = new BorderPane();
-        componentLayout.setPadding(new Insets(20, 100, 10, 100));
+        componentLayout.setPadding(new Insets(50, 100, 50, 100));
 
         Set<String> respuestasJugador = new HashSet<>();
 
@@ -41,6 +41,6 @@ public class VistaPreguntaClasica implements VistaPregunta {
         componentLayout.setBottom(cajaJugadores);
         componentLayout.setRight(cajaTimer);
 
-        return new Scene(componentLayout, 640, 480);
+        return new Scene(componentLayout, 1280, 720);
     }
 }

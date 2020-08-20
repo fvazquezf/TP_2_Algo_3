@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.Exclusividad.EstadoExclusividad;
+import edu.fiuba.algo3.modelo.exclusividad.EstadoExclusividad;
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaNoHayPreguntasParaHacer;
 import edu.fiuba.algo3.modelo.manejoDeTurnos.EstadoFlowDelJuego;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
@@ -31,6 +31,14 @@ public class Panel implements Observable {
     public void crearJugadores(String nombre1, String nombre2) {
         jugadorActual = new Jugador(nombre1);
         jugadorSiguiente = new Jugador(nombre2);
+    }
+
+    public Jugador pedirJugadorActual() {
+        return (jugadorActual);
+    }
+
+    public Jugador pedirJugadorSiguiente() {
+        return (jugadorSiguiente);
     }
 
     public Pregunta obtenerPreguntaActual() {
@@ -81,21 +89,13 @@ public class Panel implements Observable {
     }
 
     public void activarDuplicador() {
-        jugadorActual.estadoDuplicador();
+        jugadorActual.activarDuplicador();
         preguntas.get(numeroDePreguntaActual).activarMultiplicador();
     }
 
     public void activarTriplicador() {
-        jugadorActual.estadoTriplicador();
+        jugadorActual.activarTriplicador();
         preguntas.get(numeroDePreguntaActual).activarMultiplicador();
-    }
-
-    public Jugador pedirJugadorActual() {
-        return (jugadorActual);
-    }
-
-    public Jugador pedirJugadorSiguiente() {
-        return (jugadorSiguiente);
     }
 
     @Override
@@ -107,9 +107,4 @@ public class Panel implements Observable {
     public void notificarObservador() {
         observadores.forEach(Observador::actualizar);
     }
-
-    public String tipoDePreguntaActual() {
-        return preguntas.get(numeroDePreguntaActual).obtenerTipoPregunta();
-    }
-
 }

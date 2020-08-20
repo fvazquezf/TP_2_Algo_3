@@ -37,8 +37,8 @@ class Jugador{
         - exclusividadDisponible: Int
         + Jugador(String)
         + pedirPuntos(): Int
-        + estadoDuplicador()
-        + estadoTriplicador()
+        + activarDuplicador()
+        + activarTriplicador()
         + asignarPuntos(Int)
         + activarExclusividad()
 }
@@ -63,8 +63,8 @@ class EstadoMultiplicador{
         - triplicador: Triplicador
         - multiplicadorActual: Multiplicador
         + multiplicar(Int): Int
-        + estadoDuplicador()
-        + estadoTriplicador()
+        + activarDuplicador()
+        + activarTriplicador()
 }
 
 class EstadoExclusividad{
