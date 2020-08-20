@@ -7,10 +7,10 @@ import javafx.scene.layout.BorderPane;
 
 public class VistaGameOver {
 
-    public Scene devolverVistaGameOver(){
+    public Scene devolverVistaGameOver() {
 
         BorderPane componentLayout = new BorderPane();
-        componentLayout.setPadding(new Insets(20,100,10,100));
+        componentLayout.setPadding(new Insets(20, 100, 10, 100));
 
         Label gameOver = new Label();
 
@@ -18,7 +18,6 @@ public class VistaGameOver {
 
         componentLayout.setCenter(gameOver);
 
-        Scene scene = new Scene(componentLayout, 640, 480);
-        return scene;
+        return new Scene(componentLayout, 640, 480);
     }
 }

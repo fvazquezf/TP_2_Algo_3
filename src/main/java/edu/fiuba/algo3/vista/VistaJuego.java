@@ -9,8 +9,8 @@ import javafx.stage.Stage;
 
 public class VistaJuego implements Observador {
     private final Panel panel;
-    private Stage stage;
-    private FabricaVistaPregunta fabricaVistaPregunta = new FabricaVistaPregunta();
+    private final Stage stage;
+    private final FabricaVistaPregunta fabricaVistaPregunta = new FabricaVistaPregunta();
     private CajaJugadores cajaJugadores;
     private CajaTimer cajaTimer;
 

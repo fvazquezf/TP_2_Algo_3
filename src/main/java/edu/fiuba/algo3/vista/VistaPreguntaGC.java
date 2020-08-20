@@ -9,22 +9,22 @@ import javafx.scene.layout.BorderPane;
 import java.util.HashSet;
 import java.util.Set;
 
-public class VistaPreguntaGC implements VistaPregunta{
+public class VistaPreguntaGC implements VistaPregunta {
     private final Panel panel;
     private final CajaJugadores cajaJugadores;
     private final CajaTimer cajaTimer;
 
-    public VistaPreguntaGC(Panel panel, CajaJugadores cajaJugadores, CajaTimer cajaTimer){
+    public VistaPreguntaGC(Panel panel, CajaJugadores cajaJugadores, CajaTimer cajaTimer) {
         this.panel = panel;
         this.cajaJugadores = cajaJugadores;
         this.cajaTimer = cajaTimer;
     }
 
 
-    public Scene devolverVistaPregunta(){
+    public Scene devolverVistaPregunta() {
 
         BorderPane componentLayout = new BorderPane();
-        componentLayout.setPadding(new Insets(20,100,10,100));
+        componentLayout.setPadding(new Insets(20, 100, 10, 100));
 
         Set<String> respuestasJugador = new HashSet<>();
         respuestasJugador.add(panel.obtenerPreguntaActual().obtenerGrupoCorrecto());
@@ -38,7 +38,6 @@ public class VistaPreguntaGC implements VistaPregunta{
         componentLayout.setBottom(cajaJugadores);
         componentLayout.setRight(cajaTimer);
 
-        Scene scene = new Scene(componentLayout, 640, 480);
-        return scene;
+        return new Scene(componentLayout, 640, 480);
     }
 }

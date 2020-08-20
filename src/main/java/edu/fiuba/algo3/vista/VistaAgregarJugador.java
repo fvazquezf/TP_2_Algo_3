@@ -19,7 +19,6 @@ public class VistaAgregarJugador {
 
     private TextField nombreJugador1;
     private TextField nombreJugador2;
-    private Scene scene;
 
     public VistaAgregarJugador(Panel panel) {
         this.panel = panel;
@@ -49,7 +48,7 @@ public class VistaAgregarJugador {
         componentLayout.setCenter(panelCenter);
         componentLayout.setRight(panelLeft);
 
-        this.scene = new Scene(componentLayout, 640, 480);
+        Scene scene = new Scene(componentLayout, 640, 480);
 
         return scene;
     }

@@ -17,15 +17,15 @@ public class FabricaVistaPregunta {
                 return vistaPregunta.devolverVistaPregunta();
             case "preguntaGC":
                 vistaPregunta = new VistaPreguntaGC(panel, cajaJugadores, cajaTimer);
-                return  vistaPregunta.devolverVistaPregunta();
+                return vistaPregunta.devolverVistaPregunta();
             case "preguntaOC":
                 vistaPregunta = new VistaPreguntaOC(panel, cajaJugadores, cajaTimer);
-                return  vistaPregunta.devolverVistaPregunta();
+                return vistaPregunta.devolverVistaPregunta();
             case "preguntaVoFClasica":
             case "preguntaMCClasica":
             case "preguntaMCConPuntajeParcial":
-                vistaPregunta = new VistaPreguntaClasica(panel, cajaJugadores,cajaTimer);
-                return  vistaPregunta.devolverVistaPregunta();
+                vistaPregunta = new VistaPreguntaClasica(panel, cajaJugadores, cajaTimer);
+                return vistaPregunta.devolverVistaPregunta();
             default:
                 VistaGameOver vistaGameOver = new VistaGameOver();
                 return vistaGameOver.devolverVistaGameOver();
