@@ -33,6 +33,8 @@ public class VistaPreguntaOC implements VistaPregunta{
         CajaPregunta cajaPregunta = new CajaPregunta(panel, respuestasJugador, cajaTimer.devolverReloj());
         panel.obtenerPreguntaActual().agregarObservador(cajaPregunta);
 
+        cajaJugadores.activarExclusividades();
+
         componentLayout.setCenter(cajaPregunta);
         componentLayout.setBottom(cajaJugadores);
         componentLayout.setRight(cajaTimer);

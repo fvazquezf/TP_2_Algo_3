@@ -31,11 +31,10 @@ public class VistaPreguntaConPenalidad implements VistaPregunta {
         CajaPregunta cajaPregunta = new CajaPregunta(panel, respuestasJugador, cajaTimer.devolverReloj());
         panel.obtenerPreguntaActual().agregarObservador(cajaPregunta);
 
-        CajaMultiplicadores cajaMultiplicadores = new CajaMultiplicadores(panel);
+        cajaJugadores.activarMultiplicadores();
 
         componentLayout.setCenter(cajaPregunta);
         componentLayout.setBottom(cajaJugadores);
-        componentLayout.setRight(cajaMultiplicadores);
         componentLayout.setRight(cajaTimer);
 
         Scene scene = new Scene(componentLayout, 640, 480);

@@ -36,6 +36,8 @@ public class VistaPreguntaClasica implements VistaPregunta {
 
         panel.obtenerPreguntaActual().agregarObservador(cajaPregunta);
 
+        cajaJugadores.activarExclusividades();
+
         componentLayout.setCenter(cajaPregunta);
         componentLayout.setBottom(cajaJugadores);
         componentLayout.setRight(cajaTimer);

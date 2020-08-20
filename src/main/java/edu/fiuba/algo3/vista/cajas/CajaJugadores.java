@@ -16,8 +16,13 @@ public class CajaJugadores extends HBox implements Observador {
 
     private boolean turno = false;
 
+    private final VBox exclusividades;
     private CajaExclusividades cajaExclusividadesJ1;
     private CajaExclusividades cajaExclusividadesJ2;
+
+    private final VBox multiplicadores;
+    private final CajaMultiplicadores cajaMultiplicadoresJ1;
+    private final CajaMultiplicadores cajaMultiplicadoresJ2;
 
     private final Label puntosJ1;
     private final Label puntosJ2;
@@ -48,19 +53,34 @@ public class CajaJugadores extends HBox implements Observador {
         jugadores.getChildren().addAll(J1, J2);
 
         cajaExclusividadesJ1 = new CajaExclusividades(panel);
-        panel.obtenerEstadoExclusividad().agregarObservador(cajaExclusividadesJ1);
 
         cajaExclusividadesJ2 = new CajaExclusividades(panel);
         cajaExclusividadesJ2.setDisable(!turno);
-        panel.obtenerEstadoExclusividad().agregarObservador(cajaExclusividadesJ2);
 
-        VBox exclusividades = new VBox();
+        cajaMultiplicadoresJ1 = new CajaMultiplicadores(panel);
+        cajaMultiplicadoresJ2 = new CajaMultiplicadores(panel);
+
+        cajaMultiplicadoresJ2.setDisable(!turno);
+
+        exclusividades = new VBox();
         exclusividades.setSpacing(10);
         exclusividades.getChildren().addAll(cajaExclusividadesJ1, cajaExclusividadesJ2);
 
-        this.getChildren().addAll(jugadores, exclusividades);
+        multiplicadores = new VBox();
+        multiplicadores.setSpacing(10);
+        multiplicadores.getChildren().addAll(cajaMultiplicadoresJ1, cajaMultiplicadoresJ2);
+
+        this.getChildren().addAll(jugadores, exclusividades, multiplicadores);
     }
 
+    public void activarMultiplicadores(){
+        exclusividades.setDisable(true);
+        multiplicadores.setDisable(false);
+    }
+    public void activarExclusividades(){
+        exclusividades.setDisable(false);
+        multiplicadores.setDisable(true);
+    }
 
     @Override
     public void actualizar() {
@@ -68,6 +88,9 @@ public class CajaJugadores extends HBox implements Observador {
         turno = !turno;
         cajaExclusividadesJ1.setDisable(turno);
         cajaExclusividadesJ2.setDisable(!turno);
+
+        cajaMultiplicadoresJ1.setDisable(turno);
+        cajaMultiplicadoresJ2.setDisable(!turno);
 
         String puntosJ1 = String.valueOf(j1.pedirPuntos());
         this.puntosJ1.setText(puntosJ1);

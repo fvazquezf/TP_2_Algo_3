@@ -29,6 +29,7 @@ public class VistaPreguntaGC implements VistaPregunta{
         Set<String> respuestasJugador = new HashSet<>();
         respuestasJugador.add(panel.obtenerPreguntaActual().obtenerGrupoCorrecto());
 
+        cajaJugadores.activarExclusividades();
 
         CajaPreguntaGC cajaPregunta = new CajaPreguntaGC(panel, respuestasJugador, cajaTimer.devolverReloj());
         panel.obtenerPreguntaActual().agregarObservador(cajaPregunta);
