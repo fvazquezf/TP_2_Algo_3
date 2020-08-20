@@ -24,7 +24,6 @@ JavaFx
 Mockito
 Json
 gson
-...
 ```
 
 ## Ejecutando las pruebas
