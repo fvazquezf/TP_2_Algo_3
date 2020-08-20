@@ -10,14 +10,13 @@ import javafx.scene.Node;
 import javafx.stage.Stage;
 
 import java.util.Collection;
-import java.util.Set;
 
 public class ControladorResponder implements EventHandler<ActionEvent> {
 
     private final Panel panel;
     private final Timer timer;
 
-    private Collection<String> respuestaJugador;
+    private final Collection<String> respuestaJugador;
 
     public ControladorResponder(Panel panel, Collection<String> respuestaJugador, Timer timer) {
         this.panel = panel;
@@ -27,12 +26,12 @@ public class ControladorResponder implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
-        try{
+        try {
             panel.hacerPregunta(respuestaJugador);
             timer.reiniciar();
-        } catch(ExcepcionYaNoHayPreguntasParaHacer e){
-            Node source = (Node)  event.getSource();
-            Stage stage  = (Stage) source.getScene().getWindow();
+        } catch (ExcepcionYaNoHayPreguntasParaHacer e) {
+            Node source = (Node) event.getSource();
+            Stage stage = (Stage) source.getScene().getWindow();
             VistaGameOver vistaGameOver = new VistaGameOver();
             stage.setScene(vistaGameOver.devolverVistaGameOver());
             stage.show();

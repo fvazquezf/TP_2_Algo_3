@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.controlador;
 
 import edu.fiuba.algo3.modelo.Panel;
-import edu.fiuba.algo3.vista.botones.BotonTriplicador;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;

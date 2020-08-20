@@ -9,9 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
 
 
-
 public class ControladorDragGC implements EventHandler<MouseEvent> {
-
 
     private final BotonOpcionGC boton;
 

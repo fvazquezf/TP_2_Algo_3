@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
 
 public class ControladorActivarExclusividad implements EventHandler<ActionEvent> {
     private final Panel panel;
-    private Button boton;
+    private final Button boton;
 
     public ControladorActivarExclusividad(Panel panel, BotonExclusividad botonExclusividad) {
         this.panel = panel;
@@ -19,7 +19,7 @@ public class ControladorActivarExclusividad implements EventHandler<ActionEvent>
     public void handle(ActionEvent actionEvent) {
         try {
             panel.activarExclusividad();
-        }catch(ExcepcionYaUsasteLasExclusividadesSalame e) {
+        } catch (ExcepcionYaUsasteLasExclusividadesSalame e) {
             boton.setDisable(true);
             boton.setText("Ya usaste tu \nExclusividad SALAME ");
         }

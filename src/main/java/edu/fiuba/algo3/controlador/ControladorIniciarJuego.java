@@ -20,8 +20,8 @@ public class ControladorIniciarJuego implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
         panel.crearJugadores(vista.obtenerNombre1(), vista.obtenerNombre2());
-        Node  source = (Node)  event.getSource();
-        Stage stage  = (Stage) source.getScene().getWindow();
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
     }
 }

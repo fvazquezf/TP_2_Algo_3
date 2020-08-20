@@ -1,17 +1,13 @@
 package edu.fiuba.algo3.controlador;
 
-import edu.fiuba.algo3.Timer;
 import edu.fiuba.algo3.modelo.Panel;
-import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
-import javafx.util.Duration;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 
 public class ControladorTimer implements EventHandler<ActionEvent> {
 
@@ -29,7 +25,7 @@ public class ControladorTimer implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        Integer segundos = Integer.parseInt(label.getText());
+        int segundos = Integer.parseInt(label.getText());
         segundos--;
         if (segundos <= 0) {
             Collection<String> coleccionVacia = new HashSet<>();

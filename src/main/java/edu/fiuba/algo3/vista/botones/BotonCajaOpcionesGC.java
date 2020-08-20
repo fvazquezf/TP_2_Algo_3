@@ -14,7 +14,7 @@ public class BotonCajaOpcionesGC extends Button {
 
         this.setOnDragOver(new ControladorDragOverGC());
 
-        ControladorDragDroppedGC controladorDragDroppedGC = new ControladorDragDroppedGC(this, respuestasJugador, cajaGrupo);
+        ControladorDragDroppedGC controladorDragDroppedGC = new ControladorDragDroppedGC(respuestasJugador, cajaGrupo);
         this.setOnDragDropped(controladorDragDroppedGC);
     }
 
