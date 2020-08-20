@@ -14,9 +14,11 @@ import java.util.Set;
 
 public class VistaPreguntaGC implements VistaPregunta{
     private final Panel panel;
+    private final CajaJugadores cajaJugadores;
 
-    public VistaPreguntaGC(Panel panel){
+    public VistaPreguntaGC(Panel panel, CajaJugadores cajaJugadores){
         this.panel = panel;
+        this.cajaJugadores = cajaJugadores;
     }
 
 
@@ -28,17 +30,13 @@ public class VistaPreguntaGC implements VistaPregunta{
         Set<String> respuestasJugador = new HashSet<>();
         respuestasJugador.add(panel.obtenerPreguntaActual().obtenerGrupoCorrecto());
 
-        CajaJugadores cajaJugadores = new CajaJugadores(panel, respuestasJugador);
 
         CajaPreguntaGC cajaPregunta = new CajaPreguntaGC(panel, respuestasJugador);
         panel.obtenerPreguntaActual().agregarObservador(cajaPregunta);
 
-        CajaExclusividades cajaExclusividades = new CajaExclusividades(panel);
-        panel.obtenerEstadoExclusividad().agregarObservador(cajaExclusividades);
-
         componentLayout.setCenter(cajaPregunta);
         componentLayout.setBottom(cajaJugadores);
-        componentLayout.setRight(cajaExclusividades);
+
 
         Scene scene = new Scene(componentLayout, 640, 480);
         return scene;

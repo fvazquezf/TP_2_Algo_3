@@ -12,7 +12,7 @@ import javafx.scene.layout.VBox;
 
 import java.util.Collection;
 
-public class CajaPregunta extends HBox implements Observador {
+public class CajaPregunta extends VBox implements Observador {
 
     private Collection<String> respuestasJugador;
     private Pregunta pregunta;

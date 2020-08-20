@@ -23,6 +23,6 @@ public class CajaExclusividades extends VBox implements Observador {
 
     @Override
     public void actualizar() {
-        botonExclusividad.setDisable(true);
+        //botonExclusividad.setVisible(false);
     }
 }

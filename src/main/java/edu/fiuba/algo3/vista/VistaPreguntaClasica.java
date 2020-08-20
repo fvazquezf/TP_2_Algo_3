@@ -14,9 +14,11 @@ import java.util.Set;
 public class VistaPreguntaClasica implements VistaPregunta {
 
     private final Panel panel;
+    private final CajaJugadores cajaJugadores;
 
-    public VistaPreguntaClasica(Panel panel){
+    public VistaPreguntaClasica(Panel panel, CajaJugadores cajaJugadores){
         this.panel = panel;
+        this.cajaJugadores = cajaJugadores;
     }
 
 
@@ -27,17 +29,13 @@ public class VistaPreguntaClasica implements VistaPregunta {
 
         Set<String> respuestasJugador = new HashSet<>();
 
-        CajaJugadores cajaJugadores = new CajaJugadores(panel, respuestasJugador);
-
         CajaPregunta cajaPregunta = new CajaPregunta(panel, respuestasJugador);
         panel.obtenerPreguntaActual().agregarObservador(cajaPregunta);
 
-        CajaExclusividades cajaExclusividades = new CajaExclusividades(panel);
-        panel.obtenerEstadoExclusividad().agregarObservador(cajaExclusividades);
 
         componentLayout.setCenter(cajaPregunta);
         componentLayout.setBottom(cajaJugadores);
-        componentLayout.setRight(cajaExclusividades);
+
 
 
         Scene scene = new Scene(componentLayout, 640, 480);

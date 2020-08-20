@@ -14,9 +14,11 @@ import java.util.Set;
 
 public class VistaPreguntaConPenalidad implements VistaPregunta {
     private final Panel panel;
+    private final CajaJugadores cajaJugadores;
 
-    public VistaPreguntaConPenalidad(Panel panel) {
+    public VistaPreguntaConPenalidad(Panel panel, CajaJugadores cajaJugadores) {
         this.panel = panel;
+        this.cajaJugadores = cajaJugadores;
     }
 
     @Override
@@ -26,10 +28,10 @@ public class VistaPreguntaConPenalidad implements VistaPregunta {
 
         Set<String> respuestasJugador = new HashSet<>();
 
-        CajaJugadores cajaJugadores = new CajaJugadores(panel, respuestasJugador);
 
         CajaPregunta cajaPregunta = new CajaPregunta(panel, respuestasJugador);
         panel.obtenerPreguntaActual().agregarObservador(cajaPregunta);
+
         CajaMultiplicadores cajaMultiplicadores = new CajaMultiplicadores(panel);
 
         componentLayout.setCenter(cajaPregunta);
