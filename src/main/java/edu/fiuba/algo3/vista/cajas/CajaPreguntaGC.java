@@ -16,13 +16,11 @@ import java.util.Collection;
 import java.util.HashSet;
 
 public class CajaPreguntaGC extends HBox implements Observador {
-    private Collection<String> respuestasJugador;
-    private Collection<String> respuestasDelOtroGrupo;
-    private Pregunta pregunta;
-    private Label labelPregunta;
+    private final Collection<String> respuestasJugador;
+    private final Collection<String> respuestasDelOtroGrupo;
+    private final Pregunta pregunta;
     private VBox cajaOpciones;
-    private Button botonResponder;
-    private HBox hb;
+    private final HBox hb;
 
 
     public CajaPreguntaGC(Panel panel, Collection<String> respuestasJugador, Timer timer) {
@@ -34,7 +32,7 @@ public class CajaPreguntaGC extends HBox implements Observador {
 
         this.pregunta = panel.obtenerPreguntaActual();
 
-        labelPregunta = new Label(pregunta.obtenerPregunta());
+        Label labelPregunta = new Label(pregunta.obtenerPregunta());
 
 
         VBox cajaGrupoCorrecto = new VBox();
@@ -47,9 +45,9 @@ public class CajaPreguntaGC extends HBox implements Observador {
 
         cajaOpciones = new VBox();
 
-        pregunta.obtenerTodasLasOpciones().stream().forEach((o)-> { cajaOpciones.getChildren().add(new BotonOpcionGC(o));});
+        pregunta.obtenerTodasLasOpciones().forEach((o) -> cajaOpciones.getChildren().add(new BotonOpcionGC(o)));
 
-        botonResponder = new BotonResponderGC(panel, respuestasJugador, respuestasDelOtroGrupo, timer);
+        Button botonResponder = new BotonResponderGC(panel, respuestasJugador, respuestasDelOtroGrupo, timer);
 
         hb = new HBox();
         hb.setSpacing(10);
@@ -77,7 +75,7 @@ public class CajaPreguntaGC extends HBox implements Observador {
 
         cajaOpciones = new VBox();
 
-        pregunta.obtenerTodasLasOpciones().stream().forEach((o)-> { cajaOpciones.getChildren().add(new BotonOpcionGC(o));});
+        pregunta.obtenerTodasLasOpciones().forEach((o) -> cajaOpciones.getChildren().add(new BotonOpcionGC(o)));
 
         hb.getChildren().clear();
         hb.getChildren().addAll(cajaGrupoCorrecto, cajaOpciones, cajaGrupoincorrecto);

@@ -7,8 +7,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-import java.util.Collection;
-
 public class CajaJugadores extends HBox implements Observador {
 
     private final Jugador j1;
@@ -17,8 +15,8 @@ public class CajaJugadores extends HBox implements Observador {
     private boolean turno = false;
 
     private final VBox exclusividades;
-    private CajaExclusividades cajaExclusividadesJ1;
-    private CajaExclusividades cajaExclusividadesJ2;
+    private final CajaExclusividades cajaExclusividadesJ1;
+    private final CajaExclusividades cajaExclusividadesJ2;
 
     private final VBox multiplicadores;
     private final CajaMultiplicadores cajaMultiplicadoresJ1;

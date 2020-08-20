@@ -8,17 +8,15 @@ import edu.fiuba.algo3.vista.botones.BotonOpcion;
 import edu.fiuba.algo3.vista.botones.BotonResponder;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.util.Collection;
 
 public class CajaPregunta extends VBox implements Observador {
 
-    private Collection<String> respuestasJugador;
-    private Pregunta pregunta;
-    private Label labelPregunta;
-    private VBox cajaOpciones;
+    private final Collection<String> respuestasJugador;
+    private final Pregunta pregunta;
+    private final VBox cajaOpciones;
 
 
     public CajaPregunta(Panel panel, Collection<String> respuestasJugador, Timer timer) {
@@ -28,11 +26,11 @@ public class CajaPregunta extends VBox implements Observador {
 
         this.pregunta = panel.obtenerPreguntaActual();
 
-        labelPregunta = new Label(pregunta.obtenerPregunta());
+        Label labelPregunta = new Label(pregunta.obtenerPregunta());
 
         cajaOpciones = new VBox();
 
-        pregunta.obtenerTodasLasOpciones().stream().forEach((o)-> { cajaOpciones.getChildren().add(new BotonOpcion(o, respuestasJugador));});
+        pregunta.obtenerTodasLasOpciones().forEach((o) -> cajaOpciones.getChildren().add(new BotonOpcion(o, respuestasJugador)));
 
         Button botonResponder = new BotonResponder(panel, respuestasJugador, timer);
 
