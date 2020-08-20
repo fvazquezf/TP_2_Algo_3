@@ -1,0 +1,65 @@
+@startuml
+
+skinparam backgroundColor white
+
+skinparam package {
+BackgroundColor FloralWhite
+ArrowColor DimGray
+BorderColor DimGray
+}
+skinparam component {
+BackgroundColor FloralWhite
+ArrowColor DimGray
+BorderColor DimGray
+}
+
+package "Modelo" {
+[Panel]
+}
+
+package "Vista" {
+package botones
+package cajas
+package vistaPregunta
+[VistaAgregarJugador]
+[VistaGameOver]
+[VistaJuego]
+[Timer]
+}
+
+VistaAgregarJugador -up--> Panel
+VistaAgregarJugador --> botones
+VistaJuego --> Panel
+VistaJuego --> vistaPregunta
+VistaJuego --> cajas
+VistaJuego --> Timer
+vistaPregunta --> VistaGameOver
+vistaPregunta --> cajas
+
+package "Controladores"{
+[activarDuplicador]
+[activarTriplicador]
+[responder]
+[iniciarJuego]
+[dragAndDropGC]
+[timer]
+}
+
+iniciarJuego ---> Panel
+iniciarJuego ---> VistaAgregarJugador
+activarDuplicador ---> Panel
+activarDuplicador ---> botones
+activarTriplicador ---> Panel
+activarTriplicador ---> botones
+dragAndDropGC ---> cajas
+dragAndDropGC ---> botones
+dragAndDropGC ---> Panel
+responder ---> Panel
+responder ---> Timer
+timer ---> Panel
+
+
+
+
+
+@enduml

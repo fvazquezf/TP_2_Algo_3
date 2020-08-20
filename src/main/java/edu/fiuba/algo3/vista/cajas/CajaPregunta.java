@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.vista.cajas;
 
-import edu.fiuba.algo3.Timer;
+import edu.fiuba.algo3.vista.Timer;
 import edu.fiuba.algo3.modelo.Observador;
 import edu.fiuba.algo3.modelo.Panel;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;

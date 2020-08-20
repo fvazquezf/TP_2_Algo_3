@@ -1,6 +1,6 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.controlador.ControladorTimer;
+import edu.fiuba.algo3.controladores.ControladorTimer;
 import edu.fiuba.algo3.modelo.Panel;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;

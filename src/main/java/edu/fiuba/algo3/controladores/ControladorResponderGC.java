@@ -1,6 +1,6 @@
-package edu.fiuba.algo3.controlador;
+package edu.fiuba.algo3.controladores;
 
-import edu.fiuba.algo3.Timer;
+import edu.fiuba.algo3.vista.Timer;
 import edu.fiuba.algo3.modelo.Panel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.vista.botones;
 
-import edu.fiuba.algo3.controlador.ControladorActivarExclusividad;
+import edu.fiuba.algo3.controladores.ControladorActivarExclusividad;
 import edu.fiuba.algo3.modelo.Panel;
 
 import javafx.scene.control.Button;
