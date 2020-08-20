@@ -51,9 +51,9 @@ public abstract class Pregunta implements Observable {
 
     public void activarExclusividad() { }
 
-    public String obtenerGrupoCorrecto(){
-        return null;
-    }
+    public String obtenerGrupoCorrecto(){return null;}
+
+    public String obtenerGrupoIncorrecto(){return null;}
 
     public String obtenerTipoPregunta(){
         return tipoPregunta;
@@ -62,6 +62,7 @@ public abstract class Pregunta implements Observable {
     public void agregarObservador(Observador observador) {
         observadores.add(observador);
     }
+
     @Override
     public void notificarObservador() {
         observadores.stream().forEach(observer -> observer.actualizar());

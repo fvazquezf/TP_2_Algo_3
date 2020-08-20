@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.preguntas;
 import edu.fiuba.algo3.modelo.comportamientos.ComportamientoConPenalidad;
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionPreguntaMCInvalida;
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionSoloPreguntasClasicasYPuntajeParcialPuedeUsarExclusividad;
+import edu.fiuba.algo3.modelo.excepciones.ExcepcionTipoPreguntaInvalida;
 
 import java.util.Collection;
 

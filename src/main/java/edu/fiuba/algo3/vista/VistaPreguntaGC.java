@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Panel;
 import edu.fiuba.algo3.vista.cajas.CajaExclusividades;
 import edu.fiuba.algo3.vista.cajas.CajaJugadores;
 import edu.fiuba.algo3.vista.cajas.CajaPregunta;
+import edu.fiuba.algo3.vista.cajas.CajaPreguntaGC;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -29,7 +30,7 @@ public class VistaPreguntaGC implements VistaPregunta{
 
         CajaJugadores cajaJugadores = new CajaJugadores(panel, respuestasJugador);
 
-        CajaPregunta cajaPregunta = new CajaPregunta(panel, respuestasJugador);
+        CajaPreguntaGC cajaPregunta = new CajaPreguntaGC(panel, respuestasJugador);
         panel.obtenerPreguntaActual().agregarObservador(cajaPregunta);
 
         CajaExclusividades cajaExclusividades = new CajaExclusividades(panel);

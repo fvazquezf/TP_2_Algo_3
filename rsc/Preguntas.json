@@ -1,5 +1,27 @@
 [
   {
+    "tipoPregunta": "preguntaGC",
+    "pregunta": "¿Cuáles son de fuego y cuales de electricidad?",
+    "opcionesPosibles": [
+      "Pikachi",
+      "Charizard",
+      "Electabuzz",
+      "Jolton",
+      "Ponyta"
+    ],
+    "opcionesCorrectas": [
+      "Pikachi",
+      "Electabuzz",
+      "Jolton"
+    ],
+    "grupos": [
+      {
+        "grupoAComparar": "Eléctrico",
+        "otroGrupo": "Fuego"
+      }
+    ]
+  },
+  {
     "tipoPregunta": "preguntaVoFClasica",
     "pregunta": "¿Es blanco el caballo blanco de San Martin?",
     "opcionesPosibles": [
@@ -33,28 +55,6 @@
       {
         "grupoAComparar": "",
         "otroGrupo": ""
-      }
-    ]
-  },
-  {
-    "tipoPregunta": "preguntaGC",
-    "pregunta": "¿Cuáles son de fuego y cuales de electricidad?",
-    "opcionesPosibles": [
-      "Pikachi",
-      "Charizard",
-      "Electabuzz",
-      "Jolton",
-      "Ponyta"
-    ],
-    "opcionesCorrectas": [
-      "Pikachi",
-      "Electabuzz",
-      "Jolton"
-    ],
-    "grupos": [
-      {
-        "grupoAComparar": "Eléctrico",
-        "otroGrupo": "Fuego"
       }
     ]
   },

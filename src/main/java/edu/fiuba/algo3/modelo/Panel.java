@@ -36,8 +36,6 @@ public class Panel implements Observable {
     public void crearJugadores(String nombre1, String nombre2) {
         jugadorActual = new Jugador(nombre1);
         jugadorSiguiente = new Jugador(nombre2);
-
-        notificarObservador();
     }
 
     public Pregunta obtenerPreguntaActual() {
@@ -52,6 +50,18 @@ public class Panel implements Observable {
         jugadorActual.asignarPuntos(puntos);
         estadoExclusividad.guardarRespuesta(jugadorActual, puntos);
 
+        estadoDelJuego.proximoEstado(this);
+    }
+
+    public void hacerPregunta(Collection<String> opcionesGrupoUno, Collection<String> opcionesDelOtroGrupo) {
+        int puntos;
+        if((opcionesGrupoUno.size()+opcionesDelOtroGrupo.size()) == (preguntas.get(numeroDePreguntaActual).obtenerTodasLasOpciones().size()+1)){
+            puntos = preguntas.get(numeroDePreguntaActual).compararRespuestas(opcionesGrupoUno);
+        } else {
+            puntos = preguntas.get(numeroDePreguntaActual).compararRespuestas(opcionesDelOtroGrupo);
+        }
+        jugadorActual.asignarPuntos(puntos);
+        estadoExclusividad.guardarRespuesta(jugadorActual, puntos);
         estadoDelJuego.proximoEstado(this);
     }
 
