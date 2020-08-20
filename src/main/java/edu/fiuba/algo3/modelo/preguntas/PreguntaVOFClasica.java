@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.preguntas;
 
 import edu.fiuba.algo3.modelo.comportamientos.ComportamientoClasico;
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionPreguntaVOFInvalida;
+import edu.fiuba.algo3.modelo.excepciones.ExcepcionTipoPreguntaInvalida;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -20,6 +21,8 @@ public class PreguntaVOFClasica extends Pregunta {
 
     @Override
     public Integer compararRespuestas(Collection<String> opcionesJugador) {
-        return comportamiento.compararRespuestas(opcionesJugador, opcionesCorrectas);
+        int puntos = comportamiento.compararRespuestas(opcionesJugador, opcionesCorrectas);
+        notificarObservador();
+        return puntos;
     }
 }

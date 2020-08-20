@@ -1,5 +1,27 @@
 [
   {
+    "tipoPregunta": "preguntaGC",
+    "pregunta": "¿Cuáles son de fuego y cuales de electricidad?",
+    "opcionesPosibles": [
+      "Pikachi",
+      "Charizard",
+      "Electabuzz",
+      "Jolton",
+      "Ponyta"
+    ],
+    "opcionesCorrectas": [
+      "Pikachi",
+      "Electabuzz",
+      "Jolton"
+    ],
+    "grupos": [
+      {
+        "grupoAComparar": "Eléctrico",
+        "otroGrupo": "Fuego"
+      }
+    ]
+  },
+  {
     "tipoPregunta": "preguntaVoFClasica",
     "pregunta": "¿Es blanco el caballo blanco de San Martin?",
     "opcionesPosibles": [
@@ -17,7 +39,7 @@
     ]
   },
   {
-    "tipoPregunta": "preguntaMCConPuntajeParcial",
+    "tipoPregunta": "preguntaMCClasica",
     "pregunta": "¿Qué es PDD?",
     "opcionesPosibles": [
       "Test Driven development",
@@ -37,14 +59,21 @@
     ]
   },
   {
-    "tipoPregunta": "preguntaVoFClasica",
-    "pregunta": "Independiente es un grande",
+    "tipoPregunta": "preguntaOC",
+    "pregunta": "Ordene cronológicamente",
     "opcionesPosibles": [
-      "Verdadero",
-      "Falso"
+      "Principe mestizo",
+      "Piedra filosofal",
+      "Caliz del fuego",
+      "Reliquias de la muerte",
+      "Cámara de los secretos"
     ],
     "opcionesCorrectas": [
-      "F"
+      "Piedra filosofal",
+      "Cámara de los secretos",
+      "Caliz del fuego",
+      "Principe mestizo",
+      "Reliquias de la muerte"
     ],
     "grupos": [
       {
@@ -54,22 +83,63 @@
     ]
   },
   {
-    "tipoPregunta": "preguntaGC",
-    "pregunta": "Separe los pokemons en tipo Fuego y Electrico",
+    "tipoPregunta": "preguntaMCConPuntajeParcial",
+    "pregunta": "¿Cuáles son obras de Sherlock Holms?",
     "opcionesPosibles": [
-      "Pikachu",
-      "Charizar",
-      "Raychu",
-      "Charmander"
+      "El signo de los 4",
+      "Muerte en la vicaria",
+      "Estudio en escarlata",
+      "El valle del terror",
+      "Cartas sobre la mesa"
     ],
     "opcionesCorrectas": [
-      "Charizar",
-      "Charmander"
+      "El signo de los 4",
+      "Estudio en escarlata",
+      "El valle del terror"
     ],
     "grupos": [
       {
-        "otroGrupo": "Electrico",
-        "grupoAComparar": "Fuego"
+        "grupoAComparar": "",
+        "otroGrupo": ""
+      }
+    ]
+  },
+  {
+    "tipoPregunta": "preguntaMCConPenalidad",
+    "pregunta": "¿Cuales son verdaderas ingenierias?",
+    "opcionesPosibles": [
+      "Electrónica",
+      "Mecánica",
+      "Sistemas",
+      "Industrial",
+      "Infomática"
+    ],
+    "opcionesCorrectas": [
+      "Electrónica",
+      "Mecánica",
+      "Infomática"
+    ],
+    "grupos": [
+      {
+        "otroGrupo": "",
+        "grupoAComparar": ""
+      }
+    ]
+  },
+  {
+    "tipoPregunta": "preguntaVoFConPenalidad",
+    "pregunta": "¿Este juego es mejor que el Kahoot?",
+    "opcionesPosibles": [
+      "Verdadero",
+      "Falso"
+    ],
+    "opcionesCorrectas": [
+  "V"
+    ],
+    "grupos": [
+      {
+        "otroGrupo": "",
+        "grupoAComparar": ""
       }
     ]
   }

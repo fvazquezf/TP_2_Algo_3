@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.preguntas;
 
 import edu.fiuba.algo3.modelo.comportamientos.ComportamientoClasico;
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionPreguntaOCInvalida;
+import edu.fiuba.algo3.modelo.excepciones.ExcepcionTipoPreguntaInvalida;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -17,6 +18,8 @@ public class PreguntaOC extends Pregunta {
 
     @Override
     public Integer compararRespuestas(Collection<String> opcionesJugador) {
-        return comportamiento.compararRespuestas(opcionesJugador, opcionesCorrectas);
+        int puntos = comportamiento.compararRespuestas(opcionesJugador, opcionesCorrectas);
+        notificarObservador();
+        return puntos;
     }
 }

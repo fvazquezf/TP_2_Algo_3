@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.preguntas;
 
 import edu.fiuba.algo3.modelo.comportamientos.ComportamientoClasico;
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionPreguntaGCInvalida;
+import edu.fiuba.algo3.modelo.excepciones.ExcepcionTipoPreguntaInvalida;
 
 import java.util.Collection;
 import java.util.Map;
@@ -21,12 +22,19 @@ public class PreguntaGC extends Pregunta {
         this.opcionesCorrectas.add(grupos.get("grupoAComparar"));
     }
 
-    @Override
+
     public Integer compararRespuestas(Collection<String> opcionesJugador) {
-        return comportamiento.compararRespuestas(opcionesJugador, opcionesCorrectas);
+        int puntos = comportamiento.compararRespuestas(opcionesJugador, opcionesCorrectas);
+        notificarObservador();
+        return puntos;
     }
 
+    @Override
     public String obtenerGrupoCorrecto(){
         return grupos.get("grupoAComparar");
+    }
+    @Override
+    public String obtenerGrupoIncorrecto(){
+        return grupos.get("otroGrupo");
     }
 }
