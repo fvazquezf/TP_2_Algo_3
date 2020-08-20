@@ -18,7 +18,6 @@ public class ControladorTimer implements EventHandler<ActionEvent> {
     private final Label label;
     private final Timeline tiempo;
     private final Panel panel;
-    private Integer segundos;
     private final Integer tiempoInicial;
 
     public ControladorTimer(Integer tiempoInicial, Label label, Timeline tiempo, Panel panel) {
@@ -26,21 +25,21 @@ public class ControladorTimer implements EventHandler<ActionEvent> {
         this.tiempoInicial = tiempoInicial;
         this.label = label;
         this.tiempo = tiempo;
-        this.segundos = tiempoInicial;
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
+        Integer segundos = Integer.parseInt(label.getText());
         segundos--;
-        label.setText("Tiempo restante: " + segundos.toString());
         if (segundos <= 0) {
             Collection<String> coleccionVacia = new HashSet<>();
 
             panel.hacerPregunta(coleccionVacia);
 
-            segundos = tiempoInicial;
+            label.setText(String.valueOf(tiempoInicial));
             tiempo.playFromStart();
+        } else {
+            label.setText(String.valueOf((segundos)));
         }
-
     }
 }

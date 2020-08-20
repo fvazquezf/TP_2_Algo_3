@@ -1,10 +1,7 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.Panel;
-import edu.fiuba.algo3.vista.cajas.CajaExclusividades;
-import edu.fiuba.algo3.vista.cajas.CajaJugadores;
-import edu.fiuba.algo3.vista.cajas.CajaPregunta;
-import edu.fiuba.algo3.vista.cajas.CajaPreguntaGC;
+import edu.fiuba.algo3.vista.cajas.*;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -15,10 +12,12 @@ import java.util.Set;
 public class VistaPreguntaGC implements VistaPregunta{
     private final Panel panel;
     private final CajaJugadores cajaJugadores;
+    private final CajaTimer cajaTimer;
 
-    public VistaPreguntaGC(Panel panel, CajaJugadores cajaJugadores){
+    public VistaPreguntaGC(Panel panel, CajaJugadores cajaJugadores, CajaTimer cajaTimer){
         this.panel = panel;
         this.cajaJugadores = cajaJugadores;
+        this.cajaTimer = cajaTimer;
     }
 
 
@@ -31,12 +30,12 @@ public class VistaPreguntaGC implements VistaPregunta{
         respuestasJugador.add(panel.obtenerPreguntaActual().obtenerGrupoCorrecto());
 
 
-        CajaPreguntaGC cajaPregunta = new CajaPreguntaGC(panel, respuestasJugador);
+        CajaPreguntaGC cajaPregunta = new CajaPreguntaGC(panel, respuestasJugador, cajaTimer.devolverReloj());
         panel.obtenerPreguntaActual().agregarObservador(cajaPregunta);
 
         componentLayout.setCenter(cajaPregunta);
         componentLayout.setBottom(cajaJugadores);
-
+        componentLayout.setRight(cajaTimer);
 
         Scene scene = new Scene(componentLayout, 640, 480);
         return scene;

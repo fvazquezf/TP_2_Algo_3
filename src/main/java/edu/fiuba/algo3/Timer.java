@@ -13,16 +13,17 @@ public class Timer {
     private final Panel panel;
     private Integer segundos;
     Label label = new Label();
+    private Timeline tiempo;
 
     public Timer(Integer segundos, Panel panel) {
         this.segundos = segundos;
         this.panel = panel;
-        label.setTextFill(Color.BLACK);
-        label.setFont(Font.font(20));
+
+        label.setText(String.valueOf(segundos));
     }
 
     public void iniciar() {
-        Timeline tiempo = new Timeline();
+        tiempo = new Timeline();
         tiempo.setCycleCount(Timeline.INDEFINITE);
 
         tiempo.stop();
@@ -37,4 +38,8 @@ public class Timer {
         return label;
     }
 
+    public void reiniciar() {
+        label.setText(String.valueOf(segundos));
+        tiempo.playFromStart();
+    }
 }

@@ -9,7 +9,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 
-public class CajaExclusividades extends VBox implements Observador {
+public class CajaExclusividades extends VBox{
 
     private Button botonExclusividad;
 
@@ -17,12 +17,5 @@ public class CajaExclusividades extends VBox implements Observador {
         botonExclusividad = new BotonExclusividad(panel);
 
         this.getChildren().addAll(botonExclusividad);
-    }
-
-
-
-    @Override
-    public void actualizar() {
-        //botonExclusividad.setVisible(false);
     }
 }

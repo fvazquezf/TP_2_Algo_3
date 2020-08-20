@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.vista.cajas;
 
+import edu.fiuba.algo3.Timer;
 import edu.fiuba.algo3.modelo.Observador;
 import edu.fiuba.algo3.modelo.Panel;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
@@ -24,7 +25,7 @@ public class CajaPreguntaGC extends HBox implements Observador {
     private HBox hb;
 
 
-    public CajaPreguntaGC(Panel panel, Collection<String> respuestasJugador) {
+    public CajaPreguntaGC(Panel panel, Collection<String> respuestasJugador, Timer timer) {
         super();
 
         this.respuestasJugador = respuestasJugador;
@@ -48,7 +49,7 @@ public class CajaPreguntaGC extends HBox implements Observador {
 
         pregunta.obtenerTodasLasOpciones().stream().forEach((o)-> { cajaOpciones.getChildren().add(new BotonOpcionGC(o));});
 
-        botonResponder = new BotonResponderGC(panel, respuestasJugador, respuestasDelOtroGrupo);
+        botonResponder = new BotonResponderGC(panel, respuestasJugador, respuestasDelOtroGrupo, timer);
 
         hb = new HBox();
         hb.setSpacing(10);

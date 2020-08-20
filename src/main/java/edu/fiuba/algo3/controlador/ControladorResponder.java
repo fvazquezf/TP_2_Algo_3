@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.controlador;
 
+import edu.fiuba.algo3.Timer;
 import edu.fiuba.algo3.modelo.Panel;
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaNoHayPreguntasParaHacer;
 import edu.fiuba.algo3.vista.VistaGameOver;
@@ -14,18 +15,21 @@ import java.util.Set;
 public class ControladorResponder implements EventHandler<ActionEvent> {
 
     private final Panel panel;
+    private final Timer timer;
 
     private Collection<String> respuestaJugador;
 
-    public ControladorResponder(Panel panel, Collection<String> respuestaJugador) {
+    public ControladorResponder(Panel panel, Collection<String> respuestaJugador, Timer timer) {
         this.panel = panel;
         this.respuestaJugador = respuestaJugador;
+        this.timer = timer;
     }
 
     @Override
     public void handle(ActionEvent event) {
         try{
             panel.hacerPregunta(respuestaJugador);
+            timer.reiniciar();
         } catch(ExcepcionYaNoHayPreguntasParaHacer e){
             Node source = (Node)  event.getSource();
             Stage stage  = (Stage) source.getScene().getWindow();
