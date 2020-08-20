@@ -1,12 +1,8 @@
 package edu.fiuba.algo3.vista.botones;
 
-import edu.fiuba.algo3.controlador.ControladorBotonOpcion;
 import edu.fiuba.algo3.controlador.ControladorDragGC;
 import edu.fiuba.algo3.controlador.ControladorDropGC;
 import javafx.scene.control.Button;
-import javafx.scene.input.DragEvent;
-
-import java.util.Collection;
 
 public class BotonOpcionGC extends Button {
     public BotonOpcionGC(String opcion) {

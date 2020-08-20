@@ -22,12 +22,13 @@ public class PreguntaGC extends Pregunta {
         this.opcionesCorrectas.add(grupos.get("grupoAComparar"));
     }
 
-    @Override
+
     public Integer compararRespuestas(Collection<String> opcionesJugador) {
         int puntos = comportamiento.compararRespuestas(opcionesJugador, opcionesCorrectas);
         notificarObservador();
         return puntos;
     }
+
     @Override
     public String obtenerGrupoCorrecto(){
         return grupos.get("grupoAComparar");

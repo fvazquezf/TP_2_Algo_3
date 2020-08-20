@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Panel;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 import edu.fiuba.algo3.vista.botones.BotonCajaOpcionesGC;
 import edu.fiuba.algo3.vista.botones.BotonOpcionGC;
-import edu.fiuba.algo3.vista.botones.BotonResponder;
+import edu.fiuba.algo3.vista.botones.BotonResponderGC;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -16,9 +16,11 @@ import java.util.HashSet;
 
 public class CajaPreguntaGC extends HBox implements Observador {
     private Collection<String> respuestasJugador;
+    private Collection<String> respuestasDelOtroGrupo;
     private Pregunta pregunta;
     private Label labelPregunta;
     private VBox cajaOpciones;
+    private Button botonResponder;
     private HBox hb;
 
 
@@ -26,11 +28,13 @@ public class CajaPreguntaGC extends HBox implements Observador {
         super();
 
         this.respuestasJugador = respuestasJugador;
-        Collection<String> respuestasDelOtroGrupo = new HashSet<>();
+
+        this.respuestasDelOtroGrupo = new HashSet<>();
 
         this.pregunta = panel.obtenerPreguntaActual();
 
         labelPregunta = new Label(pregunta.obtenerPregunta());
+
 
         VBox cajaGrupoCorrecto = new VBox();
         BotonCajaOpcionesGC grupoCorrecto = new BotonCajaOpcionesGC(pregunta.obtenerGrupoCorrecto(), respuestasJugador, cajaGrupoCorrecto);
@@ -40,12 +44,11 @@ public class CajaPreguntaGC extends HBox implements Observador {
         BotonCajaOpcionesGC grupoIncorrecto = new BotonCajaOpcionesGC(pregunta.obtenerGrupoIncorrecto(), respuestasDelOtroGrupo, cajaGrupoincorrecto);
         cajaGrupoincorrecto.getChildren().add(grupoIncorrecto);
 
-
         cajaOpciones = new VBox();
 
         pregunta.obtenerTodasLasOpciones().stream().forEach((o)-> { cajaOpciones.getChildren().add(new BotonOpcionGC(o));});
 
-        Button botonResponder = new BotonResponder(panel, respuestasJugador);
+        botonResponder = new BotonResponderGC(panel, respuestasJugador, respuestasDelOtroGrupo);
 
         hb = new HBox();
         hb.setSpacing(10);
@@ -61,16 +64,15 @@ public class CajaPreguntaGC extends HBox implements Observador {
     @Override
     public void actualizar() {
         respuestasJugador.removeAll(pregunta.obtenerTodasLasOpciones());
+        respuestasDelOtroGrupo.clear();
 
         VBox cajaGrupoCorrecto = new VBox();
         BotonCajaOpcionesGC grupoCorrecto = new BotonCajaOpcionesGC(pregunta.obtenerGrupoCorrecto(), respuestasJugador, cajaGrupoCorrecto);
         cajaGrupoCorrecto.getChildren().add(grupoCorrecto);
 
-        Collection<String> respuestasDelOtroGrupo = new HashSet<>();
         VBox cajaGrupoincorrecto = new VBox();
         BotonCajaOpcionesGC grupoIncorrecto = new BotonCajaOpcionesGC(pregunta.obtenerGrupoIncorrecto(), respuestasDelOtroGrupo, cajaGrupoincorrecto);
         cajaGrupoincorrecto.getChildren().add(grupoIncorrecto);
-
 
         cajaOpciones = new VBox();
 
@@ -78,7 +80,5 @@ public class CajaPreguntaGC extends HBox implements Observador {
 
         hb.getChildren().clear();
         hb.getChildren().addAll(cajaGrupoCorrecto, cajaOpciones, cajaGrupoincorrecto);
-
-
     }
 }

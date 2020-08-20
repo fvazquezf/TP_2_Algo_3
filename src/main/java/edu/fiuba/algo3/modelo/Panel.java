@@ -53,6 +53,18 @@ public class Panel implements Observable {
         estadoDelJuego.proximoEstado(this);
     }
 
+    public void hacerPregunta(Collection<String> opcionesGrupoUno, Collection<String> opcionesDelOtroGrupo) {
+        int puntos;
+        if((opcionesGrupoUno.size()+opcionesDelOtroGrupo.size()) == (preguntas.get(numeroDePreguntaActual).obtenerTodasLasOpciones().size()+1)){
+            puntos = preguntas.get(numeroDePreguntaActual).compararRespuestas(opcionesGrupoUno);
+        } else {
+            puntos = preguntas.get(numeroDePreguntaActual).compararRespuestas(opcionesDelOtroGrupo);
+        }
+        jugadorActual.asignarPuntos(puntos);
+        estadoExclusividad.guardarRespuesta(jugadorActual, puntos);
+        estadoDelJuego.proximoEstado(this);
+    }
+
     public void siguientePregunta() {
         numeroDePreguntaActual++;
         if (preguntas.size() == numeroDePreguntaActual) throw new ExcepcionYaNoHayPreguntasParaHacer();
