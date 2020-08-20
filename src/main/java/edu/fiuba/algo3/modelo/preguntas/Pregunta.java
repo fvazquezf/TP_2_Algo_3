@@ -47,6 +47,7 @@ public abstract class Pregunta implements Observable {
     }
 
     public void activarMultiplicador() {
+        throw new ExcepcionSoloPreguntaConPenalidadPuedeUsarMultiplicador();
     }
 
     public void activarExclusividad() {
