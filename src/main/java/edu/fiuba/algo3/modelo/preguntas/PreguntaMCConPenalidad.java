@@ -3,12 +3,11 @@ package edu.fiuba.algo3.modelo.preguntas;
 import edu.fiuba.algo3.modelo.comportamientos.ComportamientoConPenalidad;
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionPreguntaMCInvalida;
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionSoloPreguntasClasicasYPuntajeParcialPuedeUsarExclusividad;
-import edu.fiuba.algo3.modelo.excepciones.ExcepcionTipoPreguntaInvalida;
 
 import java.util.Collection;
 
 public class PreguntaMCConPenalidad extends Pregunta {
-    private ComportamientoConPenalidad comportamiento = new ComportamientoConPenalidad();
+    private final ComportamientoConPenalidad comportamiento = new ComportamientoConPenalidad();
 
     public PreguntaMCConPenalidad(String tipoPregunta, String pregunta, String[] opcionesCorrectas, Collection<String> todasLasOpciones) {
         super(tipoPregunta, pregunta, opcionesCorrectas, todasLasOpciones);

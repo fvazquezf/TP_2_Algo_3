@@ -2,12 +2,11 @@ package edu.fiuba.algo3.modelo.preguntas;
 
 import edu.fiuba.algo3.modelo.comportamientos.ComportamientoConPuntajeParcial;
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionPreguntaMCInvalida;
-import edu.fiuba.algo3.modelo.excepciones.ExcepcionTipoPreguntaInvalida;
 
 import java.util.Collection;
 
 public class PreguntaMCConPuntajeParcial extends Pregunta {
-    private ComportamientoConPuntajeParcial comportamiento = new ComportamientoConPuntajeParcial();
+    private final ComportamientoConPuntajeParcial comportamiento = new ComportamientoConPuntajeParcial();
 
     public PreguntaMCConPuntajeParcial(String tipoPregunta, String pregunta, String[] opcionesCorrectas, Collection<String> todasLasOpciones) {
         super(tipoPregunta, pregunta, opcionesCorrectas, todasLasOpciones);

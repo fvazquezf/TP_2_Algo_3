@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo.preguntas;
 
 import edu.fiuba.algo3.modelo.comportamientos.ComportamientoClasico;
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionPreguntaVOFInvalida;
-import edu.fiuba.algo3.modelo.excepciones.ExcepcionTipoPreguntaInvalida;
 
 import java.util.Collection;
 import java.util.HashSet;

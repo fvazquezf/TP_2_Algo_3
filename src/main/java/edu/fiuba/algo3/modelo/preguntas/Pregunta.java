@@ -27,7 +27,8 @@ public abstract class Pregunta implements Observable {
         this.textoPregunta = textoPregunta;
         this.todasLasOpciones = todasLasOpciones;
     }
-    public Pregunta(String tipoPregunta, String textoPregunta, List opcionesCorrectas, Collection<String> todasLasOpciones) {
+
+    public Pregunta(String tipoPregunta, String textoPregunta, List<String> opcionesCorrectas, Collection<String> todasLasOpciones) {
         this.tipoPregunta = tipoPregunta;
         this.opcionesCorrectas = new LinkedList<>(opcionesCorrectas);
         this.textoPregunta = textoPregunta;
@@ -49,15 +50,21 @@ public abstract class Pregunta implements Observable {
         throw new ExcepcionSoloPreguntaConPenalidadPuedeUsarMultiplicador();
     }
 
-    public void activarExclusividad() { }
+    public void activarExclusividad() {
+    }
 
-    public String obtenerGrupoCorrecto(){return null;}
+    public String obtenerGrupoCorrecto() {
+        return null;
+    }
 
-    public String obtenerGrupoIncorrecto(){return null;}
+    public String obtenerGrupoIncorrecto() {
+        return null;
+    }
 
-    public String obtenerTipoPregunta(){
+    public String obtenerTipoPregunta() {
         return tipoPregunta;
     }
+
     @Override
     public void agregarObservador(Observador observador) {
         observadores.add(observador);
@@ -65,6 +72,6 @@ public abstract class Pregunta implements Observable {
 
     @Override
     public void notificarObservador() {
-        observadores.stream().forEach(observer -> observer.actualizar());
+        observadores.forEach(Observador::actualizar);
     }
 }
