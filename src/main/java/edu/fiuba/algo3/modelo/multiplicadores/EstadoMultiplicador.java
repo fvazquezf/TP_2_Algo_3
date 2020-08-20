@@ -2,9 +2,9 @@ package edu.fiuba.algo3.modelo.multiplicadores;
 
 public class EstadoMultiplicador {
 
-    private Uniplicador uniplicador = new Uniplicador();
-    private Duplicador duplicador = new Duplicador();
-    private Triplicador triplicador = new Triplicador();
+    private final Uniplicador uniplicador = new Uniplicador();
+    private final Duplicador duplicador = new Duplicador();
+    private final Triplicador triplicador = new Triplicador();
     private Multiplicador multiplicadorActual = uniplicador;
 
     public Integer multiplicar(int puntos) {
