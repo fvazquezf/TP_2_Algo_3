@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.Exclusividad.EstadoExclusividad;
+import edu.fiuba.algo3.modelo.exclusividad.EstadoExclusividad;
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaNoHayPreguntasParaHacer;
 import edu.fiuba.algo3.modelo.manejoDeTurnos.EstadoFlowDelJuego;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;

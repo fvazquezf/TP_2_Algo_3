@@ -14,6 +14,7 @@ import java.util.List;
 
 public class LectorPreguntas {
     private final FabricaPreguntas fabricaPreguntas = new FabricaPreguntas();
+    static final String caminoArchivoJSON =  "rsc/Preguntas.json";
 
     public List<Pregunta> parsearPreguntas() {
         List<Pregunta> todasLasPreguntas = new ArrayList<>();
@@ -21,7 +22,7 @@ public class LectorPreguntas {
         String preguntasTexto = null;
 
         try {
-            preguntasTexto = Files.readString(Paths.get("rsc/Preguntas.json"));
+            preguntasTexto = Files.readString(Paths.get(caminoArchivoJSON));
         } catch (IOException e) {
             e.printStackTrace();
         }

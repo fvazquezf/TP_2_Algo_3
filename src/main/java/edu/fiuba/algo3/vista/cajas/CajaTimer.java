@@ -12,7 +12,7 @@ public class CajaTimer extends HBox {
     public CajaTimer(Panel panel) {
         super();
 
-        timer = new Timer(10, panel);
+        timer = new Timer(20, panel);
 
         HBox reloj = new HBox();
 

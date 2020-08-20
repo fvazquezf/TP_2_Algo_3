@@ -20,9 +20,9 @@
     "tipoPregunta": "preguntaMCClasica",
     "pregunta": "¿Qué es PDD?",
     "opcionesPosibles": [
+      "Metodo de desarrollo",
       "Test Driven development",
       "Print driven developnet",
-      "Metodo de desarrollo",
       "Frula"
     ],
     "opcionesCorrectas": [
@@ -39,25 +39,47 @@
   },
   {
     "tipoPregunta": "preguntaOC",
-    "pregunta": "Ordene cronológicamente",
+    "pregunta": "Ordene los lenguajes de mejor a peor",
     "opcionesPosibles": [
-      "Principe mestizo",
-      "Piedra filosofal",
-      "Caliz del fuego",
-      "Reliquias de la muerte",
-      "Cámara de los secretos"
+      "Smalltalk",
+      "Java",
+      "Pyhton",
+      "C",
+      "Pascal"
     ],
     "opcionesCorrectas": [
-      "Piedra filosofal",
-      "Cámara de los secretos",
-      "Caliz del fuego",
-      "Principe mestizo",
-      "Reliquias de la muerte"
+      "Pascal",
+      "Python",
+      "Java",
+      "Smalltalk",
+      "C"
     ],
     "grupos": [
       {
         "grupoAComparar": "",
         "otroGrupo": ""
+      }
+    ]
+  },
+  {
+    "tipoPregunta": "preguntaGC",
+    "pregunta": "¿Cuáles son de fuego y cuales de electricidad?",
+    "opcionesPosibles": [
+      "Pikachu",
+      "Charizard",
+      "Electabuzz",
+      "Jolteon",
+      "Ponyta"
+    ],
+    "opcionesCorrectas": [
+      "Pikachu",
+      "Electabuzz",
+      "Jolteon"
+    ],
+    "grupos": [
+      {
+        "grupoAComparar": "Eléctrico",
+        "otroGrupo": "Fuego"
       }
     ]
   },
@@ -110,34 +132,12 @@
       "Falso"
     ],
     "opcionesCorrectas": [
-  "V"
+      "V"
     ],
     "grupos": [
       {
         "otroGrupo": "",
         "grupoAComparar": ""
-      }
-    ]
-  },
-  {
-    "tipoPregunta": "preguntaGC",
-    "pregunta": "¿Cuáles son de fuego y cuales de electricidad?",
-    "opcionesPosibles": [
-      "Pikachi",
-      "Charizard",
-      "Electabuzz",
-      "Jolton",
-      "Ponyta"
-    ],
-    "opcionesCorrectas": [
-      "Pikachi",
-      "Electabuzz",
-      "Jolton"
-    ],
-    "grupos": [
-      {
-        "grupoAComparar": "Eléctrico",
-        "otroGrupo": "Fuego"
       }
     ]
   }

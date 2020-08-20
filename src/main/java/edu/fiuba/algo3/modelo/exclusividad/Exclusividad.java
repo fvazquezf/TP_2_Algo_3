@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.Exclusividad;
+package edu.fiuba.algo3.modelo.exclusividad;
 
 public interface Exclusividad {
 
