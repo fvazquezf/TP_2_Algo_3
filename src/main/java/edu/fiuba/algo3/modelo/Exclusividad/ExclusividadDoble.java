@@ -4,7 +4,6 @@ import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaActivasteTuExclusividadSala
 
 public class ExclusividadDoble implements Exclusividad {
 
-
     public Integer multiplicar(int puntos) {
         return (puntos * 3);
     }

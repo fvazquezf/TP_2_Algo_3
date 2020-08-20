@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.excepciones.ExcepcionPreguntaMCInvalida;
 import java.util.Collection;
 
 public class PreguntaMCConPuntajeParcial extends Pregunta {
-    private ComportamientoConPuntajeParcial comportamiento = new ComportamientoConPuntajeParcial();
+    private final ComportamientoConPuntajeParcial comportamiento = new ComportamientoConPuntajeParcial();
 
     public PreguntaMCConPuntajeParcial(String tipoPregunta, String pregunta, String[] opcionesCorrectas, Collection<String> todasLasOpciones) {
         super(tipoPregunta, pregunta, opcionesCorrectas, todasLasOpciones);
@@ -17,6 +17,8 @@ public class PreguntaMCConPuntajeParcial extends Pregunta {
 
     @Override
     public Integer compararRespuestas(Collection<String> opcionesJugador) {
-        return comportamiento.compararRespuestas(opcionesJugador, opcionesCorrectas);
+        int puntos = comportamiento.compararRespuestas(opcionesJugador, opcionesCorrectas);
+        notificarObservador();
+        return puntos;
     }
 }

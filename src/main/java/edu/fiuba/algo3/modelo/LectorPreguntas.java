@@ -21,7 +21,7 @@ public class LectorPreguntas {
         String preguntasTexto = null;
 
         try {
-            preguntasTexto = new String(Files.readAllBytes(Paths.get("rsc/Preguntas.json")), "UTF-8");
+            preguntasTexto = Files.readString(Paths.get("rsc/Preguntas.json"));
         } catch (IOException e) {
             e.printStackTrace();
         }

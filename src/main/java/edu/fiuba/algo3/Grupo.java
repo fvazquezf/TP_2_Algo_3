@@ -12,16 +12,8 @@ public class Grupo {
         this.otroGrupo = otroGrupo;
     }
 
-    public String obtenerGrupoAComprar() {
-        return this.grupoAComparar;
-    }
-
-    public String obtenerOtroGrupo() {
-        return this.otroGrupo;
-    }
-
     public Map<String, String> obtenerGrupos() {
-        Map<String, String> grupos = new HashMap();
+        Map<String, String> grupos = new HashMap<>();
         grupos.put("grupoAComparar", grupoAComparar);
         grupos.put("otroGrupo", otroGrupo);
         return grupos;

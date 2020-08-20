@@ -7,7 +7,7 @@ import edu.fiuba.algo3.modelo.excepciones.ExcepcionSoloPreguntasClasicasYPuntaje
 import java.util.Collection;
 
 public class PreguntaMCConPenalidad extends Pregunta {
-    private ComportamientoConPenalidad comportamiento = new ComportamientoConPenalidad();
+    private final ComportamientoConPenalidad comportamiento = new ComportamientoConPenalidad();
 
     public PreguntaMCConPenalidad(String tipoPregunta, String pregunta, String[] opcionesCorrectas, Collection<String> todasLasOpciones) {
         super(tipoPregunta, pregunta, opcionesCorrectas, todasLasOpciones);
@@ -18,7 +18,9 @@ public class PreguntaMCConPenalidad extends Pregunta {
 
     @Override
     public Integer compararRespuestas(Collection<String> opcionesJugador) {
-        return comportamiento.compararRespuestas(opcionesJugador, opcionesCorrectas);
+        int puntos = comportamiento.compararRespuestas(opcionesJugador, opcionesCorrectas);
+        notificarObservador();
+        return puntos;
     }
 
     @Override

@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Exclusividad;
 
 
 public class ExclusividadDesactivada implements Exclusividad {
+
     public Integer multiplicar(int puntos) {
         return 0;
     }

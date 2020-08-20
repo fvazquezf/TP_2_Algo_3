@@ -2,25 +2,33 @@ package edu.fiuba.algo3.vista;
 
 
 import edu.fiuba.algo3.modelo.Panel;
+import edu.fiuba.algo3.vista.cajas.CajaJugadores;
+import edu.fiuba.algo3.vista.cajas.CajaTimer;
 import javafx.scene.Scene;
+
 
 public class FabricaVistaPregunta {
 
-    public Scene crearVista(Panel panel, String tipoPregunta) {
+    public Scene crearVista(Panel panel, String tipoPregunta, CajaJugadores cajaJugadores, CajaTimer cajaTimer) {
         switch (tipoPregunta) {
             case "preguntaMCConPenalidad":
             case "preguntaVoFConPenalidad":
-                VistaPregunta vistaPregunta = new VistaPreguntaConPenalidad(panel);
+                VistaPregunta vistaPregunta = new VistaPreguntaConPenalidad(panel, cajaJugadores, cajaTimer);
                 return vistaPregunta.devolverVistaPregunta();
             case "preguntaGC":
-                vistaPregunta = new VistaPreguntaGC(panel);
-                return  vistaPregunta.devolverVistaPregunta();
+                vistaPregunta = new VistaPreguntaGC(panel, cajaJugadores, cajaTimer);
+                return vistaPregunta.devolverVistaPregunta();
             case "preguntaOC":
-                vistaPregunta = new VistaPreguntaOC(panel);
-                return  vistaPregunta.devolverVistaPregunta();
+                vistaPregunta = new VistaPreguntaOC(panel, cajaJugadores, cajaTimer);
+                return vistaPregunta.devolverVistaPregunta();
+            case "preguntaVoFClasica":
+            case "preguntaMCClasica":
+            case "preguntaMCConPuntajeParcial":
+                vistaPregunta = new VistaPreguntaClasica(panel, cajaJugadores, cajaTimer);
+                return vistaPregunta.devolverVistaPregunta();
             default:
-                vistaPregunta = new VistaPreguntaClasica(panel);
-                return  vistaPregunta.devolverVistaPregunta();
+                VistaGameOver vistaGameOver = new VistaGameOver();
+                return vistaGameOver.devolverVistaGameOver();
         }
     }
 }

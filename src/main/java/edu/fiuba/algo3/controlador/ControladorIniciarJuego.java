@@ -4,6 +4,8 @@ import edu.fiuba.algo3.modelo.Panel;
 import edu.fiuba.algo3.vista.VistaAgregarJugador;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Node;
+import javafx.stage.Stage;
 
 public class ControladorIniciarJuego implements EventHandler<ActionEvent> {
 
@@ -18,5 +20,8 @@ public class ControladorIniciarJuego implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
         panel.crearJugadores(vista.obtenerNombre1(), vista.obtenerNombre2());
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 }

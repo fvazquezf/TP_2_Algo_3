@@ -18,9 +18,11 @@ public class Preguntas {
         this.opcionesCorrectas = opcionesCorrectas;
         this.grupos = grupos;
     }
+
     public String obtenerPregunta() {
         return this.pregunta;
     }
+
     public String obtenerTipoPregunta() {
         return this.tipoPregunta;
     }

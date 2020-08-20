@@ -1,10 +1,7 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.Panel;
-import edu.fiuba.algo3.vista.cajas.CajaExclusividades;
-import edu.fiuba.algo3.vista.cajas.CajaJugadores;
-import edu.fiuba.algo3.vista.cajas.CajaMultiplicadores;
-import edu.fiuba.algo3.vista.cajas.CajaPregunta;
+import edu.fiuba.algo3.vista.cajas.*;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -14,30 +11,32 @@ import java.util.Set;
 
 public class VistaPreguntaConPenalidad implements VistaPregunta {
     private final Panel panel;
+    private final CajaJugadores cajaJugadores;
+    private final CajaTimer cajaTimer;
 
-    public VistaPreguntaConPenalidad(Panel panel) {
+    public VistaPreguntaConPenalidad(Panel panel, CajaJugadores cajaJugadores, CajaTimer cajaTimer) {
         this.panel = panel;
+        this.cajaJugadores = cajaJugadores;
+        this.cajaTimer = cajaTimer;
     }
 
     @Override
     public Scene devolverVistaPregunta() {
         BorderPane componentLayout = new BorderPane();
-        componentLayout.setPadding(new Insets(20,100,10,100));
+        componentLayout.setPadding(new Insets(20, 100, 10, 100));
 
         Set<String> respuestasJugador = new HashSet<>();
 
-        CajaJugadores cajaJugadores = new CajaJugadores(panel, respuestasJugador);
 
-        CajaPregunta cajaPregunta = new CajaPregunta(panel, respuestasJugador);
+        CajaPregunta cajaPregunta = new CajaPregunta(panel, respuestasJugador, cajaTimer.devolverReloj());
+        panel.obtenerPreguntaActual().agregarObservador(cajaPregunta);
 
-        CajaMultiplicadores cajaMultiplicadores = new CajaMultiplicadores(panel);
+        cajaJugadores.activarMultiplicadores();
 
         componentLayout.setCenter(cajaPregunta);
         componentLayout.setBottom(cajaJugadores);
-        componentLayout.setRight(cajaMultiplicadores);
+        componentLayout.setRight(cajaTimer);
 
-
-        Scene scene = new Scene(componentLayout, 640, 480);
-        return scene;
+        return new Scene(componentLayout, 640, 480);
     }
 }

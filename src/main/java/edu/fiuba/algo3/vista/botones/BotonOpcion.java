@@ -4,8 +4,6 @@ import edu.fiuba.algo3.controlador.ControladorBotonOpcion;
 import javafx.scene.control.Button;
 
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 
 public class BotonOpcion extends Button {
 

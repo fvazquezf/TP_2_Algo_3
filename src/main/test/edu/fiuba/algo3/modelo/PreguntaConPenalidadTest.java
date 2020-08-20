@@ -23,7 +23,7 @@ public class PreguntaConPenalidadTest {
         Set<String> opcionJugador = new HashSet<>();
         opcionJugador.add("V");
 
-        Pregunta preguntaConPenalidad = new PreguntaVoFConPenalidad("preguntaVoFConPenalidad","Es blanco el caballo blanco de San Martin?", opcionCorrecta);
+        Pregunta preguntaConPenalidad = new PreguntaVoFConPenalidad("preguntaVoFConPenalidad", "Es blanco el caballo blanco de San Martin?", opcionCorrecta);
 
         int puntos = preguntaConPenalidad.compararRespuestas(opcionJugador);
 
@@ -48,7 +48,7 @@ public class PreguntaConPenalidadTest {
         opcionesJugador.add("Venezuela");
         opcionesJugador.add("Colombia");
 
-        Pregunta preguntaConPenalidad = new PreguntaMCConPenalidad("preguntaMCConPenalidad","seleccionar los paises", opcionesCorrectas, todasLasOpciones);
+        Pregunta preguntaConPenalidad = new PreguntaMCConPenalidad("preguntaMCConPenalidad", "seleccionar los paises", opcionesCorrectas, todasLasOpciones);
 
         int puntos = preguntaConPenalidad.compararRespuestas(opcionesJugador);
 
@@ -63,7 +63,7 @@ public class PreguntaConPenalidadTest {
         Set<String> opcionJugador = new HashSet<>();
         opcionJugador.add("F");
 
-        Pregunta preguntaConPenalidad = new PreguntaVoFConPenalidad("preguntaVoFConPenalidad","Es blanco el caballo blanco de San Martin?", opcionCorrecta);
+        Pregunta preguntaConPenalidad = new PreguntaVoFConPenalidad("preguntaVoFConPenalidad", "Es blanco el caballo blanco de San Martin?", opcionCorrecta);
 
         int puntos = preguntaConPenalidad.compararRespuestas(opcionJugador);
 
@@ -89,7 +89,7 @@ public class PreguntaConPenalidadTest {
         opcionesJugador.add("Colombia");
         opcionesJugador.add("Bariloche");
 
-        Pregunta preguntaConPenalidad = new PreguntaMCConPenalidad("preguntaMCConPenalidad","seleccionar los paises", opcionesCorrectas, todasLasOpciones);
+        Pregunta preguntaConPenalidad = new PreguntaMCConPenalidad("preguntaMCConPenalidad", "seleccionar los paises", opcionesCorrectas, todasLasOpciones);
 
         int puntos = preguntaConPenalidad.compararRespuestas(opcionesJugador);
 
@@ -106,14 +106,14 @@ public class PreguntaConPenalidadTest {
 
         String[] opcionesCorrectas = new String[2];
         opcionesCorrectas[0] = "Argentina";
-        opcionesCorrectas[1] ="Colombia";
+        opcionesCorrectas[1] = "Colombia";
 
         Set<String> opcionesJugador = new HashSet<>();
         opcionesJugador.add("Argentina");
         opcionesJugador.add("Jujuy");
         opcionesJugador.add("Bariloche");
 
-        Pregunta preguntaConPenalidad = new PreguntaMCConPenalidad("preguntaMCConPenalidad","seleccionar los paises", opcionesCorrectas, todasLasOpciones);
+        Pregunta preguntaConPenalidad = new PreguntaMCConPenalidad("preguntaMCConPenalidad", "seleccionar los paises", opcionesCorrectas, todasLasOpciones);
 
         int puntos = preguntaConPenalidad.compararRespuestas(opcionesJugador);
 
@@ -125,7 +125,7 @@ public class PreguntaConPenalidadTest {
         String[] opcionCorrecta = new String[1];
         opcionCorrecta[0] = "V";
 
-        Pregunta pregunta = new PreguntaVoFConPenalidad("preguntaVoFConPenalidad","Es blanco el caballo blanco de San Martin?", opcionCorrecta);
+        Pregunta pregunta = new PreguntaVoFConPenalidad("preguntaVoFConPenalidad", "Es blanco el caballo blanco de San Martin?", opcionCorrecta);
         assertThrows(ExcepcionSoloPreguntasClasicasYPuntajeParcialPuedeUsarExclusividad.class, pregunta::activarExclusividad);
     }
 
@@ -142,7 +142,7 @@ public class PreguntaConPenalidadTest {
         opcionesCorrectas[1] = "Venezuela";
         opcionesCorrectas[2] = "Colombia";
 
-        Pregunta pregunta = new PreguntaMCConPenalidad("preguntaMCConPenalidad","Es blanco el caballo blanco de San Martin?", opcionesCorrectas, todasLasOpciones);
+        Pregunta pregunta = new PreguntaMCConPenalidad("preguntaMCConPenalidad", "Es blanco el caballo blanco de San Martin?", opcionesCorrectas, todasLasOpciones);
         assertThrows(ExcepcionSoloPreguntasClasicasYPuntajeParcialPuedeUsarExclusividad.class, pregunta::activarExclusividad);
     }
 
@@ -158,7 +158,7 @@ public class PreguntaConPenalidadTest {
 
         String[] opcionesCorrectas = new String[0];
 
-        assertThrows(ExcepcionPreguntaMCInvalida.class, () -> new PreguntaMCConPenalidad("preguntaMCConPenalidad","Ordenar ascendentemente", opcionesCorrectas, todasLasOpciones));
+        assertThrows(ExcepcionPreguntaMCInvalida.class, () -> new PreguntaMCConPenalidad("preguntaMCConPenalidad", "Ordenar ascendentemente", opcionesCorrectas, todasLasOpciones));
     }
 
     @Test
@@ -173,7 +173,7 @@ public class PreguntaConPenalidadTest {
 
         String[] opcionesCorrectas = new String[0];
 
-        assertThrows(ExcepcionPreguntaMCInvalida.class, () -> new PreguntaMCConPenalidad("preguntaMCConPenalidad","Ordenar ascendentemente", opcionesCorrectas, todasLasOpciones));
+        assertThrows(ExcepcionPreguntaMCInvalida.class, () -> new PreguntaMCConPenalidad("preguntaMCConPenalidad", "Ordenar ascendentemente", opcionesCorrectas, todasLasOpciones));
     }
 
     @Test
@@ -182,6 +182,6 @@ public class PreguntaConPenalidadTest {
         opcionesCorrectas[0] = "V";
         opcionesCorrectas[1] = "F";
 
-        assertThrows(ExcepcionPreguntaVOFInvalida.class, () -> new PreguntaVoFConPenalidad("preguntaVoFConPenalidad","El caballo blanco de San Martin es blanco?", opcionesCorrectas));
+        assertThrows(ExcepcionPreguntaVOFInvalida.class, () -> new PreguntaVoFConPenalidad("preguntaVoFConPenalidad", "El caballo blanco de San Martin es blanco?", opcionesCorrectas));
     }
 }
