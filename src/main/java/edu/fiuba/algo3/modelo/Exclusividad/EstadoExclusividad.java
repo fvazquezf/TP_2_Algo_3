@@ -7,9 +7,9 @@ import edu.fiuba.algo3.modelo.Observador;
 import java.util.*;
 
 public class EstadoExclusividad implements Observable {
-    private final Dictionary<Jugador, Integer> puntosJugadores = new Hashtable();
+    private final Dictionary<Jugador, Integer> puntosJugadores = new Hashtable<>();
     private Exclusividad estadoActual = new ExclusividadDesactivada();
-    private List<Observador> observadores = new ArrayList<>();
+    private final List<Observador> observadores = new ArrayList<>();
 
     public void guardarRespuesta(Jugador jugador, int puntos) {
         puntosJugadores.put(jugador, puntos);
@@ -35,6 +35,6 @@ public class EstadoExclusividad implements Observable {
 
     @Override
     public void notificarObservador() {
-        observadores.stream().forEach(observer -> observer.actualizar());
+        observadores.forEach(Observador::actualizar);
     }
 }
