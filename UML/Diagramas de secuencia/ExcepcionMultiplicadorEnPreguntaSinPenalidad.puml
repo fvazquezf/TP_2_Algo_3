@@ -24,33 +24,18 @@ ActorFontName Aapex
 actor TestCase
 activate TestCase
 
-participant ":Panel" as Panel
 create Panel
 TestCase -> Panel : new()
 activate Panel
 
-TestCase -> Panel : crearPregunta(String, String, Set<String>, Set<String>)
-
-
-
-create PreguntaClasica
-Panel -> PreguntaClasica : crearPregunta(String, String, Collection<String>, Collection<String>)
+Participant PreguntaClasica
 activate PreguntaClasica
-
-TestCase -> Panel: crearJugadores(String, String)
-create Jugador
-Panel -> Jugador: new(String)
-activate Jugador
-Jugador --> Panel: JugadorActual
-Panel -> Jugador: new(String)
-Jugador --> Panel: JugadorSiguiente
 
 TestCase -> Panel: activarTriplicador()
 Panel -> PreguntaClasica: activarMultiplicador()
 PreguntaClasica -> Panel : ExcepcionSoloPreguntaConPenalidadPuedeUsarMultiplicador()
 
 deactivate PreguntaClasica
-deactivate Jugador
 deactivate Panel
 deactivate TestCase
 

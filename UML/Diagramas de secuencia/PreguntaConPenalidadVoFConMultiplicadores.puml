@@ -24,28 +24,21 @@ ActorFontName Aapex
 actor TestCase
 activate TestCase
 
-participant ":Panel" as Panel
 create Panel
 TestCase -> Panel : new()
 activate Panel
 
-
-TestCase -> Panel : crearPregunta(String, String, Set<String>, Set<String>)
-
-create PreguntaVoFConPenalidad
-Panel -> PreguntaVoFConPenalidad: new()
+Participant PreguntaVoFConPenalidad
 activate PreguntaVoFConPenalidad
-PreguntaVoFConPenalidad -> Panel: PreguntaVoFConPenalidad
-
-TestCase -> Panel: crearJugadores(String, String)
-create Jugador
-Panel -> Jugador: new(String)
+Participant Jugador
 activate Jugador
-Jugador --> Panel: JugadorActual
-Panel -> Jugador: new(String)
-Jugador --> Panel: JugadorSiguiente
+Participant ComportamientoConPenalidad
+activate ComportamientoConPenalidad
+Participant EstadoDelJuego
+activate EstadoDelJuego
 
-TestCase -> Panel: activarDuplicador(String, String)
+loop por Jugador
+TestCase -> Panel: activarDuplicador()
 Panel -> Jugador: estadoDuplicador()
 create EstadoMultiplicador
 Jugador -> EstadoMultiplicador: new()
@@ -56,20 +49,24 @@ EstadoMultiplicador -> Duplicador: new()
 activate Duplicador
 EstadoMultiplicador -> Duplicador: cambiarEstado()
 
+
 TestCase -> Panel: hacerPregunta(Set<String>)
 Panel -> PreguntaVoFConPenalidad: compararRespuestas(Collection<String>)
+PreguntaVoFConPenalidad -> ComportamientoConPenalidad: compararRespuestas(Collection<String>, Collection<String>)
+ComportamientoConPenalidad --> PreguntaVoFConPenalidad: Int
 PreguntaVoFConPenalidad --> Panel: Int
 Panel -> Jugador: asignarPuntos()
 Jugador -> EstadoMultiplicador: multiplicar()
 EstadoMultiplicador --> Jugador: Int
+Panel -> EstadoDelJuego: proximoEstado(Panel)
+end loop
 
-TestCase -> Panel: hacerPregunta(Set<String>)
-Panel -> PreguntaVoFConPenalidad: compararRespuestas(Set<String>)
-PreguntaVoFConPenalidad --> Panel: Int
-Panel -> Jugador: asignarPuntos(Int)
-Jugador -> EstadoMultiplicador: multiplicar()
-EstadoMultiplicador --> Jugador: Int
-
+loop por jugador
+TestCase -> Panel: pedirJugador()
+Panel --> TestCase: Jugador
+TestCase -> Jugador: pedirPuntos()
+Panel --> TestCase: Int
+end loop
 
 deactivate PreguntaVoFConPenalidad
 deactivate Jugador

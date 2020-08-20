@@ -24,26 +24,30 @@ ActorFontName Aapex
 actor TestCase
 activate TestCase
 
-participant ":Panel" as Panel
-create Panel
-TestCase -> Panel : new()
-activate Panel
+create LectorPreguntas
+TestCase -> LectorPreguntas : new()
+activate LectorPreguntas
 
-participant ":FabricaDePreguntas" as FabricaDePreguntas
 create FabricaDePreguntas
-Panel -> FabricaDePreguntas :  new()
+LectorPreguntas -> FabricaDePreguntas :  new()
 activate FabricaDePreguntas
-FabricaDePreguntas --> Panel : FabricaDePreguntas
 
-TestCase -> Panel : crearPregunta(String, String, Set<String>, Set<String>)
-
-Panel -> FabricaDePreguntas : crearPregunta(String, String, Collection<String>, Collection<String>)
-
+create Panel
+TestCase -> Panel : Panel(LectorPreguntas)
+activate Panel
+Panel -> LectorPreguntas: parsearPreguntas()
+loop por pregunta en archivo
+LectorPreguntas -> FabricaDePreguntas : crearPregunta(String, String, String[], String[], List<Grupo>)
 create Pregunta
-FabricaDePreguntas -> Pregunta: new(String, Collection<String>, Collection<String>)
+FabricaDePreguntas -> Pregunta: new(String, String, String[], Collection<String>, Map<String, String>)
 activate Pregunta
+create Comportamiento
+Pregunta -> Comportamiento: new()
+activate Comportamiento
 Pregunta --> FabricaDePreguntas: Pregunta
-FabricaDePreguntas --> Panel: Pregunta
+FabricaDePreguntas -->LectorPreguntas: Pregunta
+end loop
+LectorPreguntas -> Panel: List<Pregunta>
 
 deactivate Pregunta
 deactivate FabricaDePreguntas
