@@ -22,13 +22,12 @@ public class Timer {
     }
 
     public void iniciar() {
-
         Timeline tiempo = new Timeline();
         tiempo.setCycleCount(Timeline.INDEFINITE);
 
         tiempo.stop();
 
-        KeyFrame cuadro = new KeyFrame(Duration.seconds(1), new ControladorTimer(segundos, label, tiempo,panel));
+        KeyFrame cuadro = new KeyFrame(Duration.seconds(1), new ControladorTimer(segundos, label, tiempo, panel));
 
         tiempo.getKeyFrames().add(cuadro);
         tiempo.playFromStart();
@@ -37,4 +36,5 @@ public class Timer {
     public Label obtenerLabel() {
         return label;
     }
+
 }

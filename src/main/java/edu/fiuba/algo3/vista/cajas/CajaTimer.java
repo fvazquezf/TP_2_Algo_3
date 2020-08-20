@@ -7,12 +7,10 @@ import javafx.scene.layout.HBox;
 
 public class CajaTimer extends HBox {
     private final Label label;
-    private final Panel panel;
 
 
     public CajaTimer(Panel panel) {
         super();
-        this.panel = panel;
 
         Timer timer = new Timer(10,panel);
 

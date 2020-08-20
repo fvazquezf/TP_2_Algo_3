@@ -31,7 +31,7 @@ public class VistaPreguntaClasica implements VistaPregunta {
 
         CajaPregunta cajaPregunta = new CajaPregunta(panel, respuestasJugador);
         CajaTimer cajaTimer = new CajaTimer(panel);
-        componentLayout.setLeft(cajaTimer);
+        componentLayout.setRight(cajaTimer);
         componentLayout.setCenter(cajaPregunta);
         componentLayout.setBottom(cajaJugadores);
 
