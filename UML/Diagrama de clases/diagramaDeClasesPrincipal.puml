@@ -82,11 +82,11 @@ class EstadoFlowDelJuego{
 }
 
 class LectorPreguntas{
-        - fabricaPreguntas: FabricaPreguntas
         + parsearPreguntas(): List<Pregunta>
 }
 
 
+Panel --> LectorPreguntas
 Panel "1 " o-- "2  " Jugador
 Panel "1 " o--- "*" Pregunta
 LectorPreguntas --> FabricaPreguntas
