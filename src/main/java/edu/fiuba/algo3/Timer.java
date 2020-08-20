@@ -5,13 +5,11 @@ import edu.fiuba.algo3.modelo.Panel;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.control.Label;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.util.Duration;
 
 public class Timer {
     private final Panel panel;
-    private Integer segundos;
+    private final Integer segundos;
     Label label = new Label();
     private Timeline tiempo;
 
