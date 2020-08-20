@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.vista.botones;
 
-import edu.fiuba.algo3.controlador.ControladorDragDroppedGC;
-import edu.fiuba.algo3.controlador.ControladorDragOverGC;
+import edu.fiuba.algo3.controladores.ControladorDragDroppedGC;
+import edu.fiuba.algo3.controladores.ControladorDragOverGC;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 

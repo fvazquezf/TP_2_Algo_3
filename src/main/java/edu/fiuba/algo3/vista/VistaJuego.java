@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Observador;
 import edu.fiuba.algo3.modelo.Panel;
 import edu.fiuba.algo3.vista.cajas.CajaJugadores;
 import edu.fiuba.algo3.vista.cajas.CajaTimer;
+import edu.fiuba.algo3.vista.vistaPregunta.FabricaVistaPregunta;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 

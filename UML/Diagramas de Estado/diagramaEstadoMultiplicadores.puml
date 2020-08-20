@@ -1,0 +1,26 @@
+@startuml
+
+skinparam backgroundColor white
+
+skinparam state {
+BackgroundColor FloralWhite
+ArrowColor DimGray
+BorderColor DimGray
+}
+
+state CantidadMultiplicadores{
+state Uniplicador
+state Duplicador
+state Triplicador
+}
+
+[*] -down-> Uniplicador
+Uniplicador -left---> Duplicador: estadoDuplicador()
+Duplicador -left--> Uniplicador: multiplicar()
+Uniplicador --right--> Triplicador: estadoTriplicador()
+Triplicador --right-> Uniplicador: multiplicar()
+
+CantidadMultiplicadores -down-> [*]
+
+}
+@enduml

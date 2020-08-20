@@ -1,21 +1,21 @@
-package edu.fiuba.algo3.controlador;
+package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.modelo.Panel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 
-public class ControladorActivarDuplicador implements EventHandler<ActionEvent> {
+public class ControladorActivarTriplicador implements EventHandler<ActionEvent> {
     private final Panel panel;
     private final Button boton;
 
-    public ControladorActivarDuplicador(Panel panel, Button botonDuplicador) {
+    public ControladorActivarTriplicador(Panel panel, Button botonTriplicador) {
         this.panel = panel;
-        this.boton = botonDuplicador;
+        this.boton = botonTriplicador;
     }
 
     public void handle(ActionEvent actionEvent) {
-        panel.activarDuplicador();
+        panel.activarTriplicador();
         boton.setDisable(true);
     }
 }

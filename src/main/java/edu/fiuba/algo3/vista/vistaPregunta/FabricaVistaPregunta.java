@@ -1,7 +1,8 @@
-package edu.fiuba.algo3.vista;
+package edu.fiuba.algo3.vista.vistaPregunta;
 
 
 import edu.fiuba.algo3.modelo.Panel;
+import edu.fiuba.algo3.vista.VistaGameOver;
 import edu.fiuba.algo3.vista.cajas.CajaJugadores;
 import edu.fiuba.algo3.vista.cajas.CajaTimer;
 import javafx.scene.Scene;
