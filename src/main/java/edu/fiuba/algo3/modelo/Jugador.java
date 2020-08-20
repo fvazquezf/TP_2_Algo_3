@@ -27,14 +27,6 @@ public class Jugador implements Observable {
         return nombre;
     }
 
-    public void estadoDuplicador() {
-        estadoMultiplicador.estadoDuplicador();
-    }
-
-    public void estadoTriplicador() {
-        estadoMultiplicador.estadoTriplicador();
-    }
-
     public void asignarPuntos(int puntos) {
         this.puntos += estadoMultiplicador.multiplicar(puntos);
         this.notificarObservador();
@@ -45,6 +37,14 @@ public class Jugador implements Observable {
             throw new ExcepcionYaUsasteLasExclusividadesSalame();
         }
         exclusividadDisponible--;
+    }
+
+    public void activarDuplicador() {
+        estadoMultiplicador.activarDuplicador();
+    }
+
+    public void activarTriplicador() {
+        estadoMultiplicador.activarTriplicador();
     }
 
     @Override

@@ -33,6 +33,14 @@ public class Panel implements Observable {
         jugadorSiguiente = new Jugador(nombre2);
     }
 
+    public Jugador pedirJugadorActual() {
+        return (jugadorActual);
+    }
+
+    public Jugador pedirJugadorSiguiente() {
+        return (jugadorSiguiente);
+    }
+
     public Pregunta obtenerPreguntaActual() {
         return preguntas.get(numeroDePreguntaActual);
     }
@@ -81,21 +89,13 @@ public class Panel implements Observable {
     }
 
     public void activarDuplicador() {
-        jugadorActual.estadoDuplicador();
+        jugadorActual.activarDuplicador();
         preguntas.get(numeroDePreguntaActual).activarMultiplicador();
     }
 
     public void activarTriplicador() {
-        jugadorActual.estadoTriplicador();
+        jugadorActual.activarTriplicador();
         preguntas.get(numeroDePreguntaActual).activarMultiplicador();
-    }
-
-    public Jugador pedirJugadorActual() {
-        return (jugadorActual);
-    }
-
-    public Jugador pedirJugadorSiguiente() {
-        return (jugadorSiguiente);
     }
 
     @Override
@@ -107,9 +107,4 @@ public class Panel implements Observable {
     public void notificarObservador() {
         observadores.forEach(Observador::actualizar);
     }
-
-    public String tipoDePreguntaActual() {
-        return preguntas.get(numeroDePreguntaActual).obtenerTipoPregunta();
-    }
-
 }

@@ -34,7 +34,7 @@ public class VistaJuego implements Observador {
 
         cajaTimer = new CajaTimer(panel);
 
-        Scene vistaPregunta = fabricaVistaPregunta.crearVista(panel, panel.tipoDePreguntaActual(), cajaJugadores, cajaTimer);
+        Scene vistaPregunta = fabricaVistaPregunta.crearVista(panel, panel.obtenerPreguntaActual().obtenerTipoPregunta(), cajaJugadores, cajaTimer);
         stage.setScene(vistaPregunta);
         stage.show();
     }
@@ -42,7 +42,7 @@ public class VistaJuego implements Observador {
 
     @Override
     public void actualizar() {
-        Scene vistaPregunta = fabricaVistaPregunta.crearVista(panel, panel.tipoDePreguntaActual(), cajaJugadores, cajaTimer);
+        Scene vistaPregunta = fabricaVistaPregunta.crearVista(panel, panel.obtenerPreguntaActual().obtenerTipoPregunta(), cajaJugadores, cajaTimer);
         stage.setScene(vistaPregunta);
         stage.show();
     }

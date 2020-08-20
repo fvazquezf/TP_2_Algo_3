@@ -1,7 +1,7 @@
 [
   {
     "tipoPregunta": "preguntaVoFClasica",
-    "pregunta": "¿Es blanco el caballo blanco de San Martin?",
+    "pregunta": "(!true && false) || (true == false) && (!false || true)",
     "opcionesPosibles": [
       "Verdadero",
       "Falso"
@@ -27,7 +27,8 @@
     ],
     "opcionesCorrectas": [
       "Print driven developnet",
-      "Metodo de desarrollo"
+      "Metodo de desarrollo",
+      "Frula"
     ],
     "grupos": [
       {
@@ -84,18 +85,15 @@
   },
   {
     "tipoPregunta": "preguntaMCConPenalidad",
-    "pregunta": "¿Cuales son verdaderas ingenierias?",
+    "pregunta": "¿Como se festeja cuando pasan las pruebas?",
     "opcionesPosibles": [
-      "Electrónica",
-      "Mecánica",
-      "Sistemas",
-      "Industrial",
-      "Infomática"
+      "Eureka!",
+      "LTA",
+      "fiesta",
+      "Yiupi!"
     ],
     "opcionesCorrectas": [
-      "Electrónica",
-      "Mecánica",
-      "Infomática"
+      "fiesta"
     ],
     "grupos": [
       {
