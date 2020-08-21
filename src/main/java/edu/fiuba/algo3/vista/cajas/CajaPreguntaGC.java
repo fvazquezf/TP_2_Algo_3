@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.vista.cajas;
 
+import edu.fiuba.algo3.modelo.preguntas.PreguntaGC;
 import edu.fiuba.algo3.vista.Timer;
 import edu.fiuba.algo3.modelo.Observador;
 import edu.fiuba.algo3.modelo.Panel;
-import edu.fiuba.algo3.modelo.preguntas.Pregunta;
 import edu.fiuba.algo3.vista.botones.BotonCajaOpcionesGC;
 import edu.fiuba.algo3.vista.botones.BotonOpcionGC;
 import edu.fiuba.algo3.vista.botones.BotonResponderGC;
@@ -18,7 +18,7 @@ import java.util.HashSet;
 public class CajaPreguntaGC extends HBox implements Observador {
     private final Collection<String> respuestasJugador;
     private final Collection<String> respuestasDelOtroGrupo;
-    private final Pregunta pregunta;
+    private final PreguntaGC pregunta;
     private VBox cajaOpciones;
     private final HBox hb;
 
@@ -30,7 +30,7 @@ public class CajaPreguntaGC extends HBox implements Observador {
 
         this.respuestasDelOtroGrupo = new HashSet<>();
 
-        this.pregunta = panel.obtenerPreguntaActual();
+        this.pregunta = (PreguntaGC) panel.obtenerPreguntaActual();
 
         Label labelPregunta = new Label(pregunta.obtenerPregunta());
 

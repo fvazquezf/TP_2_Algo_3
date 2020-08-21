@@ -28,12 +28,10 @@ public class PreguntaGC extends Pregunta {
         return puntos;
     }
 
-    @Override
     public String obtenerGrupoCorrecto() {
         return grupos.get("grupoAComparar");
     }
 
-    @Override
     public String obtenerGrupoIncorrecto() {
         return grupos.get("otroGrupo");
     }

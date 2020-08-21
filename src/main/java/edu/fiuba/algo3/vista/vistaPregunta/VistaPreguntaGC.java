@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.vista.vistaPregunta;
 
 import edu.fiuba.algo3.modelo.Panel;
+import edu.fiuba.algo3.modelo.preguntas.PreguntaGC;
 import edu.fiuba.algo3.vista.cajas.*;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -27,7 +28,8 @@ public class VistaPreguntaGC implements VistaPregunta {
         componentLayout.setPadding(new Insets(50, 100, 50, 100));
 
         Set<String> respuestasJugador = new HashSet<>();
-        respuestasJugador.add(panel.obtenerPreguntaActual().obtenerGrupoCorrecto());
+        PreguntaGC pregunta = (PreguntaGC) panel.obtenerPreguntaActual();
+        respuestasJugador.add( pregunta.obtenerGrupoCorrecto());
 
         cajaJugadores.activarExclusividades();
 
