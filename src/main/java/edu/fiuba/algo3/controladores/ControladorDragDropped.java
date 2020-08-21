@@ -9,11 +9,11 @@ import javafx.scene.layout.VBox;
 
 import java.util.Collection;
 
-public class ControladorDragDroppedGC implements EventHandler<DragEvent> {
+public class ControladorDragDropped implements EventHandler<DragEvent> {
     private final Collection<String> respuestasJugador;
     private final VBox cajaGrupo;
 
-    public ControladorDragDroppedGC(Collection<String> respuestasJugador, VBox cajaGrupo) {
+    public ControladorDragDropped(Collection<String> respuestasJugador, VBox cajaGrupo) {
         this.respuestasJugador = respuestasJugador;
         this.cajaGrupo = cajaGrupo;
     }

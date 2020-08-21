@@ -1,5 +1,29 @@
 [
   {
+    "tipoPregunta": "preguntaOC",
+    "pregunta": "Ordene los lenguajes de mejor a peor",
+    "opcionesPosibles": [
+      "Smalltalk",
+      "Java",
+      "Pyhton",
+      "C",
+      "Pascal"
+    ],
+    "opcionesCorrectas": [
+      "Pascal",
+      "Python",
+      "Java",
+      "Smalltalk",
+      "C"
+    ],
+    "grupos": [
+      {
+        "grupoAComparar": "",
+        "otroGrupo": ""
+      }
+    ]
+  },
+  {
     "tipoPregunta": "preguntaVoFClasica",
     "pregunta": "(!true && false) || (true == false) && (!false || true)",
     "opcionesPosibles": [
@@ -29,30 +53,6 @@
       "Print driven developnet",
       "Metodo de desarrollo",
       "Frula"
-    ],
-    "grupos": [
-      {
-        "grupoAComparar": "",
-        "otroGrupo": ""
-      }
-    ]
-  },
-  {
-    "tipoPregunta": "preguntaOC",
-    "pregunta": "Ordene los lenguajes de mejor a peor",
-    "opcionesPosibles": [
-      "Smalltalk",
-      "Java",
-      "Pyhton",
-      "C",
-      "Pascal"
-    ],
-    "opcionesCorrectas": [
-      "Pascal",
-      "Python",
-      "Java",
-      "Smalltalk",
-      "C"
     ],
     "grupos": [
       {

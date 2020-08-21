@@ -4,7 +4,7 @@ import javafx.event.EventHandler;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.TransferMode;
 
-public class ControladorDragOverGC implements EventHandler<DragEvent> {
+public class ControladorDragOver implements EventHandler<DragEvent> {
 
     public void handle(DragEvent event) {
 

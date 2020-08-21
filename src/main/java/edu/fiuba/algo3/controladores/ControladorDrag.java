@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.controladores;
 
-import edu.fiuba.algo3.vista.botones.BotonOpcionGC;
+import edu.fiuba.algo3.vista.botones.BotonOpcionDragAndDrop;
 
 import javafx.event.EventHandler;
 import javafx.scene.input.ClipboardContent;
@@ -9,11 +9,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
 
 
-public class ControladorDragGC implements EventHandler<MouseEvent> {
+public class ControladorDrag implements EventHandler<MouseEvent> {
 
-    private final BotonOpcionGC boton;
+    private final BotonOpcionDragAndDrop boton;
 
-    public ControladorDragGC(BotonOpcionGC botonOpcionGC) {
+    public ControladorDrag(BotonOpcionDragAndDrop botonOpcionGC) {
         this.boton = botonOpcionGC;
     }
 
