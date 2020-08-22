@@ -4,7 +4,9 @@ import edu.fiuba.algo3.modelo.exclusividad.EstadoExclusividad;
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionYaNoHayPreguntasParaHacer;
 import edu.fiuba.algo3.modelo.manejoDeTurnos.EstadoFlowDelJuego;
 import edu.fiuba.algo3.modelo.preguntas.Pregunta;
+import javafx.scene.media.AudioClip;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -23,6 +25,9 @@ public class Panel implements Observable {
     private final EstadoExclusividad estadoExclusividad = new EstadoExclusividad();
 
     private final ArrayList<Observador> observadores = new ArrayList<>();
+
+    static final String archivoFiesta = "rsc/diegoFiesta.wav";
+    static final String archivoFrula = "rsc/pabloFrula.wav";
 
     public Panel(LectorPreguntas lector) {
         preguntas.addAll(lector.parsearPreguntas());
@@ -46,6 +51,15 @@ public class Panel implements Observable {
     }
 
     public void hacerPregunta(Collection<String> respuestasJugadores) {
+
+        AudioClip sonido;
+        if(!respuestasJugadores.isEmpty()){
+            sonido = new AudioClip(new File(archivoFiesta).toURI().toString());
+        }else{
+            sonido = new AudioClip(new File(archivoFrula).toURI().toString());
+        }
+        sonido.play();
+
         int puntos = preguntas.get(numeroDePreguntaActual).compararRespuestas(respuestasJugadores);
         jugadorActual.asignarPuntos(puntos);
         estadoExclusividad.guardarRespuesta(jugadorActual, puntos);
