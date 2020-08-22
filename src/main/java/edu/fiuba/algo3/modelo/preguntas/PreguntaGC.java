@@ -2,13 +2,17 @@ package edu.fiuba.algo3.modelo.preguntas;
 
 import edu.fiuba.algo3.modelo.comportamientos.ComportamientoClasico;
 import edu.fiuba.algo3.modelo.excepciones.ExcepcionPreguntaGCInvalida;
+import javafx.scene.media.AudioClip;
 
+import java.io.File;
 import java.util.Collection;
 import java.util.Map;
 
 public class PreguntaGC extends Pregunta {
     private final ComportamientoClasico comportamiento = new ComportamientoClasico();
     Map<String, String> grupos;
+    static final String archivoFiesta = "rsc/diegoFiesta.wav";
+    static final String archivoFrula = "rsc/pabloFrula.wav";
 
 
     public PreguntaGC(String tipoPregunta, String pregunta, String[] opcionesCorrectas, Collection<String> todasLasOpciones, Map<String, String> grupos) {
@@ -25,6 +29,15 @@ public class PreguntaGC extends Pregunta {
     public Integer compararRespuestas(Collection<String> opcionesJugador) {
         int puntos = comportamiento.compararRespuestas(opcionesJugador, opcionesCorrectas);
         notificarObservador();
+
+        AudioClip sonido;
+        if (puntos == 0) {
+            sonido = new AudioClip(new File(archivoFrula).toURI().toString());
+        } else {
+            sonido = new AudioClip(new File(archivoFiesta).toURI().toString());
+        }
+        sonido.play();
+
         return puntos;
     }
 
