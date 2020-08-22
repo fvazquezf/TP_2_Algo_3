@@ -16,8 +16,6 @@ BorderColor DimGray
 
 class Panel{
        - pregunta: Pregunta
-       - jugadores: HashMap<String, Jugador>
-       - fabricaPreguntas: FabricaPreguntas
        - jugadorActual: Jugador
        - jugadorSiguiente: Jugador
        + Panel(LectorPreguntas)

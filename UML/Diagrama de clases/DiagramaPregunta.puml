@@ -1,0 +1,44 @@
+@startuml TP2
+
+title Diagrama de Clases Lector Preguntas
+
+hide circle
+skinparam classAttributeIconSize 0
+skinparam roundcorner 25
+skinparam sequenceArrowThickness 2
+skinparam classFontSize 20
+
+skinparam class {
+BackgroundColor FloralWhite
+ArrowColor DimGray
+BorderColor DimGray
+}
+
+class LectorPreguntas{
+       + parsearPreguntas(): List<Preguntas>
+}
+
+class Preguntas{
+       - pregunta: String
+       - tipoPregunta: String
+       - opcionesPosibles: String[]
+       - opcionesCorrectas: String[]
+       + obtenerPregunta(): String
+       + obtenerTipoPregunta(): String
+       + obtenerGrupos(): HashMap<String, String>
+       + obtenerLOpcionesPosibles(): Collection<String>
+       + obtenerOpcionesCorrectas():String[]
+}
+
+class Grupo{
+        - grupoAComparar: String
+        - otroGrupo: String
+        + Grupo(String, String)
+        + obtenerGrupos(): Map<String,String>
+}
+
+
+LectorPreguntas ..>Preguntas
+Preguntas o--> Grupo
+
+@enduml
