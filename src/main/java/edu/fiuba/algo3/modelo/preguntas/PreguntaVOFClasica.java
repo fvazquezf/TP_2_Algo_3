@@ -32,6 +32,7 @@ public class PreguntaVOFClasica extends Pregunta {
             sonido = new AudioClip(new File(archivoFrula).toURI().toString());
         } else {
             sonido = new AudioClip(new File(archivoFiesta).toURI().toString());
+            sonido.setVolume(2.0);
         }
         sonido.play();
 
