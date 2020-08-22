@@ -25,6 +25,9 @@ public class CajaJugadores extends HBox implements Observador {
     private final Label puntosJ1;
     private final Label puntosJ2;
 
+    private final Label nombreJ1;
+    private final Label nombreJ2;
+
     public CajaJugadores(Panel panel) {
 
         j1 = panel.pedirJugadorActual();
@@ -35,10 +38,12 @@ public class CajaJugadores extends HBox implements Observador {
 
 
         puntosJ1 = new Label(String.valueOf(j1.pedirPuntos()));
-        Label nombreJ1 = new Label("Jugador 1 " + j1.pedirNombre() + ": ");
+        nombreJ1 = new Label("Jugador 1 " + j1.pedirNombre() + ": ");
+        nombreJ1.setStyle("-fx-font-weight: bold");
+        puntosJ1.setStyle("-fx-font-weight: bold");
 
         puntosJ2 = new Label(String.valueOf(j2.pedirPuntos()));
-        Label nombreJ2 = new Label("Jugador 2 " + j2.pedirNombre() + ": ");
+        nombreJ2 = new Label("Jugador 2 " + j2.pedirNombre() + ": ");
 
         HBox J1 = new HBox();
         J1.getChildren().addAll(nombreJ1, puntosJ1);
@@ -73,11 +78,12 @@ public class CajaJugadores extends HBox implements Observador {
         this.getChildren().addAll(jugadores, exclusividades, multiplicadores);
     }
 
-    public void activarMultiplicadores(){
+    public void activarMultiplicadores() {
         exclusividades.setDisable(true);
         multiplicadores.setDisable(false);
     }
-    public void activarExclusividades(){
+
+    public void activarExclusividades() {
         exclusividades.setDisable(false);
         multiplicadores.setDisable(true);
     }
@@ -94,8 +100,22 @@ public class CajaJugadores extends HBox implements Observador {
 
         String puntosJ1 = String.valueOf(j1.pedirPuntos());
         this.puntosJ1.setText(puntosJ1);
-
         String puntosJ2 = String.valueOf(j2.pedirPuntos());
         this.puntosJ2.setText(puntosJ2);
+
+        if (turno) {
+            nombreJ1.setStyle("-fx-font-weight: bold");
+            this.puntosJ1.setStyle("-fx-font-weight: bold");
+        } else {
+            nombreJ1.setStyle("-fx-font-weight: normal");
+            this.puntosJ1.setStyle("-fx-font-weight: normal");
+        }
+        if (!turno) {
+            nombreJ2.setStyle("-fx-font-weight: bold");
+            this.puntosJ2.setStyle("-fx-font-weight: bold");
+        } else {
+            nombreJ2.setStyle("-fx-font-weight: normal");
+            this.puntosJ2.setStyle("-fx-font-weight: normal");
+        }
     }
 }
