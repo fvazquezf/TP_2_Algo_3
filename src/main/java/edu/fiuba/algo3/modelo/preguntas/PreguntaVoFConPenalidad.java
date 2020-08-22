@@ -29,7 +29,7 @@ public class PreguntaVoFConPenalidad extends Pregunta {
         notificarObservador();
 
         AudioClip sonido;
-        if (puntos == 0) {
+        if (puntos <= 0) {
             sonido = new AudioClip(new File(archivoFrula).toURI().toString());
         } else {
             sonido = new AudioClip(new File(archivoFiesta).toURI().toString());
