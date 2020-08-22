@@ -1,11 +1,11 @@
 package edu.fiuba.algo3.vista.cajas;
 
+import edu.fiuba.algo3.modelo.preguntas.PreguntaGC;
 import edu.fiuba.algo3.vista.Timer;
 import edu.fiuba.algo3.modelo.Observador;
 import edu.fiuba.algo3.modelo.Panel;
-import edu.fiuba.algo3.modelo.preguntas.Pregunta;
-import edu.fiuba.algo3.vista.botones.BotonCajaOpcionesGC;
-import edu.fiuba.algo3.vista.botones.BotonOpcionGC;
+import edu.fiuba.algo3.vista.botones.BotonCajaOpcionesDragAndDrop;
+import edu.fiuba.algo3.vista.botones.BotonOpcionDragAndDrop;
 import edu.fiuba.algo3.vista.botones.BotonResponderGC;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -18,7 +18,7 @@ import java.util.HashSet;
 public class CajaPreguntaGC extends HBox implements Observador {
     private final Collection<String> respuestasJugador;
     private final Collection<String> respuestasDelOtroGrupo;
-    private final Pregunta pregunta;
+    private final PreguntaGC pregunta;
     private VBox cajaOpciones;
     private final HBox hb;
 
@@ -30,22 +30,22 @@ public class CajaPreguntaGC extends HBox implements Observador {
 
         this.respuestasDelOtroGrupo = new HashSet<>();
 
-        this.pregunta = panel.obtenerPreguntaActual();
+        this.pregunta = (PreguntaGC) panel.obtenerPreguntaActual();
 
         Label labelPregunta = new Label(pregunta.obtenerPregunta());
 
 
         VBox cajaGrupoCorrecto = new VBox();
-        BotonCajaOpcionesGC grupoCorrecto = new BotonCajaOpcionesGC(pregunta.obtenerGrupoCorrecto(), respuestasJugador, cajaGrupoCorrecto);
+        BotonCajaOpcionesDragAndDrop grupoCorrecto = new BotonCajaOpcionesDragAndDrop(pregunta.obtenerGrupoCorrecto(), respuestasJugador, cajaGrupoCorrecto);
         cajaGrupoCorrecto.getChildren().add(grupoCorrecto);
 
         VBox cajaGrupoincorrecto = new VBox();
-        BotonCajaOpcionesGC grupoIncorrecto = new BotonCajaOpcionesGC(pregunta.obtenerGrupoIncorrecto(), respuestasDelOtroGrupo, cajaGrupoincorrecto);
+        BotonCajaOpcionesDragAndDrop grupoIncorrecto = new BotonCajaOpcionesDragAndDrop(pregunta.obtenerGrupoIncorrecto(), respuestasDelOtroGrupo, cajaGrupoincorrecto);
         cajaGrupoincorrecto.getChildren().add(grupoIncorrecto);
 
         cajaOpciones = new VBox();
 
-        pregunta.obtenerTodasLasOpciones().forEach((o) -> cajaOpciones.getChildren().add(new BotonOpcionGC(o)));
+        pregunta.obtenerTodasLasOpciones().forEach((o) -> cajaOpciones.getChildren().add(new BotonOpcionDragAndDrop(o)));
 
         Button botonResponder = new BotonResponderGC(panel, respuestasJugador, respuestasDelOtroGrupo, timer);
 
@@ -66,16 +66,16 @@ public class CajaPreguntaGC extends HBox implements Observador {
         respuestasDelOtroGrupo.clear();
 
         VBox cajaGrupoCorrecto = new VBox();
-        BotonCajaOpcionesGC grupoCorrecto = new BotonCajaOpcionesGC(pregunta.obtenerGrupoCorrecto(), respuestasJugador, cajaGrupoCorrecto);
+        BotonCajaOpcionesDragAndDrop grupoCorrecto = new BotonCajaOpcionesDragAndDrop(pregunta.obtenerGrupoCorrecto(), respuestasJugador, cajaGrupoCorrecto);
         cajaGrupoCorrecto.getChildren().add(grupoCorrecto);
 
         VBox cajaGrupoincorrecto = new VBox();
-        BotonCajaOpcionesGC grupoIncorrecto = new BotonCajaOpcionesGC(pregunta.obtenerGrupoIncorrecto(), respuestasDelOtroGrupo, cajaGrupoincorrecto);
+        BotonCajaOpcionesDragAndDrop grupoIncorrecto = new BotonCajaOpcionesDragAndDrop(pregunta.obtenerGrupoIncorrecto(), respuestasDelOtroGrupo, cajaGrupoincorrecto);
         cajaGrupoincorrecto.getChildren().add(grupoIncorrecto);
 
         cajaOpciones = new VBox();
 
-        pregunta.obtenerTodasLasOpciones().forEach((o) -> cajaOpciones.getChildren().add(new BotonOpcionGC(o)));
+        pregunta.obtenerTodasLasOpciones().forEach((o) -> cajaOpciones.getChildren().add(new BotonOpcionDragAndDrop(o)));
 
         hb.getChildren().clear();
         hb.getChildren().addAll(cajaGrupoCorrecto, cajaOpciones, cajaGrupoincorrecto);

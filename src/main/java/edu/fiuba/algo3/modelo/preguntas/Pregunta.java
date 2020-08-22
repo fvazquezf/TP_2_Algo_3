@@ -53,14 +53,6 @@ public abstract class Pregunta implements Observable {
     public void activarExclusividad() {
     }
 
-    public String obtenerGrupoCorrecto() {
-        return null;
-    }
-
-    public String obtenerGrupoIncorrecto() {
-        return null;
-    }
-
     public String obtenerTipoPregunta() {
         return tipoPregunta;
     }

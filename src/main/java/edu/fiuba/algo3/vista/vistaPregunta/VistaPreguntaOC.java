@@ -3,6 +3,7 @@ package edu.fiuba.algo3.vista.vistaPregunta;
 import edu.fiuba.algo3.modelo.Panel;
 import edu.fiuba.algo3.vista.cajas.CajaJugadores;
 import edu.fiuba.algo3.vista.cajas.CajaPregunta;
+import edu.fiuba.algo3.vista.cajas.CajaPreguntaOC;
 import edu.fiuba.algo3.vista.cajas.CajaTimer;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -27,9 +28,9 @@ public class VistaPreguntaOC implements VistaPregunta {
         BorderPane componentLayout = new BorderPane();
         componentLayout.setPadding(new Insets(50, 100, 50, 100));
 
-        List<String> respuestasJugador = new LinkedList<>();
+        LinkedList<String> respuestasJugador = new LinkedList<>();
 
-        CajaPregunta cajaPregunta = new CajaPregunta(panel, respuestasJugador, cajaTimer.devolverReloj());
+        CajaPreguntaOC cajaPregunta = new CajaPreguntaOC(panel, respuestasJugador, cajaTimer.devolverReloj());
         panel.obtenerPreguntaActual().agregarObservador(cajaPregunta);
 
         cajaJugadores.activarExclusividades();

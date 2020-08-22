@@ -6,7 +6,10 @@ import edu.fiuba.algo3.vista.cajas.CajaJugadores;
 import edu.fiuba.algo3.vista.cajas.CajaTimer;
 import edu.fiuba.algo3.vista.vistaPregunta.FabricaVistaPregunta;
 import javafx.scene.Scene;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
+
+import java.io.File;
 
 public class VistaJuego implements Observador {
     private final Panel panel;
@@ -14,6 +17,7 @@ public class VistaJuego implements Observador {
     private final FabricaVistaPregunta fabricaVistaPregunta = new FabricaVistaPregunta();
     private CajaJugadores cajaJugadores;
     private CajaTimer cajaTimer;
+    static final String archivoMusica = "rsc/musica.wav";
 
     public VistaJuego(Stage stage, Panel panel) {
         this.stage = stage;
@@ -33,6 +37,11 @@ public class VistaJuego implements Observador {
         cajaJugadores = new CajaJugadores(panel);
 
         cajaTimer = new CajaTimer(panel);
+
+        AudioClip sonido;
+        sonido = new AudioClip(new File(archivoMusica).toURI().toString());
+        sonido.setVolume(0.1);
+        sonido.play();
 
         Scene vistaPregunta = fabricaVistaPregunta.crearVista(panel, panel.obtenerPreguntaActual().obtenerTipoPregunta(), cajaJugadores, cajaTimer);
         stage.setScene(vistaPregunta);
