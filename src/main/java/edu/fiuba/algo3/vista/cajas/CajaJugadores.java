@@ -103,14 +103,14 @@ public class CajaJugadores extends HBox implements Observador {
         String puntosJ2 = String.valueOf(j2.pedirPuntos());
         this.puntosJ2.setText(puntosJ2);
 
-        if (turno) {
+        if (!turno) {
             nombreJ1.setStyle("-fx-font-weight: bold");
             this.puntosJ1.setStyle("-fx-font-weight: bold");
         } else {
             nombreJ1.setStyle("-fx-font-weight: normal");
             this.puntosJ1.setStyle("-fx-font-weight: normal");
         }
-        if (!turno) {
+        if (turno) {
             nombreJ2.setStyle("-fx-font-weight: bold");
             this.puntosJ2.setStyle("-fx-font-weight: bold");
         } else {
