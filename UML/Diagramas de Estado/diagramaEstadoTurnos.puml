@@ -1,0 +1,17 @@
+@startuml
+
+skinparam backgroundColor white
+
+skinparam state {
+BackgroundColor FloralWhite
+ArrowColor DimGray
+BorderColor DimGray
+}
+
+[*] -right-> SiguienteTurno
+SiguienteTurno -----> SiguienteRonda: siguiente()
+SiguienteRonda --> SiguienteTurno: siguiente()
+
+
+}
+@enduml

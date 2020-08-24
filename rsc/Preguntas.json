@@ -1,12 +1,144 @@
-{
-  "Preguntas": [
-    {
-      "Pregunta": "Es blanco el caballo blanco de San Martin?",
-      "PosiblesRespuestas": [
-        true,
-        false
-      ],
-      "RespuestaCorrecta" : true
-    }
-  ]
-}
+[
+  {
+    "tipoPregunta": "preguntaOC",
+    "pregunta": "Ordene los lenguajes de mejor a peor",
+    "opcionesPosibles": [
+      "Smalltalk",
+      "Java",
+      "Python",
+      "C",
+      "Pascal"
+    ],
+    "opcionesCorrectas": [
+      "Pascal",
+      "Python",
+      "Java",
+      "Smalltalk",
+      "C"
+    ],
+    "grupos": [
+      {
+        "grupoAComparar": "",
+        "otroGrupo": ""
+      }
+    ]
+  },
+  {
+    "tipoPregunta": "preguntaVoFClasica",
+    "pregunta": "(!true && false) || (true == false) && (!false || true)",
+    "opcionesPosibles": [
+      "Verdadero",
+      "Falso"
+    ],
+    "opcionesCorrectas": [
+      "V"
+    ],
+    "grupos": [
+      {
+        "grupoAComparar": "",
+        "otroGrupo": ""
+      }
+    ]
+  },
+  {
+    "tipoPregunta": "preguntaMCClasica",
+    "pregunta": "¿Qué es PDD?",
+    "opcionesPosibles": [
+      "Metodo de desarrollo",
+      "Test Driven development",
+      "Print driven developnet",
+      "Frula"
+    ],
+    "opcionesCorrectas": [
+      "Print driven developnet",
+      "Metodo de desarrollo",
+      "Frula"
+    ],
+    "grupos": [
+      {
+        "grupoAComparar": "",
+        "otroGrupo": ""
+      }
+    ]
+  },
+  {
+    "tipoPregunta": "preguntaGC",
+    "pregunta": "¿Cuáles son de fuego y cuales de electricidad?",
+    "opcionesPosibles": [
+      "Pikachu",
+      "Charizard",
+      "Electabuzz",
+      "Jolteon",
+      "Ponyta"
+    ],
+    "opcionesCorrectas": [
+      "Pikachu",
+      "Electabuzz",
+      "Jolteon"
+    ],
+    "grupos": [
+      {
+        "grupoAComparar": "Eléctrico",
+        "otroGrupo": "Fuego"
+      }
+    ]
+  },
+  {
+    "tipoPregunta": "preguntaMCConPuntajeParcial",
+    "pregunta": "¿Cuáles son obras de Sherlock Holms?",
+    "opcionesPosibles": [
+      "El signo de los 4",
+      "Muerte en la vicaria",
+      "Estudio en escarlata",
+      "El valle del terror",
+      "Cartas sobre la mesa"
+    ],
+    "opcionesCorrectas": [
+      "El signo de los 4",
+      "Estudio en escarlata",
+      "El valle del terror"
+    ],
+    "grupos": [
+      {
+        "grupoAComparar": "",
+        "otroGrupo": ""
+      }
+    ]
+  },
+  {
+    "tipoPregunta": "preguntaMCConPenalidad",
+    "pregunta": "¿Como se festeja cuando pasan las pruebas?",
+    "opcionesPosibles": [
+      "Eureka!",
+      "LTA",
+      "fiesta",
+      "Yiupi!"
+    ],
+    "opcionesCorrectas": [
+      "fiesta"
+    ],
+    "grupos": [
+      {
+        "otroGrupo": "",
+        "grupoAComparar": ""
+      }
+    ]
+  },
+  {
+    "tipoPregunta": "preguntaVoFConPenalidad",
+    "pregunta": "¿Este juego es mejor que el Kahoot?",
+    "opcionesPosibles": [
+      "Verdadero",
+      "Falso"
+    ],
+    "opcionesCorrectas": [
+      "V"
+    ],
+    "grupos": [
+      {
+        "otroGrupo": "",
+        "grupoAComparar": ""
+      }
+    ]
+  }
+]

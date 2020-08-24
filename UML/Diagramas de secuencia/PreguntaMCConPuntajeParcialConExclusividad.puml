@@ -1,0 +1,74 @@
+@startuml
+
+title Diagrama de secuencia para pregunta Multiple Chioce con puntaje parcial: Jugadores utilizan Exclusividad
+
+hide footbox
+skinparam backgroundColor white
+
+skinparam sequence {
+ArrowColor DimGray
+ActorBorderColor DodgerBlue
+LifeLineBorderColor Navy
+LifeLineBackgroundColor CornflowerBlue
+ParticipantBorderColor LighSlateGray
+ParticipantBackgroundColor CornflowerBlue
+ParticipantFontName Impact
+ParticipantFontSize 17
+ParticipantFontColor #A9DCDF
+ActorBackgroundColor mintCream
+ActorFontColor CornflowerBlue
+ActorFontSize 17
+ActorFontName Aapex
+}
+
+actor TestCase
+activate TestCase
+
+create Panel
+TestCase -> Panel : new()
+activate Panel
+create EstadoExclusividad
+Panel -> EstadoExclusividad: new()
+activate EstadoExclusividad
+
+Participant PreguntaMCConPuntajeParcial
+activate PreguntaMCConPuntajeParcial
+Participant Jugador
+activate Jugador
+Participant ComportamientoConPuntajeParcial
+activate ComportamientoConPuntajeParcial
+Participant EstadoDelJuego
+activate EstadoDelJuego
+
+TestCase -> Panel: activarExclusividad()
+Panel -> PreguntaMCConPuntajeParcial:activarExclusividad()
+Panel -> Jugador:activarExclusividad()
+Panel -> EstadoExclusividad:activarExclusividad()
+
+loop por jugador
+TestCase -> Panel: hacerPregunta(Set<String>)
+Panel -> PreguntaMCConPuntajeParcial: compararRespuestas(Collection<String>)
+PreguntaMCConPuntajeParcial -> ComportamientoConPuntajeParcial: compararRespuestas(Collection<String>, HashSet<String>)
+ComportamientoConPuntajeParcial --> PreguntaMCConPuntajeParcial: Int
+PreguntaMCConPuntajeParcial --> Panel: Int
+Panel -> Jugador: asignarPuntos(Int)
+Jugador --> Panel: Int
+Panel -> EstadoExclusividad: guardarRespuesta(Jugador, Int)
+Panel -> EstadoDelJuego: proximoEstado(Panel)
+Panel -> EstadoExclusividad: calcularExclusividad()
+end loop
+loop por jugador
+TestCase -> Panel: pedirJugador()
+Panel --> TestCase: Jugador
+TestCase -> Jugador: pedirPuntos()
+Panel --> TestCase: Int
+end loop
+
+
+deactivate EstadoExclusividad
+deactivate PreguntaMCConPuntajeParcial
+deactivate Jugador
+deactivate Panel
+deactivate TestCase
+
+@enduml

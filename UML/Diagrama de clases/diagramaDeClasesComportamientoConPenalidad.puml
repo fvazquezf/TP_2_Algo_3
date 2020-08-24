@@ -1,0 +1,58 @@
+@startuml TP2
+
+title Diagrama De Clases De Preguntas con comportamiento con Penalidad Cajú
+
+hide circle
+skinparam classAttributeIconSize 0
+skinparam roundcorner 25
+skinparam sequenceArrowThickness 2
+skinparam classFontSize 20
+
+skinparam class {
+BackgroundColor FloralWhite
+ArrowColor DimGray
+BorderColor DimGray
+}
+
+abstract class Pregunta{
+        # tipoPregunta: String
+        # opcionesCorrectas: Collection<String>
+        # todasLasOpciones: Collection<String>
+        # textoPregunta: String
+        + compararRespuestas(Collection<String>): Int
+        + activarMultiplicador()
+        + activarExclusividad()
+}
+
+class PreguntaMCConPenalidad{
+        + PreguntaMCConPenalidad(String, String, String[], Collection<String>)
+        + compararRespuestas(Collection<String>): Int
+        + activarExclusividad()
+}
+
+class PreguntaVoFConPenalidad{
+        + PreguntaVoFConPenalidad(String, String, String[])
+        + compararRespuestas(Collection<String>): Int
+        + activarExclusividad()
+}
+
+interface Comportamiento{
+        + compararRespuestas(Collection<String>, Collection<String>): Int
+}
+
+class ComportamientoConPenalidad{
+        + compararRespuestas(Collection<String>, Collection<String>): Int
+}
+
+
+PreguntaMCConPenalidad -up-|> Pregunta
+PreguntaVoFConPenalidad -up-|> Pregunta
+
+ComportamientoConPenalidad ..|> Comportamiento
+
+PreguntaVoFConPenalidad --> ComportamientoConPenalidad
+PreguntaMCConPenalidad --> ComportamientoConPenalidad
+
+
+
+@enduml

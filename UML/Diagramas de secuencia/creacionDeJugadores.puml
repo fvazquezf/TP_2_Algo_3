@@ -1,0 +1,76 @@
+@startuml
+
+title Diagrama de secuencia para la creación de los jugadores y sus turnos.
+
+hide footbox
+skinparam backgroundColor white
+
+skinparam sequence {
+ArrowColor DimGray
+ActorBorderColor DodgerBlue
+LifeLineBorderColor Navy
+LifeLineBackgroundColor CornflowerBlue
+ParticipantBorderColor LighSlateGray
+ParticipantBackgroundColor CornflowerBlue
+ParticipantFontName Impact
+ParticipantFontSize 17
+ParticipantFontColor #A9DCDF
+ActorBackgroundColor mintCream
+ActorFontColor CornflowerBlue
+ActorFontSize 17
+ActorFontName Aapex
+}
+
+actor TestCase
+activate TestCase
+
+
+
+create Panel
+TestCase -> Panel : new()
+activate Panel
+
+create EstadoFlowDelJuego
+Panel -> EstadoFlowDelJuego: new()
+activate EstadoFlowDelJuego
+create SiguienteTurno
+EstadoFlowDelJuego -> SiguienteTurno: new()
+activate SiguienteTurno
+
+Participant Pregunta
+activate Pregunta
+
+
+TestCase -> Panel: crearJugadores(String, String)
+create Jugador
+Panel -> Jugador: new(String)
+activate Jugador
+Jugador --> Panel: JugadorActual
+Panel -> Jugador: new(String)
+Jugador --> Panel: JugadorSiguiente
+
+TestCase -> Panel: hacerPregunta()
+Panel -> EstadoFlowDelJuego: proximoEstado()
+EstadoFlowDelJuego -> SiguienteTurno: siguienteTurno()
+SiguienteTurno -> Panel: siguienteJugador()
+EstadoFlowDelJuego -> SiguienteTurno: siguiente()
+create SiguienteRonda
+SiguienteTurno -> SiguienteRonda: new()
+activate SiguienteRonda
+SiguienteTurno -> EstadoFlowDelJuego: SiguienteRonda
+
+TestCase -> Panel: hacerPregunta()
+Panel -> EstadoFlowDelJuego: proximoEstado()
+EstadoFlowDelJuego -> SiguienteRonda: siguienteTurno()
+SiguienteRonda -> Panel: calcularExclusividad()
+SiguienteRonda -> Panel: siguienteJugador()
+SiguienteRonda -> Panel: siguientePregunta()
+EstadoFlowDelJuego -> SiguienteRonda: siguiente()
+SiguienteRonda -> SiguienteTurno: new()
+SiguienteRonda -> EstadoFlowDelJuego: SiguienteTurno
+
+deactivate Jugador
+deactivate Panel
+deactivate TestCase
+
+@enduml

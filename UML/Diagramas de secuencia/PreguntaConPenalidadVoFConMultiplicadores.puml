@@ -1,0 +1,76 @@
+@startuml
+
+title Diagrama de secuencia para pregunta Verdadero o Falso con Penalidad: los jugadores usan Duplicadores
+
+hide footbox
+skinparam backgroundColor white
+
+skinparam sequence {
+ArrowColor DimGray
+ActorBorderColor DodgerBlue
+LifeLineBorderColor Navy
+LifeLineBackgroundColor CornflowerBlue
+ParticipantBorderColor LighSlateGray
+ParticipantBackgroundColor CornflowerBlue
+ParticipantFontName Impact
+ParticipantFontSize 17
+ParticipantFontColor #A9DCDF
+ActorBackgroundColor mintCream
+ActorFontColor CornflowerBlue
+ActorFontSize 17
+ActorFontName Aapex
+}
+
+actor TestCase
+activate TestCase
+
+create Panel
+TestCase -> Panel : new()
+activate Panel
+
+Participant PreguntaVoFConPenalidad
+activate PreguntaVoFConPenalidad
+Participant Jugador
+activate Jugador
+Participant ComportamientoConPenalidad
+activate ComportamientoConPenalidad
+Participant EstadoDelJuego
+activate EstadoDelJuego
+
+loop por Jugador
+TestCase -> Panel: activarDuplicador()
+Panel -> Jugador: estadoDuplicador()
+create EstadoMultiplicador
+Jugador -> EstadoMultiplicador: new()
+activate EstadoMultiplicador
+Jugador -> EstadoMultiplicador: estadoDuplicador()
+create Duplicador
+EstadoMultiplicador -> Duplicador: new()
+activate Duplicador
+EstadoMultiplicador -> Duplicador: cambiarEstado()
+
+
+TestCase -> Panel: hacerPregunta(Set<String>)
+Panel -> PreguntaVoFConPenalidad: compararRespuestas(Collection<String>)
+PreguntaVoFConPenalidad -> ComportamientoConPenalidad: compararRespuestas(Collection<String>, Collection<String>)
+ComportamientoConPenalidad --> PreguntaVoFConPenalidad: Int
+PreguntaVoFConPenalidad --> Panel: Int
+Panel -> Jugador: asignarPuntos()
+Jugador -> EstadoMultiplicador: multiplicar()
+EstadoMultiplicador --> Jugador: Int
+Panel -> EstadoDelJuego: proximoEstado(Panel)
+end loop
+
+loop por jugador
+TestCase -> Panel: pedirJugador()
+Panel --> TestCase: Jugador
+TestCase -> Jugador: pedirPuntos()
+Panel --> TestCase: Int
+end loop
+
+deactivate PreguntaVoFConPenalidad
+deactivate Jugador
+deactivate Panel
+deactivate TestCase
+
+@enduml

@@ -1,4 +1,4 @@
-# TP2 Algoritmos 3: {nombre}
+# TP2 Algoritmos 3: {el Cajú}
 [![Build Status](https://travis-ci.org/fvazquezf/TP_2_Algo_3.svg?branch=develop)](https://travis-ci.org/fvazquezf/TP_2_Algo_3)
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
@@ -20,20 +20,23 @@ Listado de software/herramientas necesarias para el proyecto
 ```
 java 11
 maven 3.6.0
-...
+JavaFx
+Mockito
+Json
+gson
 ```
 
 ## Ejecutando las pruebas
 
-Explicación de como ejecutar las pruebas
+mvn test
 
 ## Ejecutando la aplicación
 
-Explicación de como ejecutar la aplicación
+mvn javafx:run
 
 ## Informe
 
-En el siguiente [link](https://www.overleaf.com/read/sjtgrwqsrfmx) se encuentra el informe.
+[here](tp2-algoritmosIII.pdf)
 
 ## Licencia
 

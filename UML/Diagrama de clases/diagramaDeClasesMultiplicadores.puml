@@ -1,0 +1,51 @@
+@startuml TP2
+
+title Diagrama de Clases Multiplicadores Cajú
+
+hide circle
+skinparam classAttributeIconSize 0
+skinparam roundcorner 25
+skinparam sequenceArrowThickness 2
+skinparam classFontSize 20
+
+skinparam class {
+BackgroundColor FloralWhite
+ArrowColor DimGray
+BorderColor DimGray
+}
+interface Multiplicador{
+        + multiplicar(Int): Int
+}
+
+class Uniplicador{
+        + multiplicar(Int): Int
+}
+
+class Duplicador{
+        - cantidadDuplicador: Int
+        + multiplicar(Int): Int
+        + cambiarEstado()
+}
+
+class Triplicador{
+        - cantidadTriplicador: Int
+        + multiplicar(Int): Int
+        + cambiarEstado()
+}
+
+class EstadoMultiplicador{
+        - multiplicadorActual: Multiplicador
+        + multiplicar(Int): Int
+        + activarDuplicador()
+        + activarTriplicador()
+}
+
+Uniplicador ..|> Multiplicador
+Duplicador ..|> Multiplicador
+Triplicador ..|> Multiplicador
+EstadoMultiplicador --> Uniplicador
+EstadoMultiplicador --> Duplicador
+EstadoMultiplicador --> Triplicador
+
+
+@enduml

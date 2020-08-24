@@ -1,0 +1,45 @@
+@startuml
+
+skinparam backgroundColor white
+
+skinparam package {
+BackgroundColor FloralWhite
+ArrowColor DimGray
+BorderColor DimGray
+}
+skinparam component {
+BackgroundColor FloralWhite
+ArrowColor DimGray
+BorderColor DimGray
+}
+
+package "Modelo" {
+[Panel]
+[Jugador]
+package comportamientos
+package excepciones
+package exclusividad
+package manejoDeTurnos
+package multiplicadores
+package preguntas
+package lectorDePreguntas
+
+Panel --> Jugador
+Panel --> comportamientos
+Panel --> exclusividad
+Panel --> manejoDeTurnos
+manejoDeTurnos --> Panel
+Panel --> excepciones
+Panel ----> preguntas
+Panel --> lectorDePreguntas
+
+preguntas --> excepciones
+lectorDePreguntas --> preguntas
+preguntas --> comportamientos
+
+Jugador --> multiplicadores
+Jugador --> excepciones
+Jugador --> exclusividad
+}
+
+@enduml

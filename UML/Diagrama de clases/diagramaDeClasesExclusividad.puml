@@ -1,0 +1,54 @@
+@startuml TP2
+
+title Diagrama de Clases Exclusividad Cajú
+
+hide circle
+skinparam classAttributeIconSize 0
+skinparam roundcorner 25
+skinparam sequenceArrowThickness 2
+skinparam classFontSize 20
+
+skinparam class {
+BackgroundColor FloralWhite
+ArrowColor DimGray
+BorderColor DimGray
+}
+
+interface Exclusividad{
+        + multiplicar(Int): Int
+        + proximo(): Exclusividad
+}
+
+class ExclusividadDesactivada{
+        + multiplicar(Int): Int
+        + proximo(): Exclusividad
+}
+
+class ExclusividadDoble{
+        + multiplicar(Int): Int
+        + proximo(): Exclusividad
+}
+
+class ExclusividadSimple{
+        + multiplicar(Int): Int
+        + proximo(): Exclusividad
+}
+
+class EstadoExclusividad{
+        - puntosJugadores: Dictionary<Jugador, Int>
+        + guardarRespuesta(Jugador, Integer)
+        + activarExclusividad()
+        + calcularExclusividad(Jugador, Jugador)
+}
+
+
+ExclusividadDesactivada ..|> Exclusividad
+ExclusividadDoble ..|> Exclusividad
+ExclusividadSimple ..|> Exclusividad
+EstadoExclusividad --> ExclusividadDesactivada
+EstadoExclusividad --> ExclusividadDoble
+EstadoExclusividad --> ExclusividadSimple
+
+
+
+@enduml

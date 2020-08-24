@@ -1,0 +1,42 @@
+@startuml
+
+title Diagrama de secuencia para pregunta Clasica. Salta excepción al usar Multiplicador.
+
+hide footbox
+skinparam backgroundColor white
+
+skinparam sequence {
+ArrowColor DimGray
+ActorBorderColor DodgerBlue
+LifeLineBorderColor Navy
+LifeLineBackgroundColor CornflowerBlue
+ParticipantBorderColor LighSlateGray
+ParticipantBackgroundColor CornflowerBlue
+ParticipantFontName Impact
+ParticipantFontSize 17
+ParticipantFontColor #A9DCDF
+ActorBackgroundColor mintCream
+ActorFontColor CornflowerBlue
+ActorFontSize 17
+ActorFontName Aapex
+}
+
+actor TestCase
+activate TestCase
+
+create Panel
+TestCase -> Panel : new()
+activate Panel
+
+Participant PreguntaClasica
+activate PreguntaClasica
+
+TestCase -> Panel: activarTriplicador()
+Panel -> PreguntaClasica: activarMultiplicador()
+PreguntaClasica -> Panel : ExcepcionSoloPreguntaConPenalidadPuedeUsarMultiplicador()
+
+deactivate PreguntaClasica
+deactivate Panel
+deactivate TestCase
+
+@enduml

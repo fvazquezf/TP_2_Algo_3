@@ -1,0 +1,96 @@
+@startuml TP2
+
+title Diagrama de Clases principal Cajú
+
+hide circle
+skinparam classAttributeIconSize 0
+skinparam roundcorner 25
+skinparam sequenceArrowThickness 2
+skinparam classFontSize 20
+
+skinparam class {
+BackgroundColor FloralWhite
+ArrowColor DimGray
+BorderColor DimGray
+}
+
+class Panel{
+       - pregunta: Pregunta
+       - jugadorActual: Jugador
+       - jugadorSiguiente: Jugador
+       + Panel(LectorPreguntas)
+       + crearJugadores(String, String)
+       + hacerPregunta(Collection<String>)
+       + siguientePregunta()
+       + siguienteJugador()
+       + activarExclusividad()
+       + calcularExclusividad()
+       + activarDuplicador()
+       + activarTriplicador()
+}
+
+class Jugador{
+        - nombre: String
+        - puntos: Int
+        - exclusividadDisponible: Int
+        + Jugador(String)
+        + pedirPuntos(): Int
+        + activarDuplicador()
+        + activarTriplicador()
+        + asignarPuntos(Int)
+        + activarExclusividad()
+}
+
+abstract class Pregunta{
+        # tipoPregunta: String
+        # opcionesCorrectas: Collection<String>
+        # todasLasOpciones: Collection<String>
+        # textoPregunta: String
+        + compararRespuestas(Collection<String>): Int
+        + activarMultiplicador()
+        + activarExclusividad()
+}
+
+class FabricaPreguntas{
+       + crearPregunta(String, String, String[], Collection<String>, Map<String, String>): Pregunta
+}
+
+class EstadoMultiplicador{
+        - uniplicador: Uniplicador
+        - duplicador: Duplicador
+        - triplicador: Triplicador
+        - multiplicadorActual: Multiplicador
+        + multiplicar(Int): Int
+        + activarDuplicador()
+        + activarTriplicador()
+}
+
+class EstadoExclusividad{
+        - puntosJugadores: Dictionary<Jugador, Int>
+        - estadoActual: Exclusividad
+        + guardarRespuesta(Jugador, Integer)
+        + activarExclusividad()
+        + calcularExclusividad(Jugador, Jugador)
+}
+
+
+class EstadoFlowDelJuego{
+        - flow: FlowDelJuego
+        + proximoEstado(Panel)
+}
+
+class LectorPreguntas{
+        + parsearPreguntas(): List<Pregunta>
+}
+
+
+Panel --> LectorPreguntas
+Panel "1 " o-- "2  " Jugador
+Panel "1 " o--- "*" Pregunta
+LectorPreguntas --> FabricaPreguntas
+FabricaPreguntas ..> Pregunta
+Jugador "1 " *--> "2  " EstadoMultiplicador
+Panel " 1" *--> "1    " EstadoExclusividad
+Panel "1 " *--right-> "1" EstadoFlowDelJuego
+
+@enduml

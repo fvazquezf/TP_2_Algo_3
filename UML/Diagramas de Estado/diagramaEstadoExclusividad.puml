@@ -1,0 +1,26 @@
+@startuml
+
+skinparam backgroundColor white
+
+skinparam state {
+BackgroundColor FloralWhite
+ArrowColor DimGray
+BorderColor DimGray
+}
+
+state ExclusividadDisponible{
+state ExclusividadDesactivada
+state ExclusividadSimple
+state ExclusividadDoble
+}
+
+[*] -down-> ExclusividadDesactivada
+ExclusividadDesactivada ---left-> ExclusividadSimple: proximo()
+ExclusividadSimple --left-> ExclusividadDesactivada: calcularExclusividad()
+ExclusividadSimple -left--> ExclusividadDoble: proximo()
+ExclusividadDoble --left-> ExclusividadDesactivada: calcularExclusividad()
+
+ExclusividadDisponible -down-> [*]
+
+}
+@enduml
